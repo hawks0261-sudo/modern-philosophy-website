@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#fff; }
+canvas { display:block; width:100%; }
+#status { font-family:sans-serif; font-size:12px; padding:8px; }
+</style>
+</head><body>
+<div id="status">Loading…</div>
+<canvas id="c"></canvas>
+<script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+<script>
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js';
+
+const params = new URLSearchParams(location.search);
+const file = params.get('f') || 'pdfs/lecture-01.pdf';
+
+async function render() {
+  document.getElementById('status').textContent = 'Rendering ' + file + '…';
+  const resp = await fetch(file);
+  const ab = await resp.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(ab) }).promise;
+  const page = await pdf.getPage(1);
+  const viewport = page.getViewport({ scale: 1.5 });
+  const canvas = document.getElementById('c');
+  canvas.width = viewport.width;
+  canvas.height = viewport.height;
+  document.body.style.width = viewport.width + 'px';
+  await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+  document.getElementById('status').textContent = 'Done';
+  document.title = 'READY';
+}
+render().catch(e => { document.getElementById('status').textContent = 'Error: ' + e.message; });
+</script>
+</body></html>

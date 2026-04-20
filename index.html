@@ -1,0 +1,1745 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>现代思想研究中心 | Center of Modern Thought</title>
+<meta name="description" content="现代思想研究中心官方网站，聚焦早期现代思想、数字现代性与中西比较思想研究。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ── */
+:root {
+  --navy: #1c2d4a;
+  --navy-deep: #111d30;
+  --navy-mid: #253d62;
+  --cream: #f6f1e7;
+  --cream-dark: #ede7d8;
+  --gold: #b8963e;
+  --gold-light: #d4b46a;
+  --text: #1e1e1e;
+  --muted: #6b6760;
+  --border: rgba(28,45,74,0.12);
+
+  /* theme defaults = 学院典藏 */
+  --bg: var(--cream);
+  --bg-alt: #efe9db;
+  --bg-dark: var(--navy);
+  --fg: var(--text);
+  --fg-muted: var(--muted);
+  --accent: var(--navy);
+  --accent2: var(--gold);
+  --card-bg: #fff;
+  --card-border: var(--border);
+  --nav-bg: var(--cream);
+  --nav-fg: var(--navy);
+  --hero-bg: var(--navy);
+  --hero-fg: var(--cream);
+  --masthead-bg: #0f1d30;
+  --masthead-fg: rgba(246,241,231,0.7);
+
+  --serif: 'EB Garamond', 'Noto Serif SC', Georgia, serif;
+  --zh-serif: 'Noto Serif SC', serif;
+  --sans: 'Noto Sans SC', sans-serif;
+
+  --max: 1180px;
+  --r: 4px;
+}
+
+/* ── BG COLOR VARIANTS (light theme) ── */
+[data-bg="cream"]  { --bg: #f6f1e7; --bg-alt: #efe9db; }
+[data-bg="stone"]  { --bg: #f0ede8; --bg-alt: #e6e2dc; }
+[data-bg="white"]  { --bg: #fafafa; --bg-alt: #f0f0f0; --card-bg: #fff; }
+[data-bg="slate"]  { --bg: #edf0f4; --bg-alt: #e0e5ec; }
+[data-bg="rose"]   { --bg: #f5eee8; --bg-alt: #ede4db; }
+
+/* ── THEME B: 深夜书馆 ── */
+[data-theme="dark"] {
+  --bg: #111d30;
+  --bg-alt: #0d1726;
+  --bg-dark: #070f1d;
+  --fg: #f0ead8;
+  --fg-muted: #9b9385;
+  --accent: var(--gold-light);
+  --accent2: #c9a260;
+  --card-bg: rgba(255,255,255,0.05);
+  --card-border: rgba(255,255,255,0.1);
+  --nav-bg: #0d1726;
+  --nav-fg: #f0ead8;
+  --hero-bg: #0a1320;
+  --hero-fg: #f0ead8;
+  --masthead-bg: #07101e;
+  --masthead-fg: rgba(240,234,216,0.5);
+  --border: rgba(255,255,255,0.1);
+}
+
+/* ── THEME D: 松青书院 ── */
+[data-theme="sage"] {
+  --bg: #f2f4f0;
+  --bg-alt: #e8ece4;
+  --bg-dark: #1e3228;
+  --fg: #1c2a1e;
+  --fg-muted: #526254;
+  --accent: #2a5238;
+  --accent2: #6a9456;
+  --card-bg: #f9fbf7;
+  --card-border: rgba(42,82,56,0.15);
+  --nav-bg: #f2f4f0;
+  --nav-fg: #1c2a1e;
+  --hero-bg: #1e3228;
+  --hero-fg: #e8f0e6;
+  --masthead-bg: #121e18;
+  --masthead-fg: rgba(232,240,230,0.6);
+  --border: rgba(42,82,56,0.15);
+  --gold: #5a8a44;
+  --gold-light: #82b462;
+  --navy: #2a5238;
+  --navy-mid: #3a6848;
+}
+
+/* ── THEME C: 当代学术 ── */
+[data-theme="minimal"] {
+  --bg: #ffffff;
+  --bg-alt: #f4f4f4;
+  --bg-dark: #1c2d4a;
+  --fg: #111111;
+  --fg-muted: #666666;
+  --accent: #1c2d4a;
+  --accent2: #b8963e;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --nav-bg: #ffffff;
+  --nav-fg: #1c2d4a;
+  --hero-bg: #1c2d4a;
+  --hero-fg: #ffffff;
+  --masthead-bg: #1c2d4a;
+  --masthead-fg: rgba(255,255,255,0.6);
+  --border: #e0e0e0;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.7;
+  transition: background 0.4s, color 0.4s;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--masthead-bg);
+  color: var(--masthead-fg);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  gap: 16px;
+  overflow: hidden;
+}
+.masthead span { white-space: nowrap; }
+
+/* ── NAV ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  color: var(--nav-fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  transition: background 0.4s;
+}
+[data-theme="dark"] .site-header { border-color: rgba(255,255,255,0.08); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+.brand img {
+  height: 40px;
+  width: auto;
+  filter: none;
+}
+[data-theme="dark"] .brand img { filter: brightness(0) invert(1); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong {
+  font-family: var(--zh-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nav-fg);
+  letter-spacing: 0.02em;
+}
+.brand-text span {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+  color: var(--nav-fg);
+  text-transform: uppercase;
+  font-family: var(--serif);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a {
+  color: var(--nav-fg);
+  font-size: 13px;
+  font-family: var(--zh-serif);
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: opacity 0.2s, background 0.2s;
+  letter-spacing: 0.03em;
+}
+.nav-links a:hover { opacity: 1; background: rgba(28,45,74,0.07); }
+[data-theme="dark"] .nav-links a:hover { background: rgba(255,255,255,0.08); }
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+[data-theme="dark"] .lang-toggle { border-color: rgba(255,255,255,0.25); }
+.lang-toggle button {
+  background: none;
+  border: none;
+  color: var(--nav-fg);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  font-family: var(--sans);
+  transition: background 0.2s, opacity 0.2s;
+}
+.lang-toggle button.active { background: var(--accent); color: #fff; opacity: 1; }
+[data-theme="dark"] .lang-toggle button.active { background: rgba(255,255,255,0.2); color: var(--cream); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,150,62,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(28,45,74,0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Decorative large letter */
+.hero-deco {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--serif);
+  font-size: clamp(200px, 30vw, 420px);
+  line-height: 1;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  user-select: none;
+  font-style: italic;
+}
+[data-theme="minimal"] .hero-deco { color: rgba(255,255,255,0.03); }
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 80px 40px 60px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.hero-title {
+  font-family: var(--zh-serif);
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  text-wrap: balance;
+}
+
+.hero-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  opacity: 0.75;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.85;
+  opacity: 0.8;
+  max-width: 560px;
+  margin-bottom: 36px;
+  font-family: var(--sans);
+  font-weight: 300;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+.hero-tag {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 5px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  border-radius: 1px;
+  opacity: 0.75;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 13px;
+  font-family: var(--zh-serif);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--gold);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--gold-light); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.35);
+  color: inherit;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+/* Hero right panel */
+.hero-side { display: flex; flex-direction: column; gap: 16px; }
+
+.hero-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r);
+  padding: 24px;
+  backdrop-filter: blur(4px);
+}
+[data-theme="minimal"] .hero-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+
+.hero-card .kicker {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+  font-family: var(--serif);
+  font-style: italic;
+}
+.hero-card h2 {
+  font-family: var(--zh-serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.hero-card p { font-size: 13px; opacity: 0.75; line-height: 1.75; }
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.metric {
+  background: rgba(255,255,255,0.04);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metric strong {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.metric span { font-size: 11px; opacity: 0.65; }
+
+/* Hero bar */
+.hero-ticker {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 0 40px;
+  display: flex;
+  gap: 40px;
+  overflow: hidden;
+  height: 44px;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+}
+.hero-ticker span {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hero-ticker span + span::before {
+  content: '·';
+  margin-right: 40px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 96px 40px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.section-alt {
+  background: var(--bg-alt);
+  padding: 96px 40px;
+  transition: background 0.4s;
+}
+.section-alt > .section { padding: 0; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  display: block;
+}
+.section-title {
+  font-family: var(--zh-serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.section-desc {
+  font-size: 15px;
+  color: var(--fg-muted);
+  line-height: 1.9;
+  max-width: 480px;
+  margin-top: 8px;
+  font-weight: 300;
+  align-self: end;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.about-card {
+  background: var(--card-bg);
+  padding: 40px 36px;
+  transition: background 0.4s;
+}
+.about-card h3 {
+  font-family: var(--zh-serif);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--fg);
+}
+.about-card h3::before {
+  content: attr(data-n);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+  opacity: 0.8;
+}
+.about-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
+
+/* ── RESEARCH ── */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.research-card {
+  border: 1px solid var(--border);
+  padding: 36px;
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--r);
+  transition: box-shadow 0.2s, transform 0.2s, background 0.4s;
+}
+.research-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.card-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 48px;
+  color: var(--accent2);
+  opacity: 0.25;
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  line-height: 1;
+  font-weight: 400;
+}
+.research-card h3 {
+  font-family: var(--zh-serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--fg);
+  padding-right: 48px;
+}
+.research-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.9; }
+
+/* ── ADVISERS ── */
+.advisers-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.advisers-intro {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 40px 32px;
+  border-radius: var(--r);
+  position: sticky;
+  top: 80px;
+}
+[data-theme="dark"] .advisers-intro { background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+[data-theme="minimal"] .advisers-intro { background: var(--navy); }
+.advisers-intro .eyebrow { color: var(--gold-light); }
+.advisers-intro h3 {
+  font-family: var(--zh-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.advisers-intro p { font-size: 13px; opacity: 0.75; line-height: 1.85; color: var(--cream); margin-bottom: 28px; }
+.adv-stats { display: flex; gap: 24px; }
+.adv-stat { display: flex; flex-direction: column; }
+.adv-stat strong { font-family: var(--serif); font-size: 28px; color: var(--gold-light); line-height: 1; }
+.adv-stat span { font-size: 11px; opacity: 0.6; color: var(--cream); margin-top: 2px; }
+
+.adviser-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  align-self: start;
+}
+.adviser-card {
+  background: var(--card-bg);
+  padding: 24px 20px;
+  transition: background 0.2s;
+}
+.adviser-card:hover { background: var(--bg-alt); }
+.adviser-card h3 {
+  font-family: var(--zh-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.adviser-card .en-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+.adviser-card p { font-size: 12px; color: var(--fg-muted); line-height: 1.7; }
+.country-tag {
+  display: inline-block;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 1px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  color: var(--fg-muted);
+}
+
+/* ── ACTIVITIES ── */
+.activity-group { margin-bottom: 64px; }
+.activity-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.activity-group-head h3 {
+  font-family: var(--zh-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.activity-group-head .kicker {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.activity-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: box-shadow 0.2s, transform 0.2s, background 0.4s;
+}
+.activity-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.activity-poster {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  background: var(--bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+}
+.activity-poster.placeholder {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.3);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.activity-body { padding: 20px; }
+.activity-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 1px;
+  font-family: var(--sans);
+}
+.tag-lecture { background: var(--navy); color: var(--cream); }
+.tag-seminar { background: var(--gold); color: #fff; }
+[data-theme="dark"] .tag-lecture { background: rgba(255,255,255,0.15); color: var(--fg); }
+.date-label { font-size: 11px; color: var(--fg-muted); }
+.activity-body h4 {
+  font-family: var(--zh-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.activity-body .speaker { font-size: 12px; color: var(--gold); margin-bottom: 8px; font-style: italic; font-family: var(--serif); }
+.activity-body p { font-size: 12px; color: var(--fg-muted); line-height: 1.75; }
+
+/* ── OUTCOMES ── */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.pub-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: background 0.4s;
+}
+.pub-card-text { padding: 40px; }
+.pub-card .pub-tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--nav-fg);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 1px;
+  margin-bottom: 16px;
+}
+[data-theme="dark"] .pub-card .pub-tag { background: rgba(255,255,255,0.15); color: var(--fg); }
+.pub-card h3 { font-family: var(--zh-serif); font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--fg); }
+.pub-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; margin-bottom: 16px; }
+.pub-points { padding-left: 0; }
+.pub-points li {
+  font-size: 13px;
+  color: var(--fg-muted);
+  padding: 6px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.pub-points li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+.pub-card-cover { display: flex; }
+.cover-img-wrap { width: 45%; background: var(--bg-alt); }
+.cover-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.cover-body { padding: 32px 28px; flex: 1; }
+.cover-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--navy) 0%, #2a4a7a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 11px;
+  min-height: 240px;
+}
+
+.pub-wide {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--card-bg);
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.pub-wide-col h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--fg); }
+.pub-wide-col p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
+.pub-wide-col .pub-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); margin-bottom: 8px; display: block; }
+
+/* ── NEWS ── */
+.news-list { display: flex; flex-direction: column; }
+.news-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.news-date {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold);
+  padding-top: 4px;
+}
+.news-body h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--fg); }
+.news-body p { font-size: 14px; color: var(--fg-muted); line-height: 1.75; }
+
+/* ── CONTACT ── */
+.contact-shell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-shell h2 { font-family: var(--zh-serif); font-size: 38px; font-weight: 700; margin-bottom: 16px; color: var(--fg); }
+.contact-shell > div > p { font-size: 15px; color: var(--fg-muted); line-height: 1.85; }
+.contact-details { display: flex; flex-direction: column; gap: 0; }
+.contact-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.contact-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); }
+.contact-value { font-size: 14px; color: var(--fg); font-family: var(--zh-serif); }
+.contact-value a { color: var(--accent); border-bottom: 1px solid var(--border); }
+.back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 28px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+.back-top:hover { color: var(--fg); border-color: var(--fg-muted); }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--masthead-bg);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+[data-theme="minimal"] .site-footer { background: var(--navy); }
+.footer-brand {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* pdf link on activity card */
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  padding: 3px 8px;
+  margin-top: 8px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  font-family: var(--sans);
+}
+.pdf-link:hover { opacity: 1; }
+
+/* ── ACTIVITY MODAL ── */
+.activity-card { cursor: pointer; }
+#activity-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10,16,28,0.7);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+#activity-modal.open { display: flex; }
+.modal-box {
+  background: var(--card-bg);
+  border-radius: 6px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+.modal-poster {
+  background: var(--bg-alt);
+  border-radius: 6px 0 0 6px;
+  overflow: hidden;
+}
+.modal-poster img { width: 100%; height: 100%; object-fit: cover; }
+.modal-poster-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+}
+.modal-body { padding: 36px 32px; }
+.modal-body .activity-meta { margin-bottom: 14px; }
+.modal-body h3 {
+  font-family: var(--zh-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.modal-body .speaker { font-size: 13px; color: var(--gold); font-style: italic; font-family: var(--serif); margin-bottom: 16px; }
+.modal-body p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#activity-modal { position: fixed; }
+
+/* ── REVEAL ANIMATION ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── TWEAKS PANEL ── */
+#tweaks-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  padding: 24px;
+  width: 260px;
+  display: none;
+  font-family: var(--sans);
+}
+#tweaks-panel.open { display: block; }
+#tweaks-panel h4 {
+  font-family: var(--zh-serif);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+.tweak-group { margin-bottom: 18px; }
+.tweak-label { font-size: 11px; letter-spacing: 0.06em; opacity: 0.6; margin-bottom: 8px; text-transform: uppercase; }
+.tweak-options { display: flex; flex-direction: column; gap: 6px; }
+.tweak-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--cream);
+  padding: 7px 12px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+  font-family: var(--zh-serif);
+}
+.tweak-btn:hover, .tweak-btn.active { background: rgba(184,150,62,0.2); border-color: var(--gold); }
+.tweak-sep { height: 1px; background: rgba(255,255,255,0.1); margin: 14px 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-side { display: none; }
+  .section-head { grid-template-columns: 1fr; gap: 12px; }
+  .section-desc { max-width: 100%; }
+  .about-grid { grid-template-columns: 1fr; }
+  .research-grid { grid-template-columns: 1fr; }
+  .advisers-layout { grid-template-columns: 1fr; }
+  .advisers-intro { position: static; }
+  .adviser-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .pub-wide { grid-template-columns: 1fr; gap: 24px; }
+  .contact-shell { grid-template-columns: 1fr; gap: 40px; }
+  .masthead { display: none; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+
+<body data-cc-id="cc-1">
+
+<!-- ── MASTHEAD ── -->
+<div class="masthead" data-cc-id="cc-3">
+  <span data-cc-id="cc-15">Yangzhou University</span>
+  <span data-cc-id="cc-4">Modern Thought · Intellectual History · Global Dialogue</span>
+  <span data-cc-id="cc-25">Academic Events · Publications · Notices</span>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="site-header" style="height: 64px;" data-cc-id="cc-5">
+  <a class="brand" href="#top" data-cc-id="cc-9">
+    <img src="logo.png" alt="现代思想研究中心标识" data-cc-id="cc-11" >
+    <div class="brand-text">
+      <strong data-cc-id="cc-16">现代思想研究中心</strong>
+      <span style="" data-cc-id="cc-10">Center of Modern Thought</span>
+    </div>
+  </a>
+
+  <nav class="nav-links" data-cc-id="cc-22">
+    <a href="#top" data-cc-id="cc-20">首页</a>
+    <a href="#about" data-cc-id="cc-7">中心简介</a>
+    <a href="#research" data-cc-id="cc-6">研究方向</a>
+    <a href="#activities" data-cc-id="cc-23">学术活动</a>
+    <a href="#outcomes" data-cc-id="cc-24">研究成果</a>
+    <a href="#news" data-cc-id="cc-59">新闻公告</a>
+    <a href="#contact" data-cc-id="cc-36">联系我们</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="lang-toggle" data-cc-id="cc-19">
+      <button class="" onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')" data-cc-id="cc-2">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero reveal visible" id="top">
+  <div class="hero-deco">M</div>
+
+  <div class="hero-inner" data-cc-id="cc-8">
+    <div class="hero-copy" data-cc-id="cc-13">
+      <p class="hero-eyebrow" data-cc-id="cc-14">Center of Modern Thought · International Academic Institute</p>
+      <h1 class="hero-title" data-cc-id="cc-12">以史照今，<br>以今返史</h1>
+      <p class="hero-subtitle" data-cc-id="cc-17">探索现代性的起源与未来</p>
+      <p class="hero-desc" data-cc-id="cc-18">
+        现代思想研究中心致力于建设一个兼具历史深度、国际视野与公共关怀的学术平台。我们从现代思想传统出发，连接哲学、文化、技术与社会现实，推动高水平研究、跨学科合作与持续开放的学术交流。
+      </p>
+      <div class="hero-tags" data-cc-id="cc-44">
+        <span class="hero-tag" data-cc-id="cc-21">International Lectures</span>
+        <span class="hero-tag" data-cc-id="cc-26">Research Programs</span>
+        <span class="hero-tag" data-cc-id="cc-54">Visiting Scholars</span>
+        <span class="hero-tag">Public Forums</span>
+      </div>
+      <div class="hero-actions" data-cc-id="cc-28">
+        <a class="btn btn-primary" href="#activities" data-cc-id="cc-29">查看学术活动</a>
+        <a class="btn btn-outline" href="#about" data-cc-id="cc-27">了解中心</a>
+      </div>
+    </div>
+
+    <div class="hero-side" data-cc-id="cc-40">
+      <div class="hero-card" data-cc-id="cc-37">
+        <p class="kicker" data-cc-id="cc-38">Featured Academic Activity</p>
+        <h2 data-cc-id="cc-39" >国际会议筹备计划</h2>
+        <p data-cc-id="cc-41">
+          中心正推进国际会议筹备工作
+          <br/><br/>
+          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年波义耳诞辰 400 周年会议</span>
+          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2028 年贝克莱国际会议</span>
+        </p>
+      </div>
+      <div class="metrics-grid" data-cc-id="cc-47">
+        <div class="metric" data-cc-id="cc-42">
+          <strong data-cc-id="cc-35">7</strong>
+          <span data-cc-id="cc-34">学术活动</span>
+        </div>
+        <div class="metric" data-cc-id="cc-43">
+          <strong data-cc-id="cc-51">13</strong>
+          <span>国际顾问</span>
+        </div>
+        <div class="metric" data-cc-id="cc-45">
+          <strong data-cc-id="cc-46">20+</strong>
+          <span data-cc-id="cc-50">出版物作品</span>
+        </div>
+        <div class="metric" data-cc-id="cc-53">
+          <strong data-cc-id="cc-52">7</strong>
+          <span>合作国家</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-ticker" data-cc-id="cc-58">
+    <span data-cc-id="cc-33">Global Academic Platform</span>
+    <span data-cc-id="cc-55">Modern Thought · Intellectual History · Public Humanities</span>
+    <span>Lectures · Forums · Archives · Collaborations</span>
+    <span>Boyle 2027 · Berkeley 2028</span>
+    <span>Global Academic Platform</span>
+    <span>Modern Thought · Intellectual History · Public Humanities</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<div class="section-alt" id="about" data-cc-id="cc-32">
+<div class="section reveal visible">
+  <div class="section-head" data-cc-id="cc-56">
+    <div data-cc-id="cc-30">
+      <span class="eyebrow" data-cc-id="cc-31">About the Center</span>
+      <h2 class="section-title">中心简介</h2>
+    </div>
+    <p class="section-desc" data-cc-id="cc-57">
+      现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，是一个聚焦思想史与现实问题的综合性研究平台。
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3 data-n="01">学术定位</h3>
+      <p>现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，致力于在国际思想史研究版图中形成兼具历史深度与现实关怀的独特声音。</p>
+    </div>
+    <div class="about-card">
+      <h3 data-n="02">研究重心</h3>
+      <p>中心同时聚焦欧洲早期现代思想，尤其是自笛卡尔以来的思想传统，以及当代现代性议题，包括科技变革、人工智能与价值危机等关键问题。</p>
+    </div>
+    <div class="about-card">
+      <h3 data-n="03">中心使命</h3>
+      <p>中心强调"以史照今，以今返史"，在全球学术网络中推动早期现代思想的诠释、传播与重构，并探索现代性在中国语境中的新表达。</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── ADVISERS ── -->
+<div class="section" id="advisers" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
+<div class="reveal visible">
+  <div class="section-head" data-cc-id="cc-60">
+    <div>
+      <span class="eyebrow">International Advisory Board</span>
+      <h2 class="section-title">国际顾问</h2>
+    </div>
+    <p class="section-desc">中心将依托国际顾问网络推进专题研究、学术出版与国际会议筹备，逐步形成稳定的跨国合作机制与学术对话平台。</p>
+  </div>
+
+  <div class="advisers-layout" data-cc-id="cc-67">
+    <div class="advisers-intro" data-cc-id="cc-68">
+      <span class="eyebrow">Academic Advisers</span>
+      <h3>国际学术合作网络</h3>
+      <p>顾问成员来自英国、法国、澳大利亚、爱尔兰、美国、意大利与日本等国家，覆盖近代哲学、思想史、科学史与伦理学等方向。</p>
+      <div class="adv-stats">
+        <div class="adv-stat"><strong>13</strong><span>国际顾问</span></div>
+        <div class="adv-stat"><strong>7</strong><span>合作国家</span></div>
+      </div>
+    </div>
+
+    <div class="adviser-grid" data-cc-id="cc-77">
+      <div class="adviser-card" data-cc-id="cc-71">
+        <h3>汤姆·斯通汉姆</h3>
+        <span class="en-name" data-cc-id="cc-62">Tom Stoneham</span>
+        <span class="country-tag">英国</span>
+        <p data-cc-id="cc-63" style="">约克大学哲学系教授，AI自治研究所伦理主管，国际贝克莱协会主席</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-61">
+        <h3>德尼·康布什内</h3>
+        <span class="en-name">Denis Kambouchner</span>
+        <span class="country-tag">法国</span>
+        <p>巴黎第一大学哲学系荣誉教授</p>
+      </div>
+      <div class="adviser-card">
+        <h3>彼得·安斯蒂</h3>
+        <span class="en-name">Peter Anstey</span>
+        <span class="country-tag">澳大利亚</span>
+        <p data-cc-id="cc-97" style="">澳大利亚天主教大学教育与艺术系教授，西方文明项目主任</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-64">
+        <h3 data-cc-id="cc-65">皮埃尔·葛南西亚</h3>
+        <span class="en-name" data-cc-id="cc-66">Pierre Guenancia</span>
+        <span class="country-tag">法国</span>
+        <p data-cc-id="cc-95" style="">巴黎天主教大学哲学教授，勃艮第大学荣休教授</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-72">
+        <h3>夏尔·拉蒙</h3>
+        <span class="en-name">Charles Ramond</span>
+        <span class="country-tag">法国</span>
+        <p data-cc-id="cc-94" style="">巴黎第八大学哲学系教授，科学哲学与文化认识论系主任</p>
+      </div>
+      <div class="adviser-card">
+        <h3>伊夫—夏尔·扎尔卡</h3>
+        <span class="en-name">Yves-Charles Zarka</span>
+        <span class="country-tag">法国</span>
+        <p data-cc-id="cc-96" style="">巴黎索邦大学哲学教授，法国国家科学研究中心研究主任</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-73">
+        <h3 data-cc-id="cc-74">米歇尔·亨特</h3>
+        <span class="en-name" data-cc-id="cc-75">Michael Hunter</span>
+        <span class="country-tag">英国</span>
+        <p>伦敦大学伯贝克学院历史系荣誉教授，英国科学院院士</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-83">
+        <h3>约翰·科廷厄姆</h3>
+        <span class="en-name">John Cottingham</span>
+        <span class="country-tag">英国</span>
+        <p data-cc-id="cc-84" style="">雷丁大学哲学系荣誉教授，牛津大学荣誉研究员，英国哲学史协会主席</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-85">
+        <h3 data-cc-id="cc-87">大卫·伯曼</h3>
+        <span class="en-name" data-cc-id="cc-86">David Berman</span>
+        <span class="country-tag">爱尔兰</span>
+        <p data-cc-id="cc-88">都柏林三一学院哲学系荣誉教授，英国科学院爱尔兰分院院士</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-78">
+        <h3>丹尼尔·加伯</h3>
+        <span class="en-name" data-cc-id="cc-80">Daniel Garber</span>
+        <span class="country-tag">美国</span>
+        <p data-cc-id="cc-79">普林斯顿大学哲学系教授，美国艺术与科学院院士，美国哲学学会主席</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-82">
+        <h3 data-cc-id="cc-81">帕特里克·康诺利</h3>
+        <span class="en-name">Patrick Connolly</span>
+        <span class="country-tag">美国</span>
+        <p>约翰霍普金斯大学哲学系副教授，国际贝克莱协会协调员</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-89">
+        <h3 data-cc-id="cc-93">茱莉亚·贝尔乔伊索</h3>
+        <span class="en-name">Giulia Belgioioso</span>
+        <span class="country-tag">意大利</span>
+        <p>萨兰托大学哲学史荣休教授，笛卡尔研究中心主任</p>
+      </div>
+      <div class="adviser-card" data-cc-id="cc-76">
+        <h3>上野 修</h3>
+        <span class="en-name">Osamu Ueno</span>
+        <span class="country-tag">日本</span>
+        <p>大阪大学名誉教授，日本西洋近代哲学学会前会长</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── RESEARCH ── -->
+<div class="section-alt" id="research">
+<div class="section reveal visible">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Research Programs</span>
+      <h2 class="section-title">研究方向</h2>
+    </div>
+    <p class="section-desc">中心研究方向同时回应现代思想史的经典议题与当代社会现实问题。</p>
+  </div>
+
+  <div class="research-grid">
+    <div class="research-card">
+      <span class="card-num">01</span>
+      <h3>欧洲早期现代思想</h3>
+      <p data-cc-id="cc-98" style="">围绕笛卡尔、莱布尼茨、贝克莱等现代哲学家及其相关文本传统，研究理性、主体、自然、经验与方法等核心概念的形成与演变。</p>
+    </div>
+    <div class="research-card">
+      <span class="card-num">02</span>
+      <h3>现代性与当代问题</h3>
+      <p data-cc-id="cc-99" style="">从现代思想史视角回应当前科技革命、人工智能、全球化、生态危机与价值冲突等现实议题，推动现代议题进入当代讨论。</p>
+    </div>
+    <div class="research-card">
+      <span class="card-num">03</span>
+      <h3>中西思想对话</h3>
+      <p data-cc-id="cc-100" style="">从概念史、问题史与比较研究角度，推动中国学术研究与西方现代思想之间的对话、翻译与理论重述，形成具有主体意识的比较研究路径。</p>
+    </div>
+    <div class="research-card">
+      <span class="card-num">04</span>
+      <h3>思想史与公共传播</h3>
+      <p data-cc-id="cc-101" style="">通过译著出版、公共讲座、媒体合作与数字平台建设，推动思想史研究成果进入教育、社会与公共文化空间。</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── ACTIVITIES ── -->
+<div class="section reveal visible" id="activities" style="max-width: var(--max); margin: 0px auto; padding: 96px 40px; font-family: &quot;Noto Serif SC&quot;;" data-cc-id="cc-112">
+  <div class="section-head" style="font-family: &quot;Noto Serif SC&quot;;">
+    <div style="font-family: &quot;Noto Serif SC&quot;;">
+      <span class="eyebrow" style="font-family: &quot;Noto Serif SC&quot;;">Academic Activities</span>
+      <h2 class="section-title" style="font-family: &quot;Noto Serif SC&quot;;">学术活动</h2>
+    </div>
+    <p class="section-desc" style="font-family: &quot;Noto Serif SC&quot;;">收录总结中心的学术活动，按讲座与研讨会区分。</p>
+  </div>
+
+  <div class="activity-group" style="font-family: &quot;Noto Serif SC&quot;;">
+    <div class="activity-group-head" style="font-family: &quot;Noto Serif SC&quot;;">
+      <span class="kicker" style="font-family: &quot;Noto Serif SC&quot;;">Lecture Archive</span>
+      <h3 style="font-family: &quot;Noto Serif SC&quot;;">讲座</h3>
+    </div>
+    <div class="activity-grid" data-cc-id="cc-106" style="font-family: &quot;Noto Serif SC&quot;;">
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/lecture-01.jpg" class="activity-poster" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报" data-cc-id="cc-103">
+        <div class="activity-body" data-cc-id="cc-104" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" data-cc-id="cc-105" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.13</span>
+          </div>
+          <h4 data-cc-id="cc-114" style="font-family: &quot;Noto Serif SC&quot;;">柏格森哲学及其对法国哲学和中国哲学的影响</h4>
+          <a class="pdf-link" href="pdfs/lecture-01.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" data-cc-id="cc-113" style="font-family: &quot;Noto Serif SC&quot;;">邓刚 · 上海交通大学哲学系副教授</p>
+          <p data-cc-id="cc-111" style="font-family: &quot;Noto Serif SC&quot;;">围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
+        </div>
+      </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/lecture-02.jpg" class="activity-poster" alt="布伦塔诺哲学的多重面向海报" data-cc-id="cc-102">
+        <div class="activity-body" data-cc-id="cc-109" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
+            <span class="date-label" data-cc-id="cc-107" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.21</span>
+          </div>
+          <h4 data-cc-id="cc-108" style="font-family: &quot;Noto Serif SC&quot;;">布伦塔诺哲学的多重面向</h4>
+          <a class="pdf-link" href="pdfs/lecture-02.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" data-cc-id="cc-110" style="font-family: &quot;Noto Serif SC&quot;;">李岱巍 · 西北师范大学哲学系</p>
+          <p data-cc-id="cc-115" style="font-family: &quot;Noto Serif SC&quot;;">聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-group" style="font-family: &quot;Noto Serif SC&quot;;">
+    <div class="activity-group-head" style="font-family: &quot;Noto Serif SC&quot;;">
+      <span class="kicker" style="font-family: &quot;Noto Serif SC&quot;;">Seminar Archive</span>
+      <h3 style="font-family: &quot;Noto Serif SC&quot;;">研讨会 / Seminar</h3>
+    </div>
+    <div class="activity-grid" data-cc-id="cc-119" style="font-family: &quot;Noto Serif SC&quot;;">
+      <div class="activity-card" data-cc-id="cc-122" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/seminar-01.jpg" class="activity-poster" alt="贝克莱的世界研讨会海报">
+        <div class="activity-body" data-cc-id="cc-123" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" data-cc-id="cc-129" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.19</span>
+          </div>
+          <h4 data-cc-id="cc-130" style="font-family: &quot;Noto Serif SC&quot;;">"贝克莱的世界"研讨会：对三次对话的审查</h4>
+          <a class="pdf-link" href="pdfs/seminar-01.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" data-cc-id="cc-125" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
+          <p data-cc-id="cc-124" style="font-family: &quot;Noto Serif SC&quot;;">围绕Tom Stoneham的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
+        </div>
+      </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/seminar-02.jpg" class="activity-poster" alt="从文艺复兴到理性时代研讨会海报" data-cc-id="cc-127">
+        <div class="activity-body" data-cc-id="cc-118" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.23–26</span>
+          </div>
+          <h4 data-cc-id="cc-126" style="font-family: &quot;Noto Serif SC&quot;;">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h4>
+          <a class="pdf-link" href="pdfs/seminar-02.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" data-cc-id="cc-116" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系主任</p>
+          <p data-cc-id="cc-117" style="font-family: &quot;Noto Serif SC&quot;;">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
+        </div>
+      </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="activity-poster.jpg" class="activity-poster" alt="波义耳：怀疑的化学家" data-cc-id="cc-128">
+        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.08.02–08</span>
+          </div>
+          <h4 style="font-family: &quot;Noto Serif SC&quot;;">"波义耳：怀疑的化学家"暑期研讨会</h4>
+          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
+          <p style="font-family: &quot;Noto Serif SC&quot;;">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
+        </div>
+      </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/seminar-03.jpg" class="activity-poster" alt="笛卡尔与伯曼对话录读书会海报" data-cc-id="cc-121">
+        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.07.23–29</span>
+          </div>
+          <h4 style="font-family: &quot;Noto Serif SC&quot;;">《笛卡尔与伯曼对话录》读书会</h4>
+          <a class="pdf-link" href="pdfs/seminar-03.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系</p>
+          <p style="font-family: &quot;Noto Serif SC&quot;;">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
+        </div>
+      </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/seminar-05.jpg" class="activity-poster" alt="实证主义概论研讨会海报" data-cc-id="cc-120">
+        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.09.24</span>
+          </div>
+          <h4 style="font-family: &quot;Noto Serif SC&quot;;">实证主义概论研讨会</h4>
+          <a class="pdf-link" href="pdfs/seminar-05.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
+          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">申慧霞 · 法国里昂高等师范学院哲学系博士生</p>
+          <p style="font-family: &quot;Noto Serif SC&quot;;">以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OUTCOMES ── -->
+<div class="section-alt" id="outcomes">
+<div class="section reveal visible">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Research Outcomes</span>
+      <h2 class="section-title">研究成果</h2>
+    </div>
+    <p class="section-desc">重点呈现与福建教育出版社合作推进的"西方思想文化译丛"与《近代哲学》杂志。</p>
+  </div>
+
+  <div class="outcomes-grid">
+    <div class="pub-card" style="display:flex;">
+      <div style="width:180px;flex-shrink:0;background:var(--bg-alt);">
+        <img src="posters/xifang-yicong.png" alt="西方思想文化译丛封面" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="pub-card-text" style="flex:1;">
+        <span class="pub-tag">Translation Series</span>
+        <h3>西方思想文化译丛</h3>
+        <p>中心已与福建教育出版社合作出版《西方思想文化译丛》30 余种，涵盖笛卡尔、贝克莱、莱布尼茨、波义耳等早期现代思想家的重要著作。</p>
+        <ul class="pub-points">
+          <li>持续推进近代思想经典译介与学术传播</li>
+          <li>以翻译工作推动中外思想资源的互译共享</li>
+          <li>构成中心研究、出版与公共传播的重要基础</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pub-card pub-card-cover" style="display:flex;">
+      <div class="cover-img-wrap">
+        <div class="cover-placeholder">Journal Cover</div>
+      </div>
+      <div class="cover-body">
+        <span class="pub-tag">Journal</span>
+        <h3>《近代哲学》</h3>
+        <p>中心已经创办学术集刊《近代哲学》，计划一年两期，作为现代思想研究的重要出版平台，以机构化方式呈现其视觉识别与出版方向。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-wide">
+    <div class="pub-wide-col">
+      <span class="pub-label">Publishing Basis</span>
+      <h3>出版与传播平台</h3>
+      <p>依托福建教育出版社合作基础，中心将继续推动译著出版、学术集刊、论文发表与数字传播平台建设，使研究成果形成稳定而可持续的制度化出口。</p>
+    </div>
+    <div class="pub-wide-col">
+      <span class="pub-label">Outlook</span>
+      <h3>后续扩展方向</h3>
+      <p>后续可继续扩展为"译丛目录 / 集刊目录 / 重点论文 / 项目成果 / 数字资源"五类归档入口，逐步建立完整的研究成果门户。</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── NEWS ── -->
+<div class="section reveal visible" id="news" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">News &amp; Notices</span>
+      <h2 class="section-title">新闻公告</h2>
+    </div>
+    <p class="section-desc">通知、报道、招生与动态更新。</p>
+  </div>
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-date">2026.04.10</span>
+      <div class="news-body">
+        <h3>中心官网新版界面原型完成第一轮设计</h3>
+        <p>当前版本重点明确栏目分类与页面层次，后续将继续替换为正式文案与真实内容。</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026.04.02</span>
+      <div class="news-body">
+        <h3>现代思想研究中心年度讲座计划公布</h3>
+        <p>围绕现代性、比较思想、数字文化与公共生活四个主题推进全年学术活动。</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026.03.20</span>
+      <div class="news-body">
+        <h3>青年研究助理招募通知</h3>
+        <p>面向哲学、历史、中文、社会科学与数字人文相关背景学生开放申请。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="section-alt" id="contact">
+<div class="section reveal visible">
+  <div class="contact-shell">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="font-family:var(--zh-serif);font-size:clamp(28px,4vw,38px);font-weight:700;margin-bottom:16px;color:var(--fg);">联系我们</h2>
+      <p style="font-size:15px;color:var(--fg-muted);line-height:1.85;font-weight:300;">
+        欢迎围绕投稿、学术合作、编辑事务与资料咨询联系编辑部。
+      </p>
+    </div>
+    <div class="contact-details">
+      <div class="contact-row">
+        <span class="contact-label">地址</span>
+        <span class="contact-value">江苏省扬州市邗江区大学南路 88 号扬大荷花池校区</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">邮编</span>
+        <span class="contact-value">225009</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">邮箱</span>
+        <span class="contact-value"><a href="mailto:modernphi24@163.com">modernphi24@163.com</a></span>
+      </div>
+      <a class="back-top" href="#top">↑ 返回顶部</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── ACTIVITY MODAL ── -->
+<div id="activity-modal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal-box">
+    <div class="modal-poster" id="modal-poster"></div>
+    <div class="modal-body">
+      <div class="activity-meta" id="modal-meta"></div>
+      <h3 id="modal-title"></h3>
+      <p class="speaker" id="modal-speaker"></p>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <span class="footer-brand">Centrum Cogitationis Modernae</span>
+  <span>© 2026 Center of Modern Thought · 现代思想研究中心</span>
+</footer>
+
+<!-- ── TWEAKS PANEL ── -->
+<div id="tweaks-panel" data-cc-id="cc-49">
+  <h4 data-cc-id="cc-48">Tweaks</h4>
+
+  <div class="tweak-group" data-cc-id="cc-91">
+    <div class="tweak-label" data-cc-id="cc-90">主题风格</div>
+    <div class="tweak-options">
+      <button class="tweak-btn active" onclick="setTheme('light', this)" data-cc-id="cc-92">学院典藏 — 奶油 + 深蓝</button>
+      <button class="tweak-btn" onclick="setTheme('dark', this)">深夜书馆 — 暗色模式</button>
+      <button class="tweak-btn" onclick="setTheme('minimal', this)">当代学术 — 简约白</button>
+      <button class="tweak-btn" onclick="setTheme('sage', this)">松青书院 — 草木绿</button>
+    </div>
+  </div>
+
+  <div class="tweak-sep"></div>
+
+  <div class="tweak-group">
+    <div class="tweak-label">背景颜色（浅色主题）</div>
+    <div class="tweak-options">
+      <button class="tweak-btn active" onclick="setBg('cream',this)">羊皮纸 — 温暖奶油</button>
+      <button class="tweak-btn" onclick="setBg('stone',this)">砚石灰 — 中性暖灰</button>
+      <button class="tweak-btn" onclick="setBg('white',this)">纯白 — 干净现代</button>
+      <button class="tweak-btn" onclick="setBg('slate',this)">烟青 — 冷调蓝灰</button>
+      <button class="tweak-btn" onclick="setBg('rose',this)">淡粉 — 柔和暖调</button>
+    </div>
+  </div>
+
+  <div class="tweak-sep"></div>
+
+  <div class="tweak-group">
+    <div class="tweak-label">导航位置</div>
+    <div class="tweak-options">
+      <button class="tweak-btn active" onclick="setNavPos('top', this)">顶部固定</button>
+      <button class="tweak-btn" onclick="setNavPos('compact', this)">紧凑导航</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── i18n ──
+const i18n = {
+  zh: {
+    nav: ['首页','中心简介','研究方向','学术活动','研究成果','新闻公告','联系我们'],
+    hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
+    hero_sub: '探索现代性的起源与未来',
+    btn1: '查看学术活动', btn2: '了解中心',
+    about_title: '中心简介', research_title: '研究方向',
+    activities_title: '学术活动', outcomes_title: '研究成果',
+    news_title: '新闻公告', contact_title: '联系我们'
+  },
+  en: {
+    nav: ['Home','About','Research','Activities','Publications','News','Contact'],
+    hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
+    hero_sub: 'Exploring the Origins and Future of Modernity',
+    btn1: 'Academic Activities', btn2: 'About the Center',
+    about_title: 'About the Center', research_title: 'Research Programs',
+    activities_title: 'Academic Activities', outcomes_title: 'Research Outcomes',
+    news_title: 'News & Notices', contact_title: 'Contact Us'
+  }
+};
+function setLang(l) {
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-toggle button[onclick="setLang('${l}')"]`).classList.add('active');
+  const t = i18n[l];
+  document.querySelectorAll('.nav-links a').forEach((a,i) => { if(t.nav[i]) a.textContent = t.nav[i]; });
+  const eyebrow = document.querySelector('.hero-eyebrow'); if(eyebrow) eyebrow.textContent = t.hero_eyebrow;
+  const sub = document.querySelector('.hero-subtitle'); if(sub) sub.textContent = t.hero_sub;
+  const b1 = document.querySelector('.btn-primary'); if(b1) b1.textContent = t.btn1;
+  const b2 = document.querySelector('.btn-outline'); if(b2) b2.textContent = t.btn2;
+  document.querySelectorAll('.section-title').forEach((el,i) => {
+    const keys = ['about_title','research_title','activities_title','outcomes_title','news_title','contact_title'];
+    if(t[keys[i]]) el.textContent = t[keys[i]];
+  });
+}
+
+// ── ACTIVITY MODAL ──
+function openModal(card) {
+  const title = card.querySelector('h4')?.textContent || '';
+  const speaker = card.querySelector('.speaker')?.textContent || '';
+  const text = card.querySelector('p:last-child')?.textContent || '';
+  const tag = card.querySelector('.tag')?.outerHTML || '';
+  const date = card.querySelector('.date-label')?.textContent || '';
+  const hasImg = card.querySelector('img.activity-poster');
+  const modal = document.getElementById('activity-modal');
+  const posterEl = document.getElementById('modal-poster');
+  if (hasImg) {
+    posterEl.innerHTML = `<img src="${hasImg.src}" alt="poster" style="width:100%;height:100%;object-fit:cover;"/>`;
+  } else {
+    posterEl.innerHTML = `<div class="modal-poster-placeholder">Poster</div>`;
+  }
+  document.getElementById('modal-meta').innerHTML = tag + `<span class="date-label" style="margin-left:8px">${date}</span>`;
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-speaker').textContent = speaker;
+  document.getElementById('modal-text').textContent = text;
+  modal.classList.add('open');
+}
+function closeModal() {
+  document.getElementById('activity-modal').classList.remove('open');
+}
+document.getElementById('activity-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.querySelectorAll('.activity-card').forEach(card => {
+  card.addEventListener('click', () => openModal(card));
+});
+
+// ── TWEAKS ──
+window.addEventListener('message', e => {
+  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('open');
+  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('open');
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "light",
+  "navPos": "top",
+  "bg": "stone"
+}/*EDITMODE-END*/;
+let currentTheme = TWEAK_DEFAULTS.theme;
+
+function setTheme(t, btn) {
+  document.documentElement.setAttribute('data-theme', t === 'light' ? '' : t);
+  if (t === 'light') document.documentElement.removeAttribute('data-theme');
+  currentTheme = t;
+  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setTheme')) b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme: t } }, '*');
+}
+
+function setNavPos(pos, btn) {
+  const header = document.querySelector('.site-header');
+  if (pos === 'compact') {
+    header.style.height = '52px';
+    document.querySelector('.brand-text span').style.display = 'none';
+  } else {
+    header.style.height = '64px';
+    document.querySelector('.brand-text span').style.display = '';
+  }
+  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setNavPos')) b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+}
+
+function setBg(bg, btn) {
+  document.documentElement.setAttribute('data-bg', bg);
+  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setBg')) b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { bg } }, '*');
+}
+
+// Init theme
+if (TWEAK_DEFAULTS.theme && TWEAK_DEFAULTS.theme !== 'light') {
+  setTheme(TWEAK_DEFAULTS.theme);
+}
+if (TWEAK_DEFAULTS.bg) {
+  setBg(TWEAK_DEFAULTS.bg);
+}
+setLang('zh');
+
+// ── REVEAL ON SCROLL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Hero already visible
+document.querySelector('.hero').classList.add('visible');
+</script>
+
+
+</body></html>
