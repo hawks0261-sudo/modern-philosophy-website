@@ -506,6 +506,24 @@ ul { list-style: none; }
   font-weight: 300;
   align-self: end;
 }
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.section-link:hover {
+  color: var(--fg);
+  border-color: var(--fg-muted);
+  transform: translateY(-1px);
+}
 
 /* ── ABOUT ── */
 .about-grid {
@@ -685,6 +703,8 @@ ul { list-style: none; }
   border-radius: var(--r);
   overflow: hidden;
   background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
   transition: box-shadow 0.2s, transform 0.2s, background 0.4s;
 }
 .activity-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
@@ -701,6 +721,12 @@ ul { list-style: none; }
   font-style: italic;
   font-size: 13px;
 }
+.activity-poster.is-previewable {
+  cursor: pointer;
+}
+.activity-poster.is-previewable:hover {
+  opacity: 0.96;
+}
 .activity-poster.placeholder {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
   aspect-ratio: 3/4;
@@ -713,7 +739,12 @@ ul { list-style: none; }
   font-size: 12px;
   letter-spacing: 0.05em;
 }
-.activity-body { padding: 20px; }
+.activity-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .activity-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 .tag {
   display: inline-block;
@@ -738,6 +769,117 @@ ul { list-style: none; }
 }
 .activity-body .speaker { font-size: 12px; color: var(--gold); margin-bottom: 8px; font-style: italic; font-family: var(--serif); }
 .activity-body p { font-size: 12px; color: var(--fg-muted); line-height: 1.75; }
+.card-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s;
+}
+.card-cta-link:hover {
+  color: var(--fg);
+  border-color: var(--fg-muted);
+  transform: translateX(2px);
+}
+
+/* ── ACTIVITY PREVIEW MODAL ── */
+#activity-preview-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10,16,28,0.7);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+#activity-preview-modal.open { display: flex; }
+.activity-preview-box {
+  background: var(--card-bg);
+  border-radius: 6px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+.activity-preview-poster {
+  background: var(--bg-alt);
+  border-radius: 6px 0 0 6px;
+  overflow: hidden;
+}
+.activity-preview-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.activity-preview-body {
+  padding: 36px 32px;
+}
+.activity-preview-body .activity-meta { margin-bottom: 14px; }
+.activity-preview-body h3 {
+  font-family: var(--zh-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.activity-preview-body .speaker {
+  font-size: 13px;
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--serif);
+  margin-bottom: 16px;
+}
+.activity-preview-body p {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.85;
+}
+.activity-preview-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.linked-card {
+  cursor: pointer;
+}
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: transform 0.2s, color 0.2s;
+}
+.linked-card:hover .card-cta {
+  color: var(--fg);
+  transform: translateX(2px);
+}
 
 /* ── OUTCOMES ── */
 .outcomes-grid {
@@ -756,8 +898,8 @@ ul { list-style: none; }
 .pub-card-text { padding: 40px; }
 .pub-card .pub-tag {
   display: inline-block;
-  background: var(--accent);
-  color: var(--nav-fg);
+  background: var(--navy);
+  color: rgba(255,255,255,0.94);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -782,7 +924,11 @@ ul { list-style: none; }
 .pub-card-cover { display: flex; }
 .cover-img-wrap { width: 45%; background: var(--bg-alt); }
 .cover-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.cover-body { padding: 32px 28px; flex: 1; }
+.cover-body {
+  padding: 32px 28px;
+  flex: 1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,247,240,0.98) 100%);
+}
 .cover-placeholder {
   width: 100%;
   height: 100%;
@@ -809,6 +955,45 @@ ul { list-style: none; }
 .pub-wide-col h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--fg); }
 .pub-wide-col p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
 .pub-wide-col .pub-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); margin-bottom: 8px; display: block; }
+
+/* ── PEOPLE PREVIEW ── */
+.people-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.people-preview-card {
+  background: var(--card-bg);
+  padding: 32px 28px;
+  min-height: 220px;
+  transition: background 0.2s;
+}
+.people-preview-card:hover {
+  background: var(--bg-alt);
+}
+.people-preview-role {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold);
+}
+.people-preview-card h3 {
+  font-family: var(--zh-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+.people-preview-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--fg-muted);
+}
 
 /* ── NEWS ── */
 .news-list { display: flex; flex-direction: column; }
@@ -884,97 +1069,6 @@ ul { list-style: none; }
   font-size: 14px;
 }
 
-/* pdf link on activity card */
-.pdf-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  border-radius: 2px;
-  padding: 3px 8px;
-  margin-top: 8px;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-  font-family: var(--sans);
-}
-.pdf-link:hover { opacity: 1; }
-
-/* ── ACTIVITY MODAL ── */
-.activity-card { cursor: pointer; }
-#activity-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(10,16,28,0.7);
-  backdrop-filter: blur(4px);
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-#activity-modal.open { display: flex; }
-.modal-box {
-  background: var(--card-bg);
-  border-radius: 6px;
-  max-width: 680px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
-  display: grid;
-  grid-template-columns: 220px 1fr;
-}
-.modal-poster {
-  background: var(--bg-alt);
-  border-radius: 6px 0 0 6px;
-  overflow: hidden;
-}
-.modal-poster img { width: 100%; height: 100%; object-fit: cover; }
-.modal-poster-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-}
-.modal-body { padding: 36px 32px; }
-.modal-body .activity-meta { margin-bottom: 14px; }
-.modal-body h3 {
-  font-family: var(--zh-serif);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--fg);
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-.modal-body .speaker { font-size: 13px; color: var(--gold); font-style: italic; font-family: var(--serif); margin-bottom: 16px; }
-.modal-body p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#activity-modal { position: fixed; }
-
 /* ── REVEAL ANIMATION ── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -1021,6 +1115,251 @@ ul { list-style: none; }
 .tweak-btn:hover, .tweak-btn.active { background: rgba(184,150,62,0.2); border-color: var(--gold); }
 .tweak-sep { height: 1px; background: rgba(255,255,255,0.1); margin: 14px 0; }
 
+/* ── REVIEW MODE ── */
+.review-tool {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9990;
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+.review-launcher,
+.review-primary-button,
+.review-ghost-button,
+.review-comment-button {
+  border: none;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.review-launcher,
+.review-primary-button {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+}
+[data-theme="dark"] .review-launcher,
+[data-theme="dark"] .review-primary-button {
+  color: var(--bg-dark);
+}
+.review-launcher {
+  min-height: 50px;
+  padding: 0 18px;
+}
+.review-panel {
+  width: min(390px, calc(100vw - 20px));
+  max-height: min(76vh, 760px);
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.16);
+}
+[data-bg="cream"] .review-panel,
+[data-bg="stone"] .review-panel,
+[data-bg="rose"] .review-panel,
+[data-bg="slate"] .review-panel,
+[data-bg="white"] .review-panel {
+  background: rgba(255,255,255,0.94);
+}
+[data-theme="dark"] .review-panel {
+  background: rgba(18,28,42,0.96);
+}
+.review-head,
+.review-actions,
+.review-comment-head,
+.review-comment-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.review-head {
+  align-items: flex-start;
+}
+.review-kicker,
+.review-label,
+.review-shortcut,
+.review-field span,
+.review-comment-meta {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.review-kicker,
+.review-label,
+.review-field span {
+  color: var(--accent2);
+}
+.review-shortcut,
+.review-comment-meta,
+.review-selected-meta,
+.review-comment-context,
+.review-empty {
+  color: var(--fg-muted);
+}
+.review-title {
+  font-family: var(--zh-serif);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--fg);
+}
+.review-shortcut {
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.review-selected-card,
+.review-comment-item {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.52);
+}
+[data-theme="dark"] .review-selected-card,
+[data-theme="dark"] .review-comment-item {
+  background: rgba(255,255,255,0.04);
+}
+.review-selected-target {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.review-selected-meta {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+.review-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+.review-field {
+  display: grid;
+  gap: 6px;
+}
+.review-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 112px;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.82);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+}
+[data-theme="dark"] .review-field textarea {
+  background: rgba(255,255,255,0.06);
+}
+.review-field textarea:focus-visible,
+.review-launcher:focus-visible,
+.review-primary-button:focus-visible,
+.review-ghost-button:focus-visible,
+.review-comment-button:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 2px;
+}
+.review-actions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.review-primary-button,
+.review-ghost-button,
+.review-comment-button {
+  min-height: 44px;
+  padding: 0 16px;
+}
+.review-ghost-button,
+.review-comment-button {
+  background: rgba(28,45,74,0.08);
+  color: var(--fg);
+}
+[data-theme="dark"] .review-ghost-button,
+[data-theme="dark"] .review-comment-button {
+  background: rgba(255,255,255,0.09);
+}
+.review-list-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+.review-list-title {
+  font-family: var(--zh-serif);
+  font-size: 18px;
+  color: var(--fg);
+}
+.review-list-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.review-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.review-comment-title {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.review-comment-text,
+.review-comment-suggestion,
+.review-comment-context {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.review-comment-context {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  word-break: break-word;
+}
+.review-highlight {
+  position: fixed;
+  z-index: 9980;
+  pointer-events: none;
+  border: 2px solid rgba(184,150,62,0.9);
+  border-radius: 12px;
+  background: rgba(184,150,62,0.12);
+  box-shadow: 0 0 0 9999px rgba(15,19,28,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, top 0.12s ease, left 0.12s ease, width 0.12s ease, height 0.12s ease;
+}
+.review-highlight.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.review-highlight.selected {
+  border-color: rgba(28,45,74,0.92);
+  background: rgba(28,45,74,0.1);
+}
+body.review-mode-active {
+  cursor: crosshair;
+}
+body.review-mode-active .review-tool,
+body.review-mode-active .review-tool * {
+  cursor: auto;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
@@ -1033,10 +1372,24 @@ ul { list-style: none; }
   .advisers-intro { position: static; }
   .adviser-grid { grid-template-columns: repeat(2, 1fr); }
   .outcomes-grid { grid-template-columns: 1fr; }
+  .people-preview-grid { grid-template-columns: 1fr; }
   .pub-wide { grid-template-columns: 1fr; gap: 24px; }
   .contact-shell { grid-template-columns: 1fr; gap: 40px; }
   .masthead { display: none; }
   .nav-links { display: none; }
+  .review-tool {
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    justify-items: stretch;
+  }
+  .review-panel {
+    width: 100%;
+    max-height: 72vh;
+  }
+  .activity-preview-box {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -1061,13 +1414,14 @@ ul { list-style: none; }
   </a>
 
   <nav class="nav-links" data-cc-id="cc-22">
-    <a href="#top" data-cc-id="cc-20">首页</a>
-    <a href="#about" data-cc-id="cc-7">中心简介</a>
-    <a href="#research" data-cc-id="cc-6">研究方向</a>
-    <a href="#activities" data-cc-id="cc-23">学术活动</a>
-    <a href="#outcomes" data-cc-id="cc-24">研究成果</a>
-    <a href="#news" data-cc-id="cc-59">新闻公告</a>
-    <a href="#contact" data-cc-id="cc-36">联系我们</a>
+    <a href="#top" data-nav="home" data-cc-id="cc-20">首页</a>
+    <a href="#about" data-nav="about" data-cc-id="cc-7">中心简介</a>
+    <a href="people/index.html" data-nav="people" data-cc-id="cc-6">中心成员</a>
+    <a href="#research" data-nav="research" data-cc-id="cc-23">研究方向</a>
+    <a href="#activities" data-nav="activities" data-cc-id="cc-24">学术活动</a>
+    <a href="#outcomes" data-nav="outcomes" data-cc-id="cc-59">研究成果</a>
+    <a href="#news" data-nav="news" data-cc-id="cc-36">新闻公告</a>
+    <a href="#contact" data-nav="contact">联系我们</a>
   </nav>
 
   <div class="header-right">
@@ -1150,7 +1504,7 @@ ul { list-style: none; }
   <div class="section-head" data-cc-id="cc-56">
     <div data-cc-id="cc-30">
       <span class="eyebrow" data-cc-id="cc-31">About the Center</span>
-      <h2 class="section-title">中心简介</h2>
+      <h2 class="section-title" data-section-title="about_title">中心简介</h2>
     </div>
     <p class="section-desc" data-cc-id="cc-57">
       现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，是一个聚焦思想史与现实问题的综合性研究平台。
@@ -1174,13 +1528,51 @@ ul { list-style: none; }
 </div>
 </div>
 
+<!-- ── PEOPLE PREVIEW ── -->
+<div class="section-alt" id="people-preview">
+<div class="section reveal visible">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Our People</span>
+      <h2 class="section-title" data-section-title="people_title">中心成员</h2>
+    </div>
+    <p class="section-desc">首页先展示组织层次与角色结构，完整名单、职称与研究简介统一进入独立页面维护，更利于后续持续添加。</p>
+  </div>
+
+  <div class="people-preview-grid">
+    <article class="people-preview-card">
+      <span class="people-preview-role">Academic Direction</span>
+      <h3>中心负责人</h3>
+      <p>负责中心学术方向、平台建设与对外合作，是主页上最适合单独凸显的角色层级。</p>
+    </article>
+    <article class="people-preview-card">
+      <span class="people-preview-role">Core Researchers</span>
+      <h3>核心研究成员</h3>
+      <p>适合呈现长期参与研究、出版、译介、活动策划与课程建设的骨干成员。</p>
+    </article>
+    <article class="people-preview-card">
+      <span class="people-preview-role">Early Career</span>
+      <h3>青年研究者</h3>
+      <p>可收录博士生、博士后、青年讲师与研究助理，形成中心持续生长的梯队图景。</p>
+    </article>
+    <article class="people-preview-card">
+      <span class="people-preview-role">International Network</span>
+      <h3>国际顾问网络</h3>
+      <p>与下方国际顾问板块呼应，在独立页面中再扩展为完整名单、单位与研究方向。</p>
+    </article>
+  </div>
+
+  <a class="section-link" href="people/index.html">进入中心成员页面</a>
+</div>
+</div>
+
 <!-- ── ADVISERS ── -->
 <div class="section" id="advisers" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
 <div class="reveal visible">
   <div class="section-head" data-cc-id="cc-60">
     <div>
       <span class="eyebrow">International Advisory Board</span>
-      <h2 class="section-title">国际顾问</h2>
+      <h2 class="section-title" data-section-title="advisers_title">国际顾问</h2>
     </div>
     <p class="section-desc">中心将依托国际顾问网络推进专题研究、学术出版与国际会议筹备，逐步形成稳定的跨国合作机制与学术对话平台。</p>
   </div>
@@ -1286,7 +1678,7 @@ ul { list-style: none; }
   <div class="section-head">
     <div>
       <span class="eyebrow">Research Programs</span>
-      <h2 class="section-title">研究方向</h2>
+      <h2 class="section-title" data-section-title="research_title">研究方向</h2>
     </div>
     <p class="section-desc">中心研究方向同时回应现代思想史的经典议题与当代社会现实问题。</p>
   </div>
@@ -1321,9 +1713,9 @@ ul { list-style: none; }
   <div class="section-head" style="font-family: &quot;Noto Serif SC&quot;;">
     <div style="font-family: &quot;Noto Serif SC&quot;;">
       <span class="eyebrow" style="font-family: &quot;Noto Serif SC&quot;;">Academic Activities</span>
-      <h2 class="section-title" style="font-family: &quot;Noto Serif SC&quot;;">学术活动</h2>
+      <h2 class="section-title" data-section-title="activities_title" style="font-family: &quot;Noto Serif SC&quot;;">学术活动</h2>
     </div>
-    <p class="section-desc" style="font-family: &quot;Noto Serif SC&quot;;">收录总结中心的学术活动，按讲座与研讨会区分。</p>
+    <p class="section-desc" style="font-family: &quot;Noto Serif SC&quot;;">收录中心既往讲座与研讨会，点击活动海报可查看简介弹层，点击下方“查看活动总结”进入对应详情页。</p>
   </div>
 
   <div class="activity-group" style="font-family: &quot;Noto Serif SC&quot;;">
@@ -1333,29 +1725,29 @@ ul { list-style: none; }
     </div>
     <div class="activity-grid" data-cc-id="cc-106" style="font-family: &quot;Noto Serif SC&quot;;">
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/lecture-01.jpg" class="activity-poster" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报" data-cc-id="cc-103">
+        <img src="posters/lecture-01.jpg" class="activity-poster is-previewable" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报" data-cc-id="cc-103">
         <div class="activity-body" data-cc-id="cc-104" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" data-cc-id="cc-105" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
             <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.13</span>
           </div>
           <h4 data-cc-id="cc-114" style="font-family: &quot;Noto Serif SC&quot;;">柏格森哲学及其对法国哲学和中国哲学的影响</h4>
-          <a class="pdf-link" href="pdfs/lecture-01.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
           <p class="speaker" data-cc-id="cc-113" style="font-family: &quot;Noto Serif SC&quot;;">邓刚 · 上海交通大学哲学系副教授</p>
           <p data-cc-id="cc-111" style="font-family: &quot;Noto Serif SC&quot;;">围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
+          <a class="card-cta-link" href="activities/lecture-01/index.html">查看活动总结</a>
         </div>
       </div>
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/lecture-02.jpg" class="activity-poster" alt="布伦塔诺哲学的多重面向海报" data-cc-id="cc-102">
+        <img src="posters/lecture-02.jpg" class="activity-poster is-previewable" alt="布伦塔诺哲学的多重面向海报" data-cc-id="cc-102">
         <div class="activity-body" data-cc-id="cc-109" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
             <span class="date-label" data-cc-id="cc-107" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.21</span>
           </div>
           <h4 data-cc-id="cc-108" style="font-family: &quot;Noto Serif SC&quot;;">布伦塔诺哲学的多重面向</h4>
-          <a class="pdf-link" href="pdfs/lecture-02.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
           <p class="speaker" data-cc-id="cc-110" style="font-family: &quot;Noto Serif SC&quot;;">李岱巍 · 西北师范大学哲学系</p>
           <p data-cc-id="cc-115" style="font-family: &quot;Noto Serif SC&quot;;">聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
+          <a class="card-cta-link" href="activities/lecture-02/index.html">查看活动总结</a>
         </div>
       </div>
     </div>
@@ -1368,33 +1760,33 @@ ul { list-style: none; }
     </div>
     <div class="activity-grid" data-cc-id="cc-119" style="font-family: &quot;Noto Serif SC&quot;;">
       <div class="activity-card" data-cc-id="cc-122" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-01.jpg" class="activity-poster" alt="贝克莱的世界研讨会海报">
+        <img src="posters/seminar-01.jpg" class="activity-poster is-previewable" alt="贝克莱的世界研讨会海报">
         <div class="activity-body" data-cc-id="cc-123" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" data-cc-id="cc-129" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
             <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.19</span>
           </div>
           <h4 data-cc-id="cc-130" style="font-family: &quot;Noto Serif SC&quot;;">"贝克莱的世界"研讨会：对三次对话的审查</h4>
-          <a class="pdf-link" href="pdfs/seminar-01.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
           <p class="speaker" data-cc-id="cc-125" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
-          <p data-cc-id="cc-124" style="font-family: &quot;Noto Serif SC&quot;;">围绕Tom Stoneham的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
+          <p data-cc-id="cc-124" style="font-family: &quot;Noto Serif SC&quot;;">围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
+          <a class="card-cta-link" href="activities/seminar-01/index.html">查看活动总结</a>
         </div>
       </div>
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-02.jpg" class="activity-poster" alt="从文艺复兴到理性时代研讨会海报" data-cc-id="cc-127">
+        <img src="posters/seminar-02.jpg" class="activity-poster is-previewable" alt="从文艺复兴到理性时代研讨会海报" data-cc-id="cc-127">
         <div class="activity-body" data-cc-id="cc-118" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
             <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.23–26</span>
           </div>
           <h4 data-cc-id="cc-126" style="font-family: &quot;Noto Serif SC&quot;;">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h4>
-          <a class="pdf-link" href="pdfs/seminar-02.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
-          <p class="speaker" data-cc-id="cc-116" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系主任</p>
+          <p class="speaker" data-cc-id="cc-116" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系副教授</p>
           <p data-cc-id="cc-117" style="font-family: &quot;Noto Serif SC&quot;;">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
+          <a class="card-cta-link" href="activities/seminar-02/index.html">查看活动总结</a>
         </div>
       </div>
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="activity-poster.jpg" class="activity-poster" alt="波义耳：怀疑的化学家" data-cc-id="cc-128">
+        <img src="activity-poster.jpg" class="activity-poster is-previewable" alt="波义耳：怀疑的化学家" data-cc-id="cc-128">
         <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
@@ -1403,36 +1795,39 @@ ul { list-style: none; }
           <h4 style="font-family: &quot;Noto Serif SC&quot;;">"波义耳：怀疑的化学家"暑期研讨会</h4>
           <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
           <p style="font-family: &quot;Noto Serif SC&quot;;">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
+          <a class="card-cta-link" href="activities/seminar-04/index.html">查看活动总结</a>
         </div>
       </div>
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-03.jpg" class="activity-poster" alt="笛卡尔与伯曼对话录读书会海报" data-cc-id="cc-121">
+        <img src="posters/seminar-03.jpg" class="activity-poster is-previewable" alt="笛卡尔与伯曼对话录读书会海报" data-cc-id="cc-121">
         <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
             <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.07.23–29</span>
           </div>
           <h4 style="font-family: &quot;Noto Serif SC&quot;;">《笛卡尔与伯曼对话录》读书会</h4>
-          <a class="pdf-link" href="pdfs/seminar-03.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
           <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系</p>
           <p style="font-family: &quot;Noto Serif SC&quot;;">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
+          <a class="card-cta-link" href="activities/seminar-03/index.html">查看活动总结</a>
         </div>
       </div>
       <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-05.jpg" class="activity-poster" alt="实证主义概论研讨会海报" data-cc-id="cc-120">
+        <img src="posters/seminar-05.jpg" class="activity-poster is-previewable" alt="实证主义概论研讨会海报" data-cc-id="cc-120">
         <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
           <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
             <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
             <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.09.24</span>
           </div>
           <h4 style="font-family: &quot;Noto Serif SC&quot;;">实证主义概论研讨会</h4>
-          <a class="pdf-link" href="pdfs/seminar-05.pdf" target="_blank" onclick="event.stopPropagation()">↓ 查看海报 PDF</a>
           <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">申慧霞 · 法国里昂高等师范学院哲学系博士生</p>
           <p style="font-family: &quot;Noto Serif SC&quot;;">以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
+          <a class="card-cta-link" href="activities/seminar-05/index.html">查看活动总结</a>
         </div>
       </div>
     </div>
   </div>
+
+  <a class="section-link" href="activities/index.html">进入活动总览</a>
 </div>
 
 <!-- ── OUTCOMES ── -->
@@ -1441,17 +1836,17 @@ ul { list-style: none; }
   <div class="section-head">
     <div>
       <span class="eyebrow">Research Outcomes</span>
-      <h2 class="section-title">研究成果</h2>
+      <h2 class="section-title" data-section-title="outcomes_title">研究成果</h2>
     </div>
     <p class="section-desc">重点呈现与福建教育出版社合作推进的"西方思想文化译丛"与《近代哲学》杂志。</p>
   </div>
 
   <div class="outcomes-grid">
-    <div class="pub-card" style="display:flex;">
-      <div style="width:180px;flex-shrink:0;background:var(--bg-alt);">
+    <div class="pub-card pub-card-cover linked-card" data-link-url="publications/translation-series/index.html" role="link" tabindex="0" style="display:flex;">
+      <div class="cover-img-wrap">
         <img src="posters/xifang-yicong.png" alt="西方思想文化译丛封面" style="width:100%;height:100%;object-fit:cover;">
       </div>
-      <div class="pub-card-text" style="flex:1;">
+      <div class="cover-body">
         <span class="pub-tag">Translation Series</span>
         <h3>西方思想文化译丛</h3>
         <p>中心已与福建教育出版社合作出版《西方思想文化译丛》30 余种，涵盖笛卡尔、贝克莱、莱布尼茨、波义耳等早期现代思想家的重要著作。</p>
@@ -1460,16 +1855,18 @@ ul { list-style: none; }
           <li>以翻译工作推动中外思想资源的互译共享</li>
           <li>构成中心研究、出版与公共传播的重要基础</li>
         </ul>
+        <span class="card-cta">进入译丛目录</span>
       </div>
     </div>
-    <div class="pub-card pub-card-cover" style="display:flex;">
+    <div class="pub-card pub-card-cover linked-card" data-link-url="publications/journal/index.html" role="link" tabindex="0" style="display:flex;">
       <div class="cover-img-wrap">
-        <div class="cover-placeholder">Journal Cover</div>
+        <img src="uploads/IMG_4835.PNG" alt="《近代哲学》封面">
       </div>
       <div class="cover-body">
         <span class="pub-tag">Journal</span>
         <h3>《近代哲学》</h3>
         <p>中心已经创办学术集刊《近代哲学》，计划一年两期，作为现代思想研究的重要出版平台，以机构化方式呈现其视觉识别与出版方向。</p>
+        <span class="card-cta">进入期刊目录</span>
       </div>
     </div>
   </div>
@@ -1494,7 +1891,7 @@ ul { list-style: none; }
   <div class="section-head">
     <div>
       <span class="eyebrow">News &amp; Notices</span>
-      <h2 class="section-title">新闻公告</h2>
+      <h2 class="section-title" data-section-title="news_title">新闻公告</h2>
     </div>
     <p class="section-desc">通知、报道、招生与动态更新。</p>
   </div>
@@ -1529,7 +1926,7 @@ ul { list-style: none; }
   <div class="contact-shell">
     <div>
       <span class="eyebrow">Contact</span>
-      <h2 style="font-family:var(--zh-serif);font-size:clamp(28px,4vw,38px);font-weight:700;margin-bottom:16px;color:var(--fg);">联系我们</h2>
+      <h2 data-section-title="contact_title" style="font-family:var(--zh-serif);font-size:clamp(28px,4vw,38px);font-weight:700;margin-bottom:16px;color:var(--fg);">联系我们</h2>
       <p style="font-size:15px;color:var(--fg-muted);line-height:1.85;font-weight:300;">
         欢迎围绕投稿、学术合作、编辑事务与资料咨询联系编辑部。
       </p>
@@ -1553,25 +1950,25 @@ ul { list-style: none; }
 </div>
 </div>
 
-<!-- ── ACTIVITY MODAL ── -->
-<div id="activity-modal">
-  <button class="modal-close" onclick="closeModal()">✕</button>
-  <div class="modal-box">
-    <div class="modal-poster" id="modal-poster"></div>
-    <div class="modal-body">
-      <div class="activity-meta" id="modal-meta"></div>
-      <h3 id="modal-title"></h3>
-      <p class="speaker" id="modal-speaker"></p>
-      <p id="modal-text"></p>
-    </div>
-  </div>
-</div>
-
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
   <span class="footer-brand">Centrum Cogitationis Modernae</span>
   <span>© 2026 Center of Modern Thought · 现代思想研究中心</span>
 </footer>
+
+<!-- ── ACTIVITY PREVIEW MODAL ── -->
+<div id="activity-preview-modal" aria-hidden="true">
+  <button class="activity-preview-close" type="button" aria-label="关闭预览">✕</button>
+  <div class="activity-preview-box">
+    <div class="activity-preview-poster" id="activity-preview-poster"></div>
+    <div class="activity-preview-body">
+      <div class="activity-meta" id="activity-preview-meta"></div>
+      <h3 id="activity-preview-title"></h3>
+      <p class="speaker" id="activity-preview-speaker"></p>
+      <p id="activity-preview-text"></p>
+    </div>
+  </div>
+</div>
 
 <!-- ── TWEAKS PANEL ── -->
 <div id="tweaks-panel" data-cc-id="cc-49">
@@ -1611,72 +2008,187 @@ ul { list-style: none; }
   </div>
 </div>
 
+<!-- ── REVIEW PANEL ── -->
+<div class="review-tool" data-review-ui hidden>
+  <button class="review-launcher" type="button" data-review-action="toggle" aria-expanded="false" aria-controls="review-panel">
+    批注模式
+  </button>
+
+  <aside id="review-panel" class="review-panel" aria-label="页面批注面板" hidden>
+    <div class="review-head">
+      <div>
+        <span class="review-kicker">Review Mode</span>
+        <h2 class="review-title">页面批注</h2>
+      </div>
+      <button class="review-ghost-button" type="button" data-review-action="close">关闭</button>
+    </div>
+
+    <p class="review-shortcut">快捷键：Shift + R。开启后点击页面元素即可记录问题。</p>
+
+    <div class="review-selected-card">
+      <span class="review-label">当前选中</span>
+      <p class="review-selected-target" data-review-selected>未选中元素</p>
+      <p class="review-selected-meta" data-review-selected-meta>开启后点击页面元素开始批注。</p>
+    </div>
+
+    <form class="review-form" data-review-form>
+      <label class="review-field">
+        <span>问题描述</span>
+        <textarea name="note" rows="4" placeholder="例如：这段文案太满；这一块上下间距太大；这个按钮语气太强。"></textarea>
+      </label>
+
+      <label class="review-field">
+        <span>建议改法 / 文案</span>
+        <textarea name="suggestion" rows="3" placeholder="例如：按钮改成“查看项目”；副标题压成一句；卡片内边距收小。"></textarea>
+      </label>
+
+      <div class="review-actions">
+        <button class="review-primary-button" type="submit">保存批注</button>
+        <button class="review-ghost-button" type="button" data-review-action="reset-selection">清空当前选择</button>
+      </div>
+    </form>
+
+    <div class="review-list-head">
+      <h3 class="review-list-title">已记录问题</h3>
+      <div class="review-list-actions">
+        <button class="review-ghost-button" type="button" data-review-action="copy">复制清单</button>
+        <button class="review-ghost-button" type="button" data-review-action="clear">清空全部</button>
+      </div>
+    </div>
+
+    <p class="review-empty" data-review-empty>还没有批注。</p>
+    <div class="review-list" data-review-list></div>
+  </aside>
+</div>
+
 <script>
 // ── i18n ──
 const i18n = {
   zh: {
-    nav: ['首页','中心简介','研究方向','学术活动','研究成果','新闻公告','联系我们'],
+    nav: {
+      home: '首页',
+      about: '中心简介',
+      people: '中心成员',
+      research: '研究方向',
+      activities: '学术活动',
+      outcomes: '研究成果',
+      news: '新闻公告',
+      contact: '联系我们'
+    },
     hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
     hero_sub: '探索现代性的起源与未来',
     btn1: '查看学术活动', btn2: '了解中心',
-    about_title: '中心简介', research_title: '研究方向',
-    activities_title: '学术活动', outcomes_title: '研究成果',
-    news_title: '新闻公告', contact_title: '联系我们'
+    about_title: '中心简介',
+    people_title: '中心成员',
+    advisers_title: '国际顾问',
+    research_title: '研究方向',
+    activities_title: '学术活动',
+    outcomes_title: '研究成果',
+    news_title: '新闻公告',
+    contact_title: '联系我们'
   },
   en: {
-    nav: ['Home','About','Research','Activities','Publications','News','Contact'],
+    nav: {
+      home: 'Home',
+      about: 'About',
+      people: 'People',
+      research: 'Research',
+      activities: 'Activities',
+      outcomes: 'Publications',
+      news: 'News',
+      contact: 'Contact'
+    },
     hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
     hero_sub: 'Exploring the Origins and Future of Modernity',
     btn1: 'Academic Activities', btn2: 'About the Center',
-    about_title: 'About the Center', research_title: 'Research Programs',
-    activities_title: 'Academic Activities', outcomes_title: 'Research Outcomes',
-    news_title: 'News & Notices', contact_title: 'Contact Us'
+    about_title: 'About the Center',
+    people_title: 'Our People',
+    advisers_title: 'International Advisers',
+    research_title: 'Research Programs',
+    activities_title: 'Academic Activities',
+    outcomes_title: 'Research Outcomes',
+    news_title: 'News & Notices',
+    contact_title: 'Contact Us'
   }
 };
 function setLang(l) {
   document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-toggle button[onclick="setLang('${l}')"]`).classList.add('active');
   const t = i18n[l];
-  document.querySelectorAll('.nav-links a').forEach((a,i) => { if(t.nav[i]) a.textContent = t.nav[i]; });
+  document.querySelectorAll('.nav-links a[data-nav]').forEach(a => {
+    const key = a.dataset.nav;
+    if (t.nav[key]) a.textContent = t.nav[key];
+  });
   const eyebrow = document.querySelector('.hero-eyebrow'); if(eyebrow) eyebrow.textContent = t.hero_eyebrow;
   const sub = document.querySelector('.hero-subtitle'); if(sub) sub.textContent = t.hero_sub;
   const b1 = document.querySelector('.btn-primary'); if(b1) b1.textContent = t.btn1;
   const b2 = document.querySelector('.btn-outline'); if(b2) b2.textContent = t.btn2;
-  document.querySelectorAll('.section-title').forEach((el,i) => {
-    const keys = ['about_title','research_title','activities_title','outcomes_title','news_title','contact_title'];
-    if(t[keys[i]]) el.textContent = t[keys[i]];
+  document.querySelectorAll('[data-section-title]').forEach(el => {
+    const key = el.dataset.sectionTitle;
+    if (t[key]) el.textContent = t[key];
   });
 }
 
-// ── ACTIVITY MODAL ──
-function openModal(card) {
-  const title = card.querySelector('h4')?.textContent || '';
-  const speaker = card.querySelector('.speaker')?.textContent || '';
-  const text = card.querySelector('p:last-child')?.textContent || '';
+// ── CARD LINKS ──
+function bindCardLinks() {
+  document.querySelectorAll('[data-detail-url], [data-link-url]').forEach(card => {
+    const url = card.dataset.detailUrl || card.dataset.linkUrl;
+    if (!url) return;
+    const go = () => { window.location.href = url; };
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        go();
+      }
+    });
+  });
+}
+bindCardLinks();
+
+// ── ACTIVITY IMAGE PREVIEW ──
+const activityPreviewModal = document.getElementById('activity-preview-modal');
+const activityPreviewPoster = document.getElementById('activity-preview-poster');
+const activityPreviewMeta = document.getElementById('activity-preview-meta');
+const activityPreviewTitle = document.getElementById('activity-preview-title');
+const activityPreviewSpeaker = document.getElementById('activity-preview-speaker');
+const activityPreviewText = document.getElementById('activity-preview-text');
+
+function openActivityPreview(card) {
+  const poster = card.querySelector('.activity-poster');
   const tag = card.querySelector('.tag')?.outerHTML || '';
   const date = card.querySelector('.date-label')?.textContent || '';
-  const hasImg = card.querySelector('img.activity-poster');
-  const modal = document.getElementById('activity-modal');
-  const posterEl = document.getElementById('modal-poster');
-  if (hasImg) {
-    posterEl.innerHTML = `<img src="${hasImg.src}" alt="poster" style="width:100%;height:100%;object-fit:cover;"/>`;
-  } else {
-    posterEl.innerHTML = `<div class="modal-poster-placeholder">Poster</div>`;
-  }
-  document.getElementById('modal-meta').innerHTML = tag + `<span class="date-label" style="margin-left:8px">${date}</span>`;
-  document.getElementById('modal-title').textContent = title;
-  document.getElementById('modal-speaker').textContent = speaker;
-  document.getElementById('modal-text').textContent = text;
-  modal.classList.add('open');
+  const title = card.querySelector('h4')?.textContent || '';
+  const speaker = card.querySelector('.speaker')?.textContent || '';
+  const text = card.querySelector('.activity-body > p:last-of-type')?.textContent || '';
+
+  activityPreviewPoster.innerHTML = poster ? `<img src="${poster.src}" alt="${poster.alt}">` : '';
+  activityPreviewMeta.innerHTML = tag + `<span class="date-label" style="margin-left:8px">${date}</span>`;
+  activityPreviewTitle.textContent = title;
+  activityPreviewSpeaker.textContent = speaker;
+  activityPreviewText.textContent = text;
+  activityPreviewModal.classList.add('open');
+  activityPreviewModal.setAttribute('aria-hidden', 'false');
 }
-function closeModal() {
-  document.getElementById('activity-modal').classList.remove('open');
+
+function closeActivityPreview() {
+  activityPreviewModal.classList.remove('open');
+  activityPreviewModal.setAttribute('aria-hidden', 'true');
 }
-document.getElementById('activity-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
+
+document.querySelectorAll('.activity-card .activity-poster.is-previewable').forEach(poster => {
+  poster.addEventListener('click', event => {
+    if (document.body.classList.contains('review-mode-active')) return;
+    event.preventDefault();
+    const card = poster.closest('.activity-card');
+    if (card) openActivityPreview(card);
+  });
 });
-document.querySelectorAll('.activity-card').forEach(card => {
-  card.addEventListener('click', () => openModal(card));
+
+activityPreviewModal.addEventListener('click', event => {
+  if (event.target === activityPreviewModal || event.target.closest('.activity-preview-close')) {
+    closeActivityPreview();
+  }
 });
 
 // ── TWEAKS ──
@@ -1739,6 +2251,525 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Hero already visible
 document.querySelector('.hero').classList.add('visible');
+
+// ── REVIEW MODE ──
+const reviewTool = document.querySelector('[data-review-ui]');
+
+if (reviewTool) {
+  const reviewQuery = new URLSearchParams(window.location.search);
+  const reviewHosts = new Set(['', 'localhost', '127.0.0.1', '::1']);
+  const canUseReview = reviewHosts.has(window.location.hostname) || reviewQuery.get('review') === '1';
+
+  if (canUseReview) {
+    const REVIEW_STORAGE_KEY = 'modern-philosophy-review-comments-v1';
+    const REVIEW_ENABLED_KEY = 'modern-philosophy-review-enabled-v1';
+    const REVIEW_TARGET_SELECTOR = [
+      'h1', 'h2', 'h3', 'h4', 'p', 'a', 'button', 'li', 'img',
+      '.hero', '.hero-card', '.about-card', '.research-card', '.adviser-card',
+      '.activity-card', '.news-item', '.pub-card', '.pub-wide', '.contact-row',
+      '.section-head', '.site-header', '.masthead', '.brand', '.hero-main'
+    ].join(', ');
+
+    const reviewPanel = document.getElementById('review-panel');
+    const reviewLauncher = reviewTool.querySelector('.review-launcher');
+    const reviewForm = reviewTool.querySelector('[data-review-form]');
+    const noteField = reviewForm ? reviewForm.elements.namedItem('note') : null;
+    const suggestionField = reviewForm ? reviewForm.elements.namedItem('suggestion') : null;
+    const reviewSelected = reviewTool.querySelector('[data-review-selected]');
+    const reviewSelectedMeta = reviewTool.querySelector('[data-review-selected-meta]');
+    const reviewList = reviewTool.querySelector('[data-review-list]');
+    const reviewEmpty = reviewTool.querySelector('[data-review-empty]');
+
+    const readStorage = (key) => {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (_) {
+        return null;
+      }
+    };
+
+    const writeStorage = (key, value) => {
+      try {
+        window.localStorage.setItem(key, value);
+      } catch (_) {
+        return null;
+      }
+      return value;
+    };
+
+    const state = {
+      active: reviewQuery.get('review') === '1' || readStorage(REVIEW_ENABLED_KEY) === 'true',
+      hovered: null,
+      selected: null,
+      comments: []
+    };
+
+    reviewTool.hidden = false;
+
+    const hoverHighlight = document.createElement('div');
+    hoverHighlight.className = 'review-highlight';
+    hoverHighlight.dataset.reviewOverlay = 'hover';
+
+    const selectedHighlight = document.createElement('div');
+    selectedHighlight.className = 'review-highlight selected';
+    selectedHighlight.dataset.reviewOverlay = 'selected';
+
+    document.body.append(hoverHighlight, selectedHighlight);
+
+    const escapeHtml = (value) =>
+      value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+
+    const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
+
+    const escapeCss = (value) => {
+      if (window.CSS && typeof window.CSS.escape === 'function') {
+        return window.CSS.escape(value);
+      }
+      return value.replace(/([ !"#$%&'()*+,./:;<=>?@[\\\]^`{|}~])/g, '\\$1');
+    };
+
+    const escapeAttribute = (value) =>
+      value
+        .replaceAll('\\', '\\\\')
+        .replaceAll('"', '\\"');
+
+    const isEditableTarget = (target) =>
+      target instanceof HTMLElement &&
+      (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT', 'OPTION'].includes(target.tagName));
+
+    const isReviewUi = (element) =>
+      element instanceof Element &&
+      (element.closest('[data-review-ui]') || element.closest('#tweaks-panel') || element.closest('[data-review-overlay]'));
+
+    const updateOverlay = (overlay, element) => {
+      if (!(element instanceof Element) || !state.active) {
+        overlay.classList.remove('visible');
+        return;
+      }
+
+      const rect = element.getBoundingClientRect();
+      if (rect.width < 8 || rect.height < 8) {
+        overlay.classList.remove('visible');
+        return;
+      }
+
+      overlay.style.top = `${rect.top - 4}px`;
+      overlay.style.left = `${rect.left - 4}px`;
+      overlay.style.width = `${rect.width + 8}px`;
+      overlay.style.height = `${rect.height + 8}px`;
+      overlay.classList.add('visible');
+    };
+
+    const buildSelectorSegment = (element) => {
+      if (element.id) {
+        return `#${escapeCss(element.id)}`;
+      }
+
+      const tag = element.tagName.toLowerCase();
+      const stableClasses = Array.from(element.classList)
+        .filter((className) => !className.startsWith('visible') && !className.startsWith('review-'))
+        .slice(0, 2);
+
+      let segment = tag;
+      if (stableClasses.length) {
+        segment += `.${stableClasses.map((className) => escapeCss(className)).join('.')}`;
+      }
+
+      const ccId = element.getAttribute('data-cc-id');
+      if (ccId) {
+        segment += `[data-cc-id="${escapeAttribute(ccId)}"]`;
+        return segment;
+      }
+
+      if (element.parentElement) {
+        const siblings = Array.from(element.parentElement.children).filter(
+          (sibling) => sibling.tagName === element.tagName
+        );
+
+        if (siblings.length > 1) {
+          segment += `:nth-of-type(${siblings.indexOf(element) + 1})`;
+        }
+      }
+
+      return segment;
+    };
+
+    const buildSelector = (element) => {
+      const segments = [];
+      let current = element;
+
+      while (current && current !== document.body && segments.length < 6) {
+        segments.unshift(buildSelectorSegment(current));
+
+        if (current.id || current.matches('header, footer, section, .hero, .section, .section-alt')) {
+          break;
+        }
+
+        current = current.parentElement;
+      }
+
+      return segments.join(' > ');
+    };
+
+    const buildTargetInfo = (element) => {
+      const rect = element.getBoundingClientRect();
+      const excerpt = normalizeText(
+        element.getAttribute('aria-label') ||
+        element.getAttribute('alt') ||
+        element.textContent ||
+        ''
+      );
+      const selector = buildSelector(element);
+      const section =
+        element.closest('[id]')?.id ||
+        element.closest('.section-alt')?.id ||
+        element.closest('.section')?.id ||
+        'page';
+      const tag = element.tagName.toLowerCase();
+      const label = excerpt
+        ? excerpt.slice(0, 44) + (excerpt.length > 44 ? '...' : '')
+        : `<${tag}>`;
+
+      return {
+        excerpt: excerpt || `<${tag}>`,
+        label,
+        selector,
+        section,
+        size: `${Math.round(rect.width)}×${Math.round(rect.height)}`
+      };
+    };
+
+    const getReviewTarget = (target) => {
+      if (!(target instanceof Element) || isReviewUi(target)) {
+        return null;
+      }
+
+      let current = target;
+      while (current && current !== document.body) {
+        if (current.matches(REVIEW_TARGET_SELECTOR)) {
+          const rect = current.getBoundingClientRect();
+          if (rect.width >= 40 && rect.height >= 18) {
+            return current;
+          }
+        }
+        current = current.parentElement;
+      }
+
+      return null;
+    };
+
+    const loadComments = () => {
+      try {
+        const saved = JSON.parse(readStorage(REVIEW_STORAGE_KEY) || '[]');
+        return Array.isArray(saved) ? saved : [];
+      } catch (_) {
+        return [];
+      }
+    };
+
+    const saveComments = () => {
+      writeStorage(REVIEW_STORAGE_KEY, JSON.stringify(state.comments));
+    };
+
+    const syncOverlays = () => {
+      updateOverlay(hoverHighlight, state.hovered);
+      updateOverlay(selectedHighlight, state.selected);
+    };
+
+    const updateSelectedSummary = () => {
+      if (!reviewSelected || !reviewSelectedMeta) {
+        return;
+      }
+
+      if (!state.selected) {
+        reviewSelected.textContent = '未选中元素';
+        reviewSelectedMeta.textContent = '开启后点击页面元素开始批注。';
+        return;
+      }
+
+      const info = buildTargetInfo(state.selected);
+      reviewSelected.textContent = info.label;
+      reviewSelectedMeta.textContent = `${info.section} · ${info.selector} · ${info.size}`;
+    };
+
+    const setSelectedElement = (element) => {
+      state.selected = element;
+      updateSelectedSummary();
+      syncOverlays();
+    };
+
+    const clearSelection = () => {
+      state.selected = null;
+      if (reviewForm) {
+        reviewForm.reset();
+      }
+      updateSelectedSummary();
+      syncOverlays();
+    };
+
+    const formatTime = (value) => {
+      try {
+        return new Intl.DateTimeFormat('zh-CN', {
+          month: 'numeric',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(new Date(value));
+      } catch (_) {
+        return value;
+      }
+    };
+
+    const buildExportText = () => {
+      const lines = ['# 页面批注清单', ''];
+      if (!state.comments.length) {
+        lines.push('当前没有已保存的批注。');
+        return lines.join('\n');
+      }
+
+      state.comments.forEach((comment, index) => {
+        lines.push(`${index + 1}. ${comment.label}`);
+        lines.push(`页面：${comment.page}`);
+        lines.push(`区域：${comment.section}`);
+        lines.push(`定位：${comment.selector}`);
+        lines.push(`原文：${comment.excerpt}`);
+        if (comment.note) lines.push(`问题：${comment.note}`);
+        if (comment.suggestion) lines.push(`建议：${comment.suggestion}`);
+        lines.push(`时间：${formatTime(comment.createdAt)}`);
+        lines.push('');
+      });
+
+      return lines.join('\n');
+    };
+
+    const copyText = async (value) => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(value);
+        return true;
+      }
+
+      const helper = document.createElement('textarea');
+      helper.value = value;
+      helper.setAttribute('readonly', 'readonly');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.append(helper);
+      helper.select();
+      const success = document.execCommand('copy');
+      helper.remove();
+      return success;
+    };
+
+    const scrollToTarget = (comment) => {
+      const target = document.querySelector(comment.selector);
+      if (!target) {
+        return;
+      }
+
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setSelectedElement(target);
+    };
+
+    const renderComments = () => {
+      if (!reviewList || !reviewEmpty) {
+        return;
+      }
+
+      reviewList.innerHTML = '';
+      reviewEmpty.hidden = state.comments.length > 0;
+
+      state.comments.forEach((comment) => {
+        const item = document.createElement('article');
+        item.className = 'review-comment-item';
+        item.dataset.commentId = comment.id;
+        item.innerHTML = `
+          <div class="review-comment-head">
+            <div>
+              <strong class="review-comment-title">${escapeHtml(comment.label)}</strong>
+              <span class="review-comment-meta">${escapeHtml(formatTime(comment.createdAt))} · ${escapeHtml(comment.section)}</span>
+            </div>
+            <div class="review-comment-actions">
+              <button class="review-comment-button" type="button" data-review-jump="${escapeHtml(comment.id)}">定位</button>
+              <button class="review-comment-button" type="button" data-review-delete="${escapeHtml(comment.id)}">删除</button>
+            </div>
+          </div>
+          ${comment.note ? `<p class="review-comment-text">${escapeHtml(comment.note)}</p>` : ''}
+          ${comment.suggestion ? `<p class="review-comment-suggestion"><strong>建议：</strong> ${escapeHtml(comment.suggestion)}</p>` : ''}
+          <p class="review-comment-context">${escapeHtml(comment.selector)}<br>${escapeHtml(comment.excerpt)}</p>
+        `;
+        reviewList.append(item);
+      });
+    };
+
+    const setReviewMode = (enabled) => {
+      state.active = enabled;
+      writeStorage(REVIEW_ENABLED_KEY, String(enabled));
+      document.body.classList.toggle('review-mode-active', enabled);
+      if (reviewPanel) {
+        reviewPanel.hidden = !enabled;
+      }
+      if (reviewLauncher) {
+        reviewLauncher.textContent = enabled ? '退出批注' : '批注模式';
+        reviewLauncher.setAttribute('aria-expanded', String(enabled));
+      }
+      if (!enabled) {
+        state.hovered = null;
+        hoverHighlight.classList.remove('visible');
+      }
+      syncOverlays();
+      updateSelectedSummary();
+    };
+
+    state.comments = loadComments();
+    renderComments();
+    setReviewMode(state.active);
+
+    document.addEventListener('mousemove', (event) => {
+      if (!state.active) {
+        return;
+      }
+      state.hovered = getReviewTarget(event.target);
+      syncOverlays();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!state.active) {
+        return;
+      }
+
+      const actionButton = event.target.closest('[data-review-action]');
+      if (actionButton || isReviewUi(event.target)) {
+        return;
+      }
+
+      const target = getReviewTarget(event.target);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      setSelectedElement(target);
+      if (noteField) {
+        noteField.focus();
+      }
+    }, true);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() === 'r' && event.shiftKey && !isEditableTarget(event.target)) {
+        event.preventDefault();
+        setReviewMode(!state.active);
+        return;
+      }
+
+      if (event.key === 'Escape' && state.active) {
+        clearSelection();
+      }
+    });
+
+    window.addEventListener('scroll', syncOverlays, { passive: true });
+    window.addEventListener('resize', syncOverlays);
+
+    reviewTool.addEventListener('click', async (event) => {
+      const actionButton = event.target.closest('[data-review-action]');
+      if (!actionButton) {
+        return;
+      }
+
+      const action = actionButton.dataset.reviewAction;
+
+      if (action === 'toggle') {
+        setReviewMode(!state.active);
+        return;
+      }
+
+      if (action === 'close') {
+        setReviewMode(false);
+        return;
+      }
+
+      if (action === 'reset-selection') {
+        clearSelection();
+        return;
+      }
+
+      if (action === 'clear') {
+        if (!window.confirm('确定要清空全部批注吗？')) {
+          return;
+        }
+        state.comments = [];
+        saveComments();
+        renderComments();
+        return;
+      }
+
+      if (action === 'copy') {
+        await copyText(buildExportText());
+      }
+    });
+
+    if (reviewForm) {
+      reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!state.selected) {
+          window.alert('先点击页面里的元素，再保存批注。');
+          return;
+        }
+
+        const note = noteField ? noteField.value.trim() : '';
+        const suggestion = suggestionField ? suggestionField.value.trim() : '';
+        if (!note && !suggestion) {
+          return;
+        }
+
+        const info = buildTargetInfo(state.selected);
+        state.comments.unshift({
+          id: typeof crypto !== 'undefined' && crypto.randomUUID
+            ? crypto.randomUUID()
+            : `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+          createdAt: new Date().toISOString(),
+          page: window.location.pathname || '/',
+          section: info.section,
+          selector: info.selector,
+          label: info.label,
+          excerpt: info.excerpt,
+          note,
+          suggestion
+        });
+
+        saveComments();
+        renderComments();
+        clearSelection();
+      });
+    }
+
+    if (reviewList) {
+      reviewList.addEventListener('click', (event) => {
+        const jumpButton = event.target.closest('[data-review-jump]');
+        if (jumpButton) {
+          const comment = state.comments.find((item) => item.id === jumpButton.dataset.reviewJump);
+          if (comment) {
+            scrollToTarget(comment);
+          }
+          return;
+        }
+
+        const deleteButton = event.target.closest('[data-review-delete]');
+        if (deleteButton) {
+          state.comments = state.comments.filter((item) => item.id !== deleteButton.dataset.reviewDelete);
+          saveComments();
+          renderComments();
+        }
+      });
+    }
+  }
+}
 </script>
 
 

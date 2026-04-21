@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>《近代哲学》 | 期刊页面初稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../site.css" />
+  </head>
+  <body>
+    <div class="subpage-masthead">
+      <span>Journal Archive</span>
+      <span>Issue Timeline</span>
+      <span>Center of Modern Thought</span>
+    </div>
+    <header class="subpage-header">
+      <a class="subpage-brand" href="../../index.html">
+        <img src="../../logo.png" alt="现代思想研究中心标识" />
+        <span class="subpage-brand-copy">
+          <strong>现代思想研究中心</strong>
+          <span>Center of Modern Thought</span>
+        </span>
+      </a>
+      <nav class="subpage-nav">
+        <a href="../../index.html">首页</a>
+        <a href="../../activities/index.html">学术活动</a>
+        <a href="../translation-series/index.html">西方思想文化译丛</a>
+        <a class="is-current" href="./index.html">《近代哲学》</a>
+        <a href="../../people/index.html">中心成员</a>
+      </nav>
+    </header>
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="hero-grid">
+          <div>
+            <span class="page-kicker">Journal Page</span>
+            <h1 class="page-title">《近代哲学》</h1>
+            <p class="page-subtitle">
+              期刊页不再只是首页上一张卡，而是独立承载“办刊说明 + 当前进度 + 往期 / 预备期目录”的页面。点击 issue 卡片后，采用和活动卡片相近的详情展开方式。
+            </p>
+          </div>
+          <aside class="hero-side-card">
+            <span class="page-kicker">Issue Logic</span>
+            <h3>第一期即将出版，第二期筹备中</h3>
+            <p>
+              这版初稿先建立 issue archive 的视觉逻辑：创刊号使用真实封面，第二、第三期用筹备状态卡表示，后续可持续增加。
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <main class="page-shell">
+      <section class="section-block">
+        <div class="catalog-intro section-card">
+          <img src="../../uploads/IMG_4835.PNG" alt="近代哲学封面" />
+          <div class="detail-card">
+            <span class="page-kicker">Editorial Overview</span>
+            <h2>期刊定位</h2>
+            <p>
+              《近代哲学》拟作为现代思想研究中心的重要出版平台，以问题意识、思想史深度与中外对话为三条主线展开。期刊页更适合呈现每一期的封面、目录、出版状态与编辑计划。
+            </p>
+            <div class="tag-row">
+              <span>Issue 01</span>
+              <span>Issue 02</span>
+              <span>Archive</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="page-kicker">Issue Archive</span>
+            <h2>期次切换初稿</h2>
+          </div>
+          <p>这版先做三张 issue 卡：第一期、第二期、第三期。后续只需继续往下追加卡片和详情数据。</p>
+        </div>
+
+        <div class="issues-grid" id="issues-grid">
+          <article class="issue-card" data-issue-id="issue-01">
+            <img class="cover-slot" src="../../uploads/IMG_4835.PNG" alt="近代哲学创刊号封面" />
+            <div class="issue-body">
+              <div class="issue-meta">
+                <span class="issue-status">即将出版</span>
+                <span class="issue-date">Issue 01</span>
+              </div>
+              <h3 class="issue-title">创刊号</h3>
+              <p class="issue-copy">已具备封面视觉，详情层用于展示目录、出版计划与投稿状态。</p>
+            </div>
+          </article>
+
+          <article class="issue-card" data-issue-id="issue-02">
+            <div class="cover-slot" style="display:grid;place-items:center;background:linear-gradient(160deg,#1f3557 0%,#355a86 100%);color:rgba(255,255,255,0.3);font-family:var(--serif);font-style:italic;">Issue 02</div>
+            <div class="issue-body">
+              <div class="issue-meta">
+                <span class="issue-status">筹备中</span>
+                <span class="issue-date">Issue 02</span>
+              </div>
+              <h3 class="issue-title">第二期</h3>
+              <p class="issue-copy">保留选题、编委工作与组稿进度的展示位，后续可替换为真实封面。</p>
+            </div>
+          </article>
+
+          <article class="issue-card" data-issue-id="issue-03">
+            <div class="cover-slot" style="display:grid;place-items:center;background:linear-gradient(160deg,#213452 0%,#49678f 100%);color:rgba(255,255,255,0.3);font-family:var(--serif);font-style:italic;">Issue 03</div>
+            <div class="issue-body">
+              <div class="issue-meta">
+                <span class="issue-status">规划中</span>
+                <span class="issue-date">Issue 03</span>
+              </div>
+              <h3 class="issue-title">第三期</h3>
+              <p class="issue-copy">预留未来期次归档入口，方便持续向后扩展。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="journal-modal" aria-hidden="true">
+      <button class="modal-close" type="button" aria-label="关闭">✕</button>
+      <div class="modal-shell">
+        <div class="modal-cover" id="journal-modal-cover"></div>
+        <div class="modal-body" id="journal-modal-body"></div>
+      </div>
+    </div>
+
+    <script>
+      const issues = {
+        "issue-01": {
+          cover: "../../uploads/IMG_4835.PNG",
+          kicker: "Issue 01",
+          title: "创刊号",
+          status: "即将出版",
+          body: "当前已接入封面视觉。后续建议在详情层中加入目录、卷首语、稿件状态与发布日期。"
+        },
+        "issue-02": {
+          cover: "",
+          kicker: "Issue 02",
+          title: "第二期",
+          status: "筹备中",
+          body: "当前可展示选题方向、组稿计划与编辑进度。待封面生成后可直接替换进卡片与详情层。"
+        },
+        "issue-03": {
+          cover: "",
+          kicker: "Issue 03",
+          title: "第三期",
+          status: "规划中",
+          body: "作为 future archive 的占位，用于保证期刊页的长线扩展能力。"
+        }
+      };
+
+      const modal = document.getElementById("journal-modal");
+      const modalBody = document.getElementById("journal-modal-body");
+      const modalCover = document.getElementById("journal-modal-cover");
+
+      document.getElementById("issues-grid").addEventListener("click", (event) => {
+        const card = event.target.closest(".issue-card");
+        if (!card) return;
+        const issue = issues[card.dataset.issueId];
+        if (!issue) return;
+
+        modalCover.innerHTML = issue.cover
+          ? `<img src="${issue.cover}" alt="${issue.title} 封面" />`
+          : `<span class="book-series">${issue.kicker}</span><h3 class="book-name">${issue.title}</h3><span class="book-index">${issue.status}</span>`;
+        modalBody.innerHTML = `
+          <span class="page-kicker">${issue.kicker}</span>
+          <h3>${issue.title}</h3>
+          <p>${issue.body}</p>
+          <div class="fact-list">
+            <div class="fact-item"><span>状态</span><span>${issue.status}</span></div>
+            <div class="fact-item"><span>建议字段</span><span>封面 / 目录 / 出版时间 / 投稿信息 / 编后记</span></div>
+          </div>
+        `;
+        modal.classList.add("is-open");
+      });
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal || event.target.closest(".modal-close")) {
+          modal.classList.remove("is-open");
+        }
+      });
+    </script>
+  </body>
+</html>

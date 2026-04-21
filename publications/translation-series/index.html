@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>西方思想文化译丛 | 研究成果</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../site.css" />
+  </head>
+  <body>
+    <div class="subpage-masthead">
+      <span>Translation Series Archive</span>
+      <span>Publication Catalogue</span>
+      <span>Center of Modern Thought</span>
+    </div>
+    <header class="subpage-header">
+      <a class="subpage-brand" href="../../index.html">
+        <img src="../../logo.png" alt="现代思想研究中心标识" />
+        <span class="subpage-brand-copy">
+          <strong>现代思想研究中心</strong>
+          <span>Center of Modern Thought</span>
+        </span>
+      </a>
+      <nav class="subpage-nav">
+        <a href="../../index.html">首页</a>
+        <a href="../../activities/index.html">学术活动</a>
+        <a class="is-current" href="./index.html">西方思想文化译丛</a>
+        <a href="../journal/index.html">《近代哲学》</a>
+        <a href="../../people/index.html">中心成员</a>
+      </nav>
+    </header>
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="hero-grid">
+          <div>
+            <span class="page-kicker">Translation Series</span>
+            <h1 class="page-title">西方思想文化译丛</h1>
+            <p class="page-subtitle">
+              “西方思想文化译丛”，由福建教育出版社于 2013 年正式推出。译丛引进当代西方思想文化领域国际一流学者的最新研究成果与前沿学术著作，属开放型书系。目前已出版上市 21 种图书，语种涵盖法语、德语、英语等，兼收并蓄哲学、社会学、文学、心理学等学科内容，均有助于我国当下思想文化建设在相关学科领域的研究和拓展。
+            </p>
+          </div>
+          <aside class="hero-side-card">
+            <span class="page-kicker">Series Mission</span>
+            <h3>国际前沿成果的持续引介与转化</h3>
+            <p>
+              译丛书目兼顾学术价值和文本可读性，普及、传递专业领域国际最前沿的学术思想与理念，展现最新研究动态和成果，推介新的研究视角与研究方法，为国内读者提供站在国际高度和视野上的文化新知，并拓展国内学者思考与研究的空间。
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <main class="page-shell">
+      <section class="section-block">
+        <div class="catalog-intro section-card">
+          <img src="../../posters/xifang-yicong.png" alt="西方思想文化译丛总封面" />
+          <div class="detail-card">
+            <span class="page-kicker">Series Overview</span>
+            <h2>《西方思想文化译丛》</h2>
+            <p>
+              《西方思想文化译丛》由福建教育出版社正式推出，持续引进当代西方思想文化研究的代表性成果，覆盖近代哲学、科学思想史及相关理论文献，并以开放性的书系结构不断扩展学术范围与跨学科视野。
+            </p>
+            <p class="series-trajectory">
+              系列的展示重点不应只是按思想家贴标签，而应说明其整体脉络：从笛卡尔、贝克莱、莱布尼茨、波义耳等早期现代思想家出发，逐步延伸到科学思想史、观念史与相关理论文献，形成可以持续扩充的学术出版目录。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="page-kicker">Catalogue</span>
+            <h2>目录页</h2>
+          </div>
+          <p>目录页用于集中展示译丛书目，并为每一册持续补充封面、作者、译者、出版时间、内容简介与相关学术主题，便于后续长期扩展。</p>
+        </div>
+
+        <div class="catalog-grid" id="series-grid"></div>
+      </section>
+    </main>
+
+    <div class="modal" id="series-modal" aria-hidden="true">
+      <button class="modal-close" type="button" aria-label="关闭">✕</button>
+      <div class="modal-shell">
+        <div class="modal-cover" id="series-modal-cover"></div>
+        <div class="modal-body" id="series-modal-body"></div>
+      </div>
+    </div>
+
+    <script>
+      const books = Array.from({ length: 30 }, (_, index) => {
+        const i = index + 1;
+        const seeded = [
+          ["系列书目 01", "笛卡尔相关文献", "已出版", "封面与书目信息待补入。当前以目录位展示整体规模与节奏。"],
+          ["系列书目 02", "贝克莱相关文献", "已出版", "后续可补入书名、作者、译者、出版时间与封面图。"],
+          ["系列书目 03", "莱布尼茨相关文献", "已出版", "建议后期加入按思想家与主题筛选。"],
+          ["系列书目 04", "波义耳相关文献", "已出版", "与未来波义耳专题活动和会议计划可以做互链。"],
+          ["系列书目 05", "思想史专题", "已出版", "适合作为中层卡片，点击后显示书目与内容简介。"],
+          ["系列书目 06", "比较思想专题", "已出版", "后期可在详情层加入目录与相关活动链接。"]
+        ];
+
+        const item = seeded[index] || [`系列书目 ${String(i).padStart(2, "0")}`, "书目信息待补", "已出版", "本卡片为目录页结构占位，后续将替换为真实封面与完整元数据。"];
+        return {
+          id: `series-${i}`,
+          title: item[0],
+          subtitle: item[1],
+          status: item[2],
+          description: item[3]
+        };
+      });
+
+      const grid = document.getElementById("series-grid");
+      const modal = document.getElementById("series-modal");
+      const modalBody = document.getElementById("series-modal-body");
+      const modalCover = document.getElementById("series-modal-cover");
+
+      grid.innerHTML = books.map((book, index) => `
+        <article class="book-card" data-book-id="${book.id}">
+          <div class="book-cover">
+            <span class="book-series">Western Thought Series</span>
+            <h3 class="book-name">${book.title}</h3>
+            <span class="book-index">No. ${String(index + 1).padStart(2, "0")}</span>
+          </div>
+          <div class="book-card-body">
+            <small>${book.status}</small>
+            <h3>${book.subtitle}</h3>
+            <p>${book.description}</p>
+          </div>
+        </article>
+      `).join("");
+
+      const openModal = (bookIndex) => {
+        const book = books[bookIndex];
+        modalCover.innerHTML = `
+          <span class="book-series">Translation Series</span>
+          <h3 class="book-name">${book.title}</h3>
+          <span class="book-index">${book.subtitle}</span>
+        `;
+        modalBody.innerHTML = `
+          <span class="page-kicker">Book Detail</span>
+          <h3>${book.title}</h3>
+          <p>${book.description}</p>
+          <div class="fact-list">
+            <div class="fact-item"><span>状态</span><span>${book.status}</span></div>
+            <div class="fact-item"><span>系列信息</span><span>${book.subtitle}</span></div>
+            <div class="fact-item"><span>后续字段</span><span>书名 / 作者 / 译者 / 出版社 / 出版时间 / 内容简介</span></div>
+          </div>
+        `;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+      };
+
+      grid.addEventListener("click", (event) => {
+        const card = event.target.closest(".book-card");
+        if (!card) return;
+        openModal(books.findIndex((item) => item.id === card.dataset.bookId));
+      });
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal || event.target.closest(".modal-close")) {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+        }
+      });
+    </script>
+  </body>
+</html>
