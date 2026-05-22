@@ -42,7 +42,7 @@
             <span class="page-kicker">Translation Series</span>
             <h1 class="page-title">西方思想文化译丛</h1>
             <p class="page-subtitle">
-              “西方思想文化译丛”，由福建教育出版社于 2013 年正式推出。译丛引进当代西方思想文化领域国际一流学者的最新研究成果与前沿学术著作，属开放型书系。目前已出版上市 21 种图书，语种涵盖法语、德语、英语等，兼收并蓄哲学、社会学、文学、心理学等学科内容，均有助于我国当下思想文化建设在相关学科领域的研究和拓展。
+              “西方思想文化译丛”由福建教育出版社推出。根据现有整理资料，书系已收录 2013 年 10 月至 2026 年 2 月出版的 29 种图书，内容覆盖精神分析、女性研究、现象学、文学地理学、艺术理论、法国哲学与近代思想研究等方向。
             </p>
           </div>
           <aside class="hero-side-card">
@@ -64,10 +64,10 @@
             <span class="page-kicker">Series Overview</span>
             <h2>《西方思想文化译丛》</h2>
             <p>
-              《西方思想文化译丛》由福建教育出版社正式推出，持续引进当代西方思想文化研究的代表性成果，覆盖近代哲学、科学思想史及相关理论文献，并以开放性的书系结构不断扩展学术范围与跨学科视野。
+              《西方思想文化译丛》按出版时间持续扩展，早期以精神分析、女性问题与法国思想文化研究为主，近年进一步延伸至现象学、文学地理学、德里达、贝克莱、笛卡尔与帕斯卡、柏格森等专题。
             </p>
             <p class="series-trajectory">
-              系列的展示重点不应只是按思想家贴标签，而应说明其整体脉络：从笛卡尔、贝克莱、莱布尼茨、波义耳等早期现代思想家出发，逐步延伸到科学思想史、观念史与相关理论文献，形成可以持续扩充的学术出版目录。
+              本页已根据上传的“书系书籍整理”和“书系书籍图片”重新整理，所有卡片均对应真实书名、作者、译者、出版时间、内容简介与封面图，不再保留虚拟空位。
             </p>
           </div>
         </div>
@@ -77,9 +77,9 @@
         <div class="section-heading">
           <div>
             <span class="page-kicker">Catalogue</span>
-            <h2>目录页</h2>
+            <h2>按出版时间排列的书目</h2>
           </div>
-          <p>目录页用于集中展示译丛书目，并为每一册持续补充封面、作者、译者、出版时间、内容简介与相关学术主题，便于后续长期扩展。</p>
+          <p>以下书目按出版时间升序排列，共 29 种。点击任一封面卡片可查看作者、译者、出版社、出版时间与完整内容简介。</p>
         </div>
 
         <div class="catalog-grid" id="series-grid"></div>
@@ -95,43 +95,382 @@
     </div>
 
     <script>
-      const books = Array.from({ length: 30 }, (_, index) => {
-        const i = index + 1;
-        const seeded = [
-          ["系列书目 01", "笛卡尔相关文献", "已出版", "封面与书目信息待补入。当前以目录位展示整体规模与节奏。"],
-          ["系列书目 02", "贝克莱相关文献", "已出版", "后续可补入书名、作者、译者、出版时间与封面图。"],
-          ["系列书目 03", "莱布尼茨相关文献", "已出版", "建议后期加入按思想家与主题筛选。"],
-          ["系列书目 04", "波义耳相关文献", "已出版", "与未来波义耳专题活动和会议计划可以做互链。"],
-          ["系列书目 05", "思想史专题", "已出版", "适合作为中层卡片，点击后显示书目与内容简介。"],
-          ["系列书目 06", "比较思想专题", "已出版", "后期可在详情层加入目录与相关活动链接。"]
-        ];
-
-        const item = seeded[index] || [`系列书目 ${String(i).padStart(2, "0")}`, "书目信息待补", "已出版", "本卡片为目录页结构占位，后续将替换为真实封面与完整元数据。"];
-        return {
-          id: `series-${i}`,
-          title: item[0],
-          subtitle: item[1],
-          status: item[2],
-          description: item[3]
-        };
-      });
+      const books = [
+        {
+          id: "series-01",
+          number: 1,
+          title: "儿童精神分析五讲",
+          author: "埃里克·迪迪耶",
+          translator: "姜余、严和来",
+          publisher: "福建教育出版社",
+          date: "2013-10-01",
+          published: "2013年10月",
+          cover: "./covers/book-01.jpg",
+          description: "埃里克·迪迪耶先生在国际儿童分析领域是首屈一指的专家。他早年追随过拉康，接受过多伦多的个案控制训练，深得前辈真传。迪迪耶以其一贯的严谨与开创性，2009年在中国成都四川大学所做的五次儿童精神分析讲座，深受精神分析界的喜爱，它们宛若熠熠的光束，青春的流泉，再造了超越的能量。"
+        },
+        {
+          id: "series-02",
+          number: 2,
+          title: "男性与女性",
+          author: "保罗-劳伦·阿苏",
+          translator: "徐慧",
+          publisher: "福建教育出版社",
+          date: "2013-11-01",
+          published: "2013年11月",
+          cover: "./covers/book-02.jpg",
+          description: "在当下的西方世界里，由于对药物治疗的依赖性，精神分析在美国及德国仅仅处于辅助性治疗的社会地位。但在法国，精神分析早已跟法国传统文化较为完美地结合在一起，在文学评论里，甚至在人们的日常思考中，都占据不可替代的位置。在中国，无论就人的思维还是日常生活而言，精神分析的专业术语均显得较为陌生。作为精神分析理论的纲领性读物，本书在法国连续出版10年，法国精神分析家保罗.劳伦-阿苏用清晰的逻辑思路，借助双性恋这一对精神分析具有启发性和关键性意义的概念，分别从理论和临床的角度阐述了性别差异，男性和女性如何登录在主体中。"
+        },
+        {
+          id: "series-03",
+          number: 3,
+          title: "欲望书写\n色情文学话语分析",
+          author: "多米尼克.曼戈诺",
+          translator: "冯腾",
+          publisher: "福建教育出版社",
+          date: "2013-11-01",
+          published: "2013年11月",
+          cover: "./covers/book-03.jpg",
+          description: "从古至今，色情文学一直都是一个富有争议、被禁忌的话题。本书从分析色情文学的话语体裁入手，将色情文学与已知的话语体裁做比较，分析其形成条件语言机制。同时，历史性的研究了色情文学从文艺复兴以来的演变过程，深刻揭示了当今色情文学在新科技与女权主义双重影响下的转变。"
+        },
+        {
+          id: "series-04",
+          number: 4,
+          title: "哲学家波伏娃",
+          author: "米歇尔·盖伊",
+          translator: "赵靓",
+          publisher: "福建教育出版社",
+          date: "2013-11-01",
+          published: "2013年11月",
+          cover: "./covers/book-04.jpg",
+          description: "本书以波伏娃女权主义巨作《第二性》为最终阅读对象。对其之前的哲学文本进行梳理，观察其相关哲学概念和思想在《第二性》一书中的演变，着重对波伏娃这句看似令人费解的宣言，女性的独立并不是一个事件的结局或者未来，而在于它尚未达成进行去神秘化的剖析。"
+        },
+        {
+          id: "series-05",
+          number: 5,
+          title: "独自一个女人",
+          author: "朱莉娅·克里斯蒂娃",
+          translator: "赵靓",
+          publisher: "福建教育出版社",
+          date: "2015-09-01",
+          published: "2015年9月",
+          cover: "./covers/book-05.jpg",
+          description: "全书以女性问题为中心，将作者自1975年至2006年发表的散论和发言稿纳入其中，通过日复一日、肉体与精神和一个女人三大部分，运用符号学、精神分析学和人类学等多种论述途径和理论角度，横跨整个法国的启蒙时代、大革命时代直至当代社会，除追叙了历史上的斯塔尔夫人、德.雷卡米耶夫人和夏绿蒂·柯黛等伟大女性的瑰丽风采，更着重于对当代女性的时尚、文化和社会问题进行解剖，主张女性效应和母性功能的积极意义，提倡女人的个体独特性和创造性。"
+        },
+        {
+          id: "series-06",
+          number: 6,
+          title: "重建世界主义",
+          author: "伊夫-夏尔·扎尔卡",
+          translator: "赵靓",
+          publisher: "福建教育出版社",
+          date: "2015-09-01",
+          published: "2015年9月",
+          cover: "./covers/book-06.jpg",
+          description: "本书为作者领导的一项欧盟研究课题成果。书中追述了世界主义一词的哲学和文化起源，挖掘其原初的积极意义，其根源涉及世界公民的概念和世界作为城邦的理念。作者提出的为了人类和世界而肩负的责任感，使对世界主义的争论突破了道德范畴而进入司法层面。同时，针对新的压迫形式和地球的过度开发等生态问题，作者提出了有效的批评和指正。"
+        },
+        {
+          id: "series-07",
+          number: 7,
+          title: "女人与母亲\n从弗洛伊德至拉康的女性难题",
+          author: "马科斯·扎菲罗普洛斯",
+          translator: "李峰",
+          publisher: "福建教育出版社",
+          date: "2015-12-01",
+          published: "2015年12月",
+          cover: "./covers/book-07.jpg",
+          description: "“女人需要什么？”对此，弗洛伊德和拉康有着不同的回答，弗洛伊德的回应是成为理想化的母亲，拉康的回应则是成为欲望的对象。为了在弗洛伊德和拉康之间做出正确的选择，作者对弗洛伊德关于女性的人类学的重要文本进行研究，对之进行批判，运用大量社会学、人类学的材料，利用学科交叉所带来的他者视角，为我们呈现了一本优秀的探讨女性问题的精神分析人类学著作，值得精神分析领域的专业人士，或对中国的女性问题希望获得有深度思考视角的人加以参考。"
+        },
+        {
+          id: "series-08",
+          number: 8,
+          title: "萨宾娜·斯皮格林\n在弗洛伊德与荣格之间（上册）",
+          author: "米歇尔·吉布尔、雅克·诺贝古",
+          translator: "左天梦、许丹、康翀",
+          publisher: "福建教育出版社",
+          date: "2016-06-01",
+          published: "2016年6月",
+          cover: "./covers/book-08.jpg",
+          description: "本书披露了他对弗洛伊德和荣格两位精神分析学大师的研究资料。以及三人间的交流史料，他与弗洛伊德、荣格的通信，还有他的个人日记，其中记录了她和这两个男人之间发生的一些故事，关于精神分析的理论制作，关于爱情，关于决裂与背叛。"
+        },
+        {
+          id: "series-09",
+          number: 9,
+          title: "萨宾娜·斯皮格林\n在弗洛伊德与荣格之间（下册）",
+          author: "米歇尔·吉布尔、雅克·诺贝古",
+          translator: "左天梦、许丹、康翀",
+          publisher: "福建教育出版社",
+          date: "2016-06-02",
+          published: "2016年6月",
+          cover: "./covers/book-09.jpg",
+          description: "本书披露了他对弗洛伊德和荣格两位精神分析学大师的研究资料。以及三人间的交流史料，他与弗洛伊德、荣格的通信，还有他的个人日记，其中记录了她和这两个男人之间发生的一些故事，关于精神分析的理论制作，关于爱情，关于决裂与背叛。"
+        },
+        {
+          id: "series-10",
+          number: 10,
+          title: "感性的抵抗\n梅洛-庞蒂对透明性的批判",
+          author: "艾曼努埃尔·埃洛阿",
+          translator: "曲晓蕊",
+          publisher: "福建教育出版社",
+          date: "2016-12-01",
+          published: "2016年12月",
+          cover: "./covers/book-10.jpg",
+          description: "作者围绕梅洛-庞蒂思想的几大核心问题，结合哲学家在各个历史阶段所受德国现象学、精神分析、格式塔心理学、儿童心理学、神经病学、自然科学、语言学、社会学等方面的影响和发展展示。梅洛-庞蒂思想诞生的历史语境，以及他对当时不同哲学流派的批判与借鉴，对“中间之路”的辗转探索。"
+        },
+        {
+          id: "series-11",
+          number: 11,
+          title: "中国人关于神与灵的观念",
+          author: "理雅各",
+          translator: "齐英豪",
+          publisher: "福建教育出版社",
+          date: "2018-04-01",
+          published: "2018年4月",
+          cover: "./covers/book-11.jpg",
+          description: "译者系根据1852年出版影印本翻译，李雅各的这本书并非严格意义上的学术专著，也非现代规范化的学术论文。而是将论辩中的思考与观点重新梳理并集结成书。本书虽然不厚，原文总计166页，但作者论述所涉猎的范围非常广泛，涵盖欧美汉学家的典籍，西方哲学家的著述，基督教会史上的教父及改革宗的著述，近代远东传教士的事工印度宗教华夏儒释道典籍。此外，雅里各还时而插入法语、拉丁语，尤其在第二章语义分析部分，涉猎西方多种文化与语言的比较。"
+        },
+        {
+          id: "series-12",
+          number: 12,
+          title: "德勒兹与精神分析",
+          author: "莫尼克·达维-梅纳尔",
+          translator: "李峰、赵靓",
+          publisher: "福建教育出版社",
+          date: "2019-04-01",
+          published: "2019年4月",
+          cover: "./covers/book-12.jpg",
+          description: "从德勒兹哲学和精神分析中既合作又对抗的关系入手进行讨论。追溯了德勒兹哲学和精神分析的持久论战，并从各自内在的思路，分析了哲学作为一种思考和精神分析作为一种实践，从一开始就表现出对待理论的不同立场，同时就一些核心问题进行了深入探讨。"
+        },
+        {
+          id: "series-13",
+          number: 13,
+          title: "拉康",
+          author: "阿兰·瓦尼埃",
+          translator: "王润晨曦",
+          publisher: "福建教育出版社",
+          date: "2019-09-01",
+          published: "2019年9月",
+          cover: "./covers/book-13.jpg",
+          description: "雅克·拉康，心理学家，法国的弗洛伊德。他借助语言学、人类学、哲学和数学等学科的知识和技术，重新解读弗洛伊德的精神分析，实现了方法论和学科性质上的重大突破。他创建的结构主义精神分析学成为法国精神分析的代名词，拉康学派也成为法国最有影响力，并在世界范围内产生重大影响的精神分析学分支之一。其独具魅力的精神分析理论被誉为由结构主义通往后结构主义的桥梁，影响了后现代的众多理论巨擘，对20世纪后期西方的文学、文化、批评、艺术、电影等领域造成了强烈冲击。"
+        },
+        {
+          id: "series-14",
+          number: 14,
+          title: "哲学美学导论",
+          author: "玛利亚·E·艾希尔",
+          translator: "李岱巍",
+          publisher: "福建教育出版社",
+          date: "2020-01-01",
+          published: "2020年1月",
+          cover: "./covers/book-14.jpg",
+          description: "哲学美学导论是一本关于哲学美学的导论性读物。作者没有过多纠缠于西方历史上的各种美学理论，而是着重介绍了当代学界的一些最新理论成果，旨在让没有任何哲学基础的读者，能够对关于美的哲学理论有一个初步的了解。全书五部分各自独立成章，读者可以根据自己的兴趣选择阅读。"
+        },
+        {
+          id: "series-15",
+          number: 15,
+          title: "福柯与疯狂",
+          author: "弗雷德里克·格罗斯",
+          translator: "孙聪",
+          publisher: "福建教育出版社",
+          date: "2020-11-01",
+          published: "2020年11月",
+          cover: "./covers/book-15.jpg",
+          description: "疯狂一词贯穿于福柯思想发展之始终，亦贯穿于福柯与疯狂始终。本书的研究内容横跨福柯前中后期的思想，以不长的篇幅梳理出这一丰富思想的眼镜脉络。使读者能够短时间内对这一问题形成比较清晰的认识。作者在书中为读者展现了福柯关于疯狂思想的方方面面，考察在我们这样的文明机制中，如何使得疯狂被视为一种精神疾病，在受制于一种严苛的医学性规定之前的时期里，疯狂曾被赋予过哪些不同的含义等。"
+        },
+        {
+          id: "series-16",
+          number: 16,
+          title: "子午线的牢笼-全球化时代的文学与当代艺术",
+          author: "贝尔唐·韦斯特法尔",
+          translator: "张蔷",
+          publisher: "福建教育出版社",
+          date: "2021-04-01",
+          published: "2021年4月",
+          cover: "./covers/book-16.jpg",
+          description: "该书深刻地剖析了文学和当代艺术的关系，提到了全球化对文学和艺术的影响。书中还探讨了当代艺术的多样性，从传统绘画到装置艺术，每一种形式都在用自己的方式表达着对世界的理解和感受。"
+        },
+        {
+          id: "series-17",
+          number: 17,
+          title: "文学地理学",
+          author: "米歇尔·柯罗",
+          translator: "袁莉",
+          publisher: "福建教育出版社",
+          date: "2021-10-01",
+          published: "2021年10月",
+          cover: "./covers/book-17.jpg",
+          description: "本书作者在书中，为大家详细梳理了法国文学空间，与文学地理学研究的基本概念和发展状况，列举了多位重要学者关于人文地理、地理诗学、地理批评、虚构地理等新型文学批评形式的创建和推动，以期用地理学的视角，帮助读者重拾长期被忽视的小说与空间的千丝万缕的关系。"
+        },
+        {
+          id: "series-18",
+          number: 18,
+          title: "什么是现象学？",
+          author: "亚历山大·席勒尔",
+          translator: "李岱巍",
+          publisher: "福建教育出版社",
+          date: "2022-09-01",
+          published: "2022年9月",
+          cover: "./covers/book-18.jpg",
+          description: "作者亚历山大·席勒尔，德国伍珀塔尔大学教授。对理论，哲学和现象学深有研究。书中不仅有对现象学方法论的阐释，对现象学历史的回顾，追溯其与德国古典哲学和英国经验主义的思想关联，亦有现象学与当代其他主要哲学流派，如思辨、实在论的辩论，以及当下德法现象研究的最新热点问题等等。"
+        },
+        {
+          id: "series-19",
+          number: 19,
+          title: "朗西埃：智力的平等",
+          author: "夏尔·拉蒙",
+          translator: "钱进",
+          publisher: "福建教育出版社",
+          date: "2022-10-01",
+          published: "2022年10月",
+          cover: "./covers/book-19.jpg",
+          description: "作者按照朗西埃哲学发展的时间和逻辑进程对其整体思想进行梳理，并突出了朗西埃在哲学、政治和美学等领域的原创性贡献。作者以朗西埃近年来的最新著述为重要根据，在介绍的基础上不乏反思、对照和批判。"
+        },
+        {
+          id: "series-20",
+          number: 20,
+          title: "文学、地理和后现代地方诗学",
+          author: "艾瑞克·普利托",
+          translator: "颜红菲",
+          publisher: "福建教育出版社",
+          date: "2023-03-01",
+          published: "2023年3月",
+          cover: "./covers/book-20.jpg",
+          description: "文学地理和后现代地方诗学是当代欧美文学地理学研究的一部力著，研究主要针对当代文学的地方表征，借鉴了现象学、后结构和后殖民空间和地方理论，展示了文学如何有助于新的地理身份的形成。通过对塞缪尔·贝克特文本、法国郊区贫民窟小说，和法国加勒比领地的后殖民原住民小说中的居间空间研究，本书强调文学具有巧妙且有力的塑造读者对周围世界态度的功能，从而改变人们的视角。将这些地方作为明天生活方式的实验室，帮助人类克服现有居住模式的缺陷和人际关系的异化，寻找新生活、新出路。"
+        },
+        {
+          id: "series-21",
+          number: 21,
+          title: "马丁·海德格尔：自由的现象学",
+          author: "君特·费格尔",
+          translator: "陈辉",
+          publisher: "福建教育出版社",
+          date: "2023-06-01",
+          published: "2023年6月",
+          cover: "./covers/book-21.jpg",
+          description: "此书以存在与时间为主要文本，认为海德格尔哲学可被归结为一种自由的现象学，其存在论的基本范畴如此在的实存论结构、此在本真性和非本真性的划分、时间性等都可归结为自由问题的不同，展现费格尔教授这一独特的理论视角，在尊重海德格尔哲学原意的同时，更能够展现海德格尔哲学与西方哲学传统的联系，尤其是与德国古典哲学的关联性。"
+        },
+        {
+          id: "series-22",
+          number: 22,
+          title: "精神病患者的艺术作品",
+          author: "法比安娜·于拉克",
+          translator: "郝淑芬",
+          publisher: "福建教育出版社",
+          date: "2024-01-01",
+          published: "2024年1月",
+          cover: "./covers/book-22.jpg",
+          description: "此书结合了数十年的教研与临床实践经验，探讨了精神病结构与临床治疗中艺术创造的作用，是对精神病人创造的文字与作品，以精神分析的角度进行详细的分析和讨论。"
+        },
+        {
+          id: "series-23",
+          number: 23,
+          title: "迷失地图集：地理批评研究",
+          author: "贝尔唐·韦斯特法尔",
+          translator: "张蔷",
+          publisher: "福建教育出版社",
+          date: "2024-04-01",
+          published: "2024年4月",
+          cover: "./covers/book-23.jpg",
+          description: "该书是对已有的地理批评理论成果的一次总结，也标志着法国地理批评学派地图转向的开启，该书由1篇长序和11篇文章组成。因为地图和文学作品一样，具有引导观者认知并重构现实世界的功能，所以作者在书中旁征博引，娓娓道来，抽丝剥茧地在不同形式的艺术地图中挖掘文化含义和创作意图。"
+        },
+        {
+          id: "series-24",
+          number: 24,
+          title: "德里达：书写的哲学",
+          author: "夏尔·拉蒙",
+          translator: "赵靓",
+          publisher: "福建教育出版社",
+          date: "2024-08-01",
+          published: "2024年8月",
+          cover: "./covers/book-24.jpg",
+          description: "本书包含两个关键内容，第一，全书以德里达的语言主题为论述对象，讨论其作为书写哲学的面貌及特征，具有逻辑性与基础性，结论章也不忘向政治伦理领域敞开，第二，作者怀有将德里达作为经典哲学家来介绍的愿望，因为德里达的理性批判一直是最经典哲学的一部分。作者的巧妙论证还表明，德里达思想的破坏性、潜能和先锋性乃是构筑这一经典的底色。"
+        },
+        {
+          id: "series-25",
+          number: 25,
+          title: "贝克莱的世界：关于三次对话的考察",
+          author: "汤姆·斯通汉姆",
+          translator: "滕光伟",
+          publisher: "福建教育出版社",
+          date: "2024-10-01",
+          published: "2024年10月",
+          cover: "./covers/book-25.jpg",
+          description: "本书是汤姆·斯通汉姆教授对乔治·贝克莱哲学著作《海拉斯和菲洛诺斯之间的三次对话》的解读，《海拉斯和斐洛诺斯之间的三次对话》是贝克莱1713年出版的重要哲学著作，也是他发展唯心主义的关键性作品。该书以对话题方式，围绕物质的存在、感知的本质等展开辩论，就此提出了贝克莱的唯心主义哲学，通常被称为非物质主义或主观唯心主义。作者在书中深入探讨并批判性阐释了贝克莱的核心哲学思想，认为贝克莱三次对话的意义，在于他对关于现实感知和知识本质的哲学辩论的贡献。贝克莱的唯心主义挑战了他那个时代盛行的形而上学观点，他的工作也对后来的哲学家产生了影响，如伊曼努尔·康德和乔治·桑塔亚那，他们在自己的哲学中参与并回应了贝克莱的思想。"
+        },
+        {
+          id: "series-26",
+          number: 26,
+          title: "雅克·拉康的“父姓”-标点与问题",
+          author: "埃里克·波尔热",
+          translator: "郝淑芬",
+          publisher: "福建教育出版社",
+          date: "2025-06-01",
+          published: "2025年6月",
+          cover: "./covers/book-26.jpg",
+          description: "作者埃里克·波尔热在本书中解析了精神分析大师拉康提出的“父姓”概念。通俗来说，“父姓”不仅是父亲传给孩子的姓氏，更是一种象征性的身份纽带，它代表社会对父亲角色的认可，也承载着父亲自我认同的核心。作者将这一概念与人类心理的三个维度联系起来，揭示了姓名如何影响人的身份构建。"
+        },
+        {
+          id: "series-27",
+          number: 27,
+          title: "笛卡尔与帕斯卡：蒙田的阅读者",
+          author: "莱昂·布朗什维克",
+          translator: "左天梦",
+          publisher: "福建教育出版社",
+          date: "2025-08-01",
+          published: "2025年8月",
+          cover: "./covers/book-27.jpg",
+          description: "本书首次系统地将法国思想史的源头追溯至16世纪，强调蒙田的怀疑主义对现代哲学的深远影响。在20世纪德国哲学盛行的背景下，布朗什维克重新确立了蒙田、笛卡尔和帕斯卡思想的重要性，揭示了它们在确立现代主体性、理性与信仰关系中起到的关键作用。"
+        },
+        {
+          id: "series-28",
+          number: 28,
+          title: "知觉：感性论稿",
+          author: "雷诺·巴巴拉斯",
+          translator: "庄严",
+          publisher: "福建教育出版社",
+          date: "2025-12-01",
+          published: "2025年12月",
+          cover: "./covers/book-28.jpg",
+          description: "本书系统批判了传统哲学将知觉简化为感觉或者理智的做法。依托胡塞尔的侧显理论，深刻揭示知觉是一种通过侧显而给予的原初活动，事物本身在动态显现中的在场。巴巴拉斯指出，知觉主体应被理解为具身的运动者的生命体。知觉与世界的关系本质上是一种动态的趋近。由此他超越了胡塞尔和梅洛庞蒂的框架，将知觉现象推进为一种以欲望为动力的普遍感性存在论。深刻阐释了生命、身体与世界的存在论关联，为当代现象学开辟了新的思想路径。"
+        },
+        {
+          id: "series-29",
+          number: 29,
+          title: "柏格森论法国哲学",
+          author: "柏格森",
+          translator: "邓刚",
+          publisher: "福建教育出版社",
+          date: "2026-02-01",
+          published: "2026年2月",
+          cover: "./covers/book-29.jpg",
+          description: "本书作为一部文集，收录了柏格森关于法国哲学、法国精神以及法国思想家的一系列文章、书信。在柏格森看来，笛卡尔以来的法国哲学史，可以视作由一条明线理性主义与一条暗线情感主义彼此交叉、相互辉映的历史，一方面是以笛卡尔、伏尔泰、孔德为代表的理性主义，另一方面则是以帕斯卡尔、卢梭等人为代表的情感主义。此外，法国哲学始终注重在哲学与科学之间展开对话，注重哲学表述的文学性，力图用人人可懂的语言来表达。"
+        }
+      ];
 
       const grid = document.getElementById("series-grid");
       const modal = document.getElementById("series-modal");
       const modalBody = document.getElementById("series-modal-body");
       const modalCover = document.getElementById("series-modal-cover");
+      const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[char]));
+      const excerpt = (value, length = 96) => value.length > length ? `${value.slice(0, length)}…` : value;
+      const plainTitle = (book) => book.title.replace(/\s+/g, " ");
 
-      grid.innerHTML = books.map((book, index) => `
+      grid.innerHTML = books.map((book) => `
         <article class="book-card" data-book-id="${book.id}">
-          <div class="book-cover">
-            <span class="book-series">Western Thought Series</span>
-            <h3 class="book-name">${book.title}</h3>
-            <span class="book-index">No. ${String(index + 1).padStart(2, "0")}</span>
+          <div class="book-cover book-cover-image">
+            <img src="${book.cover}" alt="《${escapeHtml(plainTitle(book))}》封面" loading="lazy" />
+            <span class="book-index">No. ${String(book.number).padStart(2, "0")}</span>
           </div>
           <div class="book-card-body">
-            <small>${book.status}</small>
-            <h3>${book.subtitle}</h3>
-            <p>${book.description}</p>
+            <small><time datetime="${book.date}">${book.published}</time> · ${escapeHtml(book.publisher)}</small>
+            <h3>${escapeHtml(book.title)}</h3>
+            <p class="book-meta">${escapeHtml(book.author)} 著 / ${escapeHtml(book.translator)} 译</p>
+            <p class="book-summary">${escapeHtml(excerpt(book.description))}</p>
           </div>
         </article>
       `).join("");
@@ -139,18 +478,18 @@
       const openModal = (bookIndex) => {
         const book = books[bookIndex];
         modalCover.innerHTML = `
-          <span class="book-series">Translation Series</span>
-          <h3 class="book-name">${book.title}</h3>
-          <span class="book-index">${book.subtitle}</span>
+          <img src="${book.cover}" alt="《${escapeHtml(plainTitle(book))}》封面" />
         `;
         modalBody.innerHTML = `
           <span class="page-kicker">Book Detail</span>
-          <h3>${book.title}</h3>
-          <p>${book.description}</p>
+          <h3>${escapeHtml(book.title)}</h3>
+          <p class="modal-book-meta">${escapeHtml(book.author)} 著 / ${escapeHtml(book.translator)} 译</p>
+          <p>${escapeHtml(book.description)}</p>
           <div class="fact-list">
-            <div class="fact-item"><span>状态</span><span>${book.status}</span></div>
-            <div class="fact-item"><span>系列信息</span><span>${book.subtitle}</span></div>
-            <div class="fact-item"><span>后续字段</span><span>书名 / 作者 / 译者 / 出版社 / 出版时间 / 内容简介</span></div>
+            <div class="fact-item"><span>出版时间</span><span>${book.published}</span></div>
+            <div class="fact-item"><span>作者</span><span>${escapeHtml(book.author)}</span></div>
+            <div class="fact-item"><span>译者</span><span>${escapeHtml(book.translator)}</span></div>
+            <div class="fact-item"><span>出版社</span><span>${escapeHtml(book.publisher)}</span></div>
           </div>
         `;
         modal.classList.add("is-open");
@@ -160,7 +499,8 @@
       grid.addEventListener("click", (event) => {
         const card = event.target.closest(".book-card");
         if (!card) return;
-        openModal(books.findIndex((item) => item.id === card.dataset.bookId));
+        const bookIndex = books.findIndex((item) => item.id === card.dataset.bookId);
+        if (bookIndex >= 0) openModal(bookIndex);
       });
 
       modal.addEventListener("click", (event) => {
