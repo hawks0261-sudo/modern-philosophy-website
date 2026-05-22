@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../site.css?v=series-catalogue-20260522b" />
+    <link rel="stylesheet" href="../../site.css?v=series-catalogue-20260522c" />
   </head>
   <body>
     <div class="subpage-masthead">
@@ -459,11 +459,12 @@
       }[char]));
       const excerpt = (value, length = 96) => value.length > length ? `${value.slice(0, length)}…` : value;
       const plainTitle = (book) => book.title.replace(/\s+/g, " ");
+      const thumbnailFor = (book) => book.cover.replace("./covers/", "./thumbs/");
 
       grid.innerHTML = books.map((book) => `
         <article class="book-card" data-book-id="${book.id}">
           <div class="book-cover book-cover-image">
-            <img src="${book.cover}" alt="《${escapeHtml(plainTitle(book))}》封面" loading="lazy" />
+            <img src="${thumbnailFor(book)}" alt="《${escapeHtml(plainTitle(book))}》封面" loading="lazy" />
             <span class="book-index">No. ${String(book.number).padStart(2, "0")}</span>
           </div>
           <div class="book-card-body">
