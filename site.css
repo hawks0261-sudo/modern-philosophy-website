@@ -343,6 +343,14 @@ textarea {
   background: var(--bg-soft);
 }
 
+.detail-card > .archive-poster {
+  aspect-ratio: auto;
+  max-height: 560px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius);
+}
+
 .archive-body,
 .issue-body,
 .people-card-body,
@@ -737,6 +745,68 @@ textarea {
   line-height: 1.7;
 }
 
+.journal-feature {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.38fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.journal-cover-frame {
+  padding: 22px;
+  background: linear-gradient(180deg, #f7f1e6 0%, #e7dcc9 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.journal-cover-frame img {
+  width: min(100%, 360px);
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 20px rgba(18, 24, 34, 0.14));
+}
+
+.journal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.journal-meta-grid .fact-item {
+  background: rgba(28, 45, 74, 0.035);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.journal-outline {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journal-outline li {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.journal-outline strong {
+  display: block;
+  color: var(--text);
+}
+
+.journal-outline span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .series-trajectory {
   margin-top: 18px;
   padding-top: 18px;
@@ -851,7 +921,12 @@ textarea {
   .hero-grid,
   .detail-grid,
   .catalog-intro,
+  .journal-feature,
   .modal-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-meta-grid {
     grid-template-columns: 1fr;
   }
 

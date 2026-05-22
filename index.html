@@ -804,23 +804,27 @@ ul { list-style: none; }
 .activity-preview-box {
   background: var(--card-bg);
   border-radius: 6px;
-  max-width: 680px;
+  max-width: 860px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 24px 80px rgba(0,0,0,0.35);
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: minmax(260px, 340px) 1fr;
 }
 .activity-preview-poster {
   background: var(--bg-alt);
   border-radius: 6px 0 0 6px;
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 18px;
 }
 .activity-preview-poster img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: calc(90vh - 36px);
+  object-fit: contain;
 }
 .activity-preview-body {
   padding: 36px 32px;
@@ -1824,6 +1828,19 @@ body.review-mode-active .review-tool * {
           <a class="card-cta-link" href="activities/seminar-05/index.html">查看活动总结</a>
         </div>
       </div>
+      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+        <img src="posters/seminar-06.jpg" class="activity-poster is-previewable" alt="莱昂·布朗什维克与近代哲学研究研讨会海报">
+        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
+          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
+            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
+            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2026.05.17</span>
+          </div>
+          <h4 style="font-family: &quot;Noto Serif SC&quot;;">莱昂·布朗什维克与近代哲学研究</h4>
+          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">现代思想研究中心第六期研讨会</p>
+          <p style="font-family: &quot;Noto Serif SC&quot;;">围绕布朗什维克、法国理性主义与近代哲学史方法展开报告、评论与讨论。</p>
+          <a class="card-cta-link" href="activities/seminar-06/index.html">查看活动总结</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1860,12 +1877,12 @@ body.review-mode-active .review-tool * {
     </div>
     <div class="pub-card pub-card-cover linked-card" data-link-url="publications/journal/index.html" role="link" tabindex="0" style="display:flex;">
       <div class="cover-img-wrap">
-        <img src="uploads/IMG_4835.PNG" alt="《近代哲学》封面">
+        <img src="uploads/journal-issue-01-cover.jpg" alt="《近代哲学》第一期封面">
       </div>
       <div class="cover-body">
         <span class="pub-tag">Journal</span>
         <h3>《近代哲学》</h3>
-        <p>中心已经创办学术集刊《近代哲学》，计划一年两期，作为现代思想研究的重要出版平台，以机构化方式呈现其视觉识别与出版方向。</p>
+        <p>《近代哲学》由现代思想研究中心主持创办，第一期主题为“贝克莱作品的编纂和影响”，旨在为西方近代哲学研究建立开放、宽容、可批判的交流平台。</p>
         <span class="card-cta">进入期刊目录</span>
       </div>
     </div>
