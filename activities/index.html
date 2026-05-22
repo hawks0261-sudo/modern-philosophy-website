@@ -79,27 +79,35 @@
           <p>选择类型或年份后，活动卡片会即时刷新；点击“进入详情页”查看完整内容。</p>
         </div>
 
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-all" checked />
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-lecture" />
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-seminar" />
+        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-all" checked />
+        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2024" />
+        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2025" />
+        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2026" />
+
         <div class="archive-controls">
           <div class="archive-controls-row">
             <span class="archive-controls-label">Type</span>
             <div class="filter-pills" data-filter-group="type">
-              <button class="is-active" type="button" data-filter="all">全部</button>
-              <button type="button" data-filter="lecture">Lecture</button>
-              <button type="button" data-filter="seminar">Seminar</button>
+              <label for="filter-type-all">全部</label>
+              <label for="filter-type-lecture">Lecture</label>
+              <label for="filter-type-seminar">Seminar</label>
             </div>
           </div>
 
           <div class="archive-controls-row">
             <span class="archive-controls-label">Year</span>
             <div class="filter-pills" data-filter-group="year">
-              <button class="is-active" type="button" data-filter="all">全部</button>
-              <button type="button" data-filter="2024">2024</button>
-              <button type="button" data-filter="2025">2025</button>
-              <button type="button" data-filter="2026">2026</button>
+              <label for="filter-year-all">全部</label>
+              <label for="filter-year-2024">2024</label>
+              <label for="filter-year-2025">2025</label>
+              <label for="filter-year-2026">2026</label>
             </div>
           </div>
         </div>
-        <p class="archive-filter-summary" data-filter-summary aria-live="polite">当前显示全部活动</p>
+        <p class="archive-filter-summary">可单独按类型或年份筛选，也可组合筛选；选择“全部”恢复完整列表。</p>
 
         <div class="archive-grid" data-archive-grid>
           <article class="archive-card" data-type="lecture" data-year="2024">
@@ -222,66 +230,8 @@
             </div>
           </article>
         </div>
-        <p class="archive-empty" data-archive-empty hidden>当前筛选条件下暂无活动。</p>
+        <p class="archive-empty" data-archive-empty>当前筛选条件下暂无活动。</p>
       </section>
     </main>
-
-    <script>
-      const archiveState = { type: "all", year: "all" };
-      const filterGroups = document.querySelectorAll("[data-filter-group]");
-      const archiveCards = document.querySelectorAll("[data-archive-grid] .archive-card");
-      const filterSummary = document.querySelector("[data-filter-summary]");
-      const emptyState = document.querySelector("[data-archive-empty]");
-
-      const typeLabels = {
-        all: "全部类型",
-        lecture: "Lecture",
-        seminar: "Seminar",
-      };
-
-      const renderArchive = () => {
-        let visibleCount = 0;
-
-        archiveCards.forEach((card) => {
-          const typeOk = archiveState.type === "all" || card.dataset.type === archiveState.type;
-          const yearOk = archiveState.year === "all" || card.dataset.year === archiveState.year;
-          const isVisible = typeOk && yearOk;
-          card.hidden = !isVisible;
-          if (isVisible) visibleCount += 1;
-        });
-
-        if (filterSummary) {
-          const typeText = typeLabels[archiveState.type] || archiveState.type;
-          const yearText = archiveState.year === "all" ? "全部年份" : archiveState.year;
-          filterSummary.textContent = `${typeText} / ${yearText}：${visibleCount} 项活动`;
-        }
-
-        if (emptyState) {
-          emptyState.hidden = visibleCount !== 0;
-        }
-      };
-
-      filterGroups.forEach((group) => {
-        group.querySelectorAll("button").forEach((button) => {
-          button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
-        });
-
-        group.addEventListener("click", (event) => {
-          const button = event.target.closest("button[data-filter]");
-          if (!button) return;
-
-          group.querySelectorAll("button").forEach((item) => {
-            item.classList.remove("is-active");
-            item.setAttribute("aria-pressed", "false");
-          });
-          button.classList.add("is-active");
-          button.setAttribute("aria-pressed", "true");
-          archiveState[group.dataset.filterGroup] = button.dataset.filter;
-          renderArchive();
-        });
-      });
-
-      renderArchive();
-    </script>
   </body>
 </html>
