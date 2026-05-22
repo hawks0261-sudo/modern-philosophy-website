@@ -314,6 +314,21 @@ textarea {
   border-color: var(--navy);
 }
 
+.archive-filter-summary,
+.archive-empty {
+  margin: -6px 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.archive-empty {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.58);
+}
+
 .archive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

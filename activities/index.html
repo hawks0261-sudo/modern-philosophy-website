@@ -48,21 +48,21 @@
             <span class="page-kicker">Events Archive</span>
             <h1 class="page-title">中心学术活动</h1>
             <p class="page-subtitle">
-              本页汇集现代思想研究中心既往讲座、研讨会与读书会，按类型与年份归档展示，并持续补充活动纪要、现场照片、相关资料与后续研究线索。
+              本页收录现代思想研究中心已举办的讲座、研讨会与读书会。可按类型和年份筛选，进入详情页查看活动概述、议题线索、参与信息与现场照片。
             </p>
             <div class="hero-pills">
               <span>Lecture</span>
               <span>Seminar</span>
               <span>Reading Group</span>
-              <span>Archive Mode</span>
+              <span>Activity Archive</span>
             </div>
           </div>
 
           <aside class="hero-side-card">
             <span class="page-kicker">Archive Structure</span>
-            <h3>讲座、研讨会与读书会的统一归档</h3>
+            <h3>中心活动档案</h3>
             <p>
-              页面按活动类型与年份组织浏览路径，既便于回看中心既往活动，也为后续新增讲座、暑期研讨会与活动总结保留稳定入口。
+              活动按讲座、研讨会和读书会统一归档，保留时间、地点、主办单位、核心议题与活动总结，便于读者回看中心持续展开的研究脉络。
             </p>
           </aside>
         </div>
@@ -74,9 +74,9 @@
         <div class="section-heading">
           <div>
             <span class="page-kicker">Filter Archive</span>
-            <h2>按类型与年份浏览</h2>
+            <h2>按类型与年份筛选</h2>
           </div>
-          <p>可按活动类型与年份快速筛选浏览；每张卡片对应一场讲座、一组系列研讨或一次读书会，进入后即可查看相应纪要与资料。</p>
+          <p>选择类型或年份后，活动卡片会即时刷新；点击“进入详情页”查看完整内容。</p>
         </div>
 
         <div class="archive-controls">
@@ -99,6 +99,7 @@
             </div>
           </div>
         </div>
+        <p class="archive-filter-summary" data-filter-summary aria-live="polite">当前显示全部活动</p>
 
         <div class="archive-grid" data-archive-grid>
           <article class="archive-card" data-type="lecture" data-year="2024">
@@ -136,7 +137,7 @@
             <div class="archive-body">
               <div class="archive-meta">
                 <span class="archive-type">Seminar</span>
-                <span class="archive-date">2024.07.19</span>
+                <span class="archive-date">2024.07.15-07.25</span>
               </div>
               <h3 class="archive-title">“贝克莱的世界”研讨会：对三次对话的审查</h3>
               <p class="archive-copy">围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱“三次对话”文本的审查与讨论。</p>
@@ -151,7 +152,7 @@
             <div class="archive-body">
               <div class="archive-meta">
                 <span class="archive-type">Seminar</span>
-                <span class="archive-date">2024.07.23–26</span>
+                <span class="archive-date">2024.07.23-07.26</span>
               </div>
               <h3 class="archive-title">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h3>
               <p class="archive-copy">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
@@ -166,7 +167,7 @@
             <div class="archive-body">
               <div class="archive-meta">
                 <span class="archive-type">Seminar</span>
-                <span class="archive-date">2025.07.23–29</span>
+                <span class="archive-date">2025.07.23-07.29</span>
               </div>
               <h3 class="archive-title">《笛卡尔与伯曼对话录》读书会</h3>
               <p class="archive-copy">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
@@ -181,7 +182,7 @@
             <div class="archive-body">
               <div class="archive-meta">
                 <span class="archive-type">Seminar</span>
-                <span class="archive-date">2025.08.02–08</span>
+                <span class="archive-date">2025.08.02-08.08</span>
               </div>
               <h3 class="archive-title">“波义耳：怀疑的化学家”暑期研讨会</h3>
               <p class="archive-copy">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
@@ -221,6 +222,7 @@
             </div>
           </article>
         </div>
+        <p class="archive-empty" data-archive-empty hidden>当前筛选条件下暂无活动。</p>
       </section>
     </main>
 
@@ -228,26 +230,58 @@
       const archiveState = { type: "all", year: "all" };
       const filterGroups = document.querySelectorAll("[data-filter-group]");
       const archiveCards = document.querySelectorAll("[data-archive-grid] .archive-card");
+      const filterSummary = document.querySelector("[data-filter-summary]");
+      const emptyState = document.querySelector("[data-archive-empty]");
+
+      const typeLabels = {
+        all: "全部类型",
+        lecture: "Lecture",
+        seminar: "Seminar",
+      };
 
       const renderArchive = () => {
+        let visibleCount = 0;
+
         archiveCards.forEach((card) => {
           const typeOk = archiveState.type === "all" || card.dataset.type === archiveState.type;
           const yearOk = archiveState.year === "all" || card.dataset.year === archiveState.year;
-          card.hidden = !(typeOk && yearOk);
+          const isVisible = typeOk && yearOk;
+          card.hidden = !isVisible;
+          if (isVisible) visibleCount += 1;
         });
+
+        if (filterSummary) {
+          const typeText = typeLabels[archiveState.type] || archiveState.type;
+          const yearText = archiveState.year === "all" ? "全部年份" : archiveState.year;
+          filterSummary.textContent = `${typeText} / ${yearText}：${visibleCount} 项活动`;
+        }
+
+        if (emptyState) {
+          emptyState.hidden = visibleCount !== 0;
+        }
       };
 
       filterGroups.forEach((group) => {
+        group.querySelectorAll("button").forEach((button) => {
+          button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
+        });
+
         group.addEventListener("click", (event) => {
           const button = event.target.closest("button[data-filter]");
           if (!button) return;
 
-          group.querySelectorAll("button").forEach((item) => item.classList.remove("is-active"));
+          group.querySelectorAll("button").forEach((item) => {
+            item.classList.remove("is-active");
+            item.setAttribute("aria-pressed", "false");
+          });
           button.classList.add("is-active");
+          button.setAttribute("aria-pressed", "true");
           archiveState[group.dataset.filterGroup] = button.dataset.filter;
           renderArchive();
         });
       });
+
+      renderArchive();
     </script>
   </body>
 </html>
