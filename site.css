@@ -1134,3 +1134,191 @@ textarea {
     align-items: start;
   }
 }
+
+/* ============================================================
+   UNIFIED SITE HEADER  (全站统一头部 — 单一来源)
+   米色顶栏 + 深蓝 masthead + 汉堡菜单 + 移动抽屉
+   ============================================================ */
+.masthead {
+  background: var(--navy-deep);
+  color: rgba(246, 241, 231, 0.62);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  height: 34px;
+  padding: 0 32px;
+  overflow: hidden;
+}
+.masthead span { white-space: nowrap; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  height: 66px;
+  padding: 0 32px;
+  background: rgba(246, 241, 231, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand img { height: 42px; width: auto; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.brand-text strong {
+  font-family: var(--zh-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+.brand-text span {
+  font-family: var(--serif);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.62;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: flex-end;
+}
+.nav-links a {
+  color: var(--navy);
+  font-family: var(--zh-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 7px 11px;
+  border-radius: 999px;
+  opacity: 0.82;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+.nav-links a:hover { opacity: 1; background: rgba(28, 45, 74, 0.08); }
+.nav-links a.is-current {
+  opacity: 1;
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.lang-toggle button {
+  background: none;
+  border: 0;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 5px 11px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+.lang-toggle button.active { background: var(--navy); color: var(--cream); opacity: 1; }
+
+/* —— 汉堡按钮 —— */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 10px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* —— 移动抽屉 —— */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  background: rgba(12, 18, 30, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+body.nav-open .mobile-nav-backdrop { opacity: 1; visibility: visible; }
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  width: min(82vw, 320px);
+  height: 100%;
+  padding: 84px 24px 32px;
+  background: var(--cream);
+  border-left: 1px solid var(--border);
+  box-shadow: -18px 0 50px rgba(15, 22, 34, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+body.nav-open .mobile-nav { transform: translateX(0); }
+.mobile-nav a {
+  font-family: var(--zh-serif);
+  font-size: 17px;
+  color: var(--navy);
+  padding: 14px 14px;
+  border-radius: 10px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s ease;
+}
+.mobile-nav a:last-child { border-bottom: 0; }
+.mobile-nav a:hover,
+.mobile-nav a.is-current { background: rgba(28, 45, 74, 0.07); }
+
+@media (max-width: 1024px) {
+  .masthead { display: none; }
+  .site-header { padding: 0 18px; height: 60px; }
+  .nav-links,
+  .header-right { display: none; }
+  .nav-toggle { display: flex; }
+}
+@media (min-width: 1025px) {
+  .mobile-nav,
+  .mobile-nav-backdrop { display: none; }
+}

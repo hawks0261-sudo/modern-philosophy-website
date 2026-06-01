@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-root="../../">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,27 +13,31 @@
     <link rel="stylesheet" href="../../site.css" />
   </head>
   <body>
-    <div class="subpage-masthead">
-      <span>Seminar Detail</span>
-      <span>Activities / 2024</span>
-      <span>Center of Modern Thought</span>
+    <div class="masthead">
+      <span>Yangzhou University</span>
+      <span>Modern Thought · Intellectual History · Global Dialogue</span>
+      <span>Academic Events · Publications · Notices</span>
     </div>
-    <header class="subpage-header">
-      <a class="subpage-brand" href="../../index.html">
-        <img src="../../logo.png" alt="现代思想研究中心标识" />
-        <span class="subpage-brand-copy">
+
+    <header class="site-header">
+      <a class="brand" href="../../index.html">
+        <img src="../../logo.png" alt="现代思想研究中心标识">
+        <div class="brand-text">
           <strong>现代思想研究中心</strong>
           <span>Center of Modern Thought</span>
-        </span>
+        </div>
       </a>
-      <nav class="subpage-nav">
-        <a href="../../index.html">首页</a>
-        <a class="is-current" href="../index.html">学术活动</a>
-        <a href="../../publications/translation-series/index.html">译丛</a>
-        <a href="../../publications/journal/index.html">期刊</a>
-        <a href="../../people/index.html">中心成员</a>
-      </nav>
+      <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
+      <div class="header-right">
+        <div class="lang-toggle">
+          <button class="active" onclick="setLang('zh')">中文</button>
+          <button onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
     </header>
+    <div class="mobile-nav-backdrop"></div>
+    <nav class="mobile-nav" data-mobile-nav aria-label="移动导航"></nav>
 
     <section class="page-hero">
       <div class="page-hero-inner">
@@ -148,5 +152,6 @@
         </aside>
       </div>
     </main>
+      <script src="../../site.js"></script>
   </body>
 </html>

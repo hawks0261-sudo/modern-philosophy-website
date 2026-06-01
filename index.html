@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html><html lang="zh-CN" data-root="" data-current="home"><head>
 
 
 <meta charset="UTF-8">
@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 
 <style>
 /* ── TOKENS ── */
@@ -133,111 +134,10 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
-/* ── MASTHEAD ── */
-.masthead {
-  background: var(--masthead-bg);
-  color: var(--masthead-fg);
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  padding: 0 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 32px;
-  gap: 16px;
-  overflow: hidden;
-}
-.masthead span { white-space: nowrap; }
+/* 头部样式已统一迁移到 site.css */
 
-/* ── NAV ── */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--nav-bg);
-  color: var(--nav-fg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  height: 64px;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
-  transition: background 0.4s;
-}
-[data-theme="dark"] .site-header { border-color: rgba(255,255,255,0.08); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-}
-.brand img {
-  height: 40px;
-  width: auto;
-  filter: none;
-}
-[data-theme="dark"] .brand img { filter: brightness(0) invert(1); }
-.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
-.brand-text strong {
-  font-family: var(--zh-serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--nav-fg);
-  letter-spacing: 0.02em;
-}
-.brand-text span {
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  opacity: 0.65;
-  color: var(--nav-fg);
-  text-transform: uppercase;
-  font-family: var(--serif);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.nav-links a {
-  color: var(--nav-fg);
-  font-size: 13px;
-  font-family: var(--zh-serif);
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 2px;
-  opacity: 0.8;
-  transition: opacity 0.2s, background 0.2s;
-  letter-spacing: 0.03em;
-}
-.nav-links a:hover { opacity: 1; background: rgba(28,45,74,0.07); }
-[data-theme="dark"] .nav-links a:hover { background: rgba(255,255,255,0.08); }
-
-.header-right { display: flex; align-items: center; gap: 12px; }
-.lang-toggle {
-  display: flex;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-}
-[data-theme="dark"] .lang-toggle { border-color: rgba(255,255,255,0.25); }
-.lang-toggle button {
-  background: none;
-  border: none;
-  color: var(--nav-fg);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  cursor: pointer;
-  opacity: 0.7;
-  font-family: var(--sans);
-  transition: background 0.2s, opacity 0.2s;
-}
-.lang-toggle button.active { background: var(--accent); color: #fff; opacity: 1; }
-[data-theme="dark"] .lang-toggle button.active { background: rgba(255,255,255,0.2); color: var(--cream); }
+/* 学术活动板块统一使用宋体 */
+#activities, #activities :is(h1,h2,h3,h4,h5,h6,p,span,a) { font-family: var(--zh-serif); }
 
 /* ── HERO ── */
 .hero {
@@ -1093,6 +993,22 @@ ul { list-style: none; }
 .descartes-project .card-cta {
   margin-top: 22px;
 }
+.descartes-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 4px;
+}
+.descartes-tags span {
+  font-family: var(--zh-serif);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  background: rgba(28, 45, 74, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
 
 /* ── PEOPLE PREVIEW ── */
 .people-preview-grid {
@@ -1563,103 +1479,94 @@ body.review-mode-active .review-tool * {
 </style>
 </head>
 
-<body data-cc-id="cc-1">
+<body>
 
-<!-- ── MASTHEAD ── -->
-<div class="masthead" data-cc-id="cc-3">
-  <span data-cc-id="cc-15">Yangzhou University</span>
-  <span data-cc-id="cc-4">Modern Thought · Intellectual History · Global Dialogue</span>
-  <span data-cc-id="cc-25">Academic Events · Publications · Notices</span>
+<!-- ── HEADER (统一头部) ── -->
+<div class="masthead">
+  <span>Yangzhou University</span>
+  <span>Modern Thought · Intellectual History · Global Dialogue</span>
+  <span>Academic Events · Publications · Notices</span>
 </div>
 
-<!-- ── HEADER ── -->
-<header class="site-header" style="height: 64px;" data-cc-id="cc-5">
-  <a class="brand" href="#top" data-cc-id="cc-9">
-    <img src="logo.png" alt="现代思想研究中心标识" data-cc-id="cc-11" >
+<header class="site-header">
+  <a class="brand" href="#top">
+    <img src="logo.png" alt="现代思想研究中心标识">
     <div class="brand-text">
-      <strong data-cc-id="cc-16">现代思想研究中心</strong>
-      <span style="" data-cc-id="cc-10">Center of Modern Thought</span>
+      <strong>现代思想研究中心</strong>
+      <span>Center of Modern Thought</span>
     </div>
   </a>
-
-  <nav class="nav-links" data-cc-id="cc-22">
-    <a href="#top" data-nav="home" data-cc-id="cc-20">首页</a>
-    <a href="#about" data-nav="about" data-cc-id="cc-7">中心简介</a>
-    <a href="people/index.html" data-nav="people" data-cc-id="cc-6">中心成员</a>
-    <a href="#research" data-nav="research" data-cc-id="cc-23">研究方向</a>
-    <a href="#activities" data-nav="activities" data-cc-id="cc-24">学术活动</a>
-    <a href="#outcomes" data-nav="outcomes" data-cc-id="cc-59">研究成果</a>
-    <a href="#news" data-nav="news" data-cc-id="cc-36">中心动态</a>
-    <a href="#contact" data-nav="contact">联系我们</a>
-  </nav>
-
+  <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
   <div class="header-right">
-    <div class="lang-toggle" data-cc-id="cc-19">
-      <button class="" onclick="setLang('zh')">中文</button>
-      <button onclick="setLang('en')" data-cc-id="cc-2">EN</button>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">EN</button>
     </div>
   </div>
+  <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
+<div class="mobile-nav-backdrop"></div>
+<nav class="mobile-nav" data-mobile-nav aria-label="移动导航"></nav>
 
 <!-- ── HERO ── -->
 <section class="hero reveal visible" id="top">
   <div class="hero-deco">M</div>
 
-  <div class="hero-inner" data-cc-id="cc-8">
-    <div class="hero-copy" data-cc-id="cc-13">
-      <p class="hero-eyebrow" data-cc-id="cc-14">Center of Modern Thought · International Academic Institute</p>
-      <h1 class="hero-title" data-cc-id="cc-12">以史照今，<br>以今返史</h1>
-      <p class="hero-subtitle" data-cc-id="cc-17">探索现代性的起源与未来</p>
-      <p class="hero-desc" data-cc-id="cc-18">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Center of Modern Thought · International Academic Institute</p>
+      <h1 class="hero-title">以史照今，<br>以今返史</h1>
+      <p class="hero-subtitle">探索现代性的起源与未来</p>
+      <p class="hero-desc">
         现代思想研究中心致力于建设一个兼具历史深度、国际视野与公共关怀的学术平台。我们从现代思想传统出发，连接哲学、文化、技术与社会现实，推动高水平研究、跨学科合作与持续开放的学术交流。
       </p>
-      <div class="hero-tags" data-cc-id="cc-44">
-        <span class="hero-tag" data-cc-id="cc-21">International Lectures</span>
-        <span class="hero-tag" data-cc-id="cc-26">Research Programs</span>
-        <span class="hero-tag" data-cc-id="cc-54">Visiting Scholars</span>
+      <div class="hero-tags">
+        <span class="hero-tag">International Lectures</span>
+        <span class="hero-tag">Research Programs</span>
+        <span class="hero-tag">Visiting Scholars</span>
         <span class="hero-tag">Public Forums</span>
       </div>
-      <div class="hero-actions" data-cc-id="cc-28">
-        <a class="btn btn-primary" href="#activities" data-cc-id="cc-29">查看学术活动</a>
-        <a class="btn btn-outline" href="#about" data-cc-id="cc-27">了解中心</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#activities">查看学术活动</a>
+        <a class="btn btn-outline" href="#about">了解中心</a>
       </div>
     </div>
 
-    <div class="hero-side" data-cc-id="cc-40">
-      <div class="hero-card" data-cc-id="cc-37">
-        <p class="kicker" data-cc-id="cc-38">Featured Academic Activity</p>
-        <h2 data-cc-id="cc-39" >国际会议筹备计划</h2>
-        <p data-cc-id="cc-41">
+    <div class="hero-side">
+      <div class="hero-card">
+        <p class="kicker">Featured Academic Activity</p>
+        <h2 >国际会议筹备计划</h2>
+        <p>
           中心正推进国际会议筹备工作
           <br/><br/>
           <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年波义耳诞辰 400 周年会议</span>
           <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2028 年贝克莱国际会议</span>
         </p>
       </div>
-      <div class="metrics-grid" data-cc-id="cc-47">
-        <div class="metric" data-cc-id="cc-42">
-          <strong data-cc-id="cc-35">7</strong>
-          <span data-cc-id="cc-34">学术活动</span>
+      <div class="metrics-grid">
+        <div class="metric">
+          <strong>8</strong>
+          <span>学术活动</span>
         </div>
-        <div class="metric" data-cc-id="cc-43">
-          <strong data-cc-id="cc-51">13</strong>
+        <div class="metric">
+          <strong>13</strong>
           <span>国际顾问</span>
         </div>
-        <div class="metric" data-cc-id="cc-45">
-          <strong data-cc-id="cc-46">20+</strong>
-          <span data-cc-id="cc-50">出版物作品</span>
+        <div class="metric">
+          <strong>29+</strong>
+          <span>出版物作品</span>
         </div>
-        <div class="metric" data-cc-id="cc-53">
-          <strong data-cc-id="cc-52">7</strong>
+        <div class="metric">
+          <strong>7</strong>
           <span>合作国家</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-ticker" data-cc-id="cc-58">
-    <span data-cc-id="cc-33">Global Academic Platform</span>
-    <span data-cc-id="cc-55">Modern Thought · Intellectual History · Public Humanities</span>
+  <div class="hero-ticker">
+    <span>Global Academic Platform</span>
+    <span>Modern Thought · Intellectual History · Public Humanities</span>
     <span>Lectures · Forums · Archives · Collaborations</span>
     <span>Boyle 2027 · Berkeley 2028</span>
     <span>Global Academic Platform</span>
@@ -1668,14 +1575,14 @@ body.review-mode-active .review-tool * {
 </section>
 
 <!-- ── ABOUT ── -->
-<div class="section-alt" id="about" data-cc-id="cc-32">
+<div class="section-alt" id="about">
 <div class="section reveal visible">
-  <div class="section-head" data-cc-id="cc-56">
-    <div data-cc-id="cc-30">
-      <span class="eyebrow" data-cc-id="cc-31">About the Center</span>
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">About the Center</span>
       <h2 class="section-title" data-section-title="about_title">中心简介</h2>
     </div>
-    <p class="section-desc" data-cc-id="cc-57">
+    <p class="section-desc">
       现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，是一个聚焦思想史与现实问题的综合性研究平台。
     </p>
   </div>
@@ -1738,7 +1645,7 @@ body.review-mode-active .review-tool * {
 <!-- ── ADVISERS ── -->
 <div class="section" id="advisers" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
 <div class="reveal visible">
-  <div class="section-head" data-cc-id="cc-60">
+  <div class="section-head">
     <div>
       <span class="eyebrow">International Advisory Board</span>
       <h2 class="section-title" data-section-title="advisers_title">国际顾问</h2>
@@ -1746,8 +1653,8 @@ body.review-mode-active .review-tool * {
     <p class="section-desc">中心将依托国际顾问网络推进专题研究、学术出版与国际会议筹备，逐步形成稳定的跨国合作机制与学术对话平台。</p>
   </div>
 
-  <div class="advisers-layout" data-cc-id="cc-67">
-    <div class="advisers-intro" data-cc-id="cc-68">
+  <div class="advisers-layout">
+    <div class="advisers-intro">
       <span class="eyebrow">Academic Advisers</span>
       <h3>国际学术合作网络</h3>
       <p>顾问成员来自英国、法国、澳大利亚、爱尔兰、美国、意大利与日本等国家，覆盖近代哲学、思想史、科学史与伦理学等方向。</p>
@@ -1757,14 +1664,14 @@ body.review-mode-active .review-tool * {
       </div>
     </div>
 
-    <div class="adviser-grid" data-cc-id="cc-77">
-      <div class="adviser-card" data-cc-id="cc-71">
+    <div class="adviser-grid">
+      <div class="adviser-card">
         <h3>汤姆·斯通汉姆</h3>
-        <span class="en-name" data-cc-id="cc-62">Tom Stoneham</span>
+        <span class="en-name">Tom Stoneham</span>
         <span class="country-tag">英国</span>
-        <p data-cc-id="cc-63" style="">约克大学哲学系教授，AI自治研究所伦理主管，国际贝克莱协会主席</p>
+        <p>约克大学哲学系教授，AI自治研究所伦理主管，国际贝克莱协会主席</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-61">
+      <div class="adviser-card">
         <h3>德尼·康布什内</h3>
         <span class="en-name">Denis Kambouchner</span>
         <span class="country-tag">法国</span>
@@ -1774,63 +1681,63 @@ body.review-mode-active .review-tool * {
         <h3>彼得·安斯蒂</h3>
         <span class="en-name">Peter Anstey</span>
         <span class="country-tag">澳大利亚</span>
-        <p data-cc-id="cc-97" style="">澳大利亚天主教大学教育与艺术系教授，西方文明项目主任</p>
+        <p>澳大利亚天主教大学教育与艺术系教授，西方文明项目主任</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-64">
-        <h3 data-cc-id="cc-65">皮埃尔·葛南西亚</h3>
-        <span class="en-name" data-cc-id="cc-66">Pierre Guenancia</span>
+      <div class="adviser-card">
+        <h3>皮埃尔·葛南西亚</h3>
+        <span class="en-name">Pierre Guenancia</span>
         <span class="country-tag">法国</span>
-        <p data-cc-id="cc-95" style="">巴黎天主教大学哲学教授，勃艮第大学荣休教授</p>
+        <p>巴黎天主教大学哲学教授，勃艮第大学荣休教授</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-72">
+      <div class="adviser-card">
         <h3>夏尔·拉蒙</h3>
         <span class="en-name">Charles Ramond</span>
         <span class="country-tag">法国</span>
-        <p data-cc-id="cc-94" style="">巴黎第八大学哲学系教授，科学哲学与文化认识论系主任</p>
+        <p>巴黎第八大学哲学系教授，科学哲学与文化认识论系主任</p>
       </div>
       <div class="adviser-card">
         <h3>伊夫—夏尔·扎尔卡</h3>
         <span class="en-name">Yves-Charles Zarka</span>
         <span class="country-tag">法国</span>
-        <p data-cc-id="cc-96" style="">巴黎索邦大学哲学教授，法国国家科学研究中心研究主任</p>
+        <p>巴黎索邦大学哲学教授，法国国家科学研究中心研究主任</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-73">
-        <h3 data-cc-id="cc-74">米歇尔·亨特</h3>
-        <span class="en-name" data-cc-id="cc-75">Michael Hunter</span>
+      <div class="adviser-card">
+        <h3>米歇尔·亨特</h3>
+        <span class="en-name">Michael Hunter</span>
         <span class="country-tag">英国</span>
         <p>伦敦大学伯贝克学院历史系荣誉教授，英国科学院院士</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-83">
+      <div class="adviser-card">
         <h3>约翰·科廷厄姆</h3>
         <span class="en-name">John Cottingham</span>
         <span class="country-tag">英国</span>
-        <p data-cc-id="cc-84" style="">雷丁大学哲学系荣誉教授，牛津大学荣誉研究员，英国哲学史协会主席</p>
+        <p>雷丁大学哲学系荣誉教授，牛津大学荣誉研究员，英国哲学史协会主席</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-85">
-        <h3 data-cc-id="cc-87">大卫·伯曼</h3>
-        <span class="en-name" data-cc-id="cc-86">David Berman</span>
+      <div class="adviser-card">
+        <h3>大卫·伯曼</h3>
+        <span class="en-name">David Berman</span>
         <span class="country-tag">爱尔兰</span>
-        <p data-cc-id="cc-88">都柏林三一学院哲学系荣誉教授，英国科学院爱尔兰分院院士</p>
+        <p>都柏林三一学院哲学系荣誉教授，英国科学院爱尔兰分院院士</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-78">
+      <div class="adviser-card">
         <h3>丹尼尔·加伯</h3>
-        <span class="en-name" data-cc-id="cc-80">Daniel Garber</span>
+        <span class="en-name">Daniel Garber</span>
         <span class="country-tag">美国</span>
-        <p data-cc-id="cc-79">普林斯顿大学哲学系教授，美国艺术与科学院院士，美国哲学学会主席</p>
+        <p>普林斯顿大学哲学系教授，美国艺术与科学院院士，美国哲学学会主席</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-82">
-        <h3 data-cc-id="cc-81">帕特里克·康诺利</h3>
+      <div class="adviser-card">
+        <h3>帕特里克·康诺利</h3>
         <span class="en-name">Patrick Connolly</span>
         <span class="country-tag">美国</span>
         <p>约翰霍普金斯大学哲学系副教授，国际贝克莱协会协调员</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-89">
-        <h3 data-cc-id="cc-93">茱莉亚·贝尔乔伊索</h3>
+      <div class="adviser-card">
+        <h3>茱莉亚·贝尔乔伊索</h3>
         <span class="en-name">Giulia Belgioioso</span>
         <span class="country-tag">意大利</span>
         <p>萨兰托大学哲学史荣休教授，笛卡尔研究中心主任</p>
       </div>
-      <div class="adviser-card" data-cc-id="cc-76">
+      <div class="adviser-card">
         <h3>上野 修</h3>
         <span class="en-name">Osamu Ueno</span>
         <span class="country-tag">日本</span>
@@ -1856,153 +1763,153 @@ body.review-mode-active .review-tool * {
     <div class="research-card">
       <span class="card-num">01</span>
       <h3>欧洲早期现代思想</h3>
-      <p data-cc-id="cc-98" style="">围绕笛卡尔、莱布尼茨、贝克莱等现代哲学家及其相关文本传统，研究理性、主体、自然、经验与方法等核心概念的形成与演变。</p>
+      <p>围绕笛卡尔、莱布尼茨、贝克莱等现代哲学家及其相关文本传统，研究理性、主体、自然、经验与方法等核心概念的形成与演变。</p>
     </div>
     <div class="research-card">
       <span class="card-num">02</span>
       <h3>现代性与当代问题</h3>
-      <p data-cc-id="cc-99" style="">从现代思想史视角回应当前科技革命、人工智能、全球化、生态危机与价值冲突等现实议题，推动现代议题进入当代讨论。</p>
+      <p>从现代思想史视角回应当前科技革命、人工智能、全球化、生态危机与价值冲突等现实议题，推动现代议题进入当代讨论。</p>
     </div>
     <div class="research-card">
       <span class="card-num">03</span>
       <h3>中西思想对话</h3>
-      <p data-cc-id="cc-100" style="">从概念史、问题史与比较研究角度，推动中国学术研究与西方现代思想之间的对话、翻译与理论重述，形成具有主体意识的比较研究路径。</p>
+      <p>从概念史、问题史与比较研究角度，推动中国学术研究与西方现代思想之间的对话、翻译与理论重述，形成具有主体意识的比较研究路径。</p>
     </div>
     <div class="research-card">
       <span class="card-num">04</span>
       <h3>思想史与公共传播</h3>
-      <p data-cc-id="cc-101" style="">通过译著出版、公共讲座、媒体合作与数字平台建设，推动思想史研究成果进入教育、社会与公共文化空间。</p>
+      <p>通过译著出版、公共讲座、媒体合作与数字平台建设，推动思想史研究成果进入教育、社会与公共文化空间。</p>
     </div>
   </div>
 </div>
 </div>
 
 <!-- ── ACTIVITIES ── -->
-<div class="section reveal visible" id="activities" style="max-width: var(--max); margin: 0px auto; padding: 96px 40px; font-family: &quot;Noto Serif SC&quot;;" data-cc-id="cc-112">
-  <div class="section-head" style="font-family: &quot;Noto Serif SC&quot;;">
-    <div style="font-family: &quot;Noto Serif SC&quot;;">
-      <span class="eyebrow" style="font-family: &quot;Noto Serif SC&quot;;">Academic Activities</span>
-      <h2 class="section-title" data-section-title="activities_title" style="font-family: &quot;Noto Serif SC&quot;;">学术活动</h2>
+<div class="section reveal visible" id="activities" style="max-width: var(--max); margin: 0px auto; padding: 96px 40px;">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Academic Activities</span>
+      <h2 class="section-title" data-section-title="activities_title">学术活动</h2>
     </div>
-    <p class="section-desc" style="font-family: &quot;Noto Serif SC&quot;;">收录中心既往讲座与研讨会，点击活动海报可查看简介弹层，点击下方“查看活动总结”进入对应详情页。</p>
+    <p class="section-desc">收录中心既往讲座与研讨会，点击活动海报可查看简介弹层，点击下方“查看活动总结”进入对应详情页。</p>
   </div>
 
-  <div class="activity-group" style="font-family: &quot;Noto Serif SC&quot;;">
-    <div class="activity-group-head" style="font-family: &quot;Noto Serif SC&quot;;">
-      <span class="kicker" style="font-family: &quot;Noto Serif SC&quot;;">Lecture Archive</span>
-      <h3 style="font-family: &quot;Noto Serif SC&quot;;">讲座</h3>
+  <div class="activity-group">
+    <div class="activity-group-head">
+      <span class="kicker">Lecture Archive</span>
+      <h3>讲座</h3>
     </div>
-    <div class="activity-grid" data-cc-id="cc-106" style="font-family: &quot;Noto Serif SC&quot;;">
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/lecture-01.jpg" class="activity-poster is-previewable" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报" data-cc-id="cc-103">
-        <div class="activity-body" data-cc-id="cc-104" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" data-cc-id="cc-105" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.13</span>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <img src="posters/lecture-01.jpg" class="activity-poster is-previewable" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-lecture">Lecture</span>
+            <span class="date-label">2024.07.13</span>
           </div>
-          <h4 data-cc-id="cc-114" style="font-family: &quot;Noto Serif SC&quot;;">柏格森哲学及其对法国哲学和中国哲学的影响</h4>
-          <p class="speaker" data-cc-id="cc-113" style="font-family: &quot;Noto Serif SC&quot;;">邓刚 · 上海交通大学哲学系副教授</p>
-          <p data-cc-id="cc-111" style="font-family: &quot;Noto Serif SC&quot;;">围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
+          <h4>柏格森哲学及其对法国哲学和中国哲学的影响</h4>
+          <p class="speaker">邓刚 · 上海交通大学哲学系副教授</p>
+          <p>围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
           <a class="card-cta-link" href="activities/lecture-01/index.html">查看活动总结</a>
         </div>
       </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/lecture-02.jpg" class="activity-poster is-previewable" alt="布伦塔诺哲学的多重面向海报" data-cc-id="cc-102">
-        <div class="activity-body" data-cc-id="cc-109" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-lecture" style="font-family: &quot;Noto Serif SC&quot;;">Lecture</span>
-            <span class="date-label" data-cc-id="cc-107" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.21</span>
+      <div class="activity-card">
+        <img src="posters/lecture-02.jpg" class="activity-poster is-previewable" alt="布伦塔诺哲学的多重面向海报">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-lecture">Lecture</span>
+            <span class="date-label">2024.07.21</span>
           </div>
-          <h4 data-cc-id="cc-108" style="font-family: &quot;Noto Serif SC&quot;;">布伦塔诺哲学的多重面向</h4>
-          <p class="speaker" data-cc-id="cc-110" style="font-family: &quot;Noto Serif SC&quot;;">李岱巍 · 西北师范大学哲学系</p>
-          <p data-cc-id="cc-115" style="font-family: &quot;Noto Serif SC&quot;;">聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
+          <h4>布伦塔诺哲学的多重面向</h4>
+          <p class="speaker">李岱巍 · 西北师范大学哲学系</p>
+          <p>聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
           <a class="card-cta-link" href="activities/lecture-02/index.html">查看活动总结</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="activity-group" style="font-family: &quot;Noto Serif SC&quot;;">
-    <div class="activity-group-head" style="font-family: &quot;Noto Serif SC&quot;;">
-      <span class="kicker" style="font-family: &quot;Noto Serif SC&quot;;">Seminar Archive</span>
-      <h3 style="font-family: &quot;Noto Serif SC&quot;;">研讨会 / Seminar</h3>
+  <div class="activity-group">
+    <div class="activity-group-head">
+      <span class="kicker">Seminar Archive</span>
+      <h3>研讨会 / Seminar</h3>
     </div>
-    <div class="activity-grid" data-cc-id="cc-119" style="font-family: &quot;Noto Serif SC&quot;;">
-      <div class="activity-card" data-cc-id="cc-122" style="font-family: &quot;Noto Serif SC&quot;;">
+    <div class="activity-grid">
+      <div class="activity-card">
         <img src="posters/seminar-01.jpg" class="activity-poster is-previewable" alt="贝克莱的世界研讨会海报">
-        <div class="activity-body" data-cc-id="cc-123" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" data-cc-id="cc-129" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.15-07.25</span>
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2024.07.15-07.25</span>
           </div>
-          <h4 data-cc-id="cc-130" style="font-family: &quot;Noto Serif SC&quot;;">"贝克莱的世界"研讨会：对三次对话的审查</h4>
-          <p class="speaker" data-cc-id="cc-125" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
-          <p data-cc-id="cc-124" style="font-family: &quot;Noto Serif SC&quot;;">围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
+          <h4>"贝克莱的世界"研讨会：对三次对话的审查</h4>
+          <p class="speaker">滕光伟 · 英国约克大学哲学系博士生</p>
+          <p>围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
           <a class="card-cta-link" href="activities/seminar-01/index.html">查看活动总结</a>
         </div>
       </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-02.jpg" class="activity-poster is-previewable" alt="从文艺复兴到理性时代研讨会海报" data-cc-id="cc-127">
-        <div class="activity-body" data-cc-id="cc-118" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2024.07.23-07.26</span>
+      <div class="activity-card">
+        <img src="posters/seminar-02.jpg" class="activity-poster is-previewable" alt="从文艺复兴到理性时代研讨会海报">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2024.07.23-07.26</span>
           </div>
-          <h4 data-cc-id="cc-126" style="font-family: &quot;Noto Serif SC&quot;;">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h4>
-          <p class="speaker" data-cc-id="cc-116" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系副教授</p>
-          <p data-cc-id="cc-117" style="font-family: &quot;Noto Serif SC&quot;;">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
+          <h4>从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h4>
+          <p class="speaker">左天梦 · 西南交通大学法语系副教授</p>
+          <p>围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
           <a class="card-cta-link" href="activities/seminar-02/index.html">查看活动总结</a>
         </div>
       </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="activity-poster.jpg" class="activity-poster is-previewable" alt="波义耳：怀疑的化学家" data-cc-id="cc-128">
-        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.08.02-08.08</span>
+      <div class="activity-card">
+        <img src="posters/seminar-03.jpg" class="activity-poster is-previewable" alt="笛卡尔与伯曼对话录读书会海报">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2025.07.23-07.29</span>
           </div>
-          <h4 style="font-family: &quot;Noto Serif SC&quot;;">"波义耳：怀疑的化学家"暑期研讨会</h4>
-          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">滕光伟 · 英国约克大学哲学系博士生</p>
-          <p style="font-family: &quot;Noto Serif SC&quot;;">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
-          <a class="card-cta-link" href="activities/seminar-04/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-03.jpg" class="activity-poster is-previewable" alt="笛卡尔与伯曼对话录读书会海报" data-cc-id="cc-121">
-        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.07.23-07.29</span>
-          </div>
-          <h4 style="font-family: &quot;Noto Serif SC&quot;;">《笛卡尔与伯曼对话录》读书会</h4>
-          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系副教授</p>
-          <p style="font-family: &quot;Noto Serif SC&quot;;">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
+          <h4>《笛卡尔与伯曼对话录》读书会</h4>
+          <p class="speaker">左天梦 · 西南交通大学法语系副教授</p>
+          <p>通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
           <a class="card-cta-link" href="activities/seminar-03/index.html">查看活动总结</a>
         </div>
       </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
-        <img src="posters/seminar-05.jpg" class="activity-poster is-previewable" alt="实证主义概论研讨会海报" data-cc-id="cc-120">
-        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2025.09.24</span>
+      <div class="activity-card">
+        <img src="activity-poster.jpg" class="activity-poster is-previewable" alt="波义耳：怀疑的化学家">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2025.08.02-08.08</span>
           </div>
-          <h4 style="font-family: &quot;Noto Serif SC&quot;;">实证主义概论研讨会</h4>
-          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">申慧霞 · 法国里昂高等师范学院哲学系博士生</p>
-          <p style="font-family: &quot;Noto Serif SC&quot;;">以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
+          <h4>"波义耳：怀疑的化学家"暑期研讨会</h4>
+          <p class="speaker">滕光伟 · 英国约克大学哲学系博士生</p>
+          <p>以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
+          <a class="card-cta-link" href="activities/seminar-04/index.html">查看活动总结</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="posters/seminar-05.jpg" class="activity-poster is-previewable" alt="实证主义概论研讨会海报">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2025.09.24</span>
+          </div>
+          <h4>实证主义概论研讨会</h4>
+          <p class="speaker">申慧霞 · 法国里昂高等师范学院哲学系博士生</p>
+          <p>以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
           <a class="card-cta-link" href="activities/seminar-05/index.html">查看活动总结</a>
         </div>
       </div>
-      <div class="activity-card" style="font-family: &quot;Noto Serif SC&quot;;">
+      <div class="activity-card">
         <img src="posters/seminar-06.jpg" class="activity-poster is-previewable" alt="莱昂·布朗什维克与近代哲学研究研讨会海报">
-        <div class="activity-body" style="font-family: &quot;Noto Serif SC&quot;;">
-          <div class="activity-meta" style="font-family: &quot;Noto Serif SC&quot;;">
-            <span class="tag tag-seminar" style="font-family: &quot;Noto Serif SC&quot;;">Seminar</span>
-            <span class="date-label" style="font-family: &quot;Noto Serif SC&quot;;">2026.05.17</span>
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2026.05.17</span>
           </div>
-          <h4 style="font-family: &quot;Noto Serif SC&quot;;">莱昂·布朗什维克与近代哲学研究</h4>
-          <p class="speaker" style="font-family: &quot;Noto Serif SC&quot;;">左天梦 · 西南交通大学法语系副教授</p>
-          <p style="font-family: &quot;Noto Serif SC&quot;;">围绕布朗什维克、法国理性主义与近代哲学史方法展开报告、评论与讨论。</p>
+          <h4>莱昂·布朗什维克与近代哲学研究</h4>
+          <p class="speaker">左天梦 · 西南交通大学法语系副教授</p>
+          <p>围绕布朗什维克、法国理性主义与近代哲学史方法展开报告、评论与讨论。</p>
           <a class="card-cta-link" href="activities/seminar-06/index.html">查看活动总结</a>
         </div>
       </div>
@@ -2080,43 +1987,13 @@ body.review-mode-active .review-tool * {
       <span class="pub-label">Fujian Education Press · Descartes Chinese Edition Project</span>
       <h3>笛卡尔全集中文版计划</h3>
       <p>
-        “笛卡尔全集中文版”计划拟由福建教育出版社挂名推进，围绕笛卡尔核心著作、重要通信与专题研究建立长期译介工程。中文版计划以文本校订、译注体例、通信配套和专题研究联动为基本思路，避免将各部作品处理为彼此分散的单本翻译。
+        “笛卡尔全集中文版”计划拟由福建教育出版社挂名推进，以 Gallimard《七星文库》2024 年新版为法文底本，围绕笛卡尔核心著作、重要通信与专题研究建立长期译介工程。
       </p>
-      <div class="descartes-source-facts">
-        <div class="descartes-source-fact">
-          <span>Source Edition</span>
-          <strong>Gallimard《七星文库》2024 年新版 Œuvres</strong>
-        </div>
-        <div class="descartes-source-fact">
-          <span>Volumes</span>
-          <strong>两卷本：Tome I 1632 页；Tome II 1584 页</strong>
-        </div>
-        <div class="descartes-source-fact">
-          <span>Editors</span>
-          <strong>Jean-Marie Beyssade、Denis Kambouchner；书信选编 Jean-Robert Armogathe</strong>
-        </div>
-      </div>
-      <div class="descartes-plan-grid">
-        <div class="descartes-plan-item">
-          <span>Years 1-4</span>
-          <h4>哲学与科学</h4>
-          <p>优先推进《谈谈方法》《论世界或论光》《第一哲学沉思集》及与梅尔森、耶稣会士相关通信。</p>
-        </div>
-        <div class="descartes-plan-item">
-          <span>Years 1-3</span>
-          <h4>情感与心理学</h4>
-          <p>并行开展《论灵魂的激情》与伊丽莎白公主通信等材料，集中呈现心灵、身体与情感问题。</p>
-        </div>
-        <div class="descartes-plan-item">
-          <span>Years 4-6</span>
-          <h4>形而上学与哲学体系</h4>
-          <p>推进《哲学原理》及晚期通信，梳理笛卡尔体系在形而上学、物理学与心理学之间的展开。</p>
-        </div>
-        <div class="descartes-plan-item">
-          <span>Digital Companion</span>
-          <h4>网站与数字人文展示</h4>
-          <p>建设项目介绍、笛卡尔传记、作品目录、出版时间表、活动记录与通信网络等配套页面。</p>
-        </div>
+      <div class="descartes-tags">
+        <span>哲学与科学</span>
+        <span>情感与心理学</span>
+        <span>形而上学与体系</span>
+        <span>数字人文展示</span>
       </div>
       <span class="card-cta">进入全集计划专区</span>
     </div>
@@ -2213,13 +2090,13 @@ body.review-mode-active .review-tool * {
 </div>
 
 <!-- ── TWEAKS PANEL ── -->
-<div id="tweaks-panel" data-cc-id="cc-49">
-  <h4 data-cc-id="cc-48">Tweaks</h4>
+<div id="tweaks-panel">
+  <h4>Tweaks</h4>
 
-  <div class="tweak-group" data-cc-id="cc-91">
-    <div class="tweak-label" data-cc-id="cc-90">主题风格</div>
+  <div class="tweak-group">
+    <div class="tweak-label">主题风格</div>
     <div class="tweak-options">
-      <button class="tweak-btn active" onclick="setTheme('light', this)" data-cc-id="cc-92">学院典藏 — 奶油 + 深蓝</button>
+      <button class="tweak-btn active" onclick="setTheme('light', this)">学院典藏 — 奶油 + 深蓝</button>
       <button class="tweak-btn" onclick="setTheme('dark', this)">深夜书馆 — 暗色模式</button>
       <button class="tweak-btn" onclick="setTheme('minimal', this)">当代学术 — 简约白</button>
       <button class="tweak-btn" onclick="setTheme('sage', this)">松青书院 — 草木绿</button>
@@ -2443,7 +2320,7 @@ window.parent.postMessage({ type: '__edit_mode_available' }, '*');
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "light",
   "navPos": "top",
-  "bg": "stone"
+  "bg": "cream"
 }/*EDITMODE-END*/;
 let currentTheme = TWEAK_DEFAULTS.theme;
 
@@ -3015,4 +2892,5 @@ if (reviewTool) {
 </script>
 
 
+<script src="site.js"></script>
 </body></html>
