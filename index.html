@@ -621,6 +621,10 @@ ul { list-style: none; }
   font-style: italic;
   font-size: 13px;
 }
+.activity-poster.poster-contain {
+  object-fit: contain;
+  object-position: center;
+}
 .activity-poster.is-previewable {
   cursor: pointer;
 }
@@ -1468,6 +1472,14 @@ body.review-mode-active .review-tool * {
 }
 
 @media (max-width: 680px) {
+  #activities {
+    padding: 72px 18px !important;
+  }
+
+  .activity-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .descartes-project {
     grid-template-columns: 1fr;
   }
@@ -1540,12 +1552,12 @@ body.review-mode-active .review-tool * {
           中心正推进国际会议筹备工作
           <br/><br/>
           <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年波义耳诞辰 400 周年会议</span>
-          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2028 年贝克莱国际会议</span>
+          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年贝克莱国际会议</span>
         </p>
       </div>
       <div class="metrics-grid">
         <div class="metric">
-          <strong>8</strong>
+          <strong>11</strong>
           <span>学术活动</span>
         </div>
         <div class="metric">
@@ -1568,7 +1580,7 @@ body.review-mode-active .review-tool * {
     <span>Global Academic Platform</span>
     <span>Modern Thought · Intellectual History · Public Humanities</span>
     <span>Lectures · Forums · Archives · Collaborations</span>
-    <span>Boyle 2027 · Berkeley 2028</span>
+    <span>Boyle 2027 · Berkeley 2027</span>
     <span>Global Academic Platform</span>
     <span>Modern Thought · Intellectual History · Public Humanities</span>
   </div>
@@ -1911,6 +1923,45 @@ body.review-mode-active .review-tool * {
           <p class="speaker">左天梦 · 西南交通大学法语系副教授</p>
           <p>围绕布朗什维克、法国理性主义与近代哲学史方法展开报告、评论与讨论。</p>
           <a class="card-cta-link" href="activities/seminar-06/index.html">查看活动总结</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="posters/seminar-07.jpg" class="activity-poster poster-contain is-previewable" alt="纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义研讨会海报" loading="lazy" decoding="async">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2026.08.04</span>
+          </div>
+          <h4>纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义</h4>
+          <p class="speaker">刘铭、滕光伟、李岱巍、左天梦等</p>
+          <p>围绕波义耳、近代实验哲学与《近代哲学》第二期的编务和后续研究展开研讨。</p>
+          <a class="card-cta-link" href="activities/seminar-07/index.html">查看活动总结</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="posters/seminar-08.jpg" class="activity-poster poster-contain is-previewable" alt="乔治·贝克莱与世界：心灵与自然的全球视野研讨会海报" loading="lazy" decoding="async">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2026.08.05</span>
+          </div>
+          <h4>乔治·贝克莱与世界：心灵与自然的全球视野</h4>
+          <p class="speaker">滕光伟 · 英国约克大学哲学系博士研究生</p>
+          <p>从18世纪知识交往与思想流动出发，讨论贝克莱如何重新安排心灵、感知与自然的关系。</p>
+          <a class="card-cta-link" href="activities/seminar-08/index.html">查看活动总结</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="posters/seminar-09.jpg" class="activity-poster poster-contain is-previewable" alt="笛卡尔通信集的编纂与翻译研讨会海报" loading="lazy" decoding="async">
+        <div class="activity-body">
+          <div class="activity-meta">
+            <span class="tag tag-seminar">Seminar</span>
+            <span class="date-label">2026.08.06</span>
+          </div>
+          <h4>笛卡尔通信集的编纂与翻译</h4>
+          <p class="speaker">左天梦、赵靓 · 刘铭点评</p>
+          <p>围绕笛卡尔通信集的文本传承、版本选择、编排体例与中文翻译计划展开交流。</p>
+          <a class="card-cta-link" href="activities/seminar-09/index.html">查看活动总结</a>
         </div>
       </div>
     </div>

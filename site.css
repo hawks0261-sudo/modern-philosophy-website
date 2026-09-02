@@ -419,6 +419,12 @@ textarea {
   background: var(--bg-soft);
 }
 
+.archive-poster.poster-contain {
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  object-position: center;
+}
+
 .detail-card > .archive-poster {
   aspect-ratio: auto;
   max-height: 560px;
