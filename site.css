@@ -733,6 +733,89 @@ textarea {
   overflow: hidden;
 }
 
+.member-section {
+  scroll-margin-top: 120px;
+}
+
+.member-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.member-card .people-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.member-card .people-card-body > p:last-of-type {
+  flex: 1;
+}
+
+.member-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.member-topics span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(28, 45, 74, 0.035);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.member-source {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.member-source:hover {
+  text-decoration: underline;
+}
+
+.member-note {
+  margin: -8px 0 24px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--gold);
+  background: rgba(184, 150, 62, 0.07);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.member-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin: 0 0 12px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(28, 45, 74, 0.08);
+  color: var(--navy);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.member-status-memorial {
+  background: rgba(184, 150, 62, 0.13);
+  color: #806523;
+}
+
 .people-card-index {
   display: flex;
   align-items: center;
