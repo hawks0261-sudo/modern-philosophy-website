@@ -753,6 +753,19 @@ textarea {
   flex: 1;
 }
 
+.member-card .member-original-name {
+  margin: 3px 0 0;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+.member-card .member-original-name + p {
+  margin-top: 10px;
+}
+
 .member-topics {
   display: flex;
   flex-wrap: wrap;
