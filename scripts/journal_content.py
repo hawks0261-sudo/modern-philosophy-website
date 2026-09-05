@@ -21,7 +21,7 @@ def normalize_journal(text, relative):
         for entry in group['entries']:
             number = entry['page']
             if english:
-                parts.append(f'<li id="page-{number}"><span class="page-kicker">Page {number}</span><h3>' + escape(entry['titleEn']) + '</h3><p>' + escape(entry['contributorsEn']) + '</p><p lang="zh-CN" class="language-original">' + escape(entry['title']) + ' · ' + escape(entry['contributors']) + f'</p><a href="../../../publications/journal/issue-01/index.html#page-{number:03d}" lang="zh-CN">Chinese contents entry →</a></li>')
+                parts.append(f'<li id="page-{number}"><span class="page-kicker">Page {number}</span><h3>' + escape(entry['titleEn']) + '</h3><p>' + escape(entry['contributorsEn']) + '</p><p lang="zh-CN" class="language-original">' + escape(entry['title']) + ' · ' + escape(entry['contributors']) + f'</p><a href="../../../publications/journal/issue-01/index.html#page-{number:03d}" hreflang="zh-CN">Chinese contents entry →</a></li>')
             else:
                 parts.append(f'<li class="toc-entry" id="page-{number:03d}"><span class="toc-page" aria-label="第 {number} 页">{number:03d}</span><div><h3><a href="#page-{number:03d}">' + escape(entry['title']) + '</a></h3><p>' + escape(entry['contributors']) + '</p></div></li>')
         parts.append('</ol></section>')

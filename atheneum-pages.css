@@ -170,6 +170,8 @@ body.atheneum-page .people-structure-grid .people-card-index strong { max-width:
 body.atheneum-page .member-roster { list-style: none; margin: 24px 0 0; padding: 0; }
 body.atheneum-page .member-roster li { padding: 16px 0; border-bottom: 1px solid var(--border); color: var(--muted); line-height: 1.8; }
 body.atheneum-page .member-roster strong { color: var(--navy); font-weight: 600; }
+body.atheneum-page .member-roster .member-research { margin: 6px 0 0; font-size: .94em; line-height: 1.8; }
+body.atheneum-page .member-research-label { color: var(--navy); }
 @media (max-width: 1100px) {
   body.atheneum-page .people-structure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
