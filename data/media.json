@@ -77,6 +77,32 @@
       }
     ]
   },
+  "assets/atheneum/hero-scene-v4.png": {
+    "width": 1747,
+    "height": 900,
+    "bytes": 2361861,
+    "sha256": "06a0acbcb7f57bc5a92a16cc4fb5c09948f52a719631026a6ff4e176651f6e82",
+    "variants": [
+      {
+        "src": "assets/optimized/f81677624738-384.webp",
+        "width": 384,
+        "height": 198,
+        "bytes": 17572
+      },
+      {
+        "src": "assets/optimized/f81677624738-768.webp",
+        "width": 768,
+        "height": 396,
+        "bytes": 65238
+      },
+      {
+        "src": "assets/optimized/f81677624738-1440.webp",
+        "width": 1440,
+        "height": 742,
+        "bytes": 196746
+      }
+    ]
+  },
   "assets/atheneum/hero-scene.png": {
     "width": 1786,
     "height": 881,

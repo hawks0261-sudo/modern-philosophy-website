@@ -64,7 +64,7 @@ def render_scene(path, people):
   <div class="atheneum-stage">
   <div class="atheneum-heading"><h1 id="atheneum-title">{t('在思想之间，展开对话。', 'A conversation <br>across centuries.')}</h1><p>{t('以史照今，以今返史', 'Reading history. Thinking forward.')}</p></div>
   <div class="atheneum-world">
-    <img class="atheneum-backdrop" src="{link(path, 'assets/atheneum/hero-scene-v3.png')}" sizes="100vw" width="1747" height="900" fetchpriority="high" loading="eager" decoding="async" alt="{t('笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟在殿堂中阅读和讨论，依据历史肖像创作', 'Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume reading and conversing in a historical hall, interpreted from source portraits')}" draggable="false">
+    <img class="atheneum-backdrop" src="{link(path, 'assets/atheneum/hero-scene-v4.png')}" sizes="100vw" width="1747" height="900" fetchpriority="high" loading="eager" decoding="async" alt="{t('笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟在殿堂中阅读和讨论，依据历史肖像创作', 'Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume reading and conversing in a historical hall, interpreted from source portraits')}" draggable="false">
     {''.join(buttons)}
   </div>
   <div class="atheneum-tools"><span class="atheneum-hint">{t('点击人物，走近他的思想', 'Select a philosopher to explore')}</span><button class="atheneum-motion" type="button" aria-pressed="true">{t('暂停景深', 'Pause motion')}</button><a class="atheneum-content-link" href="#atheneum-content">{t('浏览中心内容', 'Explore the center')}</a></div>
