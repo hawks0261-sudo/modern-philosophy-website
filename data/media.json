@@ -1,0 +1,2799 @@
+{
+  "activity-poster.jpg": {
+    "width": 1016,
+    "height": 1280,
+    "bytes": 126899,
+    "sha256": "9691d863ed3ffd920eb1c9b2d01be5b665bd977f220d564c12c8b3cf3bae0b3d",
+    "variants": [
+      {
+        "src": "assets/optimized/119b2b5d87b3-384.webp",
+        "width": 384,
+        "height": 484,
+        "bytes": 26834
+      },
+      {
+        "src": "assets/optimized/119b2b5d87b3-768.webp",
+        "width": 768,
+        "height": 968,
+        "bytes": 67112
+      },
+      {
+        "src": "assets/optimized/119b2b5d87b3-1016.webp",
+        "width": 1016,
+        "height": 1280,
+        "bytes": 101038
+      }
+    ]
+  },
+  "logo.png": {
+    "width": 1344,
+    "height": 1508,
+    "bytes": 154351,
+    "sha256": "fbb76c43f93f6ebcb23dfc250f015d54c6c5c37f35868860efd84cf8fff95046",
+    "variants": [
+      {
+        "src": "assets/optimized/ab211233b657-48.webp",
+        "width": 48,
+        "height": 54,
+        "bytes": 1646
+      },
+      {
+        "src": "assets/optimized/ab211233b657-96.webp",
+        "width": 96,
+        "height": 108,
+        "bytes": 3892
+      }
+    ]
+  },
+  "people/member-directory/oda-takaharu/takaharu-oda-photo.jpg": {
+    "width": 2649,
+    "height": 2650,
+    "bytes": 531672,
+    "sha256": "b4bb36d51521e1e46e51c0631831cf4476b49c451ea32c0ebf86ad1fba564df9",
+    "variants": [
+      {
+        "src": "assets/optimized/ea8eb907f01e-384.webp",
+        "width": 384,
+        "height": 384,
+        "bytes": 10102
+      },
+      {
+        "src": "assets/optimized/ea8eb907f01e-768.webp",
+        "width": 768,
+        "height": 768,
+        "bytes": 29398
+      },
+      {
+        "src": "assets/optimized/ea8eb907f01e-1440.webp",
+        "width": 1440,
+        "height": 1441,
+        "bytes": 74480
+      }
+    ]
+  },
+  "posters/lecture-01.jpg": {
+    "width": 566,
+    "height": 800,
+    "bytes": 56300,
+    "sha256": "229bd8f2f975bf9a13e98d9ff82887775ef616a9d2e7b1f8eabc1e7dbd555284",
+    "variants": [
+      {
+        "src": "assets/optimized/554410c372be-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 25654
+      },
+      {
+        "src": "assets/optimized/554410c372be-566.webp",
+        "width": 566,
+        "height": 800,
+        "bytes": 45018
+      }
+    ]
+  },
+  "posters/lecture-02.jpg": {
+    "width": 1080,
+    "height": 1527,
+    "bytes": 156691,
+    "sha256": "25bbe5863cbcfa1ebd9e8eec513703fc3eb729bb4bf9aad1bc6565b66f379ad4",
+    "variants": [
+      {
+        "src": "assets/optimized/740f5ff4f1c5-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 30132
+      },
+      {
+        "src": "assets/optimized/740f5ff4f1c5-768.webp",
+        "width": 768,
+        "height": 1086,
+        "bytes": 70910
+      },
+      {
+        "src": "assets/optimized/740f5ff4f1c5-1080.webp",
+        "width": 1080,
+        "height": 1527,
+        "bytes": 111896
+      }
+    ]
+  },
+  "posters/seminar-01.jpg": {
+    "width": 1279,
+    "height": 1810,
+    "bytes": 250240,
+    "sha256": "32a8d156559de62d2285a19c43eb45f57f2962e5a78780304604387d50753d0b",
+    "variants": [
+      {
+        "src": "assets/optimized/a1bd398086f5-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 38750
+      },
+      {
+        "src": "assets/optimized/a1bd398086f5-768.webp",
+        "width": 768,
+        "height": 1087,
+        "bytes": 91250
+      },
+      {
+        "src": "assets/optimized/a1bd398086f5-1279.webp",
+        "width": 1279,
+        "height": 1810,
+        "bytes": 181150
+      }
+    ]
+  },
+  "posters/seminar-02.jpg": {
+    "width": 1280,
+    "height": 1710,
+    "bytes": 193642,
+    "sha256": "828227b7de69f4fe043303e5ce24c111d2d11f65e478f99edbc5776c40660c96",
+    "variants": [
+      {
+        "src": "assets/optimized/5ce165156ee7-384.webp",
+        "width": 384,
+        "height": 513,
+        "bytes": 31646
+      },
+      {
+        "src": "assets/optimized/5ce165156ee7-768.webp",
+        "width": 768,
+        "height": 1026,
+        "bytes": 78778
+      },
+      {
+        "src": "assets/optimized/5ce165156ee7-1280.webp",
+        "width": 1280,
+        "height": 1710,
+        "bytes": 144736
+      }
+    ]
+  },
+  "posters/seminar-03.jpg": {
+    "width": 1152,
+    "height": 1536,
+    "bytes": 831095,
+    "sha256": "a9d3f1e03b1406e671480fb5d930e9123e93d85edc244834afb78e2abad2e8e3",
+    "variants": [
+      {
+        "src": "assets/optimized/3c4c576a5a12-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 29516
+      },
+      {
+        "src": "assets/optimized/3c4c576a5a12-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 74890
+      },
+      {
+        "src": "assets/optimized/3c4c576a5a12-1152.webp",
+        "width": 1152,
+        "height": 1536,
+        "bytes": 135590
+      }
+    ]
+  },
+  "posters/seminar-05.jpg": {
+    "width": 1080,
+    "height": 1920,
+    "bytes": 649709,
+    "sha256": "4fd9c045739449ab218a78ed972c02f2dc99a6cba5e920c34d73111801ea09eb",
+    "variants": [
+      {
+        "src": "assets/optimized/049b5e29a35b-384.webp",
+        "width": 384,
+        "height": 683,
+        "bytes": 28930
+      },
+      {
+        "src": "assets/optimized/049b5e29a35b-768.webp",
+        "width": 768,
+        "height": 1365,
+        "bytes": 78016
+      },
+      {
+        "src": "assets/optimized/049b5e29a35b-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 131160
+      }
+    ]
+  },
+  "posters/seminar-06.jpg": {
+    "width": 1199,
+    "height": 1594,
+    "bytes": 284138,
+    "sha256": "596ffeec9edb1b11603e31c25b94d673b98eb38b2e51dc5ee264fb444265587d",
+    "variants": [
+      {
+        "src": "assets/optimized/0600daedaeb6-384.webp",
+        "width": 384,
+        "height": 511,
+        "bytes": 43746
+      },
+      {
+        "src": "assets/optimized/0600daedaeb6-768.webp",
+        "width": 768,
+        "height": 1021,
+        "bytes": 126070
+      },
+      {
+        "src": "assets/optimized/0600daedaeb6-1199.webp",
+        "width": 1199,
+        "height": 1594,
+        "bytes": 228662
+      }
+    ]
+  },
+  "posters/seminar-07.jpg": {
+    "width": 1080,
+    "height": 1440,
+    "bytes": 504568,
+    "sha256": "26dfc987da37ce0e5cc2a62dd48deea7802fabb7c70a69406633c8e8abeca421",
+    "variants": [
+      {
+        "src": "assets/optimized/f5713c6af94d-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 52644
+      },
+      {
+        "src": "assets/optimized/f5713c6af94d-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 143790
+      },
+      {
+        "src": "assets/optimized/f5713c6af94d-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "bytes": 222456
+      }
+    ]
+  },
+  "posters/seminar-08.jpg": {
+    "width": 1279,
+    "height": 1544,
+    "bytes": 375261,
+    "sha256": "1f3b195644ff5129deeda8c817421e57a76ba9e3e6d26c29557fb24e6fca35fd",
+    "variants": [
+      {
+        "src": "assets/optimized/45306477c87a-384.webp",
+        "width": 384,
+        "height": 464,
+        "bytes": 27574
+      },
+      {
+        "src": "assets/optimized/45306477c87a-768.webp",
+        "width": 768,
+        "height": 927,
+        "bytes": 69840
+      },
+      {
+        "src": "assets/optimized/45306477c87a-1279.webp",
+        "width": 1279,
+        "height": 1544,
+        "bytes": 135128
+      }
+    ]
+  },
+  "posters/seminar-09.jpg": {
+    "width": 1076,
+    "height": 1444,
+    "bytes": 253061,
+    "sha256": "073576908bf9ade01f83569cd43e3692c955562392c7c65f8b42d9fa463f4c3a",
+    "variants": [
+      {
+        "src": "assets/optimized/74f96e64a205-384.webp",
+        "width": 384,
+        "height": 515,
+        "bytes": 24310
+      },
+      {
+        "src": "assets/optimized/74f96e64a205-768.webp",
+        "width": 768,
+        "height": 1031,
+        "bytes": 57888
+      },
+      {
+        "src": "assets/optimized/74f96e64a205-1076.webp",
+        "width": 1076,
+        "height": 1444,
+        "bytes": 83994
+      }
+    ]
+  },
+  "posters/xifang-yicong.png": {
+    "width": 760,
+    "height": 1121,
+    "bytes": 1267358,
+    "sha256": "9d7fb2ff6c24c003fda2375a75827883e4160a1bdf353c8b1adc70254dd28242",
+    "variants": [
+      {
+        "src": "assets/optimized/e07a913a0836-384.webp",
+        "width": 384,
+        "height": 566,
+        "bytes": 48216
+      },
+      {
+        "src": "assets/optimized/e07a913a0836-760.webp",
+        "width": 760,
+        "height": 1121,
+        "bytes": 184996
+      }
+    ]
+  },
+  "publications/journal/assets/issue-01-cover.jpg": {
+    "width": 1280,
+    "height": 1636,
+    "bytes": 132405,
+    "sha256": "4c09a7bf9b859df4090933d6744b8862722f9d29201262b25ff294092acf7972",
+    "variants": [
+      {
+        "src": "assets/optimized/300ab1aee1df-384.webp",
+        "width": 384,
+        "height": 491,
+        "bytes": 12578
+      },
+      {
+        "src": "assets/optimized/300ab1aee1df-768.webp",
+        "width": 768,
+        "height": 982,
+        "bytes": 35850
+      },
+      {
+        "src": "assets/optimized/300ab1aee1df-1280.webp",
+        "width": 1280,
+        "height": 1636,
+        "bytes": 77368
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-01.jpg": {
+    "width": 413,
+    "height": 570,
+    "bytes": 54808,
+    "sha256": "50b1014101b823342995bd23b6833ed09c424c4bef31b0d67d40270b808a8cda",
+    "variants": [
+      {
+        "src": "assets/optimized/bbe86dac2533-384.webp",
+        "width": 384,
+        "height": 530,
+        "bytes": 31714
+      },
+      {
+        "src": "assets/optimized/bbe86dac2533-413.webp",
+        "width": 413,
+        "height": 570,
+        "bytes": 36826
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-02.jpg": {
+    "width": 478,
+    "height": 666,
+    "bytes": 90395,
+    "sha256": "72501917d8ad097144b67d8fa6f9f9cf063853285302345680de9162d877e503",
+    "variants": [
+      {
+        "src": "assets/optimized/a36e2a5fb456-384.webp",
+        "width": 384,
+        "height": 535,
+        "bytes": 44180
+      },
+      {
+        "src": "assets/optimized/a36e2a5fb456-478.webp",
+        "width": 478,
+        "height": 666,
+        "bytes": 68264
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-03.jpg": {
+    "width": 616,
+    "height": 885,
+    "bytes": 113859,
+    "sha256": "969c8ee74f96d070be2d77988243d7105beee267e415ea3fcf56fae7da2f5f68",
+    "variants": [
+      {
+        "src": "assets/optimized/11745b985ca2-384.webp",
+        "width": 384,
+        "height": 552,
+        "bytes": 38138
+      },
+      {
+        "src": "assets/optimized/11745b985ca2-616.webp",
+        "width": 616,
+        "height": 885,
+        "bytes": 73594
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-04.jpg": {
+    "width": 463,
+    "height": 667,
+    "bytes": 76479,
+    "sha256": "057f0efa38d29f4fee2acf2e8c71e7eec25b7e412f934ae80052ae4e0ae2fb7f",
+    "variants": [
+      {
+        "src": "assets/optimized/23af9187f93b-384.webp",
+        "width": 384,
+        "height": 553,
+        "bytes": 35054
+      },
+      {
+        "src": "assets/optimized/23af9187f93b-463.webp",
+        "width": 463,
+        "height": 667,
+        "bytes": 58274
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-05.jpg": {
+    "width": 232,
+    "height": 350,
+    "bytes": 13366,
+    "sha256": "874b7596edfe65a905f336140da97c3eab712f3d2c5d5d603af42aadd81b6518",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-06.jpg": {
+    "width": 237,
+    "height": 355,
+    "bytes": 15301,
+    "sha256": "22dda225fa24dd188ee51e4f223751884aee31ea4a65fdf31235f6d024b2546e",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-07.jpg": {
+    "width": 800,
+    "height": 1104,
+    "bytes": 185603,
+    "sha256": "6c770060ea482e848f97779554db289cbaca081a3400c1d7ac2bb15f8169182f",
+    "variants": [
+      {
+        "src": "assets/optimized/c2b99ba31dbe-384.webp",
+        "width": 384,
+        "height": 530,
+        "bytes": 41138
+      },
+      {
+        "src": "assets/optimized/c2b99ba31dbe-768.webp",
+        "width": 768,
+        "height": 1060,
+        "bytes": 124584
+      },
+      {
+        "src": "assets/optimized/c2b99ba31dbe-800.webp",
+        "width": 800,
+        "height": 1104,
+        "bytes": 131616
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-08.jpg": {
+    "width": 310,
+    "height": 500,
+    "bytes": 29924,
+    "sha256": "4e8456854846d34745dfb0982fbe474afce550290105092358cdc26856e6b73f",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-09.jpg": {
+    "width": 310,
+    "height": 500,
+    "bytes": 29924,
+    "sha256": "4e8456854846d34745dfb0982fbe474afce550290105092358cdc26856e6b73f",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-10.jpg": {
+    "width": 800,
+    "height": 1261,
+    "bytes": 123978,
+    "sha256": "669c57ab647df282574ee68eeeb85282dc580ed62d689da3b32b8072b698db00",
+    "variants": [
+      {
+        "src": "assets/optimized/bd367271abcd-384.webp",
+        "width": 384,
+        "height": 605,
+        "bytes": 43056
+      },
+      {
+        "src": "assets/optimized/bd367271abcd-768.webp",
+        "width": 768,
+        "height": 1211,
+        "bytes": 107488
+      },
+      {
+        "src": "assets/optimized/bd367271abcd-800.webp",
+        "width": 800,
+        "height": 1261,
+        "bytes": 112046
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-11.jpg": {
+    "width": 348,
+    "height": 500,
+    "bytes": 81895,
+    "sha256": "db8c4a90df0a2311a60bc22c633402b9f3677c0ca4e9776ff67d8aadda86d57e",
+    "variants": [
+      {
+        "src": "assets/optimized/e7a34dcf43b6-348.webp",
+        "width": 348,
+        "height": 500,
+        "bytes": 79518
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-12.jpg": {
+    "width": 800,
+    "height": 800,
+    "bytes": 70030,
+    "sha256": "30e6eab8dfa7dd937f9a95820b1954cf5239d00e8c8c0669610bd419b6cf2d40",
+    "variants": [
+      {
+        "src": "assets/optimized/fcd77f726530-384.webp",
+        "width": 384,
+        "height": 384,
+        "bytes": 18456
+      },
+      {
+        "src": "assets/optimized/fcd77f726530-768.webp",
+        "width": 768,
+        "height": 768,
+        "bytes": 64480
+      },
+      {
+        "src": "assets/optimized/fcd77f726530-800.webp",
+        "width": 800,
+        "height": 800,
+        "bytes": 69842
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-13.jpg": {
+    "width": 350,
+    "height": 350,
+    "bytes": 21443,
+    "sha256": "abf62e94498680d151fc38df3c4aeea679a0e9d8ddcec5a724a2c8c1487b9064",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-14.jpg": {
+    "width": 315,
+    "height": 494,
+    "bytes": 40446,
+    "sha256": "d76c7b1d4181b8c5c2826baaeb670187fcdc75d1ad92cbe3cfffaa1ee0be3d10",
+    "variants": [
+      {
+        "src": "assets/optimized/44de868bf8f2-315.webp",
+        "width": 315,
+        "height": 494,
+        "bytes": 30020
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-15.jpg": {
+    "width": 800,
+    "height": 1032,
+    "bytes": 82463,
+    "sha256": "1f922079da01cc9f21b82e14de9de71ae4d5758725d009438eb41c716204910d",
+    "variants": [
+      {
+        "src": "assets/optimized/9be519f3c772-384.webp",
+        "width": 384,
+        "height": 495,
+        "bytes": 23784
+      },
+      {
+        "src": "assets/optimized/9be519f3c772-768.webp",
+        "width": 768,
+        "height": 991,
+        "bytes": 68424
+      },
+      {
+        "src": "assets/optimized/9be519f3c772-800.webp",
+        "width": 800,
+        "height": 1032,
+        "bytes": 73088
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-16.jpg": {
+    "width": 800,
+    "height": 1190,
+    "bytes": 150687,
+    "sha256": "c431c1ef776628722ffb54cda9653efd7c80852bde623fcb3dcccdce8ad34967",
+    "variants": [
+      {
+        "src": "assets/optimized/6f7ae38fdef3-384.webp",
+        "width": 384,
+        "height": 571,
+        "bytes": 48504
+      },
+      {
+        "src": "assets/optimized/6f7ae38fdef3-768.webp",
+        "width": 768,
+        "height": 1142,
+        "bytes": 159368
+      },
+      {
+        "src": "assets/optimized/6f7ae38fdef3-800.webp",
+        "width": 800,
+        "height": 1190,
+        "bytes": 167324
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-17.jpg": {
+    "width": 800,
+    "height": 976,
+    "bytes": 64162,
+    "sha256": "eb0d0789934025039c003ff8ed469d914f657db27bcb57166e4bd240d305c18b",
+    "variants": [
+      {
+        "src": "assets/optimized/cc5ec767a470-384.webp",
+        "width": 384,
+        "height": 468,
+        "bytes": 14478
+      },
+      {
+        "src": "assets/optimized/cc5ec767a470-768.webp",
+        "width": 768,
+        "height": 937,
+        "bytes": 55022
+      },
+      {
+        "src": "assets/optimized/cc5ec767a470-800.webp",
+        "width": 800,
+        "height": 976,
+        "bytes": 59912
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-18.jpg": {
+    "width": 440,
+    "height": 592,
+    "bytes": 26397,
+    "sha256": "28add4bd44e965876a490bc046cb64ccc770c72755be5b6ea0d79cdba003d24f",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-19.jpg": {
+    "width": 469,
+    "height": 755,
+    "bytes": 73684,
+    "sha256": "beb308d72da803f9d657045a86d4299332aca68b9baf435271d3df4cf32c3ba7",
+    "variants": [
+      {
+        "src": "assets/optimized/aa011bf63328-384.webp",
+        "width": 384,
+        "height": 618,
+        "bytes": 38804
+      },
+      {
+        "src": "assets/optimized/aa011bf63328-469.webp",
+        "width": 469,
+        "height": 755,
+        "bytes": 54716
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-20.jpg": {
+    "width": 800,
+    "height": 800,
+    "bytes": 91733,
+    "sha256": "77bd3c93dfb132738c4a0163eb3cf5967b2f3b5c32f7a74c12012a9f8a96cc96",
+    "variants": [
+      {
+        "src": "assets/optimized/3d3257b50fa2-384.webp",
+        "width": 384,
+        "height": 384,
+        "bytes": 23782
+      },
+      {
+        "src": "assets/optimized/3d3257b50fa2-768.webp",
+        "width": 768,
+        "height": 768,
+        "bytes": 85066
+      },
+      {
+        "src": "assets/optimized/3d3257b50fa2-800.webp",
+        "width": 800,
+        "height": 800,
+        "bytes": 94584
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-21.jpg": {
+    "width": 600,
+    "height": 600,
+    "bytes": 35175,
+    "sha256": "ed060aff331a9bf80eaa2a10a7659dc6c40b7fbf049c04afdd80c3f0ae29f4e2",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-22.jpg": {
+    "width": 457,
+    "height": 629,
+    "bytes": 83105,
+    "sha256": "1c8f3c7889e526adda454e098f872ba2249d11d86e843651385a80e522dbbb45",
+    "variants": [
+      {
+        "src": "assets/optimized/924238e79bcc-384.webp",
+        "width": 384,
+        "height": 529,
+        "bytes": 44930
+      },
+      {
+        "src": "assets/optimized/924238e79bcc-457.webp",
+        "width": 457,
+        "height": 629,
+        "bytes": 62944
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-23.jpg": {
+    "width": 446,
+    "height": 646,
+    "bytes": 53725,
+    "sha256": "6db1b78f892bd69d78ade22ac114429a12b015a34327f1d6a0d8dc4148ae6db1",
+    "variants": [
+      {
+        "src": "assets/optimized/80b4a9ce49de-384.webp",
+        "width": 384,
+        "height": 556,
+        "bytes": 44768
+      },
+      {
+        "src": "assets/optimized/80b4a9ce49de-446.webp",
+        "width": 446,
+        "height": 646,
+        "bytes": 58974
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-24.jpg": {
+    "width": 800,
+    "height": 800,
+    "bytes": 56472,
+    "sha256": "e0720f6582e32a1f38b0d6a10f878706293f61f244384323aef924e1a4f949c3",
+    "variants": [
+      {
+        "src": "assets/optimized/9c4d4382e3a0-384.webp",
+        "width": 384,
+        "height": 384,
+        "bytes": 14666
+      },
+      {
+        "src": "assets/optimized/9c4d4382e3a0-768.webp",
+        "width": 768,
+        "height": 768,
+        "bytes": 45548
+      },
+      {
+        "src": "assets/optimized/9c4d4382e3a0-800.webp",
+        "width": 800,
+        "height": 800,
+        "bytes": 50302
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-25.jpg": {
+    "width": 640,
+    "height": 640,
+    "bytes": 24535,
+    "sha256": "a4839ede383ae873598e696c1b8e4b119d5f17eee0e45eab0c78f8f468812c12",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-26.jpg": {
+    "width": 477,
+    "height": 708,
+    "bytes": 79537,
+    "sha256": "64b3e120adb38f647d5376c9bed8c7c4b121433a8ed5b209989069191e0928b3",
+    "variants": [
+      {
+        "src": "assets/optimized/10f55f2c987e-384.webp",
+        "width": 384,
+        "height": 570,
+        "bytes": 37766
+      },
+      {
+        "src": "assets/optimized/10f55f2c987e-477.webp",
+        "width": 477,
+        "height": 708,
+        "bytes": 59988
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-27.jpg": {
+    "width": 640,
+    "height": 640,
+    "bytes": 33382,
+    "sha256": "b7e3afd315f257d9fd308495481596305d17599fb2ac86df9aadf2e754a9584c",
+    "variants": []
+  },
+  "publications/translation-series/covers/book-28.jpg": {
+    "width": 578,
+    "height": 802,
+    "bytes": 68754,
+    "sha256": "8f8b54c7215d77b71ef5a75ecf23e4ca25214684c38d3bc99c0dac0d2ce352a5",
+    "variants": [
+      {
+        "src": "assets/optimized/fcffffa07f21-384.webp",
+        "width": 384,
+        "height": 533,
+        "bytes": 22788
+      },
+      {
+        "src": "assets/optimized/fcffffa07f21-578.webp",
+        "width": 578,
+        "height": 802,
+        "bytes": 40402
+      }
+    ]
+  },
+  "publications/translation-series/covers/book-29.jpg": {
+    "width": 640,
+    "height": 640,
+    "bytes": 36808,
+    "sha256": "146215d99c175c982b2beaf49820f14fc1993ccba33b20e505bf793915780ee3",
+    "variants": []
+  },
+  "publications/translation-series/thumbs/book-01.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 124720,
+    "sha256": "63222352b6371c11cafb91200b3c277966e2016b42c1ac6392db2a456614bb23",
+    "variants": [
+      {
+        "src": "assets/optimized/eea3af4be7e8-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 21818
+      },
+      {
+        "src": "assets/optimized/eea3af4be7e8-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 59138
+      },
+      {
+        "src": "assets/optimized/eea3af4be7e8-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 69240
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-02.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 162075,
+    "sha256": "9c9add0ae20b545f7550a517149e1343fccc205f808ca44939b87c52868b29c2",
+    "variants": [
+      {
+        "src": "assets/optimized/b19337a9f69c-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 28316
+      },
+      {
+        "src": "assets/optimized/b19337a9f69c-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 86574
+      },
+      {
+        "src": "assets/optimized/b19337a9f69c-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 107986
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-03.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 139658,
+    "sha256": "2ee0035002c9f95fb40bda0bd03d62a168977813b8d17a53ac10091ba92df72a",
+    "variants": [
+      {
+        "src": "assets/optimized/931836dc3a0b-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 25046
+      },
+      {
+        "src": "assets/optimized/931836dc3a0b-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 67232
+      },
+      {
+        "src": "assets/optimized/931836dc3a0b-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 83756
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-04.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 143745,
+    "sha256": "0d7b3c5938330f1048c0958a9a97a4d71921cf24c4faaab89a74687fd44bd114",
+    "variants": [
+      {
+        "src": "assets/optimized/03eac8cbcd6b-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 19836
+      },
+      {
+        "src": "assets/optimized/03eac8cbcd6b-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 74168
+      },
+      {
+        "src": "assets/optimized/03eac8cbcd6b-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 90964
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-05.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 71860,
+    "sha256": "f745a5b216cb6ce585d6eba298d4764851dd88e38e0e3db0fbf9919b09baa741",
+    "variants": [
+      {
+        "src": "assets/optimized/d46f4365b160-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 11446
+      },
+      {
+        "src": "assets/optimized/d46f4365b160-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 26060
+      },
+      {
+        "src": "assets/optimized/d46f4365b160-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 31922
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-06.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 95734,
+    "sha256": "80692920f7692415f809161846a69404410d576acf378a773adf567dcd0a731f",
+    "variants": [
+      {
+        "src": "assets/optimized/a7abcac9ef72-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 18974
+      },
+      {
+        "src": "assets/optimized/a7abcac9ef72-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 42172
+      },
+      {
+        "src": "assets/optimized/a7abcac9ef72-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 49898
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-07.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 169329,
+    "sha256": "6d68e3b9110f1d2fa7296da8e83b63e513bd4ea902b5ba77a19f52e546bb10f7",
+    "variants": [
+      {
+        "src": "assets/optimized/81def7d871d3-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 26950
+      },
+      {
+        "src": "assets/optimized/81def7d871d3-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 87376
+      },
+      {
+        "src": "assets/optimized/81def7d871d3-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 113954
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-08.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 92231,
+    "sha256": "5cd2ff5e102927925ac1240632bb81738d73906919479c5a76029f406c7919f2",
+    "variants": [
+      {
+        "src": "assets/optimized/f8b4bcbd7ec8-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 16828
+      },
+      {
+        "src": "assets/optimized/f8b4bcbd7ec8-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 39780
+      },
+      {
+        "src": "assets/optimized/f8b4bcbd7ec8-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 47880
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-09.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 92231,
+    "sha256": "5cd2ff5e102927925ac1240632bb81738d73906919479c5a76029f406c7919f2",
+    "variants": [
+      {
+        "src": "assets/optimized/87063ca9d2c6-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 16828
+      },
+      {
+        "src": "assets/optimized/87063ca9d2c6-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 39780
+      },
+      {
+        "src": "assets/optimized/87063ca9d2c6-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 47880
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-10.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 136264,
+    "sha256": "8afd118f21c40ba49484dcdfb5bc2afdf99cf2ee6f6cdce2776e0fcd0c7ea945",
+    "variants": [
+      {
+        "src": "assets/optimized/5e321f1cbd9d-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 24644
+      },
+      {
+        "src": "assets/optimized/5e321f1cbd9d-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 66072
+      },
+      {
+        "src": "assets/optimized/5e321f1cbd9d-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 84800
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-11.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 225758,
+    "sha256": "5bb7c096c32dbe13ba3ce024b4659394f64dc98f628f71241d7931e99fce11ab",
+    "variants": [
+      {
+        "src": "assets/optimized/19b48f49fc5a-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 52982
+      },
+      {
+        "src": "assets/optimized/19b48f49fc5a-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 151364
+      },
+      {
+        "src": "assets/optimized/19b48f49fc5a-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 176870
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-12.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 149048,
+    "sha256": "075bb018ce111d14de62287426be4cd85151832465af37dd9f658da136257441",
+    "variants": [
+      {
+        "src": "assets/optimized/edd160ab9c0f-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 26124
+      },
+      {
+        "src": "assets/optimized/edd160ab9c0f-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 81866
+      },
+      {
+        "src": "assets/optimized/edd160ab9c0f-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 101772
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-13.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 91227,
+    "sha256": "bbbfee6d70d5eec88d3e5445d1fe1e5076332a34c73885ce606c573d453cf104",
+    "variants": [
+      {
+        "src": "assets/optimized/566d21e85d43-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 15390
+      },
+      {
+        "src": "assets/optimized/566d21e85d43-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 35524
+      },
+      {
+        "src": "assets/optimized/566d21e85d43-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 42386
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-14.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 113765,
+    "sha256": "83a99c500c254741fb4739400008794f15bbd1dfe21c79f996654f5f06d80a75",
+    "variants": [
+      {
+        "src": "assets/optimized/3032bfaad75c-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 20262
+      },
+      {
+        "src": "assets/optimized/3032bfaad75c-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 51624
+      },
+      {
+        "src": "assets/optimized/3032bfaad75c-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 62176
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-15.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 130018,
+    "sha256": "4a8b41c5e391c9640e4e535d736ed037fada124010c8a5f059c6816ce60a1db5",
+    "variants": [
+      {
+        "src": "assets/optimized/05cc7fcba30f-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 21244
+      },
+      {
+        "src": "assets/optimized/05cc7fcba30f-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 61186
+      },
+      {
+        "src": "assets/optimized/05cc7fcba30f-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 78048
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-16.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 180721,
+    "sha256": "ac42460bedfd51a9c4dc3c674724d13fde2fee0d0477cd9b00758c3d3ac4befd",
+    "variants": [
+      {
+        "src": "assets/optimized/9f91f3eb69f2-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 30432
+      },
+      {
+        "src": "assets/optimized/9f91f3eb69f2-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 105886
+      },
+      {
+        "src": "assets/optimized/9f91f3eb69f2-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 138994
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-17.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 124916,
+    "sha256": "f5b63b140cc1b3ba1b6997c6b665c124211fb941a6b33b925ab7d210d7114525",
+    "variants": [
+      {
+        "src": "assets/optimized/7b11e74731bb-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 18194
+      },
+      {
+        "src": "assets/optimized/7b11e74731bb-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 62354
+      },
+      {
+        "src": "assets/optimized/7b11e74731bb-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 80600
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-18.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 98004,
+    "sha256": "90a4ab73cf25a74ca035a24d3e37c621aabd47a290ce955ec9a2d720936edf0d",
+    "variants": [
+      {
+        "src": "assets/optimized/a6bf1117b90a-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 16700
+      },
+      {
+        "src": "assets/optimized/a6bf1117b90a-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 41710
+      },
+      {
+        "src": "assets/optimized/a6bf1117b90a-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 50236
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-19.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 112792,
+    "sha256": "3d33cee6ea63d136320a3549873142b704d17c9a13d9981acc69604e146c3450",
+    "variants": [
+      {
+        "src": "assets/optimized/940517930052-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 19702
+      },
+      {
+        "src": "assets/optimized/940517930052-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 60972
+      },
+      {
+        "src": "assets/optimized/940517930052-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 74496
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-20.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 179021,
+    "sha256": "0d226c597e25f8e0f90e688f2010096717665b2709112e726416df4cf70328ca",
+    "variants": [
+      {
+        "src": "assets/optimized/a0b809547cc1-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 31082
+      },
+      {
+        "src": "assets/optimized/a0b809547cc1-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 105682
+      },
+      {
+        "src": "assets/optimized/a0b809547cc1-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 135694
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-21.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 105571,
+    "sha256": "6c739d234f6ee0a15982aded520bf8a6c2c959d6668cfb170d80f4c80911dd28",
+    "variants": [
+      {
+        "src": "assets/optimized/9c922e819b30-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 17934
+      },
+      {
+        "src": "assets/optimized/9c922e819b30-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 46420
+      },
+      {
+        "src": "assets/optimized/9c922e819b30-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 55218
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-22.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 159606,
+    "sha256": "107b8dac35e1bd695456afc266dc42db8872973bc8a8b59666a57da95891c0d4",
+    "variants": [
+      {
+        "src": "assets/optimized/66770c620d53-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 29856
+      },
+      {
+        "src": "assets/optimized/66770c620d53-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 82944
+      },
+      {
+        "src": "assets/optimized/66770c620d53-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 100776
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-23.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 148128,
+    "sha256": "bf6df244aea8d422afc15a852ad8fa4cd383548cf1933a994af2eb38855a2a60",
+    "variants": [
+      {
+        "src": "assets/optimized/a9287f0f60b8-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 29194
+      },
+      {
+        "src": "assets/optimized/a9287f0f60b8-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 85758
+      },
+      {
+        "src": "assets/optimized/a9287f0f60b8-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 103052
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-24.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 116469,
+    "sha256": "99d19ffc7b1a46204cdf2807a4d46f52c8d88216292502c3808b4103a60ca75e",
+    "variants": [
+      {
+        "src": "assets/optimized/75676c003784-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 18418
+      },
+      {
+        "src": "assets/optimized/75676c003784-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 54100
+      },
+      {
+        "src": "assets/optimized/75676c003784-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 68584
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-25.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 70087,
+    "sha256": "f3a154b2ffec18989062a1577fe8b1de7e9e87f86133e48286d24c44d09d68f6",
+    "variants": [
+      {
+        "src": "assets/optimized/3e95c0b91551-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 9116
+      },
+      {
+        "src": "assets/optimized/3e95c0b91551-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 23080
+      },
+      {
+        "src": "assets/optimized/3e95c0b91551-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 29136
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-26.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 137065,
+    "sha256": "5d889339377c48a8e404c0860f70e34e2a80e89826249a975b9282f320c96a76",
+    "variants": [
+      {
+        "src": "assets/optimized/c621900c6cf2-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 19930
+      },
+      {
+        "src": "assets/optimized/c621900c6cf2-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 73288
+      },
+      {
+        "src": "assets/optimized/c621900c6cf2-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 91150
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-27.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 94457,
+    "sha256": "c1f53954be42b1b15a515dc976750624ecd37d4831c93dece52e41da8e4147e5",
+    "variants": [
+      {
+        "src": "assets/optimized/2934daa56b54-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 15854
+      },
+      {
+        "src": "assets/optimized/2934daa56b54-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 38454
+      },
+      {
+        "src": "assets/optimized/2934daa56b54-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 46220
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-28.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 101571,
+    "sha256": "1ee93b270c5b6d76ef01cd1f19f2893935b42869ba639cae83ed2f22b59ca456",
+    "variants": [
+      {
+        "src": "assets/optimized/0a6f28be5ac7-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 16464
+      },
+      {
+        "src": "assets/optimized/0a6f28be5ac7-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 43570
+      },
+      {
+        "src": "assets/optimized/0a6f28be5ac7-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 54186
+      }
+    ]
+  },
+  "publications/translation-series/thumbs/book-29.jpg": {
+    "width": 900,
+    "height": 1200,
+    "bytes": 102607,
+    "sha256": "9e05a32ae33af021cadcf33abe61df81800223a03886c666bcd6d9205b1a2fa7",
+    "variants": [
+      {
+        "src": "assets/optimized/b164ef4f1bc3-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 18454
+      },
+      {
+        "src": "assets/optimized/b164ef4f1bc3-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 44356
+      },
+      {
+        "src": "assets/optimized/b164ef4f1bc3-900.webp",
+        "width": 900,
+        "height": 1200,
+        "bytes": 53122
+      }
+    ]
+  },
+  "uploads/IMG_4828.JPG": {
+    "width": 1080,
+    "height": 1920,
+    "bytes": 649709,
+    "sha256": "4fd9c045739449ab218a78ed972c02f2dc99a6cba5e920c34d73111801ea09eb",
+    "variants": [
+      {
+        "src": "assets/optimized/5f095b315a3c-384.webp",
+        "width": 384,
+        "height": 683,
+        "bytes": 28930
+      },
+      {
+        "src": "assets/optimized/5f095b315a3c-768.webp",
+        "width": 768,
+        "height": 1365,
+        "bytes": 78016
+      },
+      {
+        "src": "assets/optimized/5f095b315a3c-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 131160
+      }
+    ]
+  },
+  "uploads/IMG_4829.JPG": {
+    "width": 1152,
+    "height": 1536,
+    "bytes": 831095,
+    "sha256": "a9d3f1e03b1406e671480fb5d930e9123e93d85edc244834afb78e2abad2e8e3",
+    "variants": [
+      {
+        "src": "assets/optimized/129d780da5a3-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 29516
+      },
+      {
+        "src": "assets/optimized/129d780da5a3-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 74890
+      },
+      {
+        "src": "assets/optimized/129d780da5a3-1152.webp",
+        "width": 1152,
+        "height": 1536,
+        "bytes": 135590
+      }
+    ]
+  },
+  "uploads/IMG_4830.JPG": {
+    "width": 1280,
+    "height": 1710,
+    "bytes": 193642,
+    "sha256": "828227b7de69f4fe043303e5ce24c111d2d11f65e478f99edbc5776c40660c96",
+    "variants": [
+      {
+        "src": "assets/optimized/50dc86691247-384.webp",
+        "width": 384,
+        "height": 513,
+        "bytes": 31646
+      },
+      {
+        "src": "assets/optimized/50dc86691247-768.webp",
+        "width": 768,
+        "height": 1026,
+        "bytes": 78778
+      },
+      {
+        "src": "assets/optimized/50dc86691247-1280.webp",
+        "width": 1280,
+        "height": 1710,
+        "bytes": 144736
+      }
+    ]
+  },
+  "uploads/IMG_4831.JPG": {
+    "width": 1279,
+    "height": 1810,
+    "bytes": 250240,
+    "sha256": "32a8d156559de62d2285a19c43eb45f57f2962e5a78780304604387d50753d0b",
+    "variants": [
+      {
+        "src": "assets/optimized/74ad5386dc1a-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 38750
+      },
+      {
+        "src": "assets/optimized/74ad5386dc1a-768.webp",
+        "width": 768,
+        "height": 1087,
+        "bytes": 91250
+      },
+      {
+        "src": "assets/optimized/74ad5386dc1a-1279.webp",
+        "width": 1279,
+        "height": 1810,
+        "bytes": 181150
+      }
+    ]
+  },
+  "uploads/IMG_4832.JPG": {
+    "width": 1080,
+    "height": 1527,
+    "bytes": 156691,
+    "sha256": "25bbe5863cbcfa1ebd9e8eec513703fc3eb729bb4bf9aad1bc6565b66f379ad4",
+    "variants": [
+      {
+        "src": "assets/optimized/ef8ba574c242-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 30132
+      },
+      {
+        "src": "assets/optimized/ef8ba574c242-768.webp",
+        "width": 768,
+        "height": 1086,
+        "bytes": 70910
+      },
+      {
+        "src": "assets/optimized/ef8ba574c242-1080.webp",
+        "width": 1080,
+        "height": 1527,
+        "bytes": 111896
+      }
+    ]
+  },
+  "uploads/IMG_4834.JPG": {
+    "width": 566,
+    "height": 800,
+    "bytes": 56300,
+    "sha256": "229bd8f2f975bf9a13e98d9ff82887775ef616a9d2e7b1f8eabc1e7dbd555284",
+    "variants": [
+      {
+        "src": "assets/optimized/668125334fdc-384.webp",
+        "width": 384,
+        "height": 543,
+        "bytes": 25654
+      },
+      {
+        "src": "assets/optimized/668125334fdc-566.webp",
+        "width": 566,
+        "height": 800,
+        "bytes": 45018
+      }
+    ]
+  },
+  "uploads/IMG_4835.PNG": {
+    "width": 760,
+    "height": 1121,
+    "bytes": 1267358,
+    "sha256": "9d7fb2ff6c24c003fda2375a75827883e4160a1bdf353c8b1adc70254dd28242",
+    "variants": [
+      {
+        "src": "assets/optimized/c91fa5d38209-384.webp",
+        "width": 384,
+        "height": 566,
+        "bytes": 48216
+      },
+      {
+        "src": "assets/optimized/c91fa5d38209-760.webp",
+        "width": 760,
+        "height": 1121,
+        "bytes": 184996
+      }
+    ]
+  },
+  "uploads/activity-photos/journal-issue-01/launch-discussion.jpg": {
+    "width": 1706,
+    "height": 1279,
+    "bytes": 393393,
+    "sha256": "455fa95b18b631a41f2c60bf5ca4236e61819bd2e9d370650ab3a1a6bdcbc965",
+    "variants": [
+      {
+        "src": "assets/optimized/a410a56d1737-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 24998
+      },
+      {
+        "src": "assets/optimized/a410a56d1737-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 71294
+      },
+      {
+        "src": "assets/optimized/a410a56d1737-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 164154
+      }
+    ]
+  },
+  "uploads/activity-photos/journal-issue-01/launch-event.jpg": {
+    "width": 2400,
+    "height": 1800,
+    "bytes": 874874,
+    "sha256": "a1403b42ad43e0bfe454e49eca9303ecd20e8ca90ce8e6689d650e1fcf1686c5",
+    "variants": [
+      {
+        "src": "assets/optimized/0f7933a4f8c4-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 16444
+      },
+      {
+        "src": "assets/optimized/0f7933a4f8c4-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 71286
+      },
+      {
+        "src": "assets/optimized/0f7933a4f8c4-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 213832
+      }
+    ]
+  },
+  "uploads/activity-photos/journal-issue-01/launch-group.jpg": {
+    "width": 2400,
+    "height": 1746,
+    "bytes": 887759,
+    "sha256": "64602569fdf8832a15a3cbf1fc01ab46008d91e3a3c104bc64b30f9a1006a9a5",
+    "variants": [
+      {
+        "src": "assets/optimized/491617aacb01-384.webp",
+        "width": 384,
+        "height": 279,
+        "bytes": 23780
+      },
+      {
+        "src": "assets/optimized/491617aacb01-768.webp",
+        "width": 768,
+        "height": 559,
+        "bytes": 76568
+      },
+      {
+        "src": "assets/optimized/491617aacb01-1440.webp",
+        "width": 1440,
+        "height": 1048,
+        "bytes": 208470
+      }
+    ]
+  },
+  "uploads/activity-photos/lecture-01/scene-01.png": {
+    "width": 1080,
+    "height": 811,
+    "bytes": 662469,
+    "sha256": "dd19284e65bcaccb096a5b1f1d837ea1a569ca19af851009cce871c1329ac90d",
+    "variants": [
+      {
+        "src": "assets/optimized/6b5d3bd56bb8-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 18726
+      },
+      {
+        "src": "assets/optimized/6b5d3bd56bb8-768.webp",
+        "width": 768,
+        "height": 577,
+        "bytes": 42814
+      },
+      {
+        "src": "assets/optimized/6b5d3bd56bb8-1080.webp",
+        "width": 1080,
+        "height": 811,
+        "bytes": 57054
+      }
+    ]
+  },
+  "uploads/activity-photos/lecture-01/scene-02.png": {
+    "width": 834,
+    "height": 625,
+    "bytes": 616576,
+    "sha256": "1dc2f755f26440ab2c0fb67549be8a102b49d14d706402ff2e78bf1a3d5328db",
+    "variants": [
+      {
+        "src": "assets/optimized/58eeea3d7e9a-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 21544
+      },
+      {
+        "src": "assets/optimized/58eeea3d7e9a-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 58704
+      },
+      {
+        "src": "assets/optimized/58eeea3d7e9a-834.webp",
+        "width": 834,
+        "height": 625,
+        "bytes": 69612
+      }
+    ]
+  },
+  "uploads/activity-photos/lecture-02/scene-01.png": {
+    "width": 1080,
+    "height": 812,
+    "bytes": 1102446,
+    "sha256": "007e307fd85086b08aa0db8b3382730bbbba63696087cef9f9fe4f582b34b460",
+    "variants": [
+      {
+        "src": "assets/optimized/b5a93639eb25-384.webp",
+        "width": 384,
+        "height": 289,
+        "bytes": 27698
+      },
+      {
+        "src": "assets/optimized/b5a93639eb25-767.webp",
+        "width": 767,
+        "height": 577,
+        "bytes": 79840
+      },
+      {
+        "src": "assets/optimized/b5a93639eb25-1080.webp",
+        "width": 1080,
+        "height": 812,
+        "bytes": 116486
+      }
+    ]
+  },
+  "uploads/activity-photos/lecture-02/scene-02.png": {
+    "width": 1080,
+    "height": 810,
+    "bytes": 795805,
+    "sha256": "57a9763f4088f4c90ba0916ee8fd521dd0ad9349bf9bffc48cafcb4bb0728959",
+    "variants": [
+      {
+        "src": "assets/optimized/53339fe5be32-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 21516
+      },
+      {
+        "src": "assets/optimized/53339fe5be32-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 48902
+      },
+      {
+        "src": "assets/optimized/53339fe5be32-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "bytes": 67494
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-02/scene-01.png": {
+    "width": 1080,
+    "height": 810,
+    "bytes": 1109613,
+    "sha256": "bc76c235ba7e0d4d870fcd49e4ff13d07da4595257cdd55f3b989d1ec044a773",
+    "variants": [
+      {
+        "src": "assets/optimized/31d3f16769bc-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 29300
+      },
+      {
+        "src": "assets/optimized/31d3f16769bc-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 85646
+      },
+      {
+        "src": "assets/optimized/31d3f16769bc-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "bytes": 132406
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-02/scene-02.png": {
+    "width": 1080,
+    "height": 810,
+    "bytes": 693065,
+    "sha256": "d9a5504d0b43fac9a8be4d97cfe9614f6422ee22c607e8bc68021de67fbdb69e",
+    "variants": [
+      {
+        "src": "assets/optimized/09b4ec8d2f26-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 13328
+      },
+      {
+        "src": "assets/optimized/09b4ec8d2f26-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 41412
+      },
+      {
+        "src": "assets/optimized/09b4ec8d2f26-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "bytes": 70022
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-02/scene-03.png": {
+    "width": 1080,
+    "height": 810,
+    "bytes": 1138221,
+    "sha256": "6c22f6ec8b5247ec5cb2188facfad0f582c0236b0ba8f7e2424620fddd857738",
+    "variants": [
+      {
+        "src": "assets/optimized/eee290edd310-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 28548
+      },
+      {
+        "src": "assets/optimized/eee290edd310-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 88104
+      },
+      {
+        "src": "assets/optimized/eee290edd310-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "bytes": 137726
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-03/scene-01.png": {
+    "width": 1023,
+    "height": 734,
+    "bytes": 516918,
+    "sha256": "0f91946ab90ac1c8b7d5ac28050b11a4112fda15575f5ab6ad4be0cf58f6100c",
+    "variants": [
+      {
+        "src": "assets/optimized/2d763a69ae78-384.webp",
+        "width": 384,
+        "height": 276,
+        "bytes": 12508
+      },
+      {
+        "src": "assets/optimized/2d763a69ae78-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 33094
+      },
+      {
+        "src": "assets/optimized/2d763a69ae78-1023.webp",
+        "width": 1023,
+        "height": 734,
+        "bytes": 46496
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-03/scene-02.png": {
+    "width": 1054,
+    "height": 756,
+    "bytes": 562400,
+    "sha256": "e3c9c20c88d21cc9e63a3d4ddc59e840504fee0d1fc182215f106f976f36002a",
+    "variants": [
+      {
+        "src": "assets/optimized/56f8fdc4d03c-383.webp",
+        "width": 383,
+        "height": 275,
+        "bytes": 13474
+      },
+      {
+        "src": "assets/optimized/56f8fdc4d03c-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 33770
+      },
+      {
+        "src": "assets/optimized/56f8fdc4d03c-1054.webp",
+        "width": 1054,
+        "height": 756,
+        "bytes": 46734
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-03/scene-03.png": {
+    "width": 1065,
+    "height": 764,
+    "bytes": 906117,
+    "sha256": "59100ea6c362522d263cb190653fd613be943b3f39b374b18442978faabcee33",
+    "variants": [
+      {
+        "src": "assets/optimized/75e3d9fe4c26-383.webp",
+        "width": 383,
+        "height": 275,
+        "bytes": 23602
+      },
+      {
+        "src": "assets/optimized/75e3d9fe4c26-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 60296
+      },
+      {
+        "src": "assets/optimized/75e3d9fe4c26-1065.webp",
+        "width": 1065,
+        "height": 764,
+        "bytes": 87170
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-04/scene-01.png": {
+    "width": 1054,
+    "height": 756,
+    "bytes": 562400,
+    "sha256": "e3c9c20c88d21cc9e63a3d4ddc59e840504fee0d1fc182215f106f976f36002a",
+    "variants": [
+      {
+        "src": "assets/optimized/99c1f5832df9-383.webp",
+        "width": 383,
+        "height": 275,
+        "bytes": 13474
+      },
+      {
+        "src": "assets/optimized/99c1f5832df9-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 33770
+      },
+      {
+        "src": "assets/optimized/99c1f5832df9-1054.webp",
+        "width": 1054,
+        "height": 756,
+        "bytes": 46734
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-04/scene-02.png": {
+    "width": 1080,
+    "height": 775,
+    "bytes": 496807,
+    "sha256": "cef33942f5c018db444fdc480c16a6f8ed3444fef2c50755bbec8b5824bacbf2",
+    "variants": [
+      {
+        "src": "assets/optimized/549a282c7fb1-384.webp",
+        "width": 384,
+        "height": 276,
+        "bytes": 12060
+      },
+      {
+        "src": "assets/optimized/549a282c7fb1-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 30288
+      },
+      {
+        "src": "assets/optimized/549a282c7fb1-1080.webp",
+        "width": 1080,
+        "height": 775,
+        "bytes": 43252
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-04/scene-03.png": {
+    "width": 1065,
+    "height": 764,
+    "bytes": 906117,
+    "sha256": "59100ea6c362522d263cb190653fd613be943b3f39b374b18442978faabcee33",
+    "variants": [
+      {
+        "src": "assets/optimized/d7a389cba836-383.webp",
+        "width": 383,
+        "height": 275,
+        "bytes": 23602
+      },
+      {
+        "src": "assets/optimized/d7a389cba836-768.webp",
+        "width": 768,
+        "height": 551,
+        "bytes": 60296
+      },
+      {
+        "src": "assets/optimized/d7a389cba836-1065.webp",
+        "width": 1065,
+        "height": 764,
+        "bytes": 87170
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-06/discussion-room.jpg": {
+    "width": 1707,
+    "height": 1280,
+    "bytes": 240565,
+    "sha256": "b36be2bc739c5add1a0399987623edb3d470cc69cb54b29cee5bd611411cd970",
+    "variants": [
+      {
+        "src": "assets/optimized/a7347636621d-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 24110
+      },
+      {
+        "src": "assets/optimized/a7347636621d-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 67492
+      },
+      {
+        "src": "assets/optimized/a7347636621d-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 165740
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-06/speaker-discussion-01.jpg": {
+    "width": 1707,
+    "height": 1280,
+    "bytes": 193262,
+    "sha256": "e3ae27ae3561c57b831d0e0d214997c4fe7aeb83996f1fdec390917aba6a23ee",
+    "variants": [
+      {
+        "src": "assets/optimized/902595513558-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 16596
+      },
+      {
+        "src": "assets/optimized/902595513558-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 47444
+      },
+      {
+        "src": "assets/optimized/902595513558-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 125024
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-06/speaker-xu.jpg": {
+    "width": 1702,
+    "height": 1276,
+    "bytes": 258789,
+    "sha256": "4807ec29d4e7a6ae0e244ca5abe074aa9723bb21e671e51042d02366e9a05437",
+    "variants": [
+      {
+        "src": "assets/optimized/c28b9dd61507-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 22022
+      },
+      {
+        "src": "assets/optimized/c28b9dd61507-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 66944
+      },
+      {
+        "src": "assets/optimized/c28b9dd61507-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 178416
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-06/speaker-yuan.jpg": {
+    "width": 1707,
+    "height": 1280,
+    "bytes": 199859,
+    "sha256": "7ce96ccad3694364a96e6428aa0a19fcd6f4488ff91009f5b8c13535c89dfb12",
+    "variants": [
+      {
+        "src": "assets/optimized/6e464a60e745-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 15400
+      },
+      {
+        "src": "assets/optimized/6e464a60e745-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 47324
+      },
+      {
+        "src": "assets/optimized/6e464a60e745-1440.webp",
+        "width": 1440,
+        "height": 1080,
+        "bytes": 135976
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-01.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 108092,
+    "sha256": "af540d0fbfcab491ad0fc2bccc8e62ecbf50e13491a5da9b7e2b20bea88f3ce8",
+    "variants": [
+      {
+        "src": "assets/optimized/25df5b98de36-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 17352
+      },
+      {
+        "src": "assets/optimized/25df5b98de36-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 43744
+      },
+      {
+        "src": "assets/optimized/25df5b98de36-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 83438
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-02.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 85226,
+    "sha256": "74901242a16decc6a83a54f52dd79c1608e14ab9669c006a2462689b56a7e9d6",
+    "variants": [
+      {
+        "src": "assets/optimized/34becceec865-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 12904
+      },
+      {
+        "src": "assets/optimized/34becceec865-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 30760
+      },
+      {
+        "src": "assets/optimized/34becceec865-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 59198
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-03.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 87821,
+    "sha256": "fb5ae0529b945c76b6b8d517f8115d03a3aae74c93f8c6514281595f14aa5b2a",
+    "variants": [
+      {
+        "src": "assets/optimized/8f1320a83681-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 12484
+      },
+      {
+        "src": "assets/optimized/8f1320a83681-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 30332
+      },
+      {
+        "src": "assets/optimized/8f1320a83681-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 58840
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-04.jpg": {
+    "width": 832,
+    "height": 968,
+    "bytes": 276525,
+    "sha256": "31abd59735936033d2c1c32400693bca49978c0adee96a319159ec7c588cabe0",
+    "variants": [
+      {
+        "src": "assets/optimized/b7727d918dfb-384.webp",
+        "width": 384,
+        "height": 447,
+        "bytes": 16380
+      },
+      {
+        "src": "assets/optimized/b7727d918dfb-768.webp",
+        "width": 768,
+        "height": 894,
+        "bytes": 36760
+      },
+      {
+        "src": "assets/optimized/b7727d918dfb-832.webp",
+        "width": 832,
+        "height": 968,
+        "bytes": 39758
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-05.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 94825,
+    "sha256": "d100f2845d7a9cb067afbae3eb2f7d5ce98b203c69e14b02d8dce3c1d771a021",
+    "variants": [
+      {
+        "src": "assets/optimized/21b62d11b651-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 15114
+      },
+      {
+        "src": "assets/optimized/21b62d11b651-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 33804
+      },
+      {
+        "src": "assets/optimized/21b62d11b651-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 64934
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-06.jpg": {
+    "width": 1280,
+    "height": 960,
+    "bytes": 79246,
+    "sha256": "429474695f4702311e9512b26524660ff2ca59c392a3a90922828d90d85377c3",
+    "variants": [
+      {
+        "src": "assets/optimized/f241c0d6cd8d-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 12624
+      },
+      {
+        "src": "assets/optimized/f241c0d6cd8d-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 27964
+      },
+      {
+        "src": "assets/optimized/f241c0d6cd8d-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "bytes": 52090
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-07.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 88653,
+    "sha256": "b17cf0d9a0537d9592cbcb6d69fddd8d71ecadf8c6a97c59c335476bb1d3b20e",
+    "variants": [
+      {
+        "src": "assets/optimized/5f7e54505463-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 15856
+      },
+      {
+        "src": "assets/optimized/5f7e54505463-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 34390
+      },
+      {
+        "src": "assets/optimized/5f7e54505463-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 62908
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-08.jpg": {
+    "width": 1265,
+    "height": 948,
+    "bytes": 94053,
+    "sha256": "1cf9c73bb8bc652fb9ca16fe6cd062a66af253fc99d31286fce55d220bcda4c7",
+    "variants": [
+      {
+        "src": "assets/optimized/d578015e1443-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 15774
+      },
+      {
+        "src": "assets/optimized/d578015e1443-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 35372
+      },
+      {
+        "src": "assets/optimized/d578015e1443-1265.webp",
+        "width": 1265,
+        "height": 948,
+        "bytes": 63244
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-07/scene-09.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 78549,
+    "sha256": "7832d04323fa5e8dfde3e3c7ea80c066579d42b5c490403d1213def39a8115aa",
+    "variants": [
+      {
+        "src": "assets/optimized/56f2b6bddd33-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 12294
+      },
+      {
+        "src": "assets/optimized/56f2b6bddd33-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 26346
+      },
+      {
+        "src": "assets/optimized/56f2b6bddd33-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 47602
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-08/scene-01.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 101031,
+    "sha256": "c31068f000b4499d7ea51dc52db0cb145227a6457aba46174eb1a3b6f5c36f4f",
+    "variants": [
+      {
+        "src": "assets/optimized/a48627f32de7-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 9220
+      },
+      {
+        "src": "assets/optimized/a48627f32de7-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 34620
+      },
+      {
+        "src": "assets/optimized/a48627f32de7-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 81220
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-08/scene-02.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 75329,
+    "sha256": "5c7a0afef6f177dc3aff6a8214312fb6daf90a75fcb72546a131c6099b11032a",
+    "variants": [
+      {
+        "src": "assets/optimized/d1483f9b14f5-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 11764
+      },
+      {
+        "src": "assets/optimized/d1483f9b14f5-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 26368
+      },
+      {
+        "src": "assets/optimized/d1483f9b14f5-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 48234
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-08/scene-03.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 91285,
+    "sha256": "097720dbbff650329a4cb3f994ccb59bfc96aa38780d6448ed0a7c4748d4a75a",
+    "variants": [
+      {
+        "src": "assets/optimized/1b2b3eba7848-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 15312
+      },
+      {
+        "src": "assets/optimized/1b2b3eba7848-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 33350
+      },
+      {
+        "src": "assets/optimized/1b2b3eba7848-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 62480
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-09/scene-01.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 80949,
+    "sha256": "9dc5ac74b3604d97faed05247fc12faf73623dc547c5cbf79dc1f5b99411289f",
+    "variants": [
+      {
+        "src": "assets/optimized/ad334940f0dd-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 12524
+      },
+      {
+        "src": "assets/optimized/ad334940f0dd-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 28632
+      },
+      {
+        "src": "assets/optimized/ad334940f0dd-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 52818
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-09/scene-02.jpg": {
+    "width": 873,
+    "height": 1164,
+    "bytes": 82388,
+    "sha256": "0bfae1369bf6dcfada1e47de2d2da7fb51ca1413594ba030326bdafeabfbb085",
+    "variants": [
+      {
+        "src": "assets/optimized/1ec2e7826110-384.webp",
+        "width": 384,
+        "height": 512,
+        "bytes": 22248
+      },
+      {
+        "src": "assets/optimized/1ec2e7826110-768.webp",
+        "width": 768,
+        "height": 1024,
+        "bytes": 50886
+      },
+      {
+        "src": "assets/optimized/1ec2e7826110-873.webp",
+        "width": 873,
+        "height": 1164,
+        "bytes": 60998
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-09/scene-03.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 108260,
+    "sha256": "2e1d444a02f11ebcd87063fade69f0848f6ed05e08487bdf444480095b354790",
+    "variants": [
+      {
+        "src": "assets/optimized/61204ab6fe0b-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 16308
+      },
+      {
+        "src": "assets/optimized/61204ab6fe0b-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 39330
+      },
+      {
+        "src": "assets/optimized/61204ab6fe0b-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 73598
+      }
+    ]
+  },
+  "uploads/activity-photos/seminar-09/scene-04.jpg": {
+    "width": 1267,
+    "height": 950,
+    "bytes": 100967,
+    "sha256": "77a712a174792f97c4a8198db0979757bbdfa1722cab54b67aa3877d6e047c87",
+    "variants": [
+      {
+        "src": "assets/optimized/f85522f363c5-384.webp",
+        "width": 384,
+        "height": 288,
+        "bytes": 16438
+      },
+      {
+        "src": "assets/optimized/f85522f363c5-768.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 38898
+      },
+      {
+        "src": "assets/optimized/f85522f363c5-1267.webp",
+        "width": 1267,
+        "height": 950,
+        "bytes": 71148
+      }
+    ]
+  },
+  "uploads/activity_images-1776619037000.jpg": {
+    "width": 1016,
+    "height": 1280,
+    "bytes": 126899,
+    "sha256": "9691d863ed3ffd920eb1c9b2d01be5b665bd977f220d564c12c8b3cf3bae0b3d",
+    "variants": [
+      {
+        "src": "assets/optimized/6e1466a271c4-384.webp",
+        "width": 384,
+        "height": 484,
+        "bytes": 26834
+      },
+      {
+        "src": "assets/optimized/6e1466a271c4-768.webp",
+        "width": 768,
+        "height": 968,
+        "bytes": 67112
+      },
+      {
+        "src": "assets/optimized/6e1466a271c4-1016.webp",
+        "width": 1016,
+        "height": 1280,
+        "bytes": 101038
+      }
+    ]
+  },
+  "uploads/descartes-pleiade-coffret.jpg": {
+    "width": 400,
+    "height": 637,
+    "bytes": 27670,
+    "sha256": "e04b10c58c4bb5c0fd307b4d8873810066760c9bf49cfd4c070053dacbe352ae",
+    "variants": []
+  },
+  "uploads/journal-issue-01-cover.jpg": {
+    "width": 1280,
+    "height": 1636,
+    "bytes": 132405,
+    "sha256": "4c09a7bf9b859df4090933d6744b8862722f9d29201262b25ff294092acf7972",
+    "variants": [
+      {
+        "src": "assets/optimized/b389b1633c2b-384.webp",
+        "width": 384,
+        "height": 491,
+        "bytes": 12578
+      },
+      {
+        "src": "assets/optimized/b389b1633c2b-768.webp",
+        "width": 768,
+        "height": 982,
+        "bytes": 35850
+      },
+      {
+        "src": "assets/optimized/b389b1633c2b-1280.webp",
+        "width": 1280,
+        "height": 1636,
+        "bytes": 77368
+      }
+    ]
+  },
+  "uploads/logo-1776618961784.png": {
+    "width": 1344,
+    "height": 1508,
+    "bytes": 31674,
+    "sha256": "ed3dc42c74d563ad9c6b257fdc7826d3431dc9e8bfc35829c4319efd561c185f",
+    "variants": [
+      {
+        "src": "assets/optimized/94229870c22b-48.webp",
+        "width": 48,
+        "height": 54,
+        "bytes": 1550
+      },
+      {
+        "src": "assets/optimized/94229870c22b-96.webp",
+        "width": 96,
+        "height": 108,
+        "bytes": 3602
+      }
+    ]
+  }
+}

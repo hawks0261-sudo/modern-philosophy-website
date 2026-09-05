@@ -1,1518 +1,174 @@
-<!DOCTYPE html><html lang="zh-CN" data-root="" data-current="home"><head>
-
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>现代思想研究中心 | Center of Modern Thought</title>
-<meta name="description" content="现代思想研究中心官方网站，聚焦早期现代思想、数字现代性与中西比较思想研究。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="zh-CN" data-root="" data-current="home" data-language-zh="index.html" data-language-en="en/index.html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>现代思想研究中心 | Center of Modern Thought</title>
 <link rel="stylesheet" href="site.css">
-
-<style>
-/* ── TOKENS ── */
-:root {
-  --navy: #1c2d4a;
-  --navy-deep: #111d30;
-  --navy-mid: #253d62;
-  --cream: #f6f1e7;
-  --cream-dark: #ede7d8;
-  --gold: #b8963e;
-  --gold-light: #d4b46a;
-  --gold-ink: #806219;
-  --on-gold: #111d30;
-  --text: #1e1e1e;
-  --muted: #6b6760;
-  --border: rgba(28,45,74,0.12);
-
-  /* theme defaults = 学院典藏 */
-  --bg: var(--cream);
-  --bg-alt: #efe9db;
-  --bg-dark: var(--navy);
-  --fg: var(--text);
-  --fg-muted: var(--muted);
-  --accent: var(--navy);
-  --accent2: var(--gold);
-  --card-bg: #fff;
-  --card-border: var(--border);
-  --nav-bg: var(--cream);
-  --nav-fg: var(--navy);
-  --hero-bg: var(--navy);
-  --hero-fg: var(--cream);
-  --masthead-bg: #0f1d30;
-  --masthead-fg: rgba(246,241,231,0.7);
-
-  --serif: 'EB Garamond', 'Noto Serif SC', Georgia, serif;
-  --zh-serif: 'Noto Serif SC', serif;
-  --sans: 'Noto Sans SC', sans-serif;
-
-  --max: 1180px;
-  --r: 4px;
-}
-
-/* ── BG COLOR VARIANTS (light theme) ── */
-[data-bg="cream"]  { --bg: #f6f1e7; --bg-alt: #efe9db; }
-[data-bg="stone"]  { --bg: #f0ede8; --bg-alt: #e6e2dc; }
-[data-bg="white"]  { --bg: #fafafa; --bg-alt: #f0f0f0; --card-bg: #fff; }
-[data-bg="slate"]  { --bg: #edf0f4; --bg-alt: #e0e5ec; }
-[data-bg="rose"]   { --bg: #f5eee8; --bg-alt: #ede4db; }
-
-/* ── THEME B: 深夜书馆 ── */
-[data-theme="dark"] {
-  --bg: #111d30;
-  --bg-alt: #0d1726;
-  --bg-dark: #070f1d;
-  --fg: #f0ead8;
-  --fg-muted: #9b9385;
-  --accent: var(--gold-light);
-  --accent2: #c9a260;
-  --gold-ink: #d4b46a;
-  --card-bg: rgba(255,255,255,0.05);
-  --card-border: rgba(255,255,255,0.1);
-  --nav-bg: #0d1726;
-  --nav-fg: #f0ead8;
-  --hero-bg: #0a1320;
-  --hero-fg: #f0ead8;
-  --masthead-bg: #07101e;
-  --masthead-fg: rgba(240,234,216,0.5);
-  --border: rgba(255,255,255,0.1);
-}
-
-/* ── THEME D: 松青书院 ── */
-[data-theme="sage"] {
-  --bg: #f2f4f0;
-  --bg-alt: #e8ece4;
-  --bg-dark: #1e3228;
-  --fg: #1c2a1e;
-  --fg-muted: #526254;
-  --accent: #2a5238;
-  --accent2: #6a9456;
-  --card-bg: #f9fbf7;
-  --card-border: rgba(42,82,56,0.15);
-  --nav-bg: #f2f4f0;
-  --nav-fg: #1c2a1e;
-  --hero-bg: #1e3228;
-  --hero-fg: #e8f0e6;
-  --masthead-bg: #121e18;
-  --masthead-fg: rgba(232,240,230,0.6);
-  --border: rgba(42,82,56,0.15);
-  --gold: #5a8a44;
-  --gold-light: #82b462;
-  --gold-ink: #3c642f;
-  --on-gold: #071208;
-  --navy: #2a5238;
-  --navy-mid: #3a6848;
-}
-
-/* ── THEME C: 当代学术 ── */
-[data-theme="minimal"] {
-  --bg: #ffffff;
-  --bg-alt: #f4f4f4;
-  --bg-dark: #1c2d4a;
-  --fg: #111111;
-  --fg-muted: #666666;
-  --accent: #1c2d4a;
-  --accent2: #b8963e;
-  --card-bg: #fff;
-  --card-border: #e0e0e0;
-  --nav-bg: #ffffff;
-  --nav-fg: #1c2d4a;
-  --hero-bg: #1c2d4a;
-  --hero-fg: #ffffff;
-  --masthead-bg: #1c2d4a;
-  --masthead-fg: rgba(255,255,255,0.6);
-  --border: #e0e0e0;
-}
-
-/* ── RESET ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--fg);
-  line-height: 1.7;
-  transition: background 0.4s, color 0.4s;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-
-/* 头部样式已统一迁移到 site.css */
-
-/* 学术活动板块统一使用宋体 */
-#activities, #activities :is(h1,h2,h3,h4,h5,h6,p,span,a) { font-family: var(--zh-serif); }
-
-/* ── HERO ── */
-.hero {
-  background: var(--hero-bg);
-  color: var(--hero-fg);
-  position: relative;
-  overflow: hidden;
-  min-height: 88vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,150,62,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(28,45,74,0.4) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* Decorative large letter */
-.hero-deco {
-  position: absolute;
-  right: -40px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--serif);
-  font-size: clamp(200px, 30vw, 420px);
-  line-height: 1;
-  color: rgba(255,255,255,0.025);
-  pointer-events: none;
-  user-select: none;
-  font-style: italic;
-}
-[data-theme="minimal"] .hero-deco { color: rgba(255,255,255,0.03); }
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max);
-  margin: 0 auto;
-  width: 100%;
-  padding: 80px 40px 60px;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-eyebrow {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  color: var(--gold-light);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--gold-light);
-}
-
-.hero-title {
-  font-family: var(--zh-serif);
-  font-size: clamp(42px, 6vw, 72px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 12px;
-  text-wrap: balance;
-}
-
-.hero-subtitle {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(18px, 2vw, 22px);
-  opacity: 0.75;
-  margin-bottom: 28px;
-  font-weight: 400;
-}
-
-.hero-desc {
-  font-size: 15px;
-  line-height: 1.85;
-  opacity: 0.8;
-  max-width: 560px;
-  margin-bottom: 36px;
-  font-family: var(--sans);
-  font-weight: 300;
-}
-
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 40px;
-}
-.hero-tag {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 5px 14px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-family: var(--sans);
-  border-radius: 1px;
-  opacity: 0.75;
-}
-
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  font-size: 13px;
-  font-family: var(--zh-serif);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none;
-}
-.btn-primary {
-  background: var(--gold);
-  color: var(--on-gold);
-}
-.btn-primary:hover,
-.btn-primary:focus-visible { background: var(--gold-light); color: var(--on-gold); }
-.btn-outline {
-  border: 1px solid rgba(255,255,255,0.35);
-  color: inherit;
-}
-.btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
-
-/* Hero right panel */
-.hero-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
-
-.hero-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--r);
-  padding: 24px;
-  backdrop-filter: blur(4px);
-}
-[data-theme="minimal"] .hero-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
-
-.hero-card .kicker {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 10px;
-  font-family: var(--serif);
-  font-style: italic;
-}
-.hero-card h2 {
-  font-family: var(--zh-serif);
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-.hero-card p { font-size: 13px; opacity: 0.75; line-height: 1.75; }
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: rgba(255,255,255,0.08);
-  border-radius: var(--r);
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.metric {
-  background: rgba(255,255,255,0.04);
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.metric strong {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--gold-light);
-  line-height: 1;
-}
-.metric span { font-size: 11px; opacity: 0.8; }
-.metric-note {
-  grid-column: 1 / -1;
-  padding: 10px 16px;
-  background: rgba(255,255,255,0.04);
-  color: var(--hero-fg);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* Hero bar */
-.hero-ticker {
-  position: relative;
-  z-index: 1;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 0 40px;
-  display: flex;
-  gap: 40px;
-  overflow: hidden;
-  height: 44px;
-  align-items: center;
-  background: rgba(0,0,0,0.15);
-}
-.hero-ticker span {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.hero-ticker span + span::before {
-  content: '·';
-  margin-right: 40px;
-}
-
-/* ── SECTIONS ── */
-.section {
-  padding: 96px 40px;
-  max-width: var(--max);
-  margin: 0 auto;
-}
-.section-alt {
-  background: var(--bg-alt);
-  padding: 96px 40px;
-  transition: background 0.4s;
-}
-.section-alt > .section { padding: 0; }
-
-.section-head {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 48px;
-  align-items: start;
-  margin-bottom: 60px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-}
-.eyebrow {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  color: var(--gold-ink);
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
-  display: block;
-}
-.section-title {
-  font-family: var(--zh-serif);
-  font-size: clamp(28px, 4vw, 38px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--fg);
-}
-.section-desc {
-  font-size: 15px;
-  color: var(--fg-muted);
-  line-height: 1.9;
-  max-width: 480px;
-  margin-top: 8px;
-  font-weight: 300;
-  align-self: end;
-}
-.section-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 28px;
-  border: 1px solid var(--border);
-  padding: 10px 18px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  transition: color 0.2s, border-color 0.2s, transform 0.2s;
-}
-.section-link:hover {
-  color: var(--fg);
-  border-color: var(--fg-muted);
-  transform: translateY(-1px);
-}
-
-/* ── ABOUT ── */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.about-card {
-  background: var(--card-bg);
-  padding: 40px 36px;
-  transition: background 0.4s;
-}
-.about-card h3 {
-  font-family: var(--zh-serif);
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--fg);
-}
-.about-card h3::before {
-  content: attr(data-n);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  color: var(--gold-ink);
-}
-.about-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
-
-/* ── RESEARCH ── */
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.research-card {
-  border: 1px solid var(--border);
-  padding: 36px;
-  position: relative;
-  background: var(--card-bg);
-  border-radius: var(--r);
-  transition: box-shadow 0.2s, transform 0.2s, background 0.4s;
-}
-.research-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
-.card-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 48px;
-  color: var(--accent2);
-  opacity: 0.25;
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  line-height: 1;
-  font-weight: 400;
-}
-.research-card h3 {
-  font-family: var(--zh-serif);
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--fg);
-  padding-right: 48px;
-}
-.research-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.9; }
-
-/* ── ADVISERS ── */
-.advisers-layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-.advisers-intro {
-  background: var(--navy);
-  color: var(--cream);
-  padding: 40px 32px;
-  border-radius: var(--r);
-  position: sticky;
-  top: 80px;
-}
-[data-theme="dark"] .advisers-intro { background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
-[data-theme="minimal"] .advisers-intro { background: var(--navy); }
-.advisers-intro .eyebrow { color: var(--gold-light); }
-.advisers-intro h3 {
-  font-family: var(--zh-serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 14px;
-  line-height: 1.4;
-}
-.advisers-intro p { font-size: 13px; opacity: 0.75; line-height: 1.85; color: var(--cream); margin-bottom: 28px; }
-.adv-stats { display: flex; gap: 24px; }
-.adv-stat { display: flex; flex-direction: column; }
-.adv-stat strong { font-family: var(--serif); font-size: 28px; color: var(--gold-light); line-height: 1; }
-.adv-stat span { font-size: 11px; opacity: 0.6; color: var(--cream); margin-top: 2px; }
-
-.adviser-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  align-self: start;
-}
-.adviser-card {
-  background: var(--card-bg);
-  padding: 24px 20px;
-  transition: background 0.2s;
-}
-.adviser-card:hover { background: var(--bg-alt); }
-.adviser-card h3 {
-  font-family: var(--zh-serif);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-.adviser-card .en-name {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--gold-ink);
-  margin-bottom: 8px;
-  display: block;
-}
-.adviser-card p { font-size: 12px; color: var(--fg-muted); line-height: 1.7; }
-.country-tag {
-  display: inline-block;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 1px;
-  margin-bottom: 8px;
-  letter-spacing: 0.05em;
-  color: var(--fg-muted);
-}
-
-/* ── ACTIVITIES ── */
-.activity-group { margin-bottom: 64px; }
-.activity-group-head {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 28px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-}
-.activity-group-head h3 {
-  font-family: var(--zh-serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--fg);
-}
-.activity-group-head .kicker {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-  color: var(--gold-ink);
-}
-
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
-.activity-card {
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--card-bg);
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.2s, transform 0.2s, background 0.4s;
-}
-.activity-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
-.activity-poster {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  background: var(--bg-alt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-muted);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 13px;
-}
-.activity-poster.poster-contain {
-  object-fit: contain;
-  object-position: center;
-}
-.activity-poster.is-previewable {
-  cursor: pointer;
-}
-.activity-poster.is-previewable:hover {
-  opacity: 0.96;
-}
-.activity-poster.placeholder {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-  aspect-ratio: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.3);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-}
-.activity-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.activity-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-.tag {
-  display: inline-block;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 1px;
-  font-family: var(--sans);
-}
-.tag-lecture { background: var(--navy); color: var(--cream); }
-.tag-seminar { background: var(--gold); color: var(--on-gold); }
-[data-theme="dark"] .tag-lecture { background: rgba(255,255,255,0.15); color: var(--fg); }
-.date-label { font-size: 11px; color: var(--fg-muted); }
-.activity-body h4 {
-  font-family: var(--zh-serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
-.activity-body .speaker { font-size: 12px; color: var(--gold-ink); margin-bottom: 8px; font-style: italic; font-family: var(--serif); }
-.activity-body p { font-size: 12px; color: var(--fg-muted); line-height: 1.75; }
-.card-cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 18px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-  border-bottom: 1px solid transparent;
-  transition: transform 0.2s, color 0.2s, border-color 0.2s;
-}
-.card-cta-link:hover {
-  color: var(--fg);
-  border-color: var(--fg-muted);
-  transform: translateX(2px);
-}
-
-/* ── ACTIVITY PREVIEW MODAL ── */
-#activity-preview-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(10,16,28,0.7);
-  backdrop-filter: blur(4px);
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-#activity-preview-modal.open { display: flex; }
-.activity-preview-box {
-  background: var(--card-bg);
-  border-radius: 6px;
-  max-width: 860px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
-  display: grid;
-  grid-template-columns: minmax(260px, 340px) 1fr;
-}
-.activity-preview-poster {
-  background: var(--bg-alt);
-  border-radius: 6px 0 0 6px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-}
-.activity-preview-poster img {
-  width: 100%;
-  height: auto;
-  max-height: calc(90vh - 36px);
-  object-fit: contain;
-}
-.activity-preview-body {
-  padding: 36px 32px;
-}
-.activity-preview-body .activity-meta { margin-bottom: 14px; }
-.activity-preview-body h3 {
-  font-family: var(--zh-serif);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--fg);
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-.activity-preview-body .speaker {
-  font-size: 13px;
-  color: var(--gold-ink);
-  font-style: italic;
-  font-family: var(--serif);
-  margin-bottom: 16px;
-}
-.activity-preview-body p {
-  font-size: 14px;
-  color: var(--fg-muted);
-  line-height: 1.85;
-}
-.activity-preview-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.linked-card {
-  cursor: pointer;
-}
-.card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-  transition: transform 0.2s, color 0.2s;
-}
-.linked-card:hover .card-cta {
-  color: var(--fg);
-  transform: translateX(2px);
-}
-
-/* ── OUTCOMES ── */
-.outcomes-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 24px;
-}
-.pub-card {
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--card-bg);
-  transition: background 0.4s;
-}
-.pub-card-text { padding: 40px; }
-.pub-card .pub-tag {
-  display: inline-block;
-  background: var(--navy);
-  color: rgba(255,255,255,0.94);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 1px;
-  margin-bottom: 16px;
-}
-[data-theme="dark"] .pub-card .pub-tag { background: rgba(255,255,255,0.15); color: var(--fg); }
-.pub-card h3 { font-family: var(--zh-serif); font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--fg); }
-.pub-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; margin-bottom: 16px; }
-.pub-points { padding-left: 0; }
-.pub-points li {
-  font-size: 13px;
-  color: var(--fg-muted);
-  padding: 6px 0;
-  border-top: 1px solid var(--border);
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-}
-.pub-points li::before { content: '—'; color: var(--gold-ink); flex-shrink: 0; }
-.pub-card-cover { display: flex; }
-.cover-img-wrap { width: 45%; background: var(--bg-alt); }
-.cover-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.cover-body {
-  padding: 32px 28px;
-  flex: 1;
-  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,247,240,0.98) 100%);
-}
-.cover-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(160deg, var(--navy) 0%, #2a4a7a 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 11px;
-  min-height: 240px;
-}
-
-.pub-wide {
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  background: var(--card-bg);
-  padding: 36px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-}
-.pub-wide-col h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--fg); }
-.pub-wide-col p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
-.pub-wide-col .pub-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold-ink); margin-bottom: 8px; display: block; }
-
-.descartes-project {
-  margin-top: 24px;
-  border: 1px solid rgba(28,45,74,0.14);
-  border-radius: var(--r);
-  overflow: hidden;
-  background: var(--card-bg);
-  display: grid;
-  grid-template-columns: minmax(300px, 0.38fr) minmax(0, 1fr);
-}
-.descartes-project-visual {
-  min-height: 100%;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255,255,255,0.12), transparent 30%),
-    linear-gradient(145deg, #11233d 0%, #244d7d 100%);
-  color: rgba(246,241,231,0.92);
-  position: relative;
-  padding: 30px 28px;
-  display: grid;
-  align-content: center;
-  overflow: hidden;
-}
-.descartes-project-figure {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 16px;
-  margin: 0;
-}
-.descartes-project-image {
-  width: min(100%, 300px);
-  margin: 0 auto;
-  max-height: 430px;
-  object-fit: contain;
-  border-radius: 2px;
-  filter: drop-shadow(0 28px 28px rgba(5,12,24,0.32));
-}
-.descartes-project-figure figcaption {
-  max-width: 300px;
-  margin: 0 auto;
-  font-size: 12px;
-  line-height: 1.65;
-  color: rgba(246,241,231,0.78);
-}
-.descartes-project-figure figcaption strong {
-  display: block;
-  margin-bottom: 3px;
-  font-family: var(--serif);
-  font-size: 14px;
-  font-style: italic;
-  color: var(--gold-light);
-}
-.descartes-project-body {
-  padding: 38px 40px;
-}
-.descartes-project-body .pub-label {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--gold-ink);
-  display: block;
-  margin-bottom: 8px;
-}
-.descartes-project-body h3 {
-  font-family: var(--zh-serif);
-  font-size: 24px;
-  line-height: 1.35;
-  margin-bottom: 14px;
-  color: var(--fg);
-}
-.descartes-project-body p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--fg-muted);
-}
-.descartes-source-facts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  margin: 22px 0 24px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.descartes-source-fact {
-  background: var(--card-bg);
-  padding: 16px 14px;
-}
-.descartes-source-fact span {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-}
-.descartes-source-fact strong {
-  display: block;
-  font-family: var(--zh-serif);
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--fg);
-}
-.descartes-plan-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 22px;
-}
-.descartes-plan-item {
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-}
-.descartes-plan-item span {
-  display: block;
-  margin-bottom: 5px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--gold-ink);
-}
-.descartes-plan-item h4 {
-  font-family: var(--zh-serif);
-  font-size: 15px;
-  line-height: 1.45;
-  color: var(--fg);
-  margin-bottom: 5px;
-}
-.descartes-plan-item p {
-  font-size: 13px;
-  line-height: 1.75;
-}
-.descartes-project .card-cta {
-  margin-top: 22px;
-}
-.descartes-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 18px 0 4px;
-}
-.descartes-tags span {
-  font-family: var(--zh-serif);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: var(--navy);
-  background: rgba(28, 45, 74, 0.06);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 5px 12px;
-}
-
-/* ── PEOPLE PREVIEW ── */
-.people-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.people-preview-card {
-  background: var(--card-bg);
-  padding: 32px 28px;
-  min-height: 220px;
-  transition: background 0.2s;
-}
-.people-preview-card:hover {
-  background: var(--bg-alt);
-}
-.people-preview-role {
-  display: block;
-  margin-bottom: 12px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--gold-ink);
-}
-.people-preview-card h3 {
-  font-family: var(--zh-serif);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--fg);
-  margin-bottom: 12px;
-}
-.people-preview-card p {
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--fg-muted);
-}
-
-/* ── NEWS ── */
-.news-list { display: flex; flex-direction: column; }
-.news-item {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 32px;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: start;
-}
-.news-date {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  color: var(--gold-ink);
-  padding-top: 4px;
-}
-.news-type {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-size: 11px;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-}
-.news-body h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--fg); }
-.news-body p { font-size: 14px; color: var(--fg-muted); line-height: 1.75; }
-.news-link {
-  display: inline-block;
-  margin-top: 12px;
-  font-family: var(--zh-serif);
-  font-size: 13px;
-  color: var(--gold-ink);
-}
-.news-link:hover { color: var(--accent); }
-
-/* ── CONTACT ── */
-.contact-shell {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.contact-shell h2 { font-family: var(--zh-serif); font-size: 38px; font-weight: 700; margin-bottom: 16px; color: var(--fg); }
-.contact-shell > div > p { font-size: 15px; color: var(--fg-muted); line-height: 1.85; }
-.contact-details { display: flex; flex-direction: column; gap: 0; }
-.contact-row {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: baseline;
-}
-.contact-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold-ink); }
-.contact-value { font-size: 14px; color: var(--fg); font-family: var(--zh-serif); }
-.contact-value a { color: var(--accent); border-bottom: 1px solid var(--border); }
-.back-top {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 28px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: var(--fg-muted);
-  border: 1px solid var(--border);
-  padding: 8px 16px;
-  border-radius: 1px;
-  transition: all 0.2s;
-}
-.back-top:hover { color: var(--fg); border-color: var(--fg-muted); }
-
-/* ── FOOTER ── */
-.site-footer {
-  background: var(--masthead-bg);
-  color: rgba(255,255,255,0.5);
-  padding: 32px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-}
-[data-theme="minimal"] .site-footer { background: var(--navy); }
-.footer-brand {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-}
-
-/* ── REVEAL ANIMATION ── */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── TWEAKS PANEL ── */
-#tweaks-panel {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9999;
-  background: var(--navy);
-  color: var(--cream);
-  border-radius: 6px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-  padding: 24px;
-  width: 260px;
-  display: none;
-  font-family: var(--sans);
-}
-#tweaks-panel.open { display: block; }
-#tweaks-panel h4 {
-  font-family: var(--zh-serif);
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--gold-light);
-  letter-spacing: 0.05em;
-}
-.tweak-group { margin-bottom: 18px; }
-.tweak-label { font-size: 11px; letter-spacing: 0.06em; opacity: 0.6; margin-bottom: 8px; text-transform: uppercase; }
-.tweak-options { display: flex; flex-direction: column; gap: 6px; }
-.tweak-btn {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: var(--cream);
-  padding: 7px 12px;
-  font-size: 12px;
-  border-radius: 3px;
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.2s, border-color 0.2s;
-  font-family: var(--zh-serif);
-}
-.tweak-btn:hover, .tweak-btn.active { background: rgba(184,150,62,0.2); border-color: var(--gold); }
-.tweak-sep { height: 1px; background: rgba(255,255,255,0.1); margin: 14px 0; }
-
-/* ── REVIEW MODE ── */
-.review-tool {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 9990;
-  display: none !important;
-  justify-items: end;
-  gap: 10px;
-}
-.review-launcher,
-.review-primary-button,
-.review-ghost-button,
-.review-comment-button {
-  border: none;
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-.review-launcher,
-.review-primary-button {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.18);
-}
-[data-theme="dark"] .review-launcher,
-[data-theme="dark"] .review-primary-button {
-  color: var(--bg-dark);
-}
-.review-launcher {
-  min-height: 50px;
-  padding: 0 18px;
-}
-.review-panel {
-  width: min(390px, calc(100vw - 20px));
-  max-height: min(76vh, 760px);
-  overflow: auto;
-  padding: 18px;
-  border: 1px solid var(--card-border);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.16);
-}
-[data-bg="cream"] .review-panel,
-[data-bg="stone"] .review-panel,
-[data-bg="rose"] .review-panel,
-[data-bg="slate"] .review-panel,
-[data-bg="white"] .review-panel {
-  background: rgba(255,255,255,0.94);
-}
-[data-theme="dark"] .review-panel {
-  background: rgba(18,28,42,0.96);
-}
-.review-head,
-.review-actions,
-.review-comment-head,
-.review-comment-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.review-head {
-  align-items: flex-start;
-}
-.review-kicker,
-.review-label,
-.review-shortcut,
-.review-field span,
-.review-comment-meta {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.review-kicker,
-.review-label,
-.review-field span {
-  color: var(--accent2);
-}
-.review-shortcut,
-.review-comment-meta,
-.review-selected-meta,
-.review-comment-context,
-.review-empty {
-  color: var(--fg-muted);
-}
-.review-title {
-  font-family: var(--zh-serif);
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--fg);
-}
-.review-shortcut {
-  margin-top: 8px;
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-.review-selected-card,
-.review-comment-item {
-  margin-top: 14px;
-  padding: 14px 16px;
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  background: rgba(255,255,255,0.52);
-}
-[data-theme="dark"] .review-selected-card,
-[data-theme="dark"] .review-comment-item {
-  background: rgba(255,255,255,0.04);
-}
-.review-selected-target {
-  margin-top: 6px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--fg);
-}
-.review-selected-meta {
-  margin-top: 6px;
-  font-size: 13px;
-  line-height: 1.6;
-  word-break: break-word;
-}
-.review-form {
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
-}
-.review-field {
-  display: grid;
-  gap: 6px;
-}
-.review-field textarea {
-  width: 100%;
-  min-width: 0;
-  min-height: 112px;
-  resize: vertical;
-  padding: 14px;
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  background: rgba(255,255,255,0.82);
-  color: var(--fg);
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.7;
-}
-[data-theme="dark"] .review-field textarea {
-  background: rgba(255,255,255,0.06);
-}
-.review-field textarea:focus-visible,
-.review-launcher:focus-visible,
-.review-primary-button:focus-visible,
-.review-ghost-button:focus-visible,
-.review-comment-button:focus-visible {
-  outline: 2px solid var(--accent2);
-  outline-offset: 2px;
-}
-.review-actions {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.review-primary-button,
-.review-ghost-button,
-.review-comment-button {
-  min-height: 44px;
-  padding: 0 16px;
-}
-.review-ghost-button,
-.review-comment-button {
-  background: rgba(28,45,74,0.08);
-  color: var(--fg);
-}
-[data-theme="dark"] .review-ghost-button,
-[data-theme="dark"] .review-comment-button {
-  background: rgba(255,255,255,0.09);
-}
-.review-list-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 16px;
-}
-.review-list-title {
-  font-family: var(--zh-serif);
-  font-size: 18px;
-  color: var(--fg);
-}
-.review-list-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px;
-}
-.review-list {
-  display: grid;
-  gap: 10px;
-  margin-top: 10px;
-}
-.review-comment-title {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--fg);
-}
-.review-comment-text,
-.review-comment-suggestion,
-.review-comment-context {
-  margin-top: 8px;
-  font-size: 14px;
-  line-height: 1.7;
-}
-.review-comment-context {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  word-break: break-word;
-}
-.review-highlight {
-  position: fixed;
-  z-index: 9980;
-  pointer-events: none;
-  border: 2px solid rgba(184,150,62,0.9);
-  border-radius: 12px;
-  background: rgba(184,150,62,0.12);
-  box-shadow: 0 0 0 9999px rgba(15,19,28,0.1);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.12s ease, top 0.12s ease, left 0.12s ease, width 0.12s ease, height 0.12s ease;
-}
-.review-highlight.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.review-highlight.selected {
-  border-color: rgba(28,45,74,0.92);
-  background: rgba(28,45,74,0.1);
-}
-body.review-mode-active {
-  cursor: crosshair;
-}
-body.review-mode-active .review-tool,
-body.review-mode-active .review-tool * {
-  cursor: auto;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 48px 32px 40px; }
-  .hero-side { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
-  .hero-card { min-width: 0; padding: 20px; overflow-wrap: anywhere; }
-  .section-head { grid-template-columns: 1fr; gap: 12px; }
-  .section-desc { max-width: 100%; }
-  .about-grid { grid-template-columns: 1fr; }
-  .research-grid { grid-template-columns: 1fr; }
-  .advisers-layout { grid-template-columns: 1fr; }
-  .advisers-intro { position: static; }
-  .adviser-grid { grid-template-columns: repeat(2, 1fr); }
-  .outcomes-grid { grid-template-columns: 1fr; }
-  .people-preview-grid { grid-template-columns: 1fr; }
-  .pub-wide { grid-template-columns: 1fr; gap: 24px; }
-  .descartes-project { grid-template-columns: minmax(240px, 0.38fr) minmax(0, 1fr); }
-  .descartes-project-body { padding: 30px 28px; }
-  .descartes-source-facts { grid-template-columns: 1fr; }
-  .descartes-plan-grid { grid-template-columns: 1fr; }
-  .contact-shell { grid-template-columns: 1fr; gap: 40px; }
-  .masthead { display: none; }
-  .nav-links { display: none; }
-  .review-tool {
-    right: 10px;
-    left: 10px;
-    bottom: 10px;
-    justify-items: stretch;
-  }
-  .review-panel {
-    width: 100%;
-    max-height: 72vh;
-  }
-  .activity-preview-box {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 680px) {
-  .hero-inner { padding: 40px 20px 32px; gap: 28px; }
-  .hero-side { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .hero-card h2 { font-size: 17px; }
-  .metric { padding: 14px 16px; }
-
-  #activities {
-    padding: 72px 18px !important;
-  }
-
-  .activity-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .descartes-project {
-    grid-template-columns: 1fr;
-  }
-
-  .descartes-project-visual {
-    min-height: auto;
-  }
-}
-</style>
+  <style>
+    body { background: var(--cream); }
+    .home-shell { width: min(calc(100% - 64px), var(--max)); margin: 0 auto; }
+    .home-section { padding: 58px 0; scroll-margin-top: 100px; }
+    .home-section-alt { background: #eee7d9; }
+    .home-section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
+    .home-eyebrow { display: block; margin: 0 0 9px; font-family: var(--serif); font-size: 15px; letter-spacing: .04em; color: #806219; }
+    .home-section h2 { margin: 0; font-family: var(--zh-serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.4; color: var(--navy); }
+    .home-section-head p { max-width: 540px; margin: 0; color: var(--muted); font-size: 15px; }
+    .home-text-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--navy); text-decoration: underline; text-underline-offset: 5px; font-size: 14px; }
+    .home-hero { background: var(--navy); color: var(--cream); }
+    .home-hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 64px; padding-top: 48px; padding-bottom: 42px; }
+    .home-hero .home-eyebrow { color: var(--gold-light); }
+    .home-hero h1 { margin: 16px 0 18px; font-family: var(--zh-serif); font-size: clamp(38px, 4.6vw, 58px); line-height: 1.4; letter-spacing: .04em; font-weight: 600; }
+    .home-hero-desc { max-width: 510px; color: #e3ded4; font-size: 16px; line-height: 1.9; margin: 0; }
+    .home-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 20px; border-radius: 3px; font-size: 14px; font-weight: 500; }
+    .btn-primary { background: var(--gold); color: #111d30; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline { border: 1px solid #a7aaa9; color: var(--cream); }
+    .btn-outline:hover { background: rgba(255,255,255,.09); }
+    .home-feature { margin: 0; }
+    .home-feature img { width: 100%; height: 258px; object-fit: cover; border-radius: 3px; }
+    .home-feature figcaption { margin-top: 12px; font-size: 13px; color: #e3ded4; line-height: 1.7; }
+    .home-feature figcaption a { color: var(--cream); text-decoration: underline; text-underline-offset: 4px; }
+    .home-latest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .home-activity { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid #c8bdab; }
+    .home-activity img { width: 88px; height: 134px; object-fit: contain; object-position: top center; }
+    .home-activity time { display: block; margin-bottom: 9px; color: #676054; font-size: 13px; }
+    .home-activity h3 { margin: 0; font-family: var(--zh-serif); color: var(--navy); font-size: 18px; line-height: 1.65; }
+    .home-activity p { margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .home-activity .home-text-link { margin-top: 4px; }
+    .home-conferences { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline; margin-top: 20px; padding: 19px 22px; border-left: 3px solid #806219; background: #ebe4d6; color: var(--navy); font-size: 14px; }
+    .home-conferences strong { font-family: var(--zh-serif); font-size: 16px; }
+    .home-conferences p { margin: 0; }
+    .home-news { margin-top: 24px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; scroll-margin-top: 100px; }
+    .home-news h3 { margin: 0; color: var(--navy); font-size: 15px; font-weight: 500; }
+    .home-news p { margin: 0; font-size: 14px; color: var(--muted); }
+    .home-news time { margin-right: 12px; }
+    .home-news a { color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+    .home-publications { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
+    .home-publication { display: grid; grid-template-columns: 130px minmax(0,1fr); gap: 26px; padding: 28px; background: #faf7f0; border: 1px solid #d5cbb9; }
+    .home-publication img { width: 130px; height: 186px; object-fit: contain; object-position: top; }
+    .home-publication h3 { margin: 0 0 12px; font-family: var(--zh-serif); font-size: 24px; color: var(--navy); }
+    .home-publication p { margin: 0 0 10px; color: #58554e; font-size: 14px; line-height: 1.85; }
+    .home-publication .home-eyebrow { font-size: 14px; }
+    .home-project { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #d3c7b2; font-size: 14px; color: #58554e; }
+    .home-project a { margin-right: 12px; font-family: var(--zh-serif); font-size: 17px; color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+    .home-research-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 30px; }
+    .home-research-grid article { border-top: 1px solid #c8bdab; padding-top: 20px; }
+    .home-research-grid span { color: #806219; font-family: var(--serif); font-size: 22px; }
+    .home-research-grid h3 { margin: 10px 0 14px; color: var(--navy); font-family: var(--zh-serif); font-size: 19px; }
+    .home-research-grid p, .home-about-grid p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.95; }
+    .home-about { margin-top: 44px; padding-top: 34px; border-top: 1px solid #d9cebc; scroll-margin-top: 110px; }
+    .home-about h2 { font-size: 26px; }
+    .home-about-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px; margin-top: 22px; }
+    .home-about-grid h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); }
+    .home-people { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
+    .home-person { border-top: 1px solid #c7bca8; padding-top: 20px; }
+    .home-person h3 { margin: 8px 0 12px; font-family: var(--zh-serif); font-size: 23px; color: var(--navy); }
+    .home-person p { color: #58554e; font-size: 14px; line-height: 1.9; margin: 0 0 8px; }
+    .home-people-stats { color: var(--navy); font-size: 15px; }
+    .home-contact { display: grid; grid-template-columns: 1fr 1.6fr; gap: 52px; }
+    .home-contact p { color: var(--muted); font-size: 15px; }
+    .home-contact dl { margin: 0; }
+    .home-contact dl div { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 20px; padding: 12px 0; border-bottom: 1px solid #ddd2c2; font-size: 15px; }
+    .home-contact dt { color: var(--muted); }
+    .home-contact dd { margin: 0; color: var(--navy); overflow-wrap: anywhere; }
+    .home-contact dd a { text-decoration: underline; text-underline-offset: 4px; }
+    .site-footer { display: flex; justify-content: space-between; gap: 18px; padding: 24px 32px; background: var(--navy-deep); color: #ddd8cf; font-size: 12px; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; }
+    @media (max-width: 1024px) {
+      .home-hero-inner { gap: 36px; }
+      .home-latest-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
+      .home-activity { grid-template-columns: 90px minmax(0,1fr); gap: 20px; }
+      .home-activity img { width: 90px; height: 126px; }
+      .home-activity p { max-width: 640px; }
+      .home-publication { grid-template-columns: 96px minmax(0,1fr); gap: 20px; padding: 22px; }
+      .home-publication img { width: 96px; height: 144px; }
+      .home-publication h3 { font-size: 22px; }
+      .home-research-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 680px) {
+      .home-shell { width: calc(100% - 36px); }
+      .home-section { padding: 36px 0; }
+      .home-section-head { gap: 14px; align-items: start; flex-direction: column; margin-bottom: 20px; }
+      .home-section-head .home-text-link { min-height: 30px; }
+      .home-hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 26px; padding-top: 30px; padding-bottom: 24px; }
+      .home-hero .home-eyebrow { font-size: 14px; margin-bottom: 0; }
+      .home-hero h1 { margin: 8px 0 14px; font-size: 39px; line-height: 1.3; }
+      .home-hero h1 br { display: initial; }
+      .home-hero-desc { font-size: 14px; line-height: 1.8; }
+      .home-actions { margin-top: 18px; gap: 10px; }
+      .btn { font-size: 13px; padding: 9px 15px; }
+      .home-feature img { height: 150px; object-position: center 48%; }
+      .home-feature figcaption { font-size: 12px; margin-top: 9px; }
+      .home-activity { grid-template-columns: 78px minmax(0,1fr); gap: 16px; padding: 18px 0; }
+      .home-activity img { width: 78px; height: 115px; }
+      .home-activity h3 { font-size: 17px; }
+      .home-activity p { font-size: 13px; }
+      .home-conferences { padding: 15px 16px; gap: 8px; }
+      .home-conferences p span { display: block; }
+      .home-news { gap: 8px; }
+      .home-news time { display: block; }
+      .home-publications { grid-template-columns: minmax(0,1fr); gap: 18px; }
+      .home-publication { grid-template-columns: 86px minmax(0,1fr); gap: 18px; padding: 18px; }
+      .home-publication img { width: 86px; height: 128px; }
+      .home-publication h3 { font-size: 21px; }
+      .home-publication p { font-size: 13px; }
+      .home-project a { display: block; margin-bottom: 8px; }
+      .home-research-grid, .home-about-grid, .home-people, .home-contact { grid-template-columns: minmax(0,1fr); gap: 24px; }
+      .home-research-grid article { padding-top: 14px; }
+      .home-research-grid h3 { display: inline; margin-left: 12px; font-size: 18px; }
+      .home-research-grid p { margin-top: 10px; }
+      .home-about { margin-top: 32px; padding-top: 26px; }
+      .home-about-grid { margin-top: 18px; gap: 18px; }
+      .home-person h3 { margin-top: 4px; font-size: 21px; }
+      .home-contact dl div { grid-template-columns: 42px minmax(0,1fr); gap: 14px; font-size: 14px; }
+      .site-footer { flex-direction: column; gap: 5px; padding: 20px 18px; }
+    }
+    @media (max-width: 360px) {
+      .home-hero h1 { font-size: 33px; }
+      .home-publication { grid-template-columns: 68px minmax(0,1fr); gap: 14px; padding: 15px; }
+      .home-publication img { width: 68px; height: 105px; }
+      .home-publication h3 { font-size: 19px; }
+    }
+  </style>
+<!-- BEGIN GENERATED: page-metadata -->
+<meta name="description" content="从欧洲早期现代思想出发，连接哲学、文化、技术与社会现实，推动思想史研究、中西对话与开放的学术交流。" />
+<link rel="canonical" href="https://hawks0261-sudo.github.io/modern-philosophy-website/index.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://hawks0261-sudo.github.io/modern-philosophy-website/index.html" />
+<link rel="alternate" hreflang="en" href="https://hawks0261-sudo.github.io/modern-philosophy-website/en/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="现代思想研究中心" />
+<meta property="og:title" content="现代思想研究中心 | Center of Modern Thought" />
+<meta property="og:description" content="从欧洲早期现代思想出发，连接哲学、文化、技术与社会现实，推动思想史研究、中西对话与开放的学术交流。" />
+<meta property="og:url" content="https://hawks0261-sudo.github.io/modern-philosophy-website/index.html" />
+<meta property="og:image" content="https://hawks0261-sudo.github.io/modern-philosophy-website/logo.png" />
+<meta property="og:image:alt" content="现代思想研究中心" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="现代思想研究中心 | Center of Modern Thought" />
+<meta name="twitter:description" content="从欧洲早期现代思想出发，连接哲学、文化、技术与社会现实，推动思想史研究、中西对话与开放的学术交流。" />
+<meta name="twitter:image" content="https://hawks0261-sudo.github.io/modern-philosophy-website/logo.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://hawks0261-sudo.github.io/modern-philosophy-website/#organization",
+      "name": "现代思想研究中心",
+      "alternateName": "Center of Modern Thought",
+      "url": "https://hawks0261-sudo.github.io/modern-philosophy-website/index.html",
+      "logo": "https://hawks0261-sudo.github.io/modern-philosophy-website/logo.png",
+      "email": "modernphi24@163.com"
+    }
+  ]
+}
+</script>
+<!-- END GENERATED: page-metadata -->
+<link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
-
 <body>
-
-<!-- ── HEADER (统一头部) ── -->
 <div class="masthead">
   <span>Yangzhou University</span>
   <span>Modern Thought · Intellectual History · Global Dialogue</span>
@@ -1521,1382 +177,195 @@ body.review-mode-active .review-tool * {
 
 <header class="site-header">
   <a class="brand" href="#top">
-    <img src="logo.png" alt="现代思想研究中心标识">
+    <img src="assets/optimized/ab211233b657-96.webp" alt="现代思想研究中心标识" width="1344" height="1508" data-media-source="logo.png" decoding="async" loading="eager" srcset="assets/optimized/ab211233b657-48.webp 48w, assets/optimized/ab211233b657-96.webp 96w" sizes="42px">
     <div class="brand-text">
       <strong>现代思想研究中心</strong>
       <span>Center of Modern Thought</span>
     </div>
   </a>
-  <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
+  <nav class="nav-links" data-primary-nav aria-label="主导航" data-static-nav>
+<a href="index.html" data-nav="home" class="is-current" aria-current="page">首页</a>
+<a href="#about" data-nav="about">中心简介</a>
+<a href="#research" data-nav="research">研究方向</a>
+<a href="activities/index.html" data-nav="activities">学术活动</a>
+<a href="people/index.html" data-nav="people">中心成员</a>
+<a href="#outcomes" data-nav="outcomes">研究成果</a>
+<a href="#news" data-nav="news">中心动态</a>
+<a href="#contact" data-nav="contact">联系我们</a>
+</nav>
   <div class="header-right">
-    <div class="lang-toggle">
-      <a class="active" href="index.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">中文</a>
-      <a href="en/index.html" lang="en" hreflang="en" aria-label="English overview">EN</a>
-    </div>
+    <div class="lang-toggle"><a href="index.html" lang="zh-CN" hreflang="zh-CN" class="active" aria-current="page">中文</a><a href="en/index.html" lang="en" hreflang="en" aria-label="English version" title="English version">EN</a></div>
   </div>
   <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
 <div class="mobile-nav-backdrop"></div>
-<nav class="mobile-nav" data-mobile-nav aria-label="移动导航"></nav>
-
-<!-- ── HERO ── -->
-<section class="hero reveal visible" id="top">
-  <div class="hero-deco">M</div>
-
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="hero-eyebrow">Center of Modern Thought · International Academic Institute</p>
-      <h1 class="hero-title">以史照今，<br>以今返史</h1>
-      <p class="hero-subtitle">探索现代性的起源与未来</p>
-      <p class="hero-desc">
-        现代思想研究中心致力于建设一个兼具历史深度、国际视野与公共关怀的学术平台。我们从现代思想传统出发，连接哲学、文化、技术与社会现实，推动高水平研究、跨学科合作与持续开放的学术交流。
-      </p>
-      <div class="hero-tags">
-        <span class="hero-tag">International Lectures</span>
-        <span class="hero-tag">Research Programs</span>
-        <span class="hero-tag">Visiting Scholars</span>
-        <span class="hero-tag">Public Forums</span>
-      </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#activities">查看学术活动</a>
-        <a class="btn btn-outline" href="#about">了解中心</a>
-      </div>
-    </div>
-
-    <div class="hero-side">
-      <div class="hero-card">
-        <p class="kicker">Featured Academic Activity</p>
-        <h2 >国际会议筹备计划</h2>
-        <p>
-          中心正推进国际会议筹备工作
-          <br/><br/>
-          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年波义耳诞辰 400 周年会议</span>
-          <span style="display:block;padding:6px 0;border-top:1px solid rgba(255,255,255,0.1);">2027 年贝克莱国际会议</span>
-        </p>
-      </div>
-      <div class="metrics-grid">
-        <div class="metric">
-          <strong>11</strong>
-          <span>学术活动</span>
-        </div>
-        <div class="metric">
-          <strong>12</strong>
-          <span>现任国际顾问</span>
-        </div>
-        <div class="metric">
-          <strong>29+</strong>
-          <span>出版物作品</span>
-        </div>
-        <div class="metric">
-          <strong>6</strong>
-          <span>顾问所在国家</span>
-        </div>
-        <p class="metric-note">另有 1 位原国际顾问列入荣誉纪念。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-ticker">
-    <span>Global Academic Platform</span>
-    <span>Modern Thought · Intellectual History · Public Humanities</span>
-    <span>Lectures · Forums · Archives · Collaborations</span>
-    <span>Boyle 2027 · Berkeley 2027</span>
-    <span>Global Academic Platform</span>
-    <span>Modern Thought · Intellectual History · Public Humanities</span>
-  </div>
-</section>
-
-<!-- ── ABOUT ── -->
-<div class="section-alt" id="about">
-<div class="section reveal visible">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">About the Center</span>
-      <h2 class="section-title" data-section-title="about_title">中心简介</h2>
-    </div>
-    <p class="section-desc">
-      现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，是一个聚焦思想史与现实问题的综合性研究平台。
-    </p>
-  </div>
-
-  <div class="about-grid">
-    <div class="about-card">
-      <h3 data-n="01">学术定位</h3>
-      <p>现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，致力于在国际思想史研究版图中形成兼具历史深度与现实关怀的独特声音。</p>
-    </div>
-    <div class="about-card">
-      <h3 data-n="02">研究重心</h3>
-      <p>中心同时聚焦欧洲早期现代思想，尤其是自笛卡尔以来的思想传统，以及当代现代性议题，包括科技变革、人工智能与价值危机等关键问题。</p>
-    </div>
-    <div class="about-card">
-      <h3 data-n="03">中心使命</h3>
-      <p>中心强调"以史照今，以今返史"，在全球学术网络中推动早期现代思想的诠释、传播与重构，并探索现代性在中国语境中的新表达。</p>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ── PEOPLE PREVIEW ── -->
-<div class="section-alt" id="people-preview">
-<div class="section reveal visible">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">Our People</span>
-      <h2 class="section-title" data-section-title="people_title">中心成员</h2>
-    </div>
-    <p class="section-desc">中心成员由中心负责人、核心研究成员、青年研究者与国际顾问网络共同构成，支撑研究、出版、译介、活动组织与国际合作。</p>
-  </div>
-
-  <div class="people-preview-grid">
-    <article class="people-preview-card">
-      <span class="people-preview-role">Academic Direction</span>
-      <h3>中心负责人</h3>
-      <p>刘铭，扬州大学现代思想研究中心主任、长江文化研究院（中国大运河研究院）助理研究员，“西方思想文化译丛”与《近代哲学》主编，负责中心研究组织与出版统筹。</p>
-    </article>
-    <article class="people-preview-card">
-      <span class="people-preview-role">Core Researchers</span>
-      <h3>核心研究成员</h3>
-      <p>李岱巍、钱进、左天梦、赵靓、小田崇晴长期参与中心研究、译介出版、学术活动与课程建设。</p>
-    </article>
-    <article class="people-preview-card">
-      <span class="people-preview-role">Early Career</span>
-      <h3>青年研究者</h3>
-      <p>滕光伟、申慧霞、许宇璐、袁昊达等青年研究者，以及郭雨婷、刘琪、皮立雨等编辑协作成员，持续参与研讨与出版工作。</p>
-    </article>
-    <article class="people-preview-card">
-      <span class="people-preview-role">International Network</span>
-      <h3>国际顾问网络</h3>
-      <p>十二位国际顾问来自英国、法国、澳大利亚、美国、意大利与日本，覆盖近代哲学、科学史、政治哲学与人工智能伦理。</p>
-    </article>
-  </div>
-
-  <a class="section-link" href="people/index.html">进入中心成员页面</a>
-</div>
-</div>
-
-<!-- ── ADVISERS ── -->
-<div class="section" id="advisers" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
-<div class="reveal visible">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">International Advisory Board</span>
-      <h2 class="section-title" data-section-title="advisers_title">国际顾问</h2>
-    </div>
-    <p class="section-desc">中心将依托国际顾问网络推进专题研究、学术出版与国际会议筹备，逐步形成稳定的跨国合作机制与学术对话平台。</p>
-  </div>
-
-  <div class="advisers-layout">
-    <div class="advisers-intro">
-      <span class="eyebrow">Academic Advisers</span>
-      <h3>国际学术合作网络</h3>
-      <p>十二位现任顾问来自英国、法国、澳大利亚、美国、意大利与日本，覆盖近代哲学、思想史、科学史、政治哲学与人工智能伦理。</p>
-      <div class="adv-stats">
-        <div class="adv-stat"><strong>12</strong><span>国际顾问</span></div>
-        <div class="adv-stat"><strong>1</strong><span>荣誉纪念</span></div>
-      </div>
-    </div>
-
-    <div class="adviser-grid">
-      <div class="adviser-card">
-        <h3>汤姆·斯通汉姆</h3>
-        <span class="en-name">Tom Stoneham</span>
-        <span class="country-tag">英国</span>
-        <p>约克大学哲学教授，SAINTS 安全人工智能博士培训中心伦理负责人，国际贝克莱协会主席</p>
-      </div>
-      <div class="adviser-card">
-        <h3>德尼·康布什内</h3>
-        <span class="en-name">Denis Kambouchner</span>
-        <span class="country-tag">法国</span>
-        <p>巴黎第一大学先贤祠—索邦现代哲学史荣休教授，法国哲学学会主席</p>
-      </div>
-      <div class="adviser-card">
-        <h3>彼得·安斯蒂</h3>
-        <span class="en-name">Peter Anstey</span>
-        <span class="country-tag">澳大利亚</span>
-        <p>澳大利亚天主教大学教育与艺术系教授，西方文明项目主任</p>
-      </div>
-      <div class="adviser-card">
-        <h3>皮埃尔·格南西亚</h3>
-        <span class="en-name">Pierre Guenancia</span>
-        <span class="country-tag">法国</span>
-        <p>勃艮第欧洲大学哲学荣休教授，研究笛卡尔、帕斯卡、霍布斯与世界主义</p>
-      </div>
-      <div class="adviser-card">
-        <h3>夏尔·拉蒙</h3>
-        <span class="en-name">Charles Ramond</span>
-        <span class="country-tag">法国</span>
-        <p>巴黎第八大学哲学系荣休教授，研究斯宾诺莎、理性主义与政治哲学</p>
-      </div>
-      <div class="adviser-card">
-        <h3>伊夫—夏尔·扎尔卡</h3>
-        <span class="en-name">Yves-Charles Zarka</span>
-        <span class="country-tag">法国</span>
-        <p>巴黎西岱大学哲学荣休教授，《Cités》创办人兼主编</p>
-      </div>
-      <div class="adviser-card">
-        <h3>迈克尔·亨特</h3>
-        <span class="en-name">Michael Hunter</span>
-        <span class="country-tag">英国</span>
-        <p>伦敦大学伯贝克学院历史学荣休教授，英国国家学术院院士</p>
-      </div>
-      <div class="adviser-card">
-        <h3>约翰·科廷厄姆</h3>
-        <span class="en-name">John Cottingham</span>
-        <span class="country-tag">英国</span>
-        <p>雷丁大学哲学荣休教授，牛津大学圣约翰学院荣誉院士</p>
-      </div>
-      <div class="adviser-card">
-        <h3>大卫·伯曼</h3>
-        <span class="en-name">David Berman</span>
-        <span class="country-tag">爱尔兰 · 荣誉纪念</span>
-        <p>1942—2026，都柏林三一学院荣休院士、原哲学教授，曾任中心国际学术顾问</p>
-      </div>
-      <div class="adviser-card">
-        <h3>丹尼尔·加伯</h3>
-        <span class="en-name">Daniel Garber</span>
-        <span class="country-tag">美国</span>
-        <p>普林斯顿大学 A. Watson Armour III 冠名大学教授（哲学），美国艺术与科学院院士、美国哲学学会会员</p>
-      </div>
-      <div class="adviser-card">
-        <h3>帕特里克·康诺利</h3>
-        <span class="en-name">Patrick Connolly</span>
-        <span class="country-tag">美国</span>
-        <p>约翰斯·霍普金斯大学哲学副教授、系副主任</p>
-      </div>
-      <div class="adviser-card">
-        <h3>朱莉娅·贝尔焦约索</h3>
-        <span class="en-name">Giulia Belgioioso</span>
-        <span class="country-tag">意大利</span>
-        <p>萨兰托大学哲学史荣休教授，研究笛卡尔接受史与文本编辑</p>
-      </div>
-      <div class="adviser-card">
-        <h3>上野修</h3>
-        <span class="en-name">Osamu Ueno</span>
-        <span class="country-tag">日本</span>
-        <p>大阪大学哲学与哲学史名誉教授，研究笛卡尔与斯宾诺莎</p>
-      </div>
-    </div>
-  </div>
-  <a class="section-link" href="people/member-directory/index.html#international-advisers">查看国际顾问研究方向与官方资料</a>
-</div>
-</div>
-
-<!-- ── RESEARCH ── -->
-<div class="section-alt" id="research">
-<div class="section reveal visible">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">Research Programs</span>
-      <h2 class="section-title" data-section-title="research_title">研究方向</h2>
-    </div>
-    <p class="section-desc">中心研究方向同时回应现代思想史的经典议题与当代社会现实问题。</p>
-  </div>
-
-  <div class="research-grid">
-    <div class="research-card">
-      <span class="card-num">01</span>
-      <h3>欧洲早期现代思想</h3>
-      <p>围绕笛卡尔、莱布尼茨、贝克莱等现代哲学家及其相关文本传统，研究理性、主体、自然、经验与方法等核心概念的形成与演变。</p>
-    </div>
-    <div class="research-card">
-      <span class="card-num">02</span>
-      <h3>现代性与当代问题</h3>
-      <p>从现代思想史视角回应当前科技革命、人工智能、全球化、生态危机与价值冲突等现实议题，推动现代议题进入当代讨论。</p>
-    </div>
-    <div class="research-card">
-      <span class="card-num">03</span>
-      <h3>中西思想对话</h3>
-      <p>从概念史、问题史与比较研究角度，推动中国学术研究与西方现代思想之间的对话、翻译与理论重述，形成具有主体意识的比较研究路径。</p>
-    </div>
-    <div class="research-card">
-      <span class="card-num">04</span>
-      <h3>思想史与公共传播</h3>
-      <p>通过译著出版、公共讲座、媒体合作与数字平台建设，推动思想史研究成果进入教育、社会与公共文化空间。</p>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ── ACTIVITIES ── -->
-<div class="section reveal visible" id="activities" style="max-width: var(--max); margin: 0px auto; padding: 96px 40px;">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">Academic Activities</span>
-      <h2 class="section-title" data-section-title="activities_title">学术活动</h2>
-    </div>
-    <p class="section-desc">收录中心既往讲座与研讨会，点击活动海报可查看简介弹层，点击下方“查看活动总结”进入对应详情页。</p>
-  </div>
-
-  <div class="activity-group">
-    <div class="activity-group-head">
-      <span class="kicker">Lecture Archive</span>
-      <h3>讲座</h3>
-    </div>
-    <div class="activity-grid">
-      <div class="activity-card">
-        <img src="posters/lecture-01.jpg" class="activity-poster is-previewable" alt="柏格森哲学及其对法国哲学和中国哲学的影响海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-lecture">Lecture</span>
-            <span class="date-label">2024.07.13</span>
-          </div>
-          <h4>柏格森哲学及其对法国哲学和中国哲学的影响</h4>
-          <p class="speaker">邓刚 · 上海交通大学哲学系副教授</p>
-          <p>围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
-          <a class="card-cta-link" href="activities/lecture-01/index.html">查看活动总结</a>
+<nav class="mobile-nav" data-mobile-nav aria-label="移动导航" data-static-nav>
+<a href="index.html" data-nav="home" class="is-current" aria-current="page">首页</a>
+<a href="#about" data-nav="about">中心简介</a>
+<a href="#research" data-nav="research">研究方向</a>
+<a href="activities/index.html" data-nav="activities">学术活动</a>
+<a href="people/index.html" data-nav="people">中心成员</a>
+<a href="#outcomes" data-nav="outcomes">研究成果</a>
+<a href="#news" data-nav="news">中心动态</a>
+<a href="#contact" data-nav="contact">联系我们</a>
+</nav>
+<main>
+  <section class="home-hero" id="top" aria-labelledby="home-title">
+    <div class="home-shell home-hero-inner">
+      <div>
+        <p class="home-eyebrow">Center of Modern Thought</p>
+        <h1 id="home-title">以史照今，<br>以今返史</h1>
+        <p class="home-hero-desc">从欧洲早期现代思想出发，连接哲学、文化、技术与社会现实，推动思想史研究、中西对话与开放的学术交流。</p>
+        <div class="home-actions">
+          <a class="btn btn-primary" href="#activities">查看最新活动</a>
+          <a class="btn btn-outline" href="#about">了解中心</a>
         </div>
       </div>
-      <div class="activity-card">
-        <img src="posters/lecture-02.jpg" class="activity-poster is-previewable" alt="布伦塔诺哲学的多重面向海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-lecture">Lecture</span>
-            <span class="date-label">2024.07.21</span>
-          </div>
-          <h4>布伦塔诺哲学的多重面向</h4>
-          <p class="speaker">李岱巍 · 西北师范大学哲学系</p>
-          <p>聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
-          <a class="card-cta-link" href="activities/lecture-02/index.html">查看活动总结</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="activity-group">
-    <div class="activity-group-head">
-      <span class="kicker">Seminar Archive</span>
-      <h3>研讨会 / Seminar</h3>
-    </div>
-    <div class="activity-grid">
-      <div class="activity-card">
-        <img src="posters/seminar-01.jpg" class="activity-poster is-previewable" alt="贝克莱的世界研讨会海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2024.07.15-07.25</span>
-          </div>
-          <h4>"贝克莱的世界"研讨会：对三次对话的审查</h4>
-          <p class="speaker">滕光伟 · 英国约克大学哲学系博士生</p>
-          <p>围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱"三次对话"文本的审查与讨论。</p>
-          <a class="card-cta-link" href="activities/seminar-01/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-02.jpg" class="activity-poster is-previewable" alt="从文艺复兴到理性时代研讨会海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2024.07.23-07.26</span>
-          </div>
-          <h4>从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h4>
-          <p class="speaker">左天梦 · 西南交通大学外国语学院法俄系主任、讲师</p>
-          <p>围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
-          <a class="card-cta-link" href="activities/seminar-02/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-03.jpg" class="activity-poster is-previewable" alt="笛卡尔与伯曼对话录读书会海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2025.07.23-07.29</span>
-          </div>
-          <h4>《笛卡尔与伯曼对话录》读书会</h4>
-          <p class="speaker">左天梦 · 西南交通大学外国语学院法俄系主任、讲师</p>
-          <p>通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
-          <a class="card-cta-link" href="activities/seminar-03/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="activity-poster.jpg" class="activity-poster is-previewable" alt="波义耳：怀疑的化学家">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2025.08.02-08.08</span>
-          </div>
-          <h4>"波义耳：怀疑的化学家"暑期研讨会</h4>
-          <p class="speaker">滕光伟 · 英国约克大学哲学系博士生</p>
-          <p>以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
-          <a class="card-cta-link" href="activities/seminar-04/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-05.jpg" class="activity-poster is-previewable" alt="实证主义概论研讨会海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2025.09.24</span>
-          </div>
-          <h4>实证主义概论研讨会</h4>
-          <p class="speaker">申慧霞 · 法国里昂高等师范学院哲学系博士生</p>
-          <p>以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
-          <a class="card-cta-link" href="activities/seminar-05/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-06.jpg" class="activity-poster is-previewable" alt="莱昂·布朗什维克与近代哲学研究研讨会海报">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2026.05.17</span>
-          </div>
-          <h4>莱昂·布朗什维克与近代哲学研究</h4>
-          <p class="speaker">左天梦 · 西南交通大学外国语学院法俄系主任、讲师</p>
-          <p>围绕布朗什维克、法国理性主义与近代哲学史方法展开报告、评论与讨论。</p>
-          <a class="card-cta-link" href="activities/seminar-06/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-07.jpg" class="activity-poster poster-contain is-previewable" alt="纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义研讨会海报" loading="lazy" decoding="async">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2026.08.04</span>
-          </div>
-          <h4>纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义</h4>
-          <p class="speaker">刘铭、滕光伟、李岱巍、左天梦等</p>
-          <p>围绕波义耳、近代实验哲学与《近代哲学》第二期的编务和后续研究展开研讨。</p>
-          <a class="card-cta-link" href="activities/seminar-07/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-08.jpg" class="activity-poster poster-contain is-previewable" alt="乔治·贝克莱与世界：心灵与自然的全球视野研讨会海报" loading="lazy" decoding="async">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2026.08.05</span>
-          </div>
-          <h4>乔治·贝克莱与世界：心灵与自然的全球视野</h4>
-          <p class="speaker">滕光伟 · 英国约克大学哲学系博士研究生</p>
-          <p>从18世纪知识交往与思想流动出发，讨论贝克莱如何重新安排心灵、感知与自然的关系。</p>
-          <a class="card-cta-link" href="activities/seminar-08/index.html">查看活动总结</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="posters/seminar-09.jpg" class="activity-poster poster-contain is-previewable" alt="笛卡尔通信集的编纂与翻译研讨会海报" loading="lazy" decoding="async">
-        <div class="activity-body">
-          <div class="activity-meta">
-            <span class="tag tag-seminar">Seminar</span>
-            <span class="date-label">2026.08.06</span>
-          </div>
-          <h4>笛卡尔通信集的编纂与翻译</h4>
-          <p class="speaker">左天梦、赵靓 · 刘铭点评</p>
-          <p>围绕笛卡尔通信集的文本传承、版本选择、编排体例与中文翻译计划展开交流。</p>
-          <a class="card-cta-link" href="activities/seminar-09/index.html">查看活动总结</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <a class="section-link" href="activities/index.html">进入活动总览</a>
-</div>
-
-<!-- ── OUTCOMES ── -->
-<div class="section-alt" id="outcomes">
-<div class="section reveal visible">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">Research Outcomes</span>
-      <h2 class="section-title" data-section-title="outcomes_title">研究成果</h2>
-    </div>
-    <p class="section-desc">重点呈现与福建教育出版社合作推进的"西方思想文化译丛"与《近代哲学》杂志。</p>
-  </div>
-
-  <div class="outcomes-grid">
-    <div class="pub-card pub-card-cover linked-card" data-link-url="publications/translation-series/index.html" role="link" tabindex="0" style="display:flex;">
-      <div class="cover-img-wrap">
-        <img src="posters/xifang-yicong.png" alt="西方思想文化译丛封面" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-      <div class="cover-body">
-        <span class="pub-tag">Translation Series</span>
-        <h3>西方思想文化译丛</h3>
-        <p>《西方思想文化译丛》已出版 29 种图书，出版时间覆盖 2013 年 10 月至 2026 年 2 月，内容涵盖精神分析、女性研究、现象学、文学地理学、艺术理论、法国哲学与近代思想研究等方向。</p>
-        <ul class="pub-points">
-          <li>按出版时间整理真实书名、作者、译者与出版社信息</li>
-          <li>以翻译工作推动中外思想资源的互译共享</li>
-          <li>集中展示每册封面与内容简介，便于检索与持续更新</li>
-        </ul>
-        <span class="card-cta">进入译丛目录</span>
-      </div>
-    </div>
-    <div class="pub-card pub-card-cover linked-card" data-link-url="publications/journal/index.html" role="link" tabindex="0" style="display:flex;">
-      <div class="cover-img-wrap">
-        <img src="uploads/journal-issue-01-cover.jpg" alt="《近代哲学》第一期封面">
-      </div>
-      <div class="cover-body">
-        <span class="pub-tag">Journal</span>
-        <h3>《近代哲学》</h3>
-        <p>《近代哲学》由现代思想研究中心主持创办，第一期主题为“贝克莱作品的编纂和影响”，旨在为西方近代哲学研究建立开放、宽容、可批判的交流平台。</p>
-        <span class="card-cta">进入期刊目录</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="pub-wide">
-    <div class="pub-wide-col">
-      <span class="pub-label">Publishing Basis</span>
-      <h3>出版与传播平台</h3>
-      <p>依托福建教育出版社合作基础，中心将继续推动译著出版、学术集刊、论文发表与数字传播平台建设，使研究成果形成稳定而可持续的制度化出口。</p>
-    </div>
-    <div class="pub-wide-col">
-      <span class="pub-label">Current Work</span>
-      <h3>已上线成果</h3>
-      <p>当前成果板块已整理《西方思想文化译丛》29 种书目，并上线《近代哲学》第一期专题页面，集中呈现中心在译介出版、期刊建设与近代哲学研究方面的阶段性工作。</p>
-    </div>
-  </div>
-
-  <div class="descartes-project linked-card" data-link-url="publications/descartes-series/index.html" role="link" tabindex="0">
-    <div class="descartes-project-visual">
-      <figure class="descartes-project-figure">
-        <img class="descartes-project-image" src="uploads/descartes-pleiade-coffret.jpg" alt="Gallimard 七星文库版《笛卡尔全集》书盒" />
-        <figcaption>
-          <strong>René Descartes, Œuvres</strong>
-          Gallimard《Bibliothèque de la Pléiade》2024 年两卷本盒装；中文版计划的法文底本参照。
-        </figcaption>
+      <figure class="home-feature">
+        <a href="activities/seminar-09/index.html" aria-label="阅读笛卡尔通信集的编纂与翻译研讨会总结">
+          <img src="assets/optimized/ad334940f0dd-768.webp" width="1267" height="950" alt="第九期研讨会与会者围绕笛卡尔通信集编纂与翻译问题交流" fetchpriority="high" decoding="async" data-media-source="uploads/activity-photos/seminar-09/scene-01.jpg" loading="eager" srcset="assets/optimized/ad334940f0dd-384.webp 384w, assets/optimized/ad334940f0dd-768.webp 768w, assets/optimized/ad334940f0dd-1267.webp 1267w" sizes="(max-width: 680px) calc(100vw - 36px), (max-width: 1024px) calc(100vw - 44px), 520px">
+        </a>
+        <figcaption><time datetime="2026-08-06">2026.08.06</time> · 第九期研讨会<br><a href="activities/seminar-09/index.html">笛卡尔通信集的编纂与翻译</a></figcaption>
       </figure>
     </div>
-    <div class="descartes-project-body">
-      <span class="pub-label">Fujian Education Press · Descartes Chinese Edition Project</span>
-      <h3>笛卡尔全集中文版计划</h3>
-      <p>
-        “笛卡尔全集中文版”计划拟由福建教育出版社挂名推进，以 Gallimard《七星文库》2024 年新版为法文底本，围绕笛卡尔核心著作、重要通信与专题研究建立长期译介工程。
-      </p>
-      <div class="descartes-tags">
-        <span>哲学与科学</span>
-        <span>情感与心理学</span>
-        <span>形而上学与体系</span>
-        <span>数字人文展示</span>
-      </div>
-      <span class="card-cta">进入全集计划专区</span>
-    </div>
-  </div>
-</div>
-</div>
+  </section>
 
-<!-- ── NEWS ── -->
-<div class="section reveal visible" id="news" style="max-width:var(--max);margin:0 auto;padding:96px 40px;">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">Center Updates</span>
-      <h2 class="section-title" data-section-title="news_title">中心动态</h2>
-    </div>
-    <p class="section-desc">记录中心建设、系列活动、出版项目与重要合作进展；常规讲座与研讨会请见“学术活动”。</p>
+  <section class="home-section" id="activities" aria-labelledby="activities-title">
+    <div class="home-shell">
+      <div class="home-section-head">
+        <div><span class="home-eyebrow">Recent Activities</span><h2 id="activities-title">最新学术活动</h2></div>
+        <a class="home-text-link" href="activities/index.html">浏览全部 <span data-stat="activities">11</span> 场活动 →</a>
+      </div>
+      <div class="home-latest-grid">
+        <!-- BEGIN GENERATED: home-latest-activities -->
+<article class="home-activity" data-content-id="seminar-09">
+  <a href="activities/seminar-09/index.html" tabindex="-1" aria-hidden="true"><img src="assets/optimized/74f96e64a205-384.webp" alt="笛卡尔通信集的编纂与翻译研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-09.jpg" width="1076" height="1444" srcset="assets/optimized/74f96e64a205-384.webp 384w, assets/optimized/74f96e64a205-768.webp 768w, assets/optimized/74f96e64a205-1076.webp 1076w" sizes="88px"></a>
+  <div><time datetime="2026-08-06">2026.08.06</time>
+    <h3><a href="activities/seminar-09/index.html">笛卡尔通信集的编纂与翻译</a></h3>
+    <p>围绕笛卡尔通信集的文本传承、版本选择、编排体例与中文翻译计划展开交流。</p><a class="home-text-link" href="activities/seminar-09/index.html">阅读活动总结 →</a>
   </div>
-  <div class="news-list">
-    <div class="news-item">
-      <span class="news-date">2026.05.22</span>
-      <div class="news-body">
-        <span class="news-type">Academic Conference</span>
-        <h3>学术会议｜约翰·洛克及其同时代的哲学家</h3>
-        <p>中心围绕早期现代哲学与洛克研究组织专题会议，相关消息由“近代哲学”公众号发布。</p>
-        <a class="news-link" href="https://mp.weixin.qq.com/s/m_uT3DXpK5JpyqjDTxgApw" target="_blank" rel="noopener">查看公众号原文</a>
-      </div>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2026.05</span>
-      <div class="news-body">
-        <span class="news-type">Publishing Program</span>
-        <h3>“笛卡尔全集中文版”计划进入网站项目展示</h3>
-        <p>中心将以 Gallimard《七星文库》版《笛卡尔全集》为重要法文底本参照，推进中文译介、注释整理与数字展示建设。</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2026.05</span>
-      <div class="news-body">
-        <span class="news-type">Publication Platform</span>
-        <h3>《近代哲学》集刊与“近代哲学”公众号形成联动展示</h3>
-        <p>网站承担集刊、书系与活动的长期归档；公众号用于发布中文动态、活动消息与专题文章。</p>
-      </div>
-    </div>
+</article>
+<article class="home-activity" data-content-id="seminar-08">
+  <a href="activities/seminar-08/index.html" tabindex="-1" aria-hidden="true"><img src="assets/optimized/45306477c87a-384.webp" alt="乔治·贝克莱与世界：心灵与自然的全球视野研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-08.jpg" width="1279" height="1544" srcset="assets/optimized/45306477c87a-384.webp 384w, assets/optimized/45306477c87a-768.webp 768w, assets/optimized/45306477c87a-1279.webp 1279w" sizes="88px"></a>
+  <div><time datetime="2026-08-05">2026.08.05</time>
+    <h3><a href="activities/seminar-08/index.html">乔治·贝克莱与世界：心灵与自然的全球视野</a></h3>
+    <p>从18世纪知识交往与思想流动出发，讨论贝克莱如何重新安排心灵、感知与自然的关系。</p><a class="home-text-link" href="activities/seminar-08/index.html">阅读活动总结 →</a>
   </div>
-</div>
+</article>
+<article class="home-activity" data-content-id="seminar-07">
+  <a href="activities/seminar-07/index.html" tabindex="-1" aria-hidden="true"><img src="assets/optimized/f5713c6af94d-384.webp" alt="纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-07.jpg" width="1080" height="1440" srcset="assets/optimized/f5713c6af94d-384.webp 384w, assets/optimized/f5713c6af94d-768.webp 768w, assets/optimized/f5713c6af94d-1080.webp 1080w" sizes="88px"></a>
+  <div><time datetime="2026-08-04">2026.08.04</time>
+    <h3><a href="activities/seminar-07/index.html">纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义</a></h3>
+    <p>围绕波义耳、近代实验哲学与《近代哲学》第二期的编务和后续研究展开研讨。</p><a class="home-text-link" href="activities/seminar-07/index.html">阅读活动总结 →</a>
+  </div>
+</article>
+<!-- END GENERATED: home-latest-activities -->
+      </div>
+      <aside class="home-conferences" aria-label="国际会议筹备计划">
+        <strong>2027 · 会议筹备</strong>
+        <p><span>波义耳诞辰 400 周年会议</span> <span>· 贝克莱国际会议</span></p>
+      </aside>
+      <div class="home-news" id="news">
+        <h3>中心动态</h3>
+        <p><time datetime="2026-05-22">2026.05.22</time><a href="https://mp.weixin.qq.com/s/m_uT3DXpK5JpyqjDTxgApw" target="_blank" rel="noopener">学术会议｜约翰·洛克及其同时代的哲学家 · 查看原文 ↗</a></p>
+      </div>
+    </div>
+  </section>
 
-<!-- ── CONTACT ── -->
-<div class="section-alt" id="contact">
-<div class="section reveal visible">
-  <div class="contact-shell">
-    <div>
-      <span class="eyebrow">Contact</span>
-      <h2 data-section-title="contact_title" style="font-family:var(--zh-serif);font-size:clamp(28px,4vw,38px);font-weight:700;margin-bottom:16px;color:var(--fg);">联系我们</h2>
-      <p style="font-size:15px;color:var(--fg-muted);line-height:1.85;font-weight:300;">
-        欢迎围绕投稿、学术合作、编辑事务与资料咨询联系编辑部。
-      </p>
+  <section class="home-section home-section-alt" id="outcomes" aria-labelledby="outcomes-title">
+    <div class="home-shell">
+      <div class="home-section-head">
+        <div><span class="home-eyebrow">Selected Publications</span><h2 id="outcomes-title">译介与出版</h2></div>
+        <p>以译著与学术集刊，持续推进近代思想研究。</p>
+      </div>
+      <div class="home-publications">
+        <article class="home-publication" data-content-id="journal">
+          <img src="assets/optimized/b389b1633c2b-384.webp" alt="《近代哲学》第一期封面" width="1280" height="1636" loading="lazy" decoding="async" data-media-source="uploads/journal-issue-01-cover.jpg" srcset="assets/optimized/b389b1633c2b-384.webp 384w, assets/optimized/b389b1633c2b-768.webp 768w, assets/optimized/b389b1633c2b-1280.webp 1280w" sizes="130px">
+          <div>
+            <span class="home-eyebrow">Modern Philosophy · Vol. 1</span>
+            <h3><a href="publications/journal/index.html">《近代哲学》</a></h3>
+            <p>第一期专题：贝克莱作品的编纂和影响。以书代刊，为西方近代哲学研究提供开放的交流平台。</p>
+            <p>2026 年 5 月 · 福建教育出版社</p>
+            <a class="home-text-link" href="publications/journal/index.html">查看目录与投稿指南 →</a>
+          </div>
+        </article>
+        <article class="home-publication" data-content-id="translation-series">
+          <img src="assets/optimized/e07a913a0836-384.webp" alt="西方思想文化译丛总封面" width="760" height="1121" loading="lazy" decoding="async" data-media-source="posters/xifang-yicong.png" srcset="assets/optimized/e07a913a0836-384.webp 384w, assets/optimized/e07a913a0836-760.webp 760w" sizes="130px">
+          <div>
+            <span class="home-eyebrow">Translation Series</span>
+            <h3><a href="publications/translation-series/index.html">西方思想文化译丛</a></h3>
+            <p>本站收录 <span data-stat="books">29</span> 册图书，涵盖法国哲学、精神分析、现象学、艺术理论与近代思想研究。</p>
+            <p>2013—2026 · 福建教育出版社</p>
+            <a class="home-text-link" href="publications/translation-series/index.html">浏览全部书目 →</a>
+          </div>
+        </article>
+      </div>
+      <p class="home-project"><a href="publications/descartes-series/index.html">笛卡尔全集中文版计划 →</a>围绕笛卡尔核心著作、重要通信与专题研究，推进中文译介、译注整理与学术交流。</p>
     </div>
-    <div class="contact-details">
-      <div class="contact-row">
-        <span class="contact-label">地址</span>
-        <span class="contact-value">江苏省扬州市邗江区大学南路 88 号扬大荷花池校区</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-label">邮编</span>
-        <span class="contact-value">225009</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-label">邮箱</span>
-        <span class="contact-value"><a href="mailto:modernphi24@163.com">modernphi24@163.com</a></span>
-      </div>
-      <a class="back-top" href="#top">↑ 返回顶部</a>
-    </div>
-  </div>
-</div>
-</div>
+  </section>
 
-<!-- ── FOOTER ── -->
+  <section class="home-section" id="research" aria-labelledby="research-title">
+    <div class="home-shell">
+      <div class="home-section-head"><div><span class="home-eyebrow">Research &amp; Ideas</span><h2 id="research-title">研究方向</h2></div></div>
+      <div class="home-research-grid">
+        <article><span>01</span><h3>欧洲早期现代思想</h3><p>围绕笛卡尔、莱布尼茨、贝克莱等现代哲学家及其相关文本传统，研究理性、主体、自然、经验与方法等核心概念的形成与演变。</p></article>
+        <article><span>02</span><h3>现代性与当代问题</h3><p>从现代思想史视角回应当前科技革命、人工智能、全球化、生态危机与价值冲突等现实议题，推动现代议题进入当代讨论。</p></article>
+        <article><span>03</span><h3>中西思想对话</h3><p>从概念史、问题史与比较研究角度，推动中国学术研究与西方现代思想之间的对话、翻译与理论重述，形成具有主体意识的比较研究路径。</p></article>
+        <article><span>04</span><h3>思想史与公共传播</h3><p>通过译著出版、公共讲座、媒体合作与数字平台建设，推动思想史研究成果进入教育、社会与公共文化空间。</p></article>
+      </div>
+      <div class="home-about" id="about">
+        <h2>中心简介</h2>
+        <div class="home-about-grid">
+          <article><h3>学术定位</h3><p>现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，致力于在国际思想史研究版图中形成兼具历史深度与现实关怀的独特声音。</p></article>
+          <article><h3>研究重心</h3><p>中心同时聚焦欧洲早期现代思想，尤其是自笛卡尔以来的思想传统，以及当代现代性议题，包括科技变革、人工智能与价值危机等关键问题。</p></article>
+          <article><h3>中心使命</h3><p>中心强调"以史照今，以今返史"，在全球学术网络中推动早期现代思想的诠释、传播与重构，并探索现代性在中国语境中的新表达。</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section-alt" id="people-preview" aria-labelledby="people-title">
+    <div class="home-shell">
+      <div class="home-section-head">
+        <div><span class="home-eyebrow">People &amp; Collaboration</span><h2 id="people-title">中心成员</h2></div>
+        <a class="home-text-link" href="people/index.html">查看完整成员与研究方向 →</a>
+      </div>
+      <div class="home-people">
+        <article class="home-person" data-content-id="director">
+          <span class="home-eyebrow">中心负责人</span><h3>刘铭</h3>
+          <p>扬州大学现代思想研究中心主任、长江文化研究院（中国大运河研究院）助理研究员，“西方思想文化译丛”与《近代哲学》主编。</p>
+          <a class="home-text-link" href="people/member-directory/index.html#director">了解研究与出版工作 →</a>
+        </article>
+        <article class="home-person" data-content-id="research-members">
+          <span class="home-eyebrow">研究与协作</span><h3>核心成员与青年研究者</h3>
+          <p>李岱巍、钱进、左天梦、赵靓、小田崇晴等成员共同参与研究、译介出版与学术活动，青年研究者和编辑协作成员持续参与研讨与出版工作。</p>
+          <a class="home-text-link" href="people/member-directory/index.html#core">查看成员名录 →</a>
+        </article>
+        <article class="home-person" data-content-id="international-network" id="advisers">
+          <span class="home-eyebrow">国际顾问网络</span><h3><span data-stat="advisers">12</span> 位现任顾问</h3>
+          <p>现任顾问来自英国、法国、澳大利亚、美国、意大利与日本等 <span data-stat="adviser-countries">6</span> 个国家。</p>
+          <p>另有 <span data-stat="memorial-advisers">1</span> 位原国际顾问大卫·伯曼（David Berman）列入<a href="people/member-directory/index.html#honorary-memory">荣誉纪念</a>。</p>
+          <a class="home-text-link" href="people/member-directory/index.html#international-advisers">查看顾问及官方资料 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section" id="contact" aria-labelledby="contact-title">
+    <div class="home-shell home-contact">
+      <div><span class="home-eyebrow">Contact</span><h2 id="contact-title">联系我们</h2><p>欢迎围绕投稿、学术合作、编辑事务与资料咨询联系编辑部。</p></div>
+      <dl>
+        <div><dt>邮箱</dt><dd><a href="mailto:modernphi24@163.com">modernphi24@163.com</a></dd></div>
+        <div><dt>地址</dt><dd>江苏省扬州市邗江区大学南路 88 号扬大荷花池校区</dd></div>
+        <div><dt>邮编</dt><dd>225009</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
 <footer class="site-footer">
   <span class="footer-brand">Centrum Cogitationis Modernae</span>
   <span>© 2026 Center of Modern Thought · 现代思想研究中心</span>
 </footer>
-
-<!-- ── ACTIVITY PREVIEW MODAL ── -->
-<div id="activity-preview-modal" aria-hidden="true">
-  <button class="activity-preview-close" type="button" aria-label="关闭预览">✕</button>
-  <div class="activity-preview-box">
-    <div class="activity-preview-poster" id="activity-preview-poster"></div>
-    <div class="activity-preview-body">
-      <div class="activity-meta" id="activity-preview-meta"></div>
-      <h3 id="activity-preview-title"></h3>
-      <p class="speaker" id="activity-preview-speaker"></p>
-      <p id="activity-preview-text"></p>
-    </div>
-  </div>
-</div>
-
-<!-- ── TWEAKS PANEL ── -->
-<div id="tweaks-panel">
-  <h4>Tweaks</h4>
-
-  <div class="tweak-group">
-    <div class="tweak-label">主题风格</div>
-    <div class="tweak-options">
-      <button class="tweak-btn active" onclick="setTheme('light', this)">学院典藏 — 奶油 + 深蓝</button>
-      <button class="tweak-btn" onclick="setTheme('dark', this)">深夜书馆 — 暗色模式</button>
-      <button class="tweak-btn" onclick="setTheme('minimal', this)">当代学术 — 简约白</button>
-      <button class="tweak-btn" onclick="setTheme('sage', this)">松青书院 — 草木绿</button>
-    </div>
-  </div>
-
-  <div class="tweak-sep"></div>
-
-  <div class="tweak-group">
-    <div class="tweak-label">背景颜色（浅色主题）</div>
-    <div class="tweak-options">
-      <button class="tweak-btn active" onclick="setBg('cream',this)">羊皮纸 — 温暖奶油</button>
-      <button class="tweak-btn" onclick="setBg('stone',this)">砚石灰 — 中性暖灰</button>
-      <button class="tweak-btn" onclick="setBg('white',this)">纯白 — 干净现代</button>
-      <button class="tweak-btn" onclick="setBg('slate',this)">烟青 — 冷调蓝灰</button>
-      <button class="tweak-btn" onclick="setBg('rose',this)">淡粉 — 柔和暖调</button>
-    </div>
-  </div>
-
-  <div class="tweak-sep"></div>
-
-  <div class="tweak-group">
-    <div class="tweak-label">导航位置</div>
-    <div class="tweak-options">
-      <button class="tweak-btn active" onclick="setNavPos('top', this)">顶部固定</button>
-      <button class="tweak-btn" onclick="setNavPos('compact', this)">紧凑导航</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── REVIEW PANEL ── -->
-<div class="review-tool" data-review-ui hidden>
-  <button class="review-launcher" type="button" data-review-action="toggle" aria-expanded="false" aria-controls="review-panel">
-    批注模式
-  </button>
-
-  <aside id="review-panel" class="review-panel" aria-label="页面批注面板" hidden>
-    <div class="review-head">
-      <div>
-        <span class="review-kicker">Review Mode</span>
-        <h2 class="review-title">页面批注</h2>
-      </div>
-      <button class="review-ghost-button" type="button" data-review-action="close">关闭</button>
-    </div>
-
-    <p class="review-shortcut">快捷键：Shift + R。开启后点击页面元素即可记录问题。</p>
-
-    <div class="review-selected-card">
-      <span class="review-label">当前选中</span>
-      <p class="review-selected-target" data-review-selected>未选中元素</p>
-      <p class="review-selected-meta" data-review-selected-meta>开启后点击页面元素开始批注。</p>
-    </div>
-
-    <form class="review-form" data-review-form>
-      <label class="review-field">
-        <span>问题描述</span>
-        <textarea name="note" rows="4" placeholder="例如：这段文案太满；这一块上下间距太大；这个按钮语气太强。"></textarea>
-      </label>
-
-      <label class="review-field">
-        <span>建议改法 / 文案</span>
-        <textarea name="suggestion" rows="3" placeholder="例如：按钮改成“查看项目”；副标题压成一句；卡片内边距收小。"></textarea>
-      </label>
-
-      <div class="review-actions">
-        <button class="review-primary-button" type="submit">保存批注</button>
-        <button class="review-ghost-button" type="button" data-review-action="reset-selection">清空当前选择</button>
-      </div>
-    </form>
-
-    <div class="review-list-head">
-      <h3 class="review-list-title">已记录问题</h3>
-      <div class="review-list-actions">
-        <button class="review-ghost-button" type="button" data-review-action="copy">复制清单</button>
-        <button class="review-ghost-button" type="button" data-review-action="clear">清空全部</button>
-      </div>
-    </div>
-
-    <p class="review-empty" data-review-empty>还没有批注。</p>
-    <div class="review-list" data-review-list></div>
-  </aside>
-</div>
-
-<script>
-// Language navigation is shared in site.js; English has its own overview URL.
-
-// ── CARD LINKS ──
-function bindCardLinks() {
-  document.querySelectorAll('[data-detail-url], [data-link-url]').forEach(card => {
-    const url = card.dataset.detailUrl || card.dataset.linkUrl;
-    if (!url) return;
-    const go = () => { window.location.href = url; };
-    card.addEventListener('click', go);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        go();
-      }
-    });
-  });
-}
-bindCardLinks();
-
-// ── ACTIVITY IMAGE PREVIEW ──
-const activityPreviewModal = document.getElementById('activity-preview-modal');
-const activityPreviewPoster = document.getElementById('activity-preview-poster');
-const activityPreviewMeta = document.getElementById('activity-preview-meta');
-const activityPreviewTitle = document.getElementById('activity-preview-title');
-const activityPreviewSpeaker = document.getElementById('activity-preview-speaker');
-const activityPreviewText = document.getElementById('activity-preview-text');
-
-function openActivityPreview(card) {
-  const poster = card.querySelector('.activity-poster');
-  const tag = card.querySelector('.tag')?.outerHTML || '';
-  const date = card.querySelector('.date-label')?.textContent || '';
-  const title = card.querySelector('h4')?.textContent || '';
-  const speaker = card.querySelector('.speaker')?.textContent || '';
-  const text = card.querySelector('.activity-body > p:last-of-type')?.textContent || '';
-
-  activityPreviewPoster.innerHTML = poster ? `<img src="${poster.src}" alt="${poster.alt}">` : '';
-  activityPreviewMeta.innerHTML = tag + `<span class="date-label" style="margin-left:8px">${date}</span>`;
-  activityPreviewTitle.textContent = title;
-  activityPreviewSpeaker.textContent = speaker;
-  activityPreviewText.textContent = text;
-  activityPreviewModal.classList.add('open');
-  activityPreviewModal.setAttribute('aria-hidden', 'false');
-}
-
-function closeActivityPreview() {
-  activityPreviewModal.classList.remove('open');
-  activityPreviewModal.setAttribute('aria-hidden', 'true');
-}
-
-document.querySelectorAll('.activity-card .activity-poster.is-previewable').forEach(poster => {
-  poster.addEventListener('click', event => {
-    if (document.body.classList.contains('review-mode-active')) return;
-    event.preventDefault();
-    const card = poster.closest('.activity-card');
-    if (card) openActivityPreview(card);
-  });
-});
-
-activityPreviewModal.addEventListener('click', event => {
-  if (event.target === activityPreviewModal || event.target.closest('.activity-preview-close')) {
-    closeActivityPreview();
-  }
-});
-
-// ── TWEAKS ──
-window.addEventListener('message', e => {
-  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('open');
-  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('open');
-});
-window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "light",
-  "navPos": "top",
-  "bg": "cream"
-}/*EDITMODE-END*/;
-let currentTheme = TWEAK_DEFAULTS.theme;
-
-function setTheme(t, btn) {
-  document.documentElement.setAttribute('data-theme', t === 'light' ? '' : t);
-  if (t === 'light') document.documentElement.removeAttribute('data-theme');
-  currentTheme = t;
-  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setTheme')) b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme: t } }, '*');
-}
-
-function setNavPos(pos, btn) {
-  const header = document.querySelector('.site-header');
-  if (pos === 'compact') {
-    header.style.height = '52px';
-    document.querySelector('.brand-text span').style.display = 'none';
-  } else {
-    header.style.height = '64px';
-    document.querySelector('.brand-text span').style.display = '';
-  }
-  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setNavPos')) b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
-}
-
-function setBg(bg, btn) {
-  document.documentElement.setAttribute('data-bg', bg);
-  document.querySelectorAll('#tweaks-panel .tweak-btn').forEach(b => { if (b.onclick?.toString().includes('setBg')) b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { bg } }, '*');
-}
-
-// Init theme
-if (TWEAK_DEFAULTS.theme && TWEAK_DEFAULTS.theme !== 'light') {
-  setTheme(TWEAK_DEFAULTS.theme);
-}
-if (TWEAK_DEFAULTS.bg) {
-  setBg(TWEAK_DEFAULTS.bg);
-}
-
-// ── REVEAL ON SCROLL ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Hero already visible
-document.querySelector('.hero').classList.add('visible');
-
-// ── REVIEW MODE ──
-const reviewTool = document.querySelector('[data-review-ui]');
-
-if (reviewTool) {
-  const reviewQuery = new URLSearchParams(window.location.search);
-  const reviewHosts = new Set(['', 'localhost', '127.0.0.1', '::1']);
-  const canUseReview = reviewHosts.has(window.location.hostname) || reviewQuery.get('review') === '1';
-
-  if (canUseReview) {
-    const REVIEW_STORAGE_KEY = 'modern-philosophy-review-comments-v1';
-    const REVIEW_ENABLED_KEY = 'modern-philosophy-review-enabled-v1';
-    const REVIEW_TARGET_SELECTOR = [
-      'h1', 'h2', 'h3', 'h4', 'p', 'a', 'button', 'li', 'img',
-      '.hero', '.hero-card', '.about-card', '.research-card', '.adviser-card',
-      '.activity-card', '.news-item', '.pub-card', '.pub-wide', '.contact-row',
-      '.section-head', '.site-header', '.masthead', '.brand', '.hero-main'
-    ].join(', ');
-
-    const reviewPanel = document.getElementById('review-panel');
-    const reviewLauncher = reviewTool.querySelector('.review-launcher');
-    const reviewForm = reviewTool.querySelector('[data-review-form]');
-    const noteField = reviewForm ? reviewForm.elements.namedItem('note') : null;
-    const suggestionField = reviewForm ? reviewForm.elements.namedItem('suggestion') : null;
-    const reviewSelected = reviewTool.querySelector('[data-review-selected]');
-    const reviewSelectedMeta = reviewTool.querySelector('[data-review-selected-meta]');
-    const reviewList = reviewTool.querySelector('[data-review-list]');
-    const reviewEmpty = reviewTool.querySelector('[data-review-empty]');
-
-    const readStorage = (key) => {
-      try {
-        return window.localStorage.getItem(key);
-      } catch (_) {
-        return null;
-      }
-    };
-
-    const writeStorage = (key, value) => {
-      try {
-        window.localStorage.setItem(key, value);
-      } catch (_) {
-        return null;
-      }
-      return value;
-    };
-
-    const state = {
-      active: reviewQuery.get('review') === '1' || readStorage(REVIEW_ENABLED_KEY) === 'true',
-      hovered: null,
-      selected: null,
-      comments: []
-    };
-
-    reviewTool.hidden = false;
-
-    const hoverHighlight = document.createElement('div');
-    hoverHighlight.className = 'review-highlight';
-    hoverHighlight.dataset.reviewOverlay = 'hover';
-
-    const selectedHighlight = document.createElement('div');
-    selectedHighlight.className = 'review-highlight selected';
-    selectedHighlight.dataset.reviewOverlay = 'selected';
-
-    document.body.append(hoverHighlight, selectedHighlight);
-
-    const escapeHtml = (value) =>
-      value
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-
-    const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
-
-    const escapeCss = (value) => {
-      if (window.CSS && typeof window.CSS.escape === 'function') {
-        return window.CSS.escape(value);
-      }
-      return value.replace(/([ !"#$%&'()*+,./:;<=>?@[\\\]^`{|}~])/g, '\\$1');
-    };
-
-    const escapeAttribute = (value) =>
-      value
-        .replaceAll('\\', '\\\\')
-        .replaceAll('"', '\\"');
-
-    const isEditableTarget = (target) =>
-      target instanceof HTMLElement &&
-      (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT', 'OPTION'].includes(target.tagName));
-
-    const isReviewUi = (element) =>
-      element instanceof Element &&
-      (element.closest('[data-review-ui]') || element.closest('#tweaks-panel') || element.closest('[data-review-overlay]'));
-
-    const updateOverlay = (overlay, element) => {
-      if (!(element instanceof Element) || !state.active) {
-        overlay.classList.remove('visible');
-        return;
-      }
-
-      const rect = element.getBoundingClientRect();
-      if (rect.width < 8 || rect.height < 8) {
-        overlay.classList.remove('visible');
-        return;
-      }
-
-      overlay.style.top = `${rect.top - 4}px`;
-      overlay.style.left = `${rect.left - 4}px`;
-      overlay.style.width = `${rect.width + 8}px`;
-      overlay.style.height = `${rect.height + 8}px`;
-      overlay.classList.add('visible');
-    };
-
-    const buildSelectorSegment = (element) => {
-      if (element.id) {
-        return `#${escapeCss(element.id)}`;
-      }
-
-      const tag = element.tagName.toLowerCase();
-      const stableClasses = Array.from(element.classList)
-        .filter((className) => !className.startsWith('visible') && !className.startsWith('review-'))
-        .slice(0, 2);
-
-      let segment = tag;
-      if (stableClasses.length) {
-        segment += `.${stableClasses.map((className) => escapeCss(className)).join('.')}`;
-      }
-
-      const ccId = element.getAttribute('data-cc-id');
-      if (ccId) {
-        segment += `[data-cc-id="${escapeAttribute(ccId)}"]`;
-        return segment;
-      }
-
-      if (element.parentElement) {
-        const siblings = Array.from(element.parentElement.children).filter(
-          (sibling) => sibling.tagName === element.tagName
-        );
-
-        if (siblings.length > 1) {
-          segment += `:nth-of-type(${siblings.indexOf(element) + 1})`;
-        }
-      }
-
-      return segment;
-    };
-
-    const buildSelector = (element) => {
-      const segments = [];
-      let current = element;
-
-      while (current && current !== document.body && segments.length < 6) {
-        segments.unshift(buildSelectorSegment(current));
-
-        if (current.id || current.matches('header, footer, section, .hero, .section, .section-alt')) {
-          break;
-        }
-
-        current = current.parentElement;
-      }
-
-      return segments.join(' > ');
-    };
-
-    const buildTargetInfo = (element) => {
-      const rect = element.getBoundingClientRect();
-      const excerpt = normalizeText(
-        element.getAttribute('aria-label') ||
-        element.getAttribute('alt') ||
-        element.textContent ||
-        ''
-      );
-      const selector = buildSelector(element);
-      const section =
-        element.closest('[id]')?.id ||
-        element.closest('.section-alt')?.id ||
-        element.closest('.section')?.id ||
-        'page';
-      const tag = element.tagName.toLowerCase();
-      const label = excerpt
-        ? excerpt.slice(0, 44) + (excerpt.length > 44 ? '...' : '')
-        : `<${tag}>`;
-
-      return {
-        excerpt: excerpt || `<${tag}>`,
-        label,
-        selector,
-        section,
-        size: `${Math.round(rect.width)}×${Math.round(rect.height)}`
-      };
-    };
-
-    const getReviewTarget = (target) => {
-      if (!(target instanceof Element) || isReviewUi(target)) {
-        return null;
-      }
-
-      let current = target;
-      while (current && current !== document.body) {
-        if (current.matches(REVIEW_TARGET_SELECTOR)) {
-          const rect = current.getBoundingClientRect();
-          if (rect.width >= 40 && rect.height >= 18) {
-            return current;
-          }
-        }
-        current = current.parentElement;
-      }
-
-      return null;
-    };
-
-    const loadComments = () => {
-      try {
-        const saved = JSON.parse(readStorage(REVIEW_STORAGE_KEY) || '[]');
-        return Array.isArray(saved) ? saved : [];
-      } catch (_) {
-        return [];
-      }
-    };
-
-    const saveComments = () => {
-      writeStorage(REVIEW_STORAGE_KEY, JSON.stringify(state.comments));
-    };
-
-    const syncOverlays = () => {
-      updateOverlay(hoverHighlight, state.hovered);
-      updateOverlay(selectedHighlight, state.selected);
-    };
-
-    const updateSelectedSummary = () => {
-      if (!reviewSelected || !reviewSelectedMeta) {
-        return;
-      }
-
-      if (!state.selected) {
-        reviewSelected.textContent = '未选中元素';
-        reviewSelectedMeta.textContent = '开启后点击页面元素开始批注。';
-        return;
-      }
-
-      const info = buildTargetInfo(state.selected);
-      reviewSelected.textContent = info.label;
-      reviewSelectedMeta.textContent = `${info.section} · ${info.selector} · ${info.size}`;
-    };
-
-    const setSelectedElement = (element) => {
-      state.selected = element;
-      updateSelectedSummary();
-      syncOverlays();
-    };
-
-    const clearSelection = () => {
-      state.selected = null;
-      if (reviewForm) {
-        reviewForm.reset();
-      }
-      updateSelectedSummary();
-      syncOverlays();
-    };
-
-    const formatTime = (value) => {
-      try {
-        return new Intl.DateTimeFormat('zh-CN', {
-          month: 'numeric',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }).format(new Date(value));
-      } catch (_) {
-        return value;
-      }
-    };
-
-    const buildExportText = () => {
-      const lines = ['# 页面批注清单', ''];
-      if (!state.comments.length) {
-        lines.push('当前没有已保存的批注。');
-        return lines.join('\n');
-      }
-
-      state.comments.forEach((comment, index) => {
-        lines.push(`${index + 1}. ${comment.label}`);
-        lines.push(`页面：${comment.page}`);
-        lines.push(`区域：${comment.section}`);
-        lines.push(`定位：${comment.selector}`);
-        lines.push(`原文：${comment.excerpt}`);
-        if (comment.note) lines.push(`问题：${comment.note}`);
-        if (comment.suggestion) lines.push(`建议：${comment.suggestion}`);
-        lines.push(`时间：${formatTime(comment.createdAt)}`);
-        lines.push('');
-      });
-
-      return lines.join('\n');
-    };
-
-    const copyText = async (value) => {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(value);
-        return true;
-      }
-
-      const helper = document.createElement('textarea');
-      helper.value = value;
-      helper.setAttribute('readonly', 'readonly');
-      helper.style.position = 'fixed';
-      helper.style.opacity = '0';
-      document.body.append(helper);
-      helper.select();
-      const success = document.execCommand('copy');
-      helper.remove();
-      return success;
-    };
-
-    const scrollToTarget = (comment) => {
-      const target = document.querySelector(comment.selector);
-      if (!target) {
-        return;
-      }
-
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setSelectedElement(target);
-    };
-
-    const renderComments = () => {
-      if (!reviewList || !reviewEmpty) {
-        return;
-      }
-
-      reviewList.innerHTML = '';
-      reviewEmpty.hidden = state.comments.length > 0;
-
-      state.comments.forEach((comment) => {
-        const item = document.createElement('article');
-        item.className = 'review-comment-item';
-        item.dataset.commentId = comment.id;
-        item.innerHTML = `
-          <div class="review-comment-head">
-            <div>
-              <strong class="review-comment-title">${escapeHtml(comment.label)}</strong>
-              <span class="review-comment-meta">${escapeHtml(formatTime(comment.createdAt))} · ${escapeHtml(comment.section)}</span>
-            </div>
-            <div class="review-comment-actions">
-              <button class="review-comment-button" type="button" data-review-jump="${escapeHtml(comment.id)}">定位</button>
-              <button class="review-comment-button" type="button" data-review-delete="${escapeHtml(comment.id)}">删除</button>
-            </div>
-          </div>
-          ${comment.note ? `<p class="review-comment-text">${escapeHtml(comment.note)}</p>` : ''}
-          ${comment.suggestion ? `<p class="review-comment-suggestion"><strong>建议：</strong> ${escapeHtml(comment.suggestion)}</p>` : ''}
-          <p class="review-comment-context">${escapeHtml(comment.selector)}<br>${escapeHtml(comment.excerpt)}</p>
-        `;
-        reviewList.append(item);
-      });
-    };
-
-    const setReviewMode = (enabled) => {
-      state.active = enabled;
-      writeStorage(REVIEW_ENABLED_KEY, String(enabled));
-      document.body.classList.toggle('review-mode-active', enabled);
-      if (reviewPanel) {
-        reviewPanel.hidden = !enabled;
-      }
-      if (reviewLauncher) {
-        reviewLauncher.textContent = enabled ? '退出批注' : '批注模式';
-        reviewLauncher.setAttribute('aria-expanded', String(enabled));
-      }
-      if (!enabled) {
-        state.hovered = null;
-        hoverHighlight.classList.remove('visible');
-      }
-      syncOverlays();
-      updateSelectedSummary();
-    };
-
-    state.comments = loadComments();
-    renderComments();
-    setReviewMode(state.active);
-
-    document.addEventListener('mousemove', (event) => {
-      if (!state.active) {
-        return;
-      }
-      state.hovered = getReviewTarget(event.target);
-      syncOverlays();
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!state.active) {
-        return;
-      }
-
-      const actionButton = event.target.closest('[data-review-action]');
-      if (actionButton || isReviewUi(event.target)) {
-        return;
-      }
-
-      const target = getReviewTarget(event.target);
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-      event.stopPropagation();
-      setSelectedElement(target);
-      if (noteField) {
-        noteField.focus();
-      }
-    }, true);
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key.toLowerCase() === 'r' && event.shiftKey && !isEditableTarget(event.target)) {
-        event.preventDefault();
-        setReviewMode(!state.active);
-        return;
-      }
-
-      if (event.key === 'Escape' && state.active) {
-        clearSelection();
-      }
-    });
-
-    window.addEventListener('scroll', syncOverlays, { passive: true });
-    window.addEventListener('resize', syncOverlays);
-
-    reviewTool.addEventListener('click', async (event) => {
-      const actionButton = event.target.closest('[data-review-action]');
-      if (!actionButton) {
-        return;
-      }
-
-      const action = actionButton.dataset.reviewAction;
-
-      if (action === 'toggle') {
-        setReviewMode(!state.active);
-        return;
-      }
-
-      if (action === 'close') {
-        setReviewMode(false);
-        return;
-      }
-
-      if (action === 'reset-selection') {
-        clearSelection();
-        return;
-      }
-
-      if (action === 'clear') {
-        if (!window.confirm('确定要清空全部批注吗？')) {
-          return;
-        }
-        state.comments = [];
-        saveComments();
-        renderComments();
-        return;
-      }
-
-      if (action === 'copy') {
-        await copyText(buildExportText());
-      }
-    });
-
-    if (reviewForm) {
-      reviewForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        if (!state.selected) {
-          window.alert('先点击页面里的元素，再保存批注。');
-          return;
-        }
-
-        const note = noteField ? noteField.value.trim() : '';
-        const suggestion = suggestionField ? suggestionField.value.trim() : '';
-        if (!note && !suggestion) {
-          return;
-        }
-
-        const info = buildTargetInfo(state.selected);
-        state.comments.unshift({
-          id: typeof crypto !== 'undefined' && crypto.randomUUID
-            ? crypto.randomUUID()
-            : `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-          createdAt: new Date().toISOString(),
-          page: window.location.pathname || '/',
-          section: info.section,
-          selector: info.selector,
-          label: info.label,
-          excerpt: info.excerpt,
-          note,
-          suggestion
-        });
-
-        saveComments();
-        renderComments();
-        clearSelection();
-      });
-    }
-
-    if (reviewList) {
-      reviewList.addEventListener('click', (event) => {
-        const jumpButton = event.target.closest('[data-review-jump]');
-        if (jumpButton) {
-          const comment = state.comments.find((item) => item.id === jumpButton.dataset.reviewJump);
-          if (comment) {
-            scrollToTarget(comment);
-          }
-          return;
-        }
-
-        const deleteButton = event.target.closest('[data-review-delete]');
-        if (deleteButton) {
-          state.comments = state.comments.filter((item) => item.id !== deleteButton.dataset.reviewDelete);
-          saveComments();
-          renderComments();
-        }
-      });
-    }
-  }
-}
-</script>
-
-
 <script src="site.js"></script>
-</body></html>
+</body>
+</html>

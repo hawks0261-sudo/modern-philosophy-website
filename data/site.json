@@ -1,0 +1,101 @@
+{
+  "base_url": "https://hawks0261-sudo.github.io/modern-philosophy-website/",
+  "name_zh": "现代思想研究中心",
+  "name_en": "Center of Modern Thought",
+  "language_pairs": {
+    "index.html": "en/index.html",
+    "activities/index.html": "en/activities/index.html",
+    "activities/seminar-07/index.html": "en/activities/seminar-07/index.html",
+    "activities/seminar-08/index.html": "en/activities/seminar-08/index.html",
+    "activities/seminar-09/index.html": "en/activities/seminar-09/index.html",
+    "people/index.html": "en/people/index.html",
+    "publications/journal/index.html": "en/publications/journal/index.html",
+    "publications/journal/submissions/index.html": "en/publications/journal/submissions/index.html"
+  },
+  "language_fallbacks": {
+    "people/member-directory/index.html": "en/people/index.html",
+    "en/publications/index.html": "index.html#outcomes",
+    "publications/journal/issue-01/index.html": "en/publications/journal/index.html#contents"
+  },
+  "navigation": {
+    "zh": [
+      {
+        "key": "home",
+        "label": "首页",
+        "href": "index.html"
+      },
+      {
+        "key": "about",
+        "label": "中心简介",
+        "href": "index.html#about"
+      },
+      {
+        "key": "research",
+        "label": "研究方向",
+        "href": "index.html#research"
+      },
+      {
+        "key": "activities",
+        "label": "学术活动",
+        "href": "activities/index.html"
+      },
+      {
+        "key": "people",
+        "label": "中心成员",
+        "href": "people/index.html"
+      },
+      {
+        "key": "outcomes",
+        "label": "研究成果",
+        "href": "index.html#outcomes"
+      },
+      {
+        "key": "news",
+        "label": "中心动态",
+        "href": "index.html#news"
+      },
+      {
+        "key": "contact",
+        "label": "联系我们",
+        "href": "index.html#contact"
+      }
+    ],
+    "en": [
+      {
+        "key": "home",
+        "label": "Home",
+        "href": "en/index.html"
+      },
+      {
+        "key": "about",
+        "label": "About",
+        "href": "en/index.html#about"
+      },
+      {
+        "key": "research",
+        "label": "Research",
+        "href": "en/index.html#research"
+      },
+      {
+        "key": "activities",
+        "label": "Activities",
+        "href": "en/activities/index.html"
+      },
+      {
+        "key": "people",
+        "label": "People",
+        "href": "en/people/index.html"
+      },
+      {
+        "key": "outcomes",
+        "label": "Publications",
+        "href": "en/publications/index.html"
+      },
+      {
+        "key": "contact",
+        "label": "Contact",
+        "href": "en/index.html#contact"
+      }
+    ]
+  }
+}

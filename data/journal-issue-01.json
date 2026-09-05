@@ -1,0 +1,274 @@
+{
+  "title": "近代哲学（第一期）：贝克莱作品的编纂和影响",
+  "titleEn": "Modern Philosophy, Issue 1: George Berkeley’s Works and Legacy",
+  "editor": "刘铭",
+  "editorEn": "Liu Ming",
+  "executiveEditor": "滕光伟",
+  "executiveEditorEn": "Teng Guangwei",
+  "publisher": "福建教育出版社",
+  "publisherEn": "Fujian Education Press",
+  "datePublished": "2026-05",
+  "isbn": "978-7-5758-1077-7",
+  "numberOfPages": 320,
+  "tocPageMeaning": "Start page printed in the issue; no unverified end pages.",
+  "englishTitlesNote": "Editorial translations for website navigation, not asserted to be the original English article titles.",
+  "groups": [
+    {
+      "title": "前言",
+      "titleEn": "Preface",
+      "entries": [
+        {
+          "page": 1,
+          "title": "致敬《乔治·贝克莱全集》主编卢斯和约瑟普教授",
+          "contributors": "未署名",
+          "titleEn": "A Tribute to Professors Luce and Jessop, Editors of The Works of George Berkeley",
+          "contributorsEn": "Unsigned"
+        }
+      ]
+    },
+    {
+      "title": "学术综述",
+      "titleEn": "Scholarly surveys",
+      "entries": [
+        {
+          "page": 15,
+          "title": "阿瑟·阿斯顿·卢斯：传记及其对贝克莱哲学的贡献",
+          "contributors": "迪亚梅德·费里特 著；刘铭 译",
+          "titleEn": "Arthur Aston Luce: Biography and Contributions to Berkeley Scholarship",
+          "contributorsEn": "Diarmaid Ferriter; translated by Liu Ming"
+        },
+        {
+          "page": 18,
+          "title": "托马斯·埃德蒙·约瑟普：编辑权威、学院奠基人与公共知识分子的三重遗产",
+          "contributors": "滕光伟",
+          "titleEn": "Thomas Edmund Jessop: His Legacy as Editor, Institutional Founder and Public Intellectual",
+          "contributorsEn": "Teng Guangwei"
+        }
+      ]
+    },
+    {
+      "title": "本期主题 · 贝克莱哲学研究",
+      "titleEn": "Theme: Berkeley’s philosophy",
+      "entries": [
+        {
+          "page": 27,
+          "title": "贝克莱哲学的统一性",
+          "contributors": "阿瑟·阿斯顿·卢斯 著；许宇璐 译；钱进 核校",
+          "titleEn": "The Unity of Berkeley’s Philosophy",
+          "contributorsEn": "A. A. Luce; translated by Xu Yulu; checked by Qian Jin"
+        },
+        {
+          "page": 38,
+          "title": "贝克莱《笔记》中的思想演变",
+          "contributors": "阿瑟·阿斯顿·卢斯 著；许宇璐 译；李岱巍 核校",
+          "titleEn": "The Development of Thought in Berkeley’s Notebooks",
+          "contributorsEn": "A. A. Luce; translated by Xu Yulu; checked by Li Daiwei"
+        },
+        {
+          "page": 50,
+          "title": "贝克莱哲学的所谓“发展”",
+          "contributors": "阿瑟·阿斯顿·卢斯 著；许宇璐 译；李岱巍 核校",
+          "titleEn": "The So-called Development of Berkeley’s Philosophy",
+          "contributorsEn": "A. A. Luce; translated by Xu Yulu; checked by Li Daiwei"
+        },
+        {
+          "page": 70,
+          "title": "乔治·贝克莱",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；钱进 译",
+          "titleEn": "George Berkeley",
+          "contributorsEn": "T. E. Jessop; translated by Qian Jin"
+        },
+        {
+          "page": 92,
+          "title": "贝克莱与当代物理学",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；左天梦 译",
+          "titleEn": "Berkeley and Contemporary Physics",
+          "contributorsEn": "T. E. Jessop; translated by Zuo Tianmeng"
+        },
+        {
+          "page": 105,
+          "title": "贝克莱的科学哲学",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；袁昊达 译；李岱巍 核校",
+          "titleEn": "Berkeley’s Philosophy of Science",
+          "contributorsEn": "T. E. Jessop; translated by Yuan Haoda; checked by Li Daiwei"
+        }
+      ]
+    },
+    {
+      "title": "本期主题 · 文献考证与文本研究",
+      "titleEn": "Theme: Documents and texts",
+      "entries": [
+        {
+          "page": 116,
+          "title": "论乔治·贝克莱致布朗的所谓书信：一篇关于谬误修辞的研究",
+          "contributors": "贝蒂尔·贝尔弗拉格 著；刘铭 译",
+          "titleEn": "On the Alleged Letter from George Berkeley to Browne: A Study in the Rhetoric of Error",
+          "contributorsEn": "Bertil Belfrage; translated by Liu Ming"
+        },
+        {
+          "page": 124,
+          "title": "对安妮·贝克莱《对比》的一则评注",
+          "contributors": "斯蒂芬·戈登·斯托里 著；刘铭 译",
+          "titleEn": "A Comment on Anne Berkeley’s The Contrast",
+          "contributorsEn": "Stephen Gordon Storie; translated by Liu Ming"
+        },
+        {
+          "page": 133,
+          "title": "《贝克莱全集》：《视觉新论》编者导言",
+          "contributors": "阿瑟·阿斯顿·卢斯 著；李岱巍 译",
+          "titleEn": "The Works of Berkeley: Editor’s Introduction to A New Theory of Vision",
+          "contributorsEn": "A. A. Luce; translated by Li Daiwei"
+        },
+        {
+          "page": 150,
+          "title": "《贝克莱全集》：《人类知识原理》编者导言",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；李岱巍 译",
+          "titleEn": "The Works of Berkeley: Editor’s Introduction to the Principles of Human Knowledge",
+          "contributorsEn": "T. E. Jessop; translated by Li Daiwei"
+        },
+        {
+          "page": 167,
+          "title": "《贝克莱全集》：《海拉斯与斐洛诺斯对话三篇》编者导言",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；左天梦 译",
+          "titleEn": "The Works of Berkeley: Editor’s Introduction to Three Dialogues between Hylas and Philonous",
+          "contributorsEn": "T. E. Jessop; translated by Zuo Tianmeng"
+        },
+        {
+          "page": 180,
+          "title": "《贝克莱全集》：《西利斯》编者导言",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；左天梦 译",
+          "titleEn": "The Works of Berkeley: Editor’s Introduction to Siris",
+          "contributorsEn": "T. E. Jessop; translated by Zuo Tianmeng"
+        }
+      ]
+    },
+    {
+      "title": "本期主题 · 思想传播与接受史研究",
+      "titleEn": "Theme: Circulation and reception",
+      "entries": [
+        {
+          "page": 202,
+          "title": "贝克莱哲学在德国",
+          "contributors": "李岱巍",
+          "titleEn": "Berkeley’s Philosophy in Germany",
+          "contributorsEn": "Li Daiwei"
+        },
+        {
+          "page": 211,
+          "title": "莱布尼茨与贝克莱",
+          "contributors": "威利·卡比茨 著；李岱巍 译",
+          "titleEn": "Leibniz and Berkeley",
+          "contributorsEn": "Willy Kabitz; translated by Li Daiwei"
+        },
+        {
+          "page": 218,
+          "title": "从译介到重释：贝克莱在法国的接受史（18—21 世纪）",
+          "contributors": "左天梦",
+          "titleEn": "From Translation to Reinterpretation: Berkeley’s Reception in France, Eighteenth to Twenty-first Centuries",
+          "contributorsEn": "Zuo Tianmeng"
+        }
+      ]
+    },
+    {
+      "title": "书评",
+      "titleEn": "Book reviews",
+      "entries": [
+        {
+          "page": 231,
+          "title": "《克洛因主教乔治·贝克莱全集》书评（一）",
+          "contributors": "威利斯·多尼 著；郭雨婷 译；滕光伟 核校",
+          "titleEn": "Review of The Works of George Berkeley, Bishop of Cloyne (I)",
+          "contributorsEn": "Willis Doney; translated by Guo Yuting; checked by Teng Guangwei"
+        },
+        {
+          "page": 235,
+          "title": "《克洛因主教乔治·贝克莱全集》书评（二）",
+          "contributors": "威廉·T. 帕里 著；郭雨婷 译；滕光伟 核校",
+          "titleEn": "Review of The Works of George Berkeley, Bishop of Cloyne (II)",
+          "contributorsEn": "William T. Parry; translated by Guo Yuting; checked by Teng Guangwei"
+        }
+      ]
+    },
+    {
+      "title": "学者访谈",
+      "titleEn": "Interviews",
+      "entries": [
+        {
+          "page": 243,
+          "title": "贝克莱学者访谈 1：大卫·伯曼教授",
+          "contributors": "滕光伟 采访；大卫·伯曼 与谈；左天梦 核校",
+          "titleEn": "Interview with a Berkeley Scholar 1: Professor David Berman",
+          "contributorsEn": "Teng Guangwei, interviewer; David Berman, interviewee; checked by Zuo Tianmeng"
+        },
+        {
+          "page": 253,
+          "title": "贝克莱学者访谈 2：汤姆·斯通汉姆教授",
+          "contributors": "滕光伟 采访；汤姆·斯通汉姆 与谈；左天梦 核校",
+          "titleEn": "Interview with a Berkeley Scholar 2: Professor Tom Stoneham",
+          "contributorsEn": "Teng Guangwei, interviewer; Tom Stoneham, interviewee; checked by Zuo Tianmeng"
+        }
+      ]
+    },
+    {
+      "title": "学界通讯",
+      "titleEn": "Scholarly communications",
+      "entries": [
+        {
+          "page": 273,
+          "title": "《乔治·贝克莱参考书目》作者前言",
+          "contributors": "托马斯·埃德蒙·约瑟普 著；滕光伟 译",
+          "titleEn": "Author’s Preface to A Bibliography of George Berkeley",
+          "contributorsEn": "T. E. Jessop; translated by Teng Guangwei"
+        },
+        {
+          "page": 278,
+          "title": "2014 年，大卫·伯曼在三一学院纪念卢斯的演讲",
+          "contributors": "大卫·伯曼 著；滕光伟 译",
+          "titleEn": "David Berman’s 2014 Address Commemorating Luce at Trinity College",
+          "contributorsEn": "David Berman; translated by Teng Guangwei"
+        }
+      ]
+    },
+    {
+      "title": "附录",
+      "titleEn": "Appendices",
+      "entries": [
+        {
+          "page": 292,
+          "title": "约克大学哲学系介绍",
+          "contributors": "滕光伟",
+          "titleEn": "An Introduction to the Department of Philosophy at the University of York",
+          "contributorsEn": "Teng Guangwei"
+        },
+        {
+          "page": 296,
+          "title": "致谢",
+          "contributors": "未署名",
+          "titleEn": "Acknowledgements",
+          "contributorsEn": "Unsigned"
+        },
+        {
+          "page": 297,
+          "title": "《近代哲学》投稿指南",
+          "contributors": "编辑部",
+          "titleEn": "Modern Philosophy: Submission Guidelines",
+          "contributorsEn": "Editorial office"
+        },
+        {
+          "page": 299,
+          "title": "《近代哲学》第二期约稿",
+          "contributors": "编辑部",
+          "titleEn": "Call for Contributions to Issue 2",
+          "contributorsEn": "Editorial office"
+        },
+        {
+          "page": 300,
+          "title": "《近代哲学》投稿规范",
+          "contributors": "编辑部",
+          "titleEn": "Modern Philosophy: Style Guidelines",
+          "contributorsEn": "Editorial office"
+        }
+      ]
+    }
+  ]
+}

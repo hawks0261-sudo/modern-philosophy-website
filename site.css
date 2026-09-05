@@ -12,9 +12,9 @@
   --card: #ffffff;
   --bg: #f1ece4;
   --bg-soft: #e8e1d6;
-  --serif: "EB Garamond", "Noto Serif SC", Georgia, serif;
-  --zh-serif: "Noto Serif SC", serif;
-  --sans: "Noto Sans SC", sans-serif;
+  --serif: Georgia, "Times New Roman", "Songti SC", "STSong", "SimSun", serif;
+  --zh-serif: "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   --max: 1180px;
   --radius: 6px;
 }
@@ -40,6 +40,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -1541,3 +1542,59 @@ body.nav-open .mobile-nav { transform: translateX(0); }
   .overview-grid { grid-template-columns: minmax(0, 1fr); }
   .english-overview .page-title { font-size: 36px; }
 }
+
+/* Static navigation is the baseline; the dialog is a progressive enhancement. */
+html:not(.nav-enhanced) .nav-toggle,
+html:not(.nav-enhanced) .mobile-nav-backdrop { display: none; }
+html:not(.nav-enhanced) > body > .mobile-nav { display: none; }
+@media (max-width: 1024px) {
+  html:not(.nav-enhanced) .site-header { height: auto; min-height: 66px; flex-wrap: wrap; padding: 12px 16px; }
+  html:not(.nav-enhanced) .nav-links { display: flex; flex-basis: 100%; justify-content: flex-start; }
+  html:not(.nav-enhanced) .header-right { display: flex; }
+  html:not(.nav-enhanced) .nav-links a { padding: 8px; }
+}
+/* Reading comfort and focus visibility across all static pages. */
+:root { --gold-ink: #806219; }
+main .page-kicker, main .fact-item > span:first-child, main .eyebrow { color: var(--gold-ink); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #806219; outline-offset: 4px; }
+main[id], main section[id], .section-block[id] { scroll-margin-top: 90px; }
+.page-shell { min-width: 0; }
+.prose a, .detail-card > p a { text-decoration: underline; text-underline-offset: 3px; }
+.english-page .page-title { font-family: Georgia, serif; font-size: clamp(32px, 5vw, 56px); line-height: 1.15; max-width: 24ch; }
+.english-page .page-hero-inner { padding-top: 42px; padding-bottom: 38px; }
+.english-page .page-shell { max-width: 1080px; }
+.english-page .reading-column { max-width: 76ch; }
+.english-page .page-subtitle { max-width: 72ch; }
+.english-page .overview-grid h3 { font-size: 23px; }
+.english-page .overview-grid p { font-size: 16px; }
+.english-page .overview-grid .role { color: #665b45; font-size: 14px; }
+.english-page .overview-events li { scroll-margin-top: 88px; }
+.english-page .overview-events time { font-variant-numeric: tabular-nums; }
+.english-page .event-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 18px 0; border-block: 1px solid var(--border); color: var(--muted); }
+.english-page .event-photo { margin: 26px 0; }
+.english-page .event-photo img { width: 100%; height: auto; }
+.english-page figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.english-page .reading-column h2 { margin-top: 36px; }
+.english-page .return-links { display: flex; flex-wrap: wrap; gap: 20px; margin: 32px 0; }
+.english-page .language-original { font-size: 14px; }
+@media (max-width: 680px) {
+ .english-page .page-hero-inner { padding-top: 28px; padding-bottom: 26px; }
+ .english-page .page-title { font-size: 34px; }
+ .english-page .overview-grid article { padding: 20px; }
+ .english-page .event-meta { display: block; }
+ .english-page .event-meta > span { display: block; }
+}
+
+.english-page .overview-grid article > img { width: 100%; max-height: 280px; object-fit: contain; margin: 0 0 24px; }
+
+/* Readable labels on light cards; decorative gold remains unchanged. */
+.people-card-role, .people-card small, .book-footer time, .member-source { color: #806219; }
+#series-modal .page-kicker { color: #806219; }
+.page-hero .book-breadcrumb a { color: #f6f1e7; text-decoration: underline; text-underline-offset: 4px; }
+
+.book-card-body > small, .book-card-body > small time { color: #806219; }
+
+.people-overview .page-hero-inner { padding-top: 36px; padding-bottom: 36px; }
+.people-hero-copy { max-width: 780px; }
+.people-overview .overview-hero-link { color: #111d30; }
+@media (max-width: 680px) { .people-overview .page-hero-inner { padding-top: 28px; padding-bottom: 28px; } }

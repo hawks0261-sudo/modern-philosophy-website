@@ -4,3 +4,7 @@
 /pdf-render.html
 /uploads/index.html
 /archived-maintenance/
+
+# Local Python bytecode is not part of the public site.
+__pycache__/
+*.py[cod]

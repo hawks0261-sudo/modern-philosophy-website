@@ -1,0 +1,39 @@
+{
+  "verifiedOn": "2026-09-05",
+  "source": {
+    "fileName": "近代哲学1期-印前通读_副本.pdf",
+    "physicalPage": 317,
+    "pageNote": "正文302页之后的无印刷页码译丛书目页"
+  },
+  "corrections": [
+    {
+      "ids": [
+        "series-08",
+        "series-09"
+      ],
+      "fields": {
+        "title": "斯皮格林 → 斯皮勒林",
+        "creatorRole": "editor（编）"
+      },
+      "evidence": [
+        "印前PDF第317物理页书目第4项",
+        "publications/translation-series/covers/book-08.jpg"
+      ]
+    },
+    {
+      "ids": [
+        "series-07",
+        "series-12"
+      ],
+      "fields": {
+        "translator": "李峰 → 李锋"
+      },
+      "evidence": [
+        "印前PDF第317物理页书目第5、12项",
+        "publications/translation-series/covers/book-07.jpg",
+        "publications/translation-series/covers/book-12.jpg"
+      ]
+    }
+  ],
+  "countingScope": "本站书目收录29册。上下册分别展示；不是完整译丛总规模或29部独立作品。"
+}

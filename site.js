@@ -1,6 +1,6 @@
 /* ============================================================
    site.js — 全站共享导航 + 移动端汉堡菜单
-   单一来源：以后改导航项只改这里
+   导航/语言数据：data/site.json；生成：scripts/build_site.py
    每个页面 <html> 需设置 data-root（相对站点根的前缀）
    例：根目录 ""，activities/ 用 "../"，
        activities/lecture-01/ 用 "../../"，
@@ -14,71 +14,17 @@
   var isEnglish = rootEl.lang.indexOf("en") === 0;
   var path = location.pathname;
 
-  // —— 唯一一套导航 ——
-  var NAV = [
-    { label: "首页", href: "index.html", key: "home" },
-    { label: "中心简介", href: "index.html#about", key: "about" },
-    { label: "研究方向", href: "index.html#research", key: "research" },
-    { label: "学术活动", href: "activities/index.html", key: "activities", match: "/activities/" },
-    { label: "中心成员", href: "people/index.html", key: "people", match: "/people/" },
-    { label: "研究成果", href: "index.html#outcomes", key: "outcomes", match: "/publications/" },
-    { label: "中心动态", href: "index.html#news", key: "news" },
-    { label: "联系我们", href: "index.html#contact", key: "contact" }
-  ];
-  if (isEnglish) {
-    NAV = [
-      { label: "Home", href: "#top", key: "home" },
-      { label: "About", href: "#about", key: "about" },
-      { label: "Research", href: "#research", key: "research" },
-      { label: "Activities", href: "#activities", key: "activities" },
-      { label: "People", href: "#people", key: "people" },
-      { label: "Publications", href: "#publications", key: "outcomes" },
-      { label: "Contact", href: "#contact", key: "contact" }
-    ];
-  }
-
-  function resolve(href) {
-    if (isEnglish) return href;
-    // 首页内部锚点：把 index.html#x 变成 #x，平滑滚动
-    if (isHome && href.indexOf("index.html") === 0) {
-      var hash = href.slice("index.html".length);
-      return hash || "#top";
-    }
-    return root + href;
-  }
-
-  function isCurrent(item) {
-    return item.match ? path.indexOf(item.match) !== -1 : false;
-  }
-
-  var linksHtml = NAV.map(function (it) {
-    return (
-      '<a href="' + resolve(it.href) + '"' +
-      (it.key ? ' data-nav="' + it.key + '"' : "") +
-      (isCurrent(it) ? ' class="is-current"' : "") +
-      ">" + it.label + "</a>"
-    );
-  }).join("");
-
-  document.querySelectorAll("[data-primary-nav]").forEach(function (el) {
-    el.innerHTML = linksHtml;
-  });
-  document.querySelectorAll("[data-mobile-nav]").forEach(function (el) {
-    el.innerHTML = linksHtml;
-  });
-
-  // —— 语言入口：英文概览有独立 URL，不再只切换标题或按钮高亮 ——
+  // Navigation and language destinations are generated as HTML by scripts/build_site.py.
+  // JavaScript enhances interactions; links remain readable without it.
   function languageLinks() {
-    return '<a href="' + (isEnglish ? root + 'index.html' : location.href) +
-      '" lang="zh-CN" hreflang="zh-CN"' + (!isEnglish ? ' class="active" aria-current="page"' : '') +
-      '>中文</a><a href="' + root + 'en/index.html" lang="en" hreflang="en" ' +
-      'aria-label="English overview" title="English overview"' +
-      (isEnglish ? ' class="active" aria-current="page"' : '') + '>EN</a>';
+    var source = document.querySelector('.header-right .lang-toggle');
+    return source ? source.innerHTML : '';
   }
-  document.querySelectorAll('.lang-toggle').forEach(function (el) {
-    el.setAttribute('aria-label', isEnglish ? 'Page language' : '页面语言');
-    el.innerHTML = languageLinks();
-  });
+  var primaryNav = document.querySelector('[data-primary-nav]');
+  var mobileNav = document.querySelector('[data-mobile-nav]');
+  if (primaryNav && mobileNav && !mobileNav.querySelector('a[href]')) {
+    mobileNav.innerHTML = primaryNav.innerHTML;
+  }
 
   // —— 移动菜单置于原生模态层：背景不可交互，闭合后不进入 Tab 顺序 ——
   var toggle = document.querySelector(".nav-toggle");
@@ -86,6 +32,8 @@
   var drawer = document.querySelector(".mobile-nav");
   if (toggle && drawer) {
     var dialog = document.createElement('dialog');
+    if (typeof dialog.showModal !== 'function') return;
+    document.documentElement.classList.add('nav-enhanced');
     dialog.id = 'mobile-nav-dialog';
     dialog.className = 'mobile-nav-dialog';
     dialog.setAttribute('aria-labelledby', 'mobile-nav-title');
@@ -108,6 +56,7 @@
     toggle.setAttribute('aria-label', isEnglish ? 'Open navigation menu' : '打开导航菜单');
     var closeButton = toolbar.querySelector('button');
     var oldOverflow = '';
+    var scrollLocked = false;
     var returnFocus = true;
     var mobileViewport = window.matchMedia('(max-width: 1024px)');
 
@@ -115,10 +64,12 @@
       if (!dialog.open) return;
       returnFocus = restoreFocus !== false;
       dialog.close();
+      restoreNav();
     }
     function openNav() {
       if (!mobileViewport.matches || dialog.open) return;
       oldOverflow = document.body.style.overflow;
+      scrollLocked = true;
       returnFocus = true;
       dialog.showModal();
       document.body.classList.add('nav-open');
@@ -126,12 +77,15 @@
       toggle.setAttribute('aria-expanded', 'true');
       closeButton.focus();
     }
-    dialog.addEventListener('close', function () {
+    function restoreNav() {
+      if (dialog.open || !scrollLocked) return;
+      scrollLocked = false;
       document.body.classList.remove('nav-open');
       document.body.style.overflow = oldOverflow;
       toggle.setAttribute('aria-expanded', 'false');
       if (returnFocus && mobileViewport.matches) toggle.focus({ preventScroll: true });
-    });
+    }
+    dialog.addEventListener('close', restoreNav);
     closeButton.addEventListener('click', function () { closeNav(); });
     dialog.addEventListener('cancel', function (event) {
       event.preventDefault();

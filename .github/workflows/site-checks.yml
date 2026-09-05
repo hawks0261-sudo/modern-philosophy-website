@@ -1,0 +1,20 @@
+name: Static site checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test content propagation and escaping
+        run: python3 scripts/test_build.py
+      - name: Check deterministic generation
+        run: python3 scripts/build_site.py --check
+      - name: Check pages, assets, links and metadata
+        run: python3 scripts/check_site.py

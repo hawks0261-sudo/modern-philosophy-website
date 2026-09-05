@@ -1,21 +1,106 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-root="../">
+<html lang="zh-CN" data-root="../" data-language-zh="index.html" data-language-en="../en/activities/index.html">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>学术活动归档 | 现代思想研究中心</title>
-    <meta
-      name="description"
-      content="现代思想研究中心学术活动归档，按讲座、研讨会和年份浏览活动详情。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../site.css" />
-  </head>
+<link rel="stylesheet" href="../site.css" />
+
+    <style>
+      .archive-hero .page-hero-inner { padding: 38px 0 32px; }
+      .archive-hero .page-title { font-size: clamp(32px, 4vw, 46px); }
+      .archive-hero .page-kicker { margin-bottom: 10px; font-style: normal; }
+      .archive-hero .page-subtitle { margin: 14px 0 0; font-size: 16px; }
+      .page-shell { padding-top: 28px; }
+      .archive-heading { margin-bottom: 18px; }
+      .archive-heading h2 { font-size: 23px; }
+      .archive-total { display: inline-block; margin-left: 10px; font-family: var(--sans); color: var(--muted); font-size: 14px; font-weight: 400; }
+      .archive-controls { gap: 10px; margin-bottom: 14px; }
+      .filter-pills label { min-height: 40px; display: inline-flex; align-items: center; }
+      .archive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .archive-card { display: grid; grid-template-columns: 124px minmax(0, 1fr); align-items: start; padding: 18px; gap: 18px; }
+      .archive-card:hover { transform: none; }
+      .archive-card .archive-poster { width: 124px; height: 180px; aspect-ratio: auto; object-fit: contain; object-position: top center; background: transparent; }
+      .archive-body { padding: 0; }
+      .archive-meta { gap: 8px; margin-bottom: 8px; }
+      .archive-type, .archive-date { font-size: 12px; letter-spacing: 0; }
+      .archive-title { font-size: 18px; line-height: 1.6; }
+      .archive-copy { line-height: 1.8; margin-top: 10px; }
+      .archive-body .cta-row { margin-top: 12px; padding-top: 0; }
+      .archive-link { padding: 0; justify-content: start; color: var(--navy); background: transparent; border-radius: 0; min-height: 32px; text-decoration: underline; text-underline-offset: 4px; letter-spacing: 0; }
+      #filter-type-all:focus-visible ~ .archive-controls label[for="filter-type-all"],#filter-type-lecture:focus-visible ~ .archive-controls label[for="filter-type-lecture"],#filter-type-seminar:focus-visible ~ .archive-controls label[for="filter-type-seminar"],#filter-year-all:focus-visible ~ .archive-controls label[for="filter-year-all"],#filter-year-2024:focus-visible ~ .archive-controls label[for="filter-year-2024"],#filter-year-2025:focus-visible ~ .archive-controls label[for="filter-year-2025"],#filter-year-2026:focus-visible ~ .archive-controls label[for="filter-year-2026"] { outline: 3px solid #806219; outline-offset: 3px; }
+      @media (max-width: 860px) { .archive-grid { grid-template-columns: minmax(0, 1fr); } }
+      @media (max-width: 480px) {
+        .archive-hero .page-hero-inner { padding: 26px 0 24px; }
+        .archive-hero .page-subtitle { font-size: 14px; }
+        .page-shell { padding-top: 22px; }
+        .archive-card { grid-template-columns: 88px minmax(0, 1fr); padding: 14px; gap: 14px; }
+        .archive-card .archive-poster { width: 88px; height: 138px; }
+        .archive-title { font-size: 16px; }
+        .archive-copy { font-size: 13px; }
+        .archive-controls-label { min-width: 36px; }
+        .filter-pills { gap: 6px; }
+        .filter-pills label { padding: 0 11px; }
+      }
+    </style>
+  <style data-generated="archive-filters">
+.archive-empty { display: none !important; }
+#filter-year-2024:checked ~ .archive-controls label[for="filter-year-2024"] { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+#filter-year-2024:focus-visible ~ .archive-controls label[for="filter-year-2024"] { outline: 3px solid #806219; outline-offset: 3px; }
+#filter-year-2024:checked ~ .archive-grid .archive-card:not([data-year="2024"]) { display: none; }
+#filter-year-2025:checked ~ .archive-controls label[for="filter-year-2025"] { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+#filter-year-2025:focus-visible ~ .archive-controls label[for="filter-year-2025"] { outline: 3px solid #806219; outline-offset: 3px; }
+#filter-year-2025:checked ~ .archive-grid .archive-card:not([data-year="2025"]) { display: none; }
+#filter-type-lecture:checked ~ #filter-year-2025:checked ~ .archive-empty { display: block !important; }
+#filter-year-2026:checked ~ .archive-controls label[for="filter-year-2026"] { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+#filter-year-2026:focus-visible ~ .archive-controls label[for="filter-year-2026"] { outline: 3px solid #806219; outline-offset: 3px; }
+#filter-year-2026:checked ~ .archive-grid .archive-card:not([data-year="2026"]) { display: none; }
+#filter-type-lecture:checked ~ #filter-year-2026:checked ~ .archive-empty { display: block !important; }
+</style>
+<!-- BEGIN GENERATED: page-metadata -->
+<meta name="description" content="回看中心的讲座、研讨会与读书会，按日期由近及远排列。" />
+<link rel="canonical" href="https://hawks0261-sudo.github.io/modern-philosophy-website/activities/index.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://hawks0261-sudo.github.io/modern-philosophy-website/activities/index.html" />
+<link rel="alternate" hreflang="en" href="https://hawks0261-sudo.github.io/modern-philosophy-website/en/activities/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="现代思想研究中心" />
+<meta property="og:title" content="学术活动归档 | 现代思想研究中心" />
+<meta property="og:description" content="回看中心的讲座、研讨会与读书会，按日期由近及远排列。" />
+<meta property="og:url" content="https://hawks0261-sudo.github.io/modern-philosophy-website/activities/index.html" />
+<meta property="og:image" content="https://hawks0261-sudo.github.io/modern-philosophy-website/logo.png" />
+<meta property="og:image:alt" content="现代思想研究中心" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="学术活动归档 | 现代思想研究中心" />
+<meta name="twitter:description" content="回看中心的讲座、研讨会与读书会，按日期由近及远排列。" />
+<meta name="twitter:image" content="https://hawks0261-sudo.github.io/modern-philosophy-website/logo.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://hawks0261-sudo.github.io/modern-philosophy-website/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "学术活动",
+          "item": "https://hawks0261-sudo.github.io/modern-philosophy-website/activities/index.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- END GENERATED: page-metadata -->
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
   <body>
     <div class="masthead">
       <span>Yangzhou University</span>
@@ -25,257 +110,174 @@
 
     <header class="site-header">
       <a class="brand" href="../index.html">
-        <img src="../logo.png" alt="现代思想研究中心标识">
+        <img src="../assets/optimized/ab211233b657-96.webp" alt="现代思想研究中心标识" data-media-source="logo.png" width="1344" height="1508" decoding="async" loading="eager" srcset="../assets/optimized/ab211233b657-48.webp 48w, ../assets/optimized/ab211233b657-96.webp 96w" sizes="42px">
         <div class="brand-text">
           <strong>现代思想研究中心</strong>
           <span>Center of Modern Thought</span>
         </div>
       </a>
-      <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
+      <nav class="nav-links" data-primary-nav aria-label="主导航" data-static-nav>
+<a href="../index.html" data-nav="home">首页</a>
+<a href="../index.html#about" data-nav="about">中心简介</a>
+<a href="../index.html#research" data-nav="research">研究方向</a>
+<a href="index.html" data-nav="activities" class="is-current" aria-current="page">学术活动</a>
+<a href="../people/index.html" data-nav="people">中心成员</a>
+<a href="../index.html#outcomes" data-nav="outcomes">研究成果</a>
+<a href="../index.html#news" data-nav="news">中心动态</a>
+<a href="../index.html#contact" data-nav="contact">联系我们</a>
+</nav>
       <div class="header-right">
-        <div class="lang-toggle">
-          <a class="active" href="index.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">中文</a>
-          <a href="../en/index.html" lang="en" hreflang="en" aria-label="English overview">EN</a>
-        </div>
+        <div class="lang-toggle"><a href="index.html" lang="zh-CN" hreflang="zh-CN" class="active" aria-current="page">中文</a><a href="../en/activities/index.html" lang="en" hreflang="en" aria-label="English version" title="English version">EN</a></div>
       </div>
       <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
     </header>
     <div class="mobile-nav-backdrop"></div>
-    <nav class="mobile-nav" data-mobile-nav aria-label="移动导航"></nav>
+    <nav class="mobile-nav" data-mobile-nav aria-label="移动导航" data-static-nav>
+<a href="../index.html" data-nav="home">首页</a>
+<a href="../index.html#about" data-nav="about">中心简介</a>
+<a href="../index.html#research" data-nav="research">研究方向</a>
+<a href="index.html" data-nav="activities" class="is-current" aria-current="page">学术活动</a>
+<a href="../people/index.html" data-nav="people">中心成员</a>
+<a href="../index.html#outcomes" data-nav="outcomes">研究成果</a>
+<a href="../index.html#news" data-nav="news">中心动态</a>
+<a href="../index.html#contact" data-nav="contact">联系我们</a>
+</nav>
 
-    <section class="page-hero">
+    <section class="page-hero archive-hero">
       <div class="page-hero-inner">
-        <div class="hero-grid">
-          <div>
-            <span class="page-kicker">Events Archive</span>
-            <h1 class="page-title">中心学术活动</h1>
-            <p class="page-subtitle">
-              本页收录现代思想研究中心已举办的讲座、研讨会与读书会。可按类型和年份筛选，进入详情页查看活动概述、议题线索、参与信息与现场照片。
-            </p>
-            <div class="hero-pills">
-              <span>Lecture</span>
-              <span>Seminar</span>
-              <span>Reading Group</span>
-              <span>Activity Archive</span>
-            </div>
-          </div>
-
-          <aside class="hero-side-card">
-            <span class="page-kicker">Archive Structure</span>
-            <h3>中心活动档案</h3>
-            <p>
-              活动按讲座、研讨会和读书会统一归档，保留时间、地点、主办单位、核心议题与活动总结，便于读者回看中心持续展开的研究脉络。
-            </p>
-          </aside>
-        </div>
+        <span class="page-kicker">Activities &amp; Events</span>
+        <h1 class="page-title">学术活动</h1>
+        <p class="page-subtitle">回看中心的讲座、研讨会与读书会，按日期由近及远排列。</p>
       </div>
     </section>
 
     <main class="page-shell">
       <section class="section-block">
-        <div class="section-heading">
-          <div>
-            <span class="page-kicker">Filter Archive</span>
-            <h2>按类型与年份筛选</h2>
-          </div>
-          <p>选择类型或年份后，活动卡片会即时刷新；点击“进入详情页”查看完整内容。</p>
+        <div class="section-heading archive-heading">
+          <h2>活动归档 <span class="archive-total">共 <span data-stat="activities">11</span> 场</span></h2>
         </div>
 
-        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-all" checked />
-        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-lecture" />
-        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-seminar" />
-        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-all" checked />
-        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2024" />
-        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2025" />
-        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2026" />
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-all" aria-label="活动类型：全部" checked />
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-lecture" aria-label="活动类型：讲座" />
+        <input class="archive-filter-input" type="radio" name="archive-type" id="filter-type-seminar" aria-label="活动类型：研讨会和读书会" />
+        <input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-all" aria-label="年份：全部" checked />
+<input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2024" aria-label="年份：2024" />
+<input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2025" aria-label="年份：2025" />
+<input class="archive-filter-input" type="radio" name="archive-year" id="filter-year-2026" aria-label="年份：2026" />
 
         <div class="archive-controls">
           <div class="archive-controls-row">
-            <span class="archive-controls-label">Type</span>
+            <span class="archive-controls-label">类型</span>
             <div class="filter-pills" data-filter-group="type">
               <label for="filter-type-all">全部</label>
-              <label for="filter-type-lecture">Lecture</label>
-              <label for="filter-type-seminar">Seminar</label>
+              <label for="filter-type-lecture">讲座</label>
+              <label for="filter-type-seminar">研讨会 / 读书会</label>
             </div>
           </div>
 
           <div class="archive-controls-row">
-            <span class="archive-controls-label">Year</span>
+            <span class="archive-controls-label">年份</span>
             <div class="filter-pills" data-filter-group="year">
-              <label for="filter-year-all">全部</label>
-              <label for="filter-year-2024">2024</label>
-              <label for="filter-year-2025">2025</label>
-              <label for="filter-year-2026">2026</label>
-            </div>
+<label for="filter-year-all">全部</label>
+<label for="filter-year-2024">2024</label>
+<label for="filter-year-2025">2025</label>
+<label for="filter-year-2026">2026</label>
+</div>
           </div>
         </div>
-        <p class="archive-filter-summary">可单独按类型或年份筛选，也可组合筛选；选择“全部”恢复完整列表。</p>
+        <p class="archive-filter-summary">类型与年份可组合筛选；选择“全部”恢复列表。</p>
 
         <div class="archive-grid" data-archive-grid>
-          <article class="archive-card" data-type="lecture" data-year="2024">
-            <img class="archive-poster" src="../posters/lecture-01.jpg" alt="柏格森讲座海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Lecture</span>
-                <span class="archive-date">2024.07.13</span>
-              </div>
-              <h3 class="archive-title">柏格森哲学及其对法国哲学和中国哲学的影响</h3>
-              <p class="archive-copy">围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./lecture-01/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="lecture" data-year="2024">
-            <img class="archive-poster" src="../posters/lecture-02.jpg" alt="布伦塔诺讲座海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Lecture</span>
-                <span class="archive-date">2024.07.21</span>
-              </div>
-              <h3 class="archive-title">布伦塔诺哲学的多重面向</h3>
-              <p class="archive-copy">聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./lecture-02/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2024">
-            <img class="archive-poster" src="../posters/seminar-01.jpg" alt="贝克莱的世界研讨会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2024.07.15-07.25</span>
-              </div>
-              <h3 class="archive-title">“贝克莱的世界”研讨会：对三次对话的审查</h3>
-              <p class="archive-copy">围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley's World）展开，聚焦贝克莱“三次对话”文本的审查与讨论。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-01/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2024">
-            <img class="archive-poster" src="../posters/seminar-02.jpg" alt="蒙田研讨会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2024.07.23-07.26</span>
-              </div>
-              <h3 class="archive-title">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h3>
-              <p class="archive-copy">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-02/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2025">
-            <img class="archive-poster" src="../posters/seminar-03.jpg" alt="伯曼对话录读书会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2025.07.23-07.29</span>
-              </div>
-              <h3 class="archive-title">《笛卡尔与伯曼对话录》读书会</h3>
-              <p class="archive-copy">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-03/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2025">
-            <img class="archive-poster" src="../activity-poster.jpg" alt="波义耳暑期研讨会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2025.08.02-08.08</span>
-              </div>
-              <h3 class="archive-title">“波义耳：怀疑的化学家”暑期研讨会</h3>
-              <p class="archive-copy">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-04/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2025">
-            <img class="archive-poster" src="../posters/seminar-05.jpg" alt="实证主义概论研讨会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2025.09.24</span>
-              </div>
-              <h3 class="archive-title">实证主义概论研讨会</h3>
-              <p class="archive-copy">以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-05/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2026">
-            <img class="archive-poster" src="../posters/seminar-06.jpg" alt="莱昂·布朗什维克与近代哲学研究研讨会海报" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2026.05.17</span>
-              </div>
-              <h3 class="archive-title">莱昂·布朗什维克与近代哲学研究</h3>
-              <p class="archive-copy">中心第六期系列研讨会，围绕布朗什维克的思想、法国理性主义与近代哲学史方法展开。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-06/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2026">
-            <img class="archive-poster poster-contain" src="../posters/seminar-07.jpg" alt="纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义研讨会海报" loading="lazy" decoding="async" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2026.08.04</span>
-              </div>
-              <h3 class="archive-title">纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义</h3>
-              <p class="archive-copy">围绕波义耳、近代实验哲学与《近代哲学》第二期的编务和后续研究展开研讨。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-07/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2026">
-            <img class="archive-poster poster-contain" src="../posters/seminar-08.jpg" alt="乔治·贝克莱与世界：心灵与自然的全球视野研讨会海报" loading="lazy" decoding="async" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2026.08.05</span>
-              </div>
-              <h3 class="archive-title">乔治·贝克莱与世界：心灵与自然的全球视野</h3>
-              <p class="archive-copy">从18世纪知识交往与思想流动出发，讨论贝克莱如何重新安排心灵、感知与自然的关系。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-08/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="archive-card" data-type="seminar" data-year="2026">
-            <img class="archive-poster poster-contain" src="../posters/seminar-09.jpg" alt="笛卡尔通信集的编纂与翻译研讨会海报" loading="lazy" decoding="async" />
-            <div class="archive-body">
-              <div class="archive-meta">
-                <span class="archive-type">Seminar</span>
-                <span class="archive-date">2026.08.06</span>
-              </div>
-              <h3 class="archive-title">笛卡尔通信集的编纂与翻译</h3>
-              <p class="archive-copy">围绕笛卡尔通信集的文本传承、版本选择、编排体例与中文翻译计划展开交流。</p>
-              <div class="cta-row">
-                <a class="archive-link" href="./seminar-09/index.html">进入详情页</a>
-              </div>
-            </div>
-          </article>
+          <!-- BEGIN GENERATED: activity-archive -->
+<article class="archive-card" data-content-id="seminar-09" data-date="2026-08-06" data-type="seminar" data-year="2026">
+  <img class="archive-poster poster-contain" src="../assets/optimized/74f96e64a205-384.webp" alt="笛卡尔通信集的编纂与翻译研讨会海报" loading="eager" decoding="async" data-media-source="posters/seminar-09.jpg" width="1076" height="1444" srcset="../assets/optimized/74f96e64a205-384.webp 384w, ../assets/optimized/74f96e64a205-768.webp 768w, ../assets/optimized/74f96e64a205-1076.webp 1076w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2026-08-06">2026.08.06</time></div>
+    <h3 class="archive-title">笛卡尔通信集的编纂与翻译</h3><p class="archive-copy">围绕笛卡尔通信集的文本传承、版本选择、编排体例与中文翻译计划展开交流。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-09/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-08" data-date="2026-08-05" data-type="seminar" data-year="2026">
+  <img class="archive-poster poster-contain" src="../assets/optimized/45306477c87a-384.webp" alt="乔治·贝克莱与世界：心灵与自然的全球视野研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-08.jpg" width="1279" height="1544" srcset="../assets/optimized/45306477c87a-384.webp 384w, ../assets/optimized/45306477c87a-768.webp 768w, ../assets/optimized/45306477c87a-1279.webp 1279w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2026-08-05">2026.08.05</time></div>
+    <h3 class="archive-title">乔治·贝克莱与世界：心灵与自然的全球视野</h3><p class="archive-copy">从18世纪知识交往与思想流动出发，讨论贝克莱如何重新安排心灵、感知与自然的关系。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-08/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-07" data-date="2026-08-04" data-type="seminar" data-year="2026">
+  <img class="archive-poster poster-contain" src="../assets/optimized/f5713c6af94d-384.webp" alt="纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-07.jpg" width="1080" height="1440" srcset="../assets/optimized/f5713c6af94d-384.webp 384w, ../assets/optimized/f5713c6af94d-768.webp 768w, ../assets/optimized/f5713c6af94d-1080.webp 1080w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2026-08-04">2026.08.04</time></div>
+    <h3 class="archive-title">纪念波义耳诞辰400周年：波义耳（1627—2027）对我们时代的意义</h3><p class="archive-copy">围绕波义耳、近代实验哲学与《近代哲学》第二期的编务和后续研究展开研讨。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-07/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-06" data-date="2026-05-17" data-type="seminar" data-year="2026">
+  <img class="archive-poster poster-contain" src="../assets/optimized/0600daedaeb6-384.webp" alt="莱昂·布朗什维克与近代哲学研究研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-06.jpg" width="1199" height="1594" srcset="../assets/optimized/0600daedaeb6-384.webp 384w, ../assets/optimized/0600daedaeb6-768.webp 768w, ../assets/optimized/0600daedaeb6-1199.webp 1199w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2026-05-17">2026.05.17</time></div>
+    <h3 class="archive-title">莱昂·布朗什维克与近代哲学研究</h3><p class="archive-copy">中心第六期系列研讨会，围绕布朗什维克的思想、法国理性主义与近代哲学史方法展开。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-06/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-05" data-date="2025-09-24" data-type="seminar" data-year="2025">
+  <img class="archive-poster poster-contain" src="../assets/optimized/049b5e29a35b-384.webp" alt="实证主义概论研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-05.jpg" width="1080" height="1920" srcset="../assets/optimized/049b5e29a35b-384.webp 384w, ../assets/optimized/049b5e29a35b-768.webp 768w, ../assets/optimized/049b5e29a35b-1080.webp 1080w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2025-09-24">2025.09.24</time></div>
+    <h3 class="archive-title">实证主义概论研讨会</h3><p class="archive-copy">以导论式方式梳理实证主义的思想脉络、问题意识与方法特征。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-05/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-04" data-date="2025-08-02" data-type="seminar" data-year="2025">
+  <img class="archive-poster poster-contain" src="../assets/optimized/119b2b5d87b3-384.webp" alt="波义耳暑期研讨会海报" loading="lazy" decoding="async" data-media-source="activity-poster.jpg" width="1016" height="1280" srcset="../assets/optimized/119b2b5d87b3-384.webp 384w, ../assets/optimized/119b2b5d87b3-768.webp 768w, ../assets/optimized/119b2b5d87b3-1016.webp 1016w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2025-08-02">2025.08.02-08.08</time></div>
+    <h3 class="archive-title">“波义耳：怀疑的化学家”暑期研讨会</h3><p class="archive-copy">以《怀疑的化学家》及相关文本为核心，讨论波义耳如何推动现代化学与近代科学思维的形成。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-04/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-03" data-date="2025-07-23" data-type="seminar" data-year="2025">
+  <img class="archive-poster poster-contain" src="../assets/optimized/3c4c576a5a12-384.webp" alt="伯曼对话录读书会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-03.jpg" width="1152" height="1536" srcset="../assets/optimized/3c4c576a5a12-384.webp 384w, ../assets/optimized/3c4c576a5a12-768.webp 768w, ../assets/optimized/3c4c576a5a12-1152.webp 1152w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2025-07-23">2025.07.23-07.29</time></div>
+    <h3 class="archive-title">《笛卡尔与伯曼对话录》读书会</h3><p class="archive-copy">通过逐段校读的方式，深入探讨哲学与科学思维在近代早期的转型与演进。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-03/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-02" data-date="2024-07-23" data-type="seminar" data-year="2024">
+  <img class="archive-poster poster-contain" src="../assets/optimized/5ce165156ee7-384.webp" alt="蒙田研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-02.jpg" width="1280" height="1710" srcset="../assets/optimized/5ce165156ee7-384.webp 384w, ../assets/optimized/5ce165156ee7-768.webp 768w, ../assets/optimized/5ce165156ee7-1280.webp 1280w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2024-07-23">2024.07.23-07.26</time></div>
+    <h3 class="archive-title">从文艺复兴到理性时代：笛卡尔、帕斯卡对蒙田的阅读</h3><p class="archive-copy">围绕蒙田、笛卡尔与帕斯卡的阅读关系展开，延伸至布朗什维克的相关研究。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-02/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="lecture-02" data-date="2024-07-21" data-type="lecture" data-year="2024">
+  <img class="archive-poster poster-contain" src="../assets/optimized/740f5ff4f1c5-384.webp" alt="布伦塔诺讲座海报" loading="lazy" decoding="async" data-media-source="posters/lecture-02.jpg" width="1080" height="1527" srcset="../assets/optimized/740f5ff4f1c5-384.webp 384w, ../assets/optimized/740f5ff4f1c5-768.webp 768w, ../assets/optimized/740f5ff4f1c5-1080.webp 1080w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">讲座</span><time class="archive-date" datetime="2024-07-21">2024.07.21</time></div>
+    <h3 class="archive-title">布伦塔诺哲学的多重面向</h3><p class="archive-copy">聚焦布伦塔诺哲学的思想脉络及其对现象学、分析哲学与心理学等领域的影响。</p>
+    <div class="cta-row"><a class="archive-link" href="lecture-02/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="seminar-01" data-date="2024-07-15" data-type="seminar" data-year="2024">
+  <img class="archive-poster poster-contain" src="../assets/optimized/a1bd398086f5-384.webp" alt="贝克莱的世界研讨会海报" loading="lazy" decoding="async" data-media-source="posters/seminar-01.jpg" width="1279" height="1810" srcset="../assets/optimized/a1bd398086f5-384.webp 384w, ../assets/optimized/a1bd398086f5-768.webp 768w, ../assets/optimized/a1bd398086f5-1279.webp 1279w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">研讨会</span><time class="archive-date" datetime="2024-07-15">2024.07.15-07.25</time></div>
+    <h3 class="archive-title">“贝克莱的世界”研讨会：对三次对话的审查</h3><p class="archive-copy">围绕汤姆·斯通汉姆（Dr. Tom Stoneham）的《贝克莱的世界》（Berkeley&#x27;s World）展开，聚焦贝克莱“三次对话”文本的审查与讨论。</p>
+    <div class="cta-row"><a class="archive-link" href="seminar-01/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<article class="archive-card" data-content-id="lecture-01" data-date="2024-07-13" data-type="lecture" data-year="2024">
+  <img class="archive-poster poster-contain" src="../assets/optimized/554410c372be-384.webp" alt="柏格森讲座海报" loading="lazy" decoding="async" data-media-source="posters/lecture-01.jpg" width="566" height="800" srcset="../assets/optimized/554410c372be-384.webp 384w, ../assets/optimized/554410c372be-566.webp 566w" sizes="(max-width: 680px) 88px, 124px">
+  <div class="archive-body">
+    <div class="archive-meta"><span class="archive-type">讲座</span><time class="archive-date" datetime="2024-07-13">2024.07.13</time></div>
+    <h3 class="archive-title">柏格森哲学及其对法国哲学和中国哲学的影响</h3><p class="archive-copy">围绕柏格森的生命哲学展开系统介绍，讨论其对法国哲学传统及中国哲学研究的影响，线上线下结合。</p>
+    <div class="cta-row"><a class="archive-link" href="lecture-01/index.html">阅读活动总结 →</a></div>
+  </div>
+</article>
+<!-- END GENERATED: activity-archive -->
         </div>
         <p class="archive-empty" data-archive-empty>当前筛选条件下暂无活动。</p>
       </section>

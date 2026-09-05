@@ -1,0 +1,98 @@
+{
+  "source": "people/member-directory/index.html",
+  "scope": "International adviser counts; institution countries are not nationality.",
+  "advisers": [
+    {
+      "name": "汤姆·斯通汉姆",
+      "originalName": "Tom Stoneham",
+      "institutionCountry": "United Kingdom",
+      "source": "https://www.york.ac.uk/philosophy/people/tom-stoneham/",
+      "status": "current"
+    },
+    {
+      "name": "德尼·康布什内",
+      "originalName": "Denis Kambouchner",
+      "institutionCountry": "France",
+      "source": "https://www.pantheonsorbonne.fr/page-perso/denis.kambouchner%40",
+      "status": "current"
+    },
+    {
+      "name": "彼得·安斯蒂",
+      "originalName": "Peter R. Anstey",
+      "institutionCountry": "Australia",
+      "source": "https://www.acu.edu.au/research-and-enterprise/our-people/peter-anstey",
+      "status": "current"
+    },
+    {
+      "name": "皮埃尔·格南西亚",
+      "originalName": "Pierre Guenancia",
+      "institutionCountry": "France",
+      "source": "https://lir3s.ube.fr/membres/guenancia-pierre/",
+      "status": "current"
+    },
+    {
+      "name": "夏尔·拉蒙",
+      "originalName": "Charles Ramond",
+      "institutionCountry": "France",
+      "source": "https://llcp.univ-paris8.fr/charles-ramond",
+      "status": "current"
+    },
+    {
+      "name": "伊夫—夏尔·扎尔卡",
+      "originalName": "Yves Charles Zarka",
+      "institutionCountry": "France",
+      "source": "https://shs.u-paris.fr/dictionnaire-du-temps-present/",
+      "status": "current"
+    },
+    {
+      "name": "迈克尔·亨特",
+      "originalName": "Michael Hunter",
+      "institutionCountry": "United Kingdom",
+      "source": "https://www.thebritishacademy.ac.uk/fellows/profiles/michael-hunter-FBA/",
+      "status": "current"
+    },
+    {
+      "name": "约翰·科廷厄姆",
+      "originalName": "John Cottingham",
+      "institutionCountry": "United Kingdom",
+      "source": "https://www.reading.ac.uk/philosophy/philosophy-staff-profiles/john-cottingham",
+      "status": "current"
+    },
+    {
+      "name": "丹尼尔·加伯",
+      "originalName": "Daniel Garber",
+      "institutionCountry": "United States",
+      "source": "https://philosophy.princeton.edu/people/daniel-garber",
+      "status": "current"
+    },
+    {
+      "name": "帕特里克·康诺利",
+      "originalName": "Patrick Connolly",
+      "institutionCountry": "United States",
+      "source": "https://philosophy.jhu.edu/directory/patrick-connolly/",
+      "status": "current"
+    },
+    {
+      "name": "朱莉娅·贝尔焦约索",
+      "originalName": "Giulia Belgioioso",
+      "institutionCountry": "Italy",
+      "source": "https://iris.unisalento.it/cris/rp/rp02611",
+      "status": "current"
+    },
+    {
+      "name": "上野修",
+      "originalName": "Osamu Ueno",
+      "institutionCountry": "Japan",
+      "source": "https://ir.library.osaka-u.ac.jp/repo/ouka/all/67688/mp_48-ii.pdf",
+      "status": "current"
+    }
+  ],
+  "memorialAdvisers": [
+    {
+      "name": "大卫·伯曼",
+      "originalName": "David Berman",
+      "status": "memorial",
+      "source": "https://www.tcd.ie/philosophy/news--events-/department-news/2026/remembering-professor-david-berman-1942-2026/"
+    }
+  ]
+}
