@@ -46,25 +46,30 @@ def render_scene(path, people):
             related.append(f'<li><a href="{esc(link(path, target))}">{esc(item["label"][lang] + suffix)}</a></li>')
         related_html = f'<h3>{t("本站研究与出版", "Related research and publications")}</h3><ul>{"".join(related)}</ul>' if related else ''
         portrait = p['portrait']
-        attribution = f'<details><summary>{t("肖像说明", "About this portrait")}</summary><p>{esc(portrait["attributionNote"][lang])}</p></details>'
+        alternate_catalogue = f'<p><a href="{esc(portrait["commonsPage"])}" target="_blank" rel="noopener">Wikimedia Commons{t(" 图像目录", " image catalogue")}</a></p>' if portrait.get('commonsPage') and portrait['commonsPage'] != portrait['sourceUrl'] else ''
+        attribution = f'<details><summary>{t("肖像说明", "About this portrait")}</summary><p>{esc(portrait["attributionNote"][lang])}</p>{alternate_catalogue}</details>'
+        license_link = f'<br><a href="{esc(portrait["licenseUrl"])}" target="_blank" rel="noopener">{esc(portrait["licenseLabel"])}</a>' if portrait.get('licenseUrl') else ''
+        source_links = ''.join(f'<li><a href="{esc(source["url"])}" target="_blank" rel="noopener">{esc(source["label"])}</a></li>' for source in p['sources'])
         records.append(f'''<article class="atheneum-record" data-person-record="{identity}" {'hidden' if identity != 'berkeley' else ''}>
-  <figure><img src="{link(path, portrait['image'])}" alt="{esc(portrait['sourceLabel'][lang])}" width="500" height="679" loading="lazy" decoding="async"><figcaption>{esc(portrait['caption'][lang])}<br><a href="{esc(portrait['sourceUrl'])}" target="_blank" rel="noopener">{t('查看馆藏或图像目录', 'View the portrait catalogue')}</a></figcaption></figure>
+  <figure><img src="{link(path, portrait['image'])}" alt="{esc(portrait['sourceLabel'][lang])}" width="500" height="679" loading="lazy" decoding="async"><figcaption>{esc(portrait['caption'][lang])}<br><a href="{esc(portrait['sourceUrl'])}" target="_blank" rel="noopener">{t('查看馆藏或图像目录', 'View the portrait catalogue')}</a>{license_link}</figcaption></figure>
   <div><h2 id="person-title-{identity}">{esc(name)}</h2><p class="record-years">{esc(p['name']['en']) + ' · ' if not en else ''}{p['years']}</p>
     <p>{esc(p['bio'][lang])}</p><p class="record-themes">{' · '.join(esc(theme[lang]) for theme in p['themes'])}</p>
     <h3>{t('代表著作', 'Selected works')}</h3><ul>{works}</ul>{related_html}
-    <a class="record-source" href="{esc(p['sources'][0]['url'])}" target="_blank" rel="noopener">{t('人物与著作资料：斯坦福哲学百科', 'Profile and works: Stanford Encyclopedia of Philosophy')}</a>
+    <details class="record-sources"><summary>{t('人物与著作资料', 'Sources for the profile and works')}</summary><ul>{source_links}</ul></details>
     {attribution}<p class="reconstruction-note">{t('殿堂中的人物为依据历史肖像创作的艺术形象；左侧展示其肖像依据。', 'The figure in the hall is an artistic reconstruction. The source portrait is shown alongside this profile.')}</p>
   </div>
 </article>''')
     # This is public display data only; build-machine paths are never embedded.
     state = [{k: p[k] for k in ('id', 'name', 'shortName', 'years', 'themes', 'portrait', 'sources')} for p in people]
     chosen_index = next(i for i, p in enumerate(people) if p['id'] == chosen['id']) + 1
+    scene_names = (', ' if en else '、').join(p['shortName'][lang] for p in people)
+    scene_alt = scene_names + t('在殿堂中阅读和讨论，依据历史肖像创作', ' reading and conversing in a historical hall, interpreted from source portraits')
     reader_count = f'{chosen_index} / {len(people)}' if en else f'第 {chosen_index} / {len(people)} 位'
     return f'''<section class="atheneum-scene" aria-labelledby="atheneum-title">
   <div class="atheneum-stage">
   <div class="atheneum-heading"><h1 id="atheneum-title">{t('在思想之间，展开对话。', 'A conversation <br>across centuries.')}</h1><p>{t('以史照今，以今返史', 'Reading history. Thinking forward.')}</p></div>
   <div class="atheneum-world">
-    <img class="atheneum-backdrop" src="{link(path, 'assets/atheneum/hero-scene-v4.png')}" sizes="100vw" width="1747" height="900" fetchpriority="high" loading="eager" decoding="async" alt="{t('笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟在殿堂中阅读和讨论，依据历史肖像创作', 'Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume reading and conversing in a historical hall, interpreted from source portraits')}" draggable="false">
+    <img class="atheneum-backdrop" src="{link(path, 'assets/atheneum/hero-scene-v5.png')}" sizes="100vw" width="1744" height="902" fetchpriority="high" loading="eager" decoding="async" alt="{esc(scene_alt)}" draggable="false">
     <img class="atheneum-berkeley-head" src="{link(path, 'assets/atheneum/berkeley-head-v1.png')}" width="1254" height="1254" sizes="5.6vw" loading="eager" decoding="async" alt="" aria-hidden="true" draggable="false">
     {''.join(buttons)}
   </div>

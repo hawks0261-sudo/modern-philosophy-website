@@ -1,6 +1,6 @@
 /* The expanded hall: artwork above, readable interpretation below. */
 .atheneum-home .atheneum-scene { height: auto; padding-top: 0; overflow: visible; }
-.atheneum-stage { position: relative; aspect-ratio: 1747 / 900; overflow: hidden; isolation: isolate; }
+.atheneum-stage { position: relative; aspect-ratio: 1744 / 902; overflow: hidden; isolation: isolate; }
 .atheneum-home .atheneum-world { height: 100%; }
 /* The portrait is a separate source so facial features survive scene revisions. */
 .atheneum-berkeley-head { display: none; position: absolute; left: 67.25%; top: 37%; width: 5.6%; height: auto; aspect-ratio: 1; pointer-events: none; user-select: none; -webkit-user-drag: none; mask: url('assets/atheneum/berkeley-head-mask.svg') center / 100% 100% no-repeat; mask-mode: luminance; filter: brightness(.95) saturate(.88); }
@@ -16,13 +16,19 @@
 .atheneum-home .atheneum-figure[aria-pressed="true"] .atheneum-nameplate,
 .atheneum-home .atheneum-figure:hover .atheneum-nameplate,
 .atheneum-home .atheneum-figure:focus-visible .atheneum-nameplate { opacity: 1; background: rgba(28, 20, 11, .75); box-shadow: none; }
-.atheneum-home .atheneum-figure--descartes { left: 10.5%; top: 23%; width: 12.5%; height: 56%; }
-.atheneum-home .atheneum-figure--spinoza { left: 23%; top: 35%; width: 8.5%; height: 43%; }
-.atheneum-home .atheneum-figure--leibniz { left: 31.5%; top: 30%; width: 12.5%; height: 45%; }
-.atheneum-home .atheneum-figure--kant { left: 47.5%; top: 35%; width: 8%; height: 38%; }
+/* Hotspots follow the visible figures in v5; foreground Comte overlaps only bodies behind him. */
+.atheneum-home .atheneum-figure--descartes { left: 13%; top: 22%; width: 10%; height: 57%; }
+.atheneum-home .atheneum-figure--spinoza { left: 23%; top: 35%; width: 8.5%; height: 10%; }
+.atheneum-home .atheneum-figure--leibniz { left: 31.5%; top: 30%; width: 9.5%; height: 15%; }
+.atheneum-home .atheneum-figure--kant { left: 48%; top: 35%; width: 7%; height: 38%; }
 .atheneum-home .atheneum-figure--locke { left: 55.5%; top: 28%; width: 8.5%; height: 41%; }
-.atheneum-home .atheneum-figure--berkeley { left: 64.5%; top: 37%; width: 13%; height: 47%; }
-.atheneum-home .atheneum-figure--hume { left: 77.5%; top: 35%; width: 15%; height: 49%; }
+.atheneum-home .atheneum-figure--berkeley { left: 65%; top: 39%; width: 12.5%; height: 45%; }
+.atheneum-home .atheneum-figure--hume { left: 78%; top: 36%; width: 10%; height: 48%; }
+.atheneum-home .atheneum-figure--pascal { left: 3%; top: 25%; width: 10%; height: 56%; }
+.atheneum-home .atheneum-figure--malebranche { left: 40.5%; top: 26.5%; width: 7.5%; height: 18%; }
+.atheneum-home .atheneum-figure--boyle { left: 72%; top: 24%; width: 9.5%; height: 15%; }
+.atheneum-home .atheneum-figure--comte { left: 25%; top: 45%; width: 20%; height: 55%; }
+.atheneum-home .atheneum-figure--bergson { left: 88%; top: 22%; width: 9.5%; height: 47%; }
 .atheneum-home .atheneum-tools { bottom: 12px; }
 .atheneum-card-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px 18px; }
 .atheneum-chooser { position: relative; flex-shrink: 0; }
@@ -60,7 +66,7 @@
 }
 @media (max-width: 1200px) {
   .atheneum-stage { aspect-ratio: auto; padding-top: 76px; }
-  .atheneum-home .atheneum-world { position: relative; height: auto; aspect-ratio: 1747 / 900; transform: none !important; will-change: auto; }
+  .atheneum-home .atheneum-world { position: relative; height: auto; aspect-ratio: 1744 / 902; transform: none !important; will-change: auto; }
   .atheneum-home .atheneum-heading,
   .atheneum-home.english-overview .atheneum-heading { position: relative; left: auto; top: auto; width: auto; padding: 25px 20px 21px; background: #211a12; }
   .atheneum-home .atheneum-heading h1 { font-size: 38px; }

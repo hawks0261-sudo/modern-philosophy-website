@@ -710,6 +710,521 @@
         }
       },
       "relatedLinks": []
+    },
+    {
+      "id": "pascal",
+      "name": {
+        "zh": "布莱兹·帕斯卡",
+        "en": "Blaise Pascal"
+      },
+      "shortName": {
+        "zh": "帕斯卡",
+        "en": "Pascal"
+      },
+      "born": 1623,
+      "died": 1662,
+      "years": "1623–1662",
+      "bio": {
+        "zh": "帕斯卡是法国思想家、数学家与自然研究者。他通过数学和实验探索自然，同时思考理性的限度、信仰与人的生存处境。《思想录》来自其未完成的基督教辩护计划，由遗留笔记在身后整理出版。",
+        "en": "Blaise Pascal was a French thinker, mathematician, and investigator of nature. Alongside mathematical and experimental work, he examined the limits of reason, religious faith, and the human condition. His Pensées brings together notes for an unfinished defence of Christianity, edited and published after his death."
+      },
+      "themes": [
+        {
+          "zh": "理性与信仰",
+          "en": "Reason and faith"
+        },
+        {
+          "zh": "人的处境",
+          "en": "The human condition"
+        },
+        {
+          "zh": "实验与方法",
+          "en": "Experiment and method"
+        }
+      ],
+      "works": [
+        {
+          "zh": "关于真空的新实验",
+          "en": "New Experiments Concerning the Vacuum",
+          "year": "1647"
+        },
+        {
+          "zh": "致外省人书",
+          "en": "Provincial Letters",
+          "year": "1656–1657",
+          "dateNote": {
+            "zh": "各封公开信于1656至1657年间陆续发表。",
+            "en": "The individual open letters appeared between 1656 and 1657."
+          }
+        },
+        {
+          "zh": "思想录",
+          "en": "Pensées",
+          "year": "1670",
+          "dateNote": {
+            "zh": "身后首次出版；由遗留笔记整理而成，并非作者完成的定稿。",
+            "en": "First published posthumously; assembled from surviving notes, not a finished text authorised by Pascal."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Blaise Pascal",
+          "url": "https://plato.stanford.edu/entries/pascal/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "sourceUrl": "https://collections.louvre.fr/ark:/53355/cl010389756",
+        "sourceLabel": {
+          "zh": "卢浮宫藏、寄存凡尔赛宫的帕斯卡肖像",
+          "en": "Pascal portrait in the Louvre collection, on deposit at Versailles"
+        },
+        "caption": {
+          "zh": "佚名，仿弗朗索瓦二世·凯内尔；17世纪，布面油画。卢浮宫 RF 1479，凡尔赛宫 MV 5527。",
+          "en": "Anonymous, after François II Quesnel; seventeenth century, oil on canvas. Musée du Louvre, RF 1479; Versailles, MV 5527."
+        },
+        "attributionNote": {
+          "zh": "此处依卢浮宫著录，标为仿凯内尔作品，不称为凯内尔亲笔。数字图像由 Janmad 拍摄，Wikimedia Commons 标记为公共领域艺术品的忠实复制。",
+          "en": "The attribution follows the Louvre: after Quesnel, not an autograph painting. Digital photograph by Janmad, listed by Wikimedia Commons as a faithful reproduction of public-domain art."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG",
+        "image": "assets/atheneum/portrait-pascal.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "笛卡尔与帕斯卡：蒙田的阅读者",
+            "en": "Descartes and Pascal: Readers of Montaigne"
+          },
+          "href": "/publications/translation-series/series-27/index.html",
+          "hrefEn": "/en/publications/translation-series/series-27/index.html",
+          "type": "publication"
+        }
+      ]
+    },
+    {
+      "id": "malebranche",
+      "name": {
+        "zh": "尼古拉·马勒伯朗士",
+        "en": "Nicolas Malebranche"
+      },
+      "shortName": {
+        "zh": "马勒伯朗士",
+        "en": "Malebranche"
+      },
+      "born": 1638,
+      "died": 1715,
+      "years": "1638–1715",
+      "bio": {
+        "zh": "马勒伯朗士是法国哲学家与奥拉托利会神父。他将笛卡尔哲学与奥古斯丁思想相结合，主张我们通过上帝中的观念认识物体，并以上帝为唯一真正的原因。他的研究涵盖认识、身心关系、自然规律与道德。",
+        "en": "Nicolas Malebranche was a French philosopher and Oratorian priest. He combined Cartesian philosophy with Augustine’s thought, arguing that we know bodies through ideas in God and that God alone is a true cause. His work explores knowledge, mind and body, natural laws, and morality."
+      },
+      "themes": [
+        {
+          "zh": "在上帝中看万物",
+          "en": "Vision in God"
+        },
+        {
+          "zh": "偶因论",
+          "en": "Occasionalism"
+        },
+        {
+          "zh": "自然与恩典",
+          "en": "Nature and grace"
+        }
+      ],
+      "works": [
+        {
+          "zh": "真理的探求",
+          "en": "The Search after Truth",
+          "year": "1674–1675",
+          "dateNote": {
+            "zh": "初版分两卷于1674和1675年出版。",
+            "en": "The first edition appeared in two volumes, in 1674 and 1675."
+          }
+        },
+        {
+          "zh": "论自然与恩典",
+          "en": "Treatise on Nature and Grace",
+          "year": "1680"
+        },
+        {
+          "zh": "形而上学与宗教对话录",
+          "en": "Dialogues on Metaphysics and Religion",
+          "year": "1688"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Nicolas Malebranche",
+          "url": "https://plato.stanford.edu/entries/malebranche/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "sourceUrl": "https://id.rijksmuseum.nl/200308917",
+        "sourceLabel": {
+          "zh": "荷兰国立博物馆藏马勒伯朗士肖像版画",
+          "en": "Malebranche portrait print in the Rijksmuseum"
+        },
+        "caption": {
+          "zh": "皮埃尔·德·罗什福尔，1707—1733年，蚀刻与雕版；荷兰国立博物馆，RP-P-OB-72.656。",
+          "en": "Pierre de Rochefort, 1707–1733, etching and engraving; Rijksmuseum, RP-P-OB-72.656."
+        },
+        "attributionNote": {
+          "zh": "作者与年代依馆方著录；本图采用该版画的裁切版本。馆方标记为公共领域，Wikimedia Commons 图像为 CC0。",
+          "en": "Artist and date follow the museum catalogue. This image is a cropped version of the print; the museum marks the work public domain and Wikimedia Commons supplies it under CC0."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Portret_van_Nicolas_Malebranche,_RP-P-OB-72.656_(cropped).jpg",
+        "image": "assets/atheneum/portrait-malebranche.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "青年学者培养：从马勒伯朗士等人的具体文本与问题入手",
+            "en": "Early-career research: beginning with specific texts and questions"
+          },
+          "href": "/activities/seminar-08/index.html",
+          "hrefEn": "/en/activities/seminar-08/index.html",
+          "type": "event"
+        }
+      ]
+    },
+    {
+      "id": "boyle",
+      "name": {
+        "zh": "罗伯特·波义耳",
+        "en": "Robert Boyle"
+      },
+      "shortName": {
+        "zh": "波义耳",
+        "en": "Boyle"
+      },
+      "born": 1627,
+      "died": 1691,
+      "years": "1627–1691",
+      "bio": {
+        "zh": "波义耳出生于爱尔兰，主要在英格兰从事自然研究。他以观察和实验探究自然，并通过微粒的结构与运动解释物质性质。他的实验哲学联系着化学、知识论和宗教思考，对洛克与牛顿产生了重要影响。",
+        "en": "Robert Boyle was born in Ireland and pursued most of his natural research in England. He investigated nature through observation and experiment, using the structure and motion of corpuscles to explain material qualities. His experimental philosophy connects chemistry, knowledge, and religious inquiry, with a lasting influence on Locke and Newton."
+      },
+      "themes": [
+        {
+          "zh": "实验哲学",
+          "en": "Experimental philosophy"
+        },
+        {
+          "zh": "微粒与物质性质",
+          "en": "Corpuscles and material qualities"
+        },
+        {
+          "zh": "自然与宗教",
+          "en": "Nature and religion"
+        }
+      ],
+      "works": [
+        {
+          "zh": "关于空气弹性及其效应的物理机械新实验",
+          "en": "New Experiments Physico-Mechanical, Touching the Spring of the Air and its Effects",
+          "year": "1660"
+        },
+        {
+          "zh": "怀疑的化学家",
+          "en": "The Sceptical Chymist",
+          "year": "1661"
+        },
+        {
+          "zh": "形式与性质的起源",
+          "en": "The Origin of Forms and Qualities",
+          "year": "1666"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Robert Boyle",
+          "url": "https://plato.stanford.edu/entries/boyle/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes"
+          ]
+        },
+        {
+          "label": "Birkbeck, University of London — Robert Boyle Project: Introduction",
+          "url": "https://boyle.bbk.ac.uk/learn--introduction.html",
+          "supports": [
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "sourceUrl": "https://digital.sciencehistory.org/works/3r074v879",
+        "sourceLabel": {
+          "zh": "科学史研究所藏波义耳“香农肖像”",
+          "en": "The Shannon portrait of Boyle in the Science History Institute"
+        },
+        "caption": {
+          "zh": "约翰·克尔塞博姆，1689年，布面油画。科学史研究所藏，“香农肖像”。",
+          "en": "Johann Kerseboom, 1689, oil on canvas. The Shannon Portrait of the Hon. Robert Boyle F. R. S., Science History Institute."
+        },
+        "attributionNote": {
+          "zh": "图像由科学史研究所提供（Courtesy of Science History Institute）。馆方数字图像授权为 CC BY 4.0；Wikimedia Commons 同时将此17世纪作品标记为公共领域。",
+          "en": "Courtesy of Science History Institute. The institution licenses its digital image under CC BY 4.0; Wikimedia Commons also identifies the seventeenth-century artwork as public domain."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:The_Shannon_Portrait_of_the_Hon_Robert_Boyle.jpg",
+        "image": "assets/atheneum/portrait-boyle.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "licenseLabel": "CC BY 4.0"
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "罗伯特·波义耳的当代意义",
+            "en": "Robert Boyle’s significance for our time"
+          },
+          "href": "/activities/seminar-07/index.html",
+          "hrefEn": "/en/activities/seminar-07/index.html",
+          "type": "event"
+        }
+      ]
+    },
+    {
+      "id": "comte",
+      "name": {
+        "zh": "奥古斯特·孔德",
+        "en": "Auguste Comte"
+      },
+      "shortName": {
+        "zh": "孔德",
+        "en": "Comte"
+      },
+      "born": 1798,
+      "died": 1857,
+      "years": "1798–1857",
+      "bio": {
+        "zh": "孔德是法国哲学家、实证主义的奠基者。他以科学分类与三阶段规律组织知识，提出社会学的研究纲领，并将科学方法与社会重建相联系。晚年的思想进一步转向情感、道德与人类宗教，持续追问知识如何参与共同生活。",
+        "en": "Auguste Comte founded positivism. He organised knowledge through a classification of the sciences and a law of three stages, linking scientific inquiry with social reconstruction. His later philosophy explored feeling, morality, and the Religion of Humanity, extending his concern with knowledge into the organisation of collective life."
+      },
+      "themes": [
+        {
+          "zh": "实证主义",
+          "en": "Positivism"
+        },
+        {
+          "zh": "科学分类",
+          "en": "Classification of the sciences"
+        },
+        {
+          "zh": "社会与道德",
+          "en": "Society and morality"
+        }
+      ],
+      "works": [
+        {
+          "zh": "实证哲学教程",
+          "en": "Course on Positive Philosophy",
+          "year": "1830–1842",
+          "dateNote": {
+            "zh": "六卷陆续出版于1830至1842年。",
+            "en": "The six volumes were published between 1830 and 1842."
+          }
+        },
+        {
+          "zh": "论实证精神",
+          "en": "Discourse on the Positive Spirit",
+          "year": "1844"
+        },
+        {
+          "zh": "实证政治体系",
+          "en": "System of Positive Polity",
+          "year": "1851–1854",
+          "dateNote": {
+            "zh": "四卷陆续出版于1851至1854年。",
+            "en": "The four volumes were published between 1851 and 1854."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Auguste Comte",
+          "url": "https://plato.stanford.edu/entries/comte/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-comte.jpg",
+        "sourceUrl": "https://augustecomte.org/musee/visite/portraits-dauguste-comte/",
+        "sourceLabel": {
+          "zh": "孔德故居博物馆肖像目录",
+          "en": "Maison d’Auguste Comte portrait catalogue"
+        },
+        "caption": {
+          "zh": "约翰·亨德里克·霍夫迈斯特，1851年石版画，依据1849年达盖尔银版照片；孔德故居博物馆藏。",
+          "en": "Johan Hendrick Hoffmeister, lithograph, 1851, after an 1849 daguerreotype. Maison d’Auguste Comte."
+        },
+        "attributionNote": {
+          "zh": "馆方称此画为“荷兰肖像”，并说明霍夫迈斯特未曾与孔德见面，而是依据照片制作。场景形象的姿态与环境属于艺术构图。",
+          "en": "The museum identifies this as the “Dutch portrait”, made from a daguerreotype by an artist who never met Comte. The scene figure’s pose and surroundings are artistic additions."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Auguste_Comte.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "实证主义概论研讨会",
+            "en": "Introduction to positivism"
+          },
+          "href": "/activities/seminar-05/index.html",
+          "hrefEn": null,
+          "type": "event"
+        },
+        {
+          "label": {
+            "zh": "莱昂·布朗什维克与近代哲学研究",
+            "en": "Léon Brunschvicg and the study of early modern philosophy"
+          },
+          "href": "/activities/seminar-06/index.html",
+          "hrefEn": null,
+          "type": "event"
+        }
+      ]
+    },
+    {
+      "id": "bergson",
+      "name": {
+        "zh": "亨利·柏格森",
+        "en": "Henri Bergson"
+      },
+      "shortName": {
+        "zh": "柏格森",
+        "en": "Bergson"
+      },
+      "born": 1859,
+      "died": 1941,
+      "years": "1859–1941",
+      "bio": {
+        "zh": "柏格森是法国哲学家。他以“绵延”把握意识中无法化约为钟表刻度的时间，研究自由、记忆以及心灵与身体的关系。他以直觉探索经验的流动，并从生命的创造性进一步讨论进化、道德与宗教。",
+        "en": "Henri Bergson was a French philosopher who explored duration: time as lived, rather than measured. His work connects freedom, memory, and the relation between mind and body. Through the method of intuition, he examined the movement of experience and extended his account of creativity to life, evolution, morality, and religion."
+      },
+      "themes": [
+        {
+          "zh": "绵延与自由",
+          "en": "Duration and freedom"
+        },
+        {
+          "zh": "记忆与身体",
+          "en": "Memory and body"
+        },
+        {
+          "zh": "生命与创造",
+          "en": "Life and creation"
+        }
+      ],
+      "works": [
+        {
+          "zh": "论意识的直接材料",
+          "en": "Time and Free Will",
+          "year": "1889",
+          "dateNote": {
+            "zh": "法文原著出版于1889年。",
+            "en": "First published in French in 1889; the title shown is the standard English title."
+          }
+        },
+        {
+          "zh": "物质与记忆",
+          "en": "Matter and Memory",
+          "year": "1896"
+        },
+        {
+          "zh": "创造进化论",
+          "en": "Creative Evolution",
+          "year": "1907"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Henri Bergson",
+          "url": "https://plato.stanford.edu/entries/bergson/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-bergson.jpg",
+        "sourceUrl": "https://www.loc.gov/item/2014718527/",
+        "sourceLabel": {
+          "zh": "美国国会图书馆藏柏格森照片",
+          "en": "Library of Congress photograph of Bergson"
+        },
+        "caption": {
+          "zh": "Bain News Service 图像档案，玻璃底片；美国国会图书馆藏，LC-DIG-ggbain-38388。",
+          "en": "Bain News Service image archive, glass negative. Library of Congress, LC-DIG-ggbain-38388."
+        },
+        "attributionNote": {
+          "zh": "此处依据馆藏历史照片呈现柏格森的面貌，不为原照片补定拍摄年份或摄影者；场景中的服装细节、姿态和环境属于艺术构图。",
+          "en": "The historical photograph guides Bergson’s likeness. No exact photographic date or photographer is assigned here; clothing details, pose, and setting in the scene are artistic additions."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Henri_Bergson_LCCN2014718527.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "柏格森哲学及其对法国哲学和中国哲学的影响",
+            "en": "Bergson’s philosophy and its influence in France and China"
+          },
+          "href": "/activities/lecture-01/index.html",
+          "hrefEn": null,
+          "type": "event"
+        },
+        {
+          "label": {
+            "zh": "柏格森论法国哲学",
+            "en": "Bergson on French Philosophy"
+          },
+          "href": "/publications/translation-series/series-29/index.html",
+          "hrefEn": "/en/publications/translation-series/series-29/index.html",
+          "type": "publication"
+        }
+      ]
     }
   ]
 }
