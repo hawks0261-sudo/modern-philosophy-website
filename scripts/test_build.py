@@ -10,6 +10,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 import build_site
+from site_theme import normalize_theme
 
 
 class ProfileMarkup(HTMLParser):
@@ -239,6 +240,77 @@ class GenerationTests(unittest.TestCase):
             emitted_notes = re.findall(r'<small\b[^>]*class="work-date-note"[^>]*>(.*?)</small>', text, re.S)
             self.assertCountEqual(emitted_notes, [html.escape(note, quote=True) for note in expected_notes])
             self.assertNotIn(person['works'][0]['dateNote'][language], text)
+
+    def test_theme_normalization_is_idempotent_and_preserves_content_media(self):
+        content_image = '<img src="photos/non-logo.png" alt="Research image" width="900" loading="lazy">'
+        metadata = '<meta property="og:image" content="https://example.org/logo.png">'
+        source = ('<html><head><link rel="stylesheet" href="old/site.css"><style>.local { color: red; }</style>' + metadata +
+                  '</head><body class="english-page atheneum-page" id="top"><header>'
+                  '<img src="old/optimized.webp" data-media-source="logo.png" srcset="old/large.webp 96w" sizes="42px" alt="Center &amp; research">'
+                  '<img src="../logo.png?v=1" alt="Original logo"></header><main>' + content_image + '</main></body></html>')
+        for path in ('index.html', 'en/index.html', 'activities/index.html', 'en/publications/translation-series/series-25/index.html'):
+            with self.subTest(path=path):
+                text = normalize_theme(source, path)
+                self.assertEqual(normalize_theme(text, path), text)
+                self.assertIn(content_image, text)
+                self.assertIn(metadata, text)
+                self.assertIn('<style>.local { color: red; }</style>', text)
+                parser = ProfileMarkup()
+                parser.feed(text)
+                attrs = next(attrs for tag, attrs, _ in parser.elements if tag == 'body')
+                self.assertIn('english-page', attrs['class'].split())
+                self.assertEqual(attrs['class'].split().count('atheneum-page'), int(path not in ('index.html', 'en/index.html')))
+                logos = [attrs for tag, attrs, _ in parser.elements if tag == 'img' and attrs.get('data-media-source') == 'assets/brand/logo-heritage.svg']
+                self.assertEqual(len(logos), 2)
+                for logo in logos:
+                    self.assertEqual((build_site.ROOT / Path(path).parent / logo['src']).resolve(), build_site.ROOT / 'assets/brand/logo-heritage.svg')
+                    self.assertEqual((logo['width'], logo['height'], logo['loading']), ('647', '726', 'eager'))
+                    self.assertNotIn('srcset', logo)
+                    self.assertNotIn('sizes', logo)
+
+    def test_shared_theme_reaches_all_pages_and_survives_rebuilding(self):
+        outputs = build_site.build()
+        expected_pages = {p.relative_to(build_site.ROOT).as_posix() for p in build_site.ROOT.rglob('*.html')
+                          if not any(part.startswith('.') or part in ('node_modules', 'output') for part in p.relative_to(build_site.ROOT).parts)}
+        self.assertEqual({path for path in outputs if path.endswith('.html')}, expected_pages)
+        original_read = Path.read_text
+        def read(path, *args, **kwargs):
+            relative = path.relative_to(build_site.ROOT).as_posix() if path.is_relative_to(build_site.ROOT) else None
+            return outputs[relative] if relative in outputs else original_read(path, *args, **kwargs)
+        with patch.object(Path, 'read_text', new=read):
+            rebuilt = build_site.build()
+            books_only = build_site.build(books_only=True)
+        self.assertEqual(rebuilt, outputs)
+        book_pages = {'publications/translation-series/index.html', 'en/publications/translation-series/index.html'}
+        book_pages.update(prefix + f'publications/translation-series/{book["id"]}/index.html' for prefix in ('', 'en/') for book in build_site.load('books.json'))
+        self.assertEqual(set(books_only), book_pages)
+        for mode, pages in (('all', outputs), ('books only', books_only)):
+            for path, text in pages.items():
+                if not path.endswith('.html'):
+                    continue
+                with self.subTest(mode=mode, path=path):
+                    parser = ProfileMarkup()
+                    parser.feed(text)
+                    head = text.split('</head>', 1)[0]
+                    stylesheets = [attrs for tag, attrs, _ in parser.elements if tag == 'link' and attrs.get('rel') == 'stylesheet']
+                    theme_links = [attrs for attrs in stylesheets if attrs.get('data-generated') == 'site-theme']
+                    expected_styles = ['atheneum-brand.css'] + ([] if path in ('index.html', 'en/index.html') else ['atheneum-pages.css'])
+                    resolved_styles = [(build_site.ROOT / Path(path).parent / attrs['href']).resolve() for attrs in theme_links]
+                    self.assertEqual(resolved_styles, [build_site.ROOT / name for name in expected_styles])
+                    self.assertEqual(stylesheets[-len(theme_links):], theme_links)
+                    for attrs in theme_links:
+                        self.assertIn('href="' + attrs['href'] + '"', head)
+                    body = next(attrs for tag, attrs, _ in parser.elements if tag == 'body')
+                    self.assertEqual(body.get('class', '').split().count('atheneum-page'), int(path not in ('index.html', 'en/index.html')))
+                    images = [attrs for tag, attrs, _ in parser.elements if tag == 'img']
+                    self.assertFalse(any(attrs.get('data-media-source') == 'logo.png' for attrs in images))
+                    logos = [attrs for attrs in images if attrs.get('data-media-source') == 'assets/brand/logo-heritage.svg']
+                    self.assertTrue(logos)
+                    for logo in logos:
+                        self.assertEqual((build_site.ROOT / Path(path).parent / logo['src']).resolve(), build_site.ROOT / 'assets/brand/logo-heritage.svg')
+                        self.assertEqual((logo['width'], logo['height'], logo['loading']), ('647', '726', 'eager'))
+                        self.assertNotIn('srcset', logo)
+                        self.assertNotIn('sizes', logo)
 
 
 if __name__ == '__main__':

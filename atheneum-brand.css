@@ -1,0 +1,92 @@
+/* One masthead and original vector mark across the bilingual site. */
+body .masthead,
+body .subpage-masthead { display: none; }
+body .site-header {
+  height: 76px;
+  padding: 0 2.2%;
+  gap: 20px;
+  background: #1e1811;
+  color: #eddbb8;
+  border-bottom: 1px solid #79613f;
+}
+body.atheneum-home .site-header { background: rgba(25, 20, 14, .9); }
+body .site-header .brand { gap: 13px; min-width: 0; }
+body .site-header .brand img {
+  width: 44px;
+  height: 50px;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body .site-header .brand-text strong {
+  color: #eddbb8;
+  font: 500 clamp(18px, 1.5vw, 23px)/1.25 var(--zh-serif);
+  letter-spacing: .07em;
+}
+body .site-header .brand-text span {
+  color: #cbb58f;
+  font: 10px/1.3 var(--serif);
+  letter-spacing: .08em;
+  margin-top: 4px;
+  opacity: 1;
+}
+html[lang="en"] body .site-header .brand-text strong { font-family: var(--serif); font-size: 20px; letter-spacing: 0; }
+body .site-header .nav-links { gap: 6px; flex-wrap: nowrap; margin-left: auto; }
+body .site-header .nav-links a {
+  color: #e6d2af;
+  font: 500 15px/1.4 var(--zh-serif);
+  opacity: 1;
+  padding: 12px 10px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+body .site-header .nav-links a:hover { color: #fff0cd; background: #382b1c; }
+body .site-header .nav-links a.is-current { color: #f7dfab; background: #3e2e1d; border-bottom-color: #cfac69; }
+body .site-header .nav-links :is([data-nav="home"], [data-nav="news"], [data-nav="contact"]) { display: none; }
+body .site-header .lang-toggle { border: 0; border-radius: 0; }
+body .site-header .lang-toggle a { color: #d8c49f; min-height: 44px; padding: 10px 7px; opacity: 1; font-family: var(--serif); }
+body .site-header .lang-toggle a.active { color: #f0cf8d; background: transparent; text-decoration: underline; text-underline-offset: 5px; }
+body .site-header .nav-toggle { border: 1px solid #a98b57; border-radius: 0; width: 44px; height: 44px; }
+body .site-header .nav-toggle span { background: #e1c38c; }
+body .site-header :is(a, button):focus-visible { outline: 2px solid #f7e4ba; outline-offset: 3px; }
+/* The native navigation dialog shares the paper treatment and visible focus. */
+body .mobile-nav-dialog { background: #ede0c6; color: #392819; border-color: #a18150; }
+body .mobile-nav-toolbar { background: #ede0c6; border-color: #aa8b5c; }
+body #mobile-nav-title { color: #5e4322; }
+body .mobile-nav-dialog .mobile-nav a { color: #392819; border-radius: 0; border-color: #c5b08a; }
+body .mobile-nav-dialog .mobile-nav a.is-current { background: #dfc99f; color: #2e2114; border-left: 3px solid #8a6333; }
+body .mobile-nav-dialog .mobile-nav a:hover { background: #e6d4b0; }
+body .mobile-nav-dialog .mobile-nav-close { color: #392819; border-color: #9e7e4e; border-radius: 0; }
+body .mobile-nav-dialog .mobile-language a.active { background: #5a4127; color: #fff0cf; }
+body .mobile-nav-dialog :is(a, button):focus-visible { outline-color: #725027; }
+@media (max-width: 1024px) {
+  body .site-header { padding-inline: 20px; }
+  body .site-header .nav-links { display: none; }
+  body .site-header .nav-toggle { display: flex; }
+  body .site-header .brand-text strong { font-size: 21px; }
+  body .site-header .header-right { margin-left: auto; }
+}
+@media (max-width: 1024px) {
+  body .site-header { height: 66px; }
+  body .site-header .brand img { width: 36px; height: 42px; }
+}
+@media (max-width: 680px) {
+  body .site-header { padding-inline: 14px; gap: 10px; }
+  body .site-header .brand { gap: 10px; }
+  body .site-header .brand img { width: 32px; height: 38px; }
+  body .site-header .brand-text strong { font-size: 17px; letter-spacing: .025em; }
+  html[lang="en"] body .site-header .brand-text strong { font-size: 16px; }
+  body .site-header .brand-text span { font-size: 8px; letter-spacing: .025em; margin-top: 3px; }
+  body .site-header .header-right { display: none; }
+  body .site-header .nav-toggle { margin-left: auto; }
+}
+@media (max-width: 1024px) {
+  html:not(.nav-enhanced) body .site-header { height: auto; min-height: 66px; flex-wrap: wrap; padding-block: 12px; }
+  html:not(.nav-enhanced) body .site-header .nav-links { display: flex; flex-wrap: wrap; flex-basis: 100%; justify-content: flex-start; }
+  html:not(.nav-enhanced) body .site-header .nav-toggle { display: none; }
+  html:not(.nav-enhanced) body .site-header .header-right { display: flex; }
+}

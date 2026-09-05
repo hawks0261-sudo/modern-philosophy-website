@@ -1,0 +1,312 @@
+/* Interior pages of the Atheneum: load after site.css, books.css and page
+   styles. The homepage, header and logo are owned by their separate themes. */
+body.atheneum-page {
+  --navy: #432e1d;
+  --navy-deep: #241b13;
+  --navy-mid: #61472b;
+  --cream: #f6ebd5;
+  --cream-dark: #e9d9b8;
+  --gold: #8a642f;
+  --gold-light: #dabc80;
+  --gold-ink: #785226;
+  --text: #392d22;
+  --muted: #625342;
+  --text-muted: var(--muted);
+  --border: #c2ad88;
+  --card: #faf5e9;
+  --bg: #f0e5ce;
+  --bg-soft: #e8d9bb;
+  --page-rule: #927043;
+  color: var(--text);
+  background: linear-gradient(#f0e5cee8, #f0e5cee8), url("assets/optimized/843b29caaa0a-1440.webp") repeat;
+  background-size: auto, 1440px auto;
+}
+
+/* The title band reads as a leather binding above a light paper page. */
+body.atheneum-page .page-hero {
+  color: #eddbb9;
+  background: #302419;
+  border-bottom: 4px double #bd995e;
+}
+body.atheneum-page .page-hero::after { content: none; }
+body.atheneum-page .page-hero-inner { padding-top: 48px; padding-bottom: 44px; min-width: 0; }
+body.atheneum-page .page-title {
+  color: #f1d9a8;
+  font-family: var(--zh-serif);
+  font-size: clamp(34px, 4.1vw, 54px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: .02em;
+  overflow-wrap: anywhere;
+}
+body.atheneum-page:is(.english-page, .english-books) .page-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+body.atheneum-page .page-hero :is(.page-kicker, .eyebrow) { color: #dabc80; font-style: normal; }
+body.atheneum-page .page-hero :is(.page-subtitle, .en-book-original, .publication-meta, .book-breadcrumb) { color: #e3d3b6; }
+body.atheneum-page .page-subtitle { line-height: 1.85; overflow-wrap: anywhere; }
+body.atheneum-page .page-hero .hero-side-card {
+  background: #3b2c1d;
+  border: 1px solid #9a7b4d;
+  border-radius: 0;
+  box-shadow: none;
+}
+body.atheneum-page .page-hero .hero-side-card :is(h2, h3) { color: #f1d9a8; }
+body.atheneum-page .page-hero .hero-side-card p { color: #e3d3b6; }
+body.atheneum-page .page-hero .hero-pills span { color: #ead6b2; border-color: #9a7b4d; background: #3e2e1e; }
+
+/* Panels preserve reading hierarchy without a heavy texture beneath text. */
+body.atheneum-page .page-shell { padding-top: 36px; min-width: 0; }
+body.atheneum-page :is(.section-card, .archive-card, .detail-card, .people-card, .issue-card, .book-card, .modal-shell) {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: 0 3px 0 #5b44230b;
+  min-width: 0;
+}
+body.atheneum-page :is(.archive-card, .people-card, .issue-card, .book-card):hover {
+  transform: none;
+  border-color: #98764a;
+  box-shadow: 0 3px 0 #5b44231a;
+}
+body.atheneum-page :is(.section-card, .detail-card) { border-top: 4px double var(--page-rule); }
+body.atheneum-page .section-heading {
+  gap: 18px 28px;
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 4px double var(--page-rule);
+}
+body.atheneum-page .section-heading > * { min-width: 0; }
+body.atheneum-page .section-heading h2 { color: var(--navy); font-weight: 600; line-height: 1.45; }
+body.atheneum-page .section-block + .section-block { margin-top: 48px; }
+body.atheneum-page .section-block > h2 { color: var(--navy); line-height: 1.45; }
+body.atheneum-page :is(.page-shell, .modal-body) :is(h2, h3) { font-family: var(--zh-serif); }
+body.atheneum-page:is(.english-page, .english-books) :is(.page-shell, .modal-body) :is(h2, h3) { font-family: var(--serif); }
+body.atheneum-page :is(.page-shell, .modal-body) :is(h2, h3, p, a, dd, figcaption) { overflow-wrap: anywhere; }
+body.atheneum-page :is(.hero-grid, .detail-grid, .journal-feature, .catalog-intro, .book-detail-layout) > * { min-width: 0; }
+body.atheneum-page .page-shell :is(.page-kicker, .eyebrow, .people-card-role, .member-source, .member-original-name) { color: var(--gold-ink); }
+body.atheneum-page .page-shell .page-kicker { font-style: normal; }
+body.atheneum-page :is(.book-card-body, .issue-body, .people-card-body) > small,
+body.atheneum-page .book-card-body > small time { color: var(--gold-ink); }
+
+/* Reading columns, as distinct from compact metadata and captions. */
+body.atheneum-page :is(.prose p, .prose li, .publication-copy > p, .publication-copy > ul, .reading-column > p, .book-detail-copy > p) {
+  color: #4c3d2e;
+  font-size: 16px;
+  line-height: 1.95;
+}
+body.atheneum-page .prose p + p { margin-top: 18px; }
+body.atheneum-page .prose :is(h2, h3) { line-height: 1.5; }
+body.atheneum-page .reading-column > .prose + .prose { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+body.atheneum-page .reading-column { max-width: 76ch; }
+body.atheneum-page .publication-copy { max-width: 860px; }
+body.atheneum-page :is(.prose, .publication-copy, .reading-column) blockquote {
+  margin-inline: 0;
+  padding: 16px 22px;
+  border-left: 3px solid var(--page-rule);
+  background: #ece0c6;
+  color: #4c3d2e;
+}
+body.atheneum-page :is(.prose, .publication-copy, .reading-column) a { color: var(--navy); text-underline-offset: 4px; }
+body.atheneum-page :is(.fact-item, .book-facts > div, .event-meta) { border-color: var(--border); }
+body.atheneum-page .fact-item > span:first-child,
+body.atheneum-page .book-facts dt { color: var(--gold-ink); }
+body.atheneum-page .fact-item :is(span:last-child, a) { color: var(--text); overflow-wrap: anywhere; }
+body.atheneum-page .detail-grid > aside.detail-card { background: #eee1c6; }
+body.atheneum-page :is(.member-note, .overview-note, .overview-language-note) {
+  background: #eaddc1;
+  border: 1px solid #bfaa81;
+  border-left: 4px solid #8a642f;
+  border-radius: 0;
+  color: #58452d;
+}
+body.atheneum-page :is(.overview-note, .overview-language-note) :is(h2, h3, p) { color: #58452d; }
+
+/* Activity filters keep the existing data-driven checked selectors. Their
+   --navy/--cream values above supply a dark selected tab for every year. */
+body.atheneum-page .archive-controls { padding-block: 0 17px; border-bottom: 1px solid var(--border); }
+body.atheneum-page :is(.filter-pills button, .filter-pills label) {
+  min-height: 44px;
+  padding: 7px 14px;
+  border-radius: 0;
+  border-color: #ae9166;
+  color: var(--navy);
+  background: #f8efdc;
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+body.atheneum-page .filter-pills button.is-active { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+body.atheneum-page :is(.archive-empty, .archive-filter-summary) { color: var(--muted); }
+body.atheneum-page .archive-empty { background: #f8efdc; border-radius: 0; }
+body.atheneum-page :is(.archive-title, .issue-title, .people-card h3, .book-card h3) { color: var(--navy); line-height: 1.55; }
+body.atheneum-page :is(.archive-type, .issue-status, .member-status) {
+  background: #eadbbd;
+  border: 1px solid #c4ae83;
+  border-radius: 0;
+  color: #614726;
+}
+body.atheneum-page :is(.archive-copy, .issue-copy, .people-card p, .book-card p) { color: var(--muted); line-height: 1.85; }
+body.atheneum-page .archive-link {
+  min-height: 44px;
+  padding-inline: 0;
+  background: none;
+  color: var(--navy);
+  border: 0;
+  border-radius: 0;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* People and research navigation follow the same printed index language. */
+body.atheneum-page .people-card-index { padding-bottom: 16px; border-bottom: 1px solid var(--border); background: #eee1c6; }
+body.atheneum-page .people-card-index span { color: #876133; }
+body.atheneum-page .people-card-index strong { color: #625342; }
+body.atheneum-page .people-avatar { background: #4b3824; color: #ead6b1; border-bottom: 1px solid #967448; }
+body.atheneum-page .people-avatar-photo { background: #f8f0e0; }
+body.atheneum-page .member-status-memorial { background: #e2dbc8; color: #5c533d; }
+body.atheneum-page :is(.member-topics span, .stat-pills span, .tag-row span, .hero-pills span, .journal-issue-meta span) {
+  border-radius: 0;
+  line-height: 1.5;
+  letter-spacing: .025em;
+}
+body.atheneum-page :is(.member-topics span, .stat-pills span, .tag-row span, .journal-issue-meta span) {
+  background: #f0e6d1;
+  border-color: #c4ae87;
+  color: #5d4c35;
+}
+body.atheneum-page .member-source { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Book covers remain actual images. Coloured fallback covers are only used
+   by the existing planned-volume cards that contain no cover photograph. */
+body.atheneum-page .book-cover { background: #4a3622; color: #f1dfb9; }
+body.atheneum-page .book-cover .book-name { color: #f1dfb9; }
+body.atheneum-page .book-cover .book-series { color: #d6c1a0; }
+body.atheneum-page .book-cover .book-index { color: #e0bf7f; }
+body.atheneum-page .book-cover-image,
+body.atheneum-page :is(.journal-cover-frame, .journal-issue-thumb, .modal-cover) { background: #e9ddc6; border-color: var(--border); border-radius: 0; }
+body.atheneum-page .book-cover-image::after { content: none; }
+body.atheneum-page .book-cover-image .book-index { border-radius: 0; background: #332516e8; color: #f4dfb7; }
+body.atheneum-page :is(.page-shell, .page-hero, .modal) img { filter: none; mix-blend-mode: normal; }
+body.atheneum-page :is(.profile-photo, .photo-card img, .detail-card > .archive-poster, .catalog-intro img, .modal-cover img) { border-radius: 0; }
+body.atheneum-page .profile-photo { box-shadow: 0 5px 18px #130e0740; }
+body.atheneum-page .photo-card img { border-color: #b7a07a; }
+body.atheneum-page :is(.book-detail-cover, .journal-cover-frame) { padding: 20px; border: 1px solid var(--border); background: #e9ddc6; }
+body.atheneum-page .book-detail-cover figcaption { color: #625342; }
+body.atheneum-page .book-detail-copy { padding-top: 22px; border-top: 4px double var(--page-rule); }
+body.atheneum-page .book-detail-copy h2 { color: var(--navy); line-height: 1.45; }
+body.atheneum-page .book-breadcrumb { line-height: 1.8; color: var(--muted); overflow-wrap: anywhere; }
+body.atheneum-page .book-breadcrumb a { color: var(--navy); }
+body.atheneum-page .page-hero .book-breadcrumb a { color: #f0d7a6; }
+body.atheneum-page .en-book-card .en-book-original { color: #57442e; }
+body.atheneum-page .en-book-card h3 { font-family: var(--serif); font-size: 22px; line-height: 1.4; }
+body.atheneum-page .book-card-trigger { background: #ecdfc3; border: 1px solid #a88a58; border-radius: 0; color: var(--navy); }
+body.atheneum-page .book-card-trigger:hover { background: #e4d1ac; }
+body.atheneum-page .book-actions { gap: 10px 16px; }
+
+/* Journal sidebars and tables of contents use rules rather than floating tiles. */
+body.atheneum-page .journal-meta-grid .fact-item { background: #eee3cd; border-radius: 0; border-color: var(--border); }
+body.atheneum-page .journal-outline li { background: #f6eedc; border-radius: 0; border-color: var(--border); }
+body.atheneum-page .toc-section.section-card > h2 { margin-top: 0; padding-bottom: 20px; border-bottom: 4px double var(--page-rule); }
+body.atheneum-page .toc-entry { border-color: var(--border); }
+body.atheneum-page .toc-entry:first-child { border-top: 0; }
+body.atheneum-page .toc-page { color: var(--gold-ink); }
+body.atheneum-page .toc-entry h3 { color: var(--navy); }
+body.atheneum-page .toc-entry h3 a { display: block; min-height: 44px; }
+body.atheneum-page .toc-entry:target { background: #ecdcbb; outline: 2px solid #a57d44; outline-offset: 6px; }
+body.atheneum-page .citation-text { background: #fffbf2; border-color: #ab8d60; border-radius: 0; color: var(--text); }
+body.atheneum-page .series-trajectory { border-color: var(--border); }
+body.atheneum-page .overview-grid article { background: #faf5e9; border: 1px solid var(--border); border-top: 3px double var(--page-rule); border-radius: 0; }
+body.atheneum-page .overview-grid article :is(h2, h3) { color: var(--navy); line-height: 1.45; }
+body.atheneum-page .overview-events li { border-color: var(--border); padding-block: 26px; }
+body.atheneum-page .overview-events li > :is(h2, h3) { color: var(--navy); line-height: 1.45; }
+body.atheneum-page .overview-events time { color: #6b5333; }
+body.atheneum-page .overview-events a { display: inline-block; padding-block: 7px; }
+body.atheneum-page .return-links { border-top: 4px double var(--page-rule); padding-top: 20px; }
+
+/* All calls to action wrap naturally, including translated long labels. */
+body.atheneum-page :is(.cta-button, .ghost-button, .inline-link, .overview-hero-link, .publication-actions a, .copy-citation, .book-card-trigger) {
+  border-radius: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 10px 17px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+  text-align: center;
+  letter-spacing: .015em;
+  opacity: 1;
+}
+body.atheneum-page :is(.cta-button, .publication-actions a, .copy-citation) { background: #4c3520; border: 1px solid #9c7845; color: #fff0ce; }
+body.atheneum-page :is(.ghost-button, .inline-link) { background: #f5e9cf; border: 1px solid #a5895f; color: #4c3520; }
+body.atheneum-page .overview-hero-link { background: #d5b578; border: 1px solid #b08a4b; color: #2d2115; }
+body.atheneum-page :is(.cta-button, .publication-actions a, .copy-citation):hover { background: #342315; color: #fff3d9; }
+body.atheneum-page :is(.ghost-button, .inline-link):hover { background: #e8d7b4; color: #352312; }
+body.atheneum-page .page-hero :is(.cta-button, .publication-actions a) { background: #dbc08b; border-color: #d4b77d; color: #342414; }
+body.atheneum-page .page-hero :is(.ghost-button, .inline-link) { background: #3e2e1e; border-color: #b89861; color: #f0dbb3; }
+body.atheneum-page .publication-copy .publication-actions a { color: #fff0ce; }
+body.atheneum-page.english-books .cta-row a.cta-button { color: #fff0ce; }
+body.atheneum-page.english-books .page-hero .cta-row a.cta-button { color: #342414; }
+body.atheneum-page :is(.cta-row, .publication-actions, .return-links) { min-width: 0; }
+body.atheneum-page :is(.cta-row, .publication-actions, .return-links) > a { max-width: 100%; overflow-wrap: anywhere; }
+body.atheneum-page :is(.page-shell, .page-hero, .modal, .site-footer) :is(a, button, input, textarea, summary):focus-visible { outline: 3px solid #876131; outline-offset: 4px; }
+body.atheneum-page .page-hero :is(a, button):focus-visible { outline-color: #f5d899; }
+
+body.atheneum-page .modal { background: #1b140de0; }
+body.atheneum-page .modal-shell { border: 1px solid #b38e53; box-shadow: 0 18px 70px #160e0a70; }
+body.atheneum-page .modal-body { color: var(--text); }
+body.atheneum-page .modal-body h3 { color: var(--navy); line-height: 1.45; }
+body.atheneum-page .modal-body p { line-height: 1.9; }
+body.atheneum-page #series-modal .modal-close { width: 44px; height: 44px; border-radius: 0; background: #3f2c1b; color: #fff0ce; border: 1px solid #e0c28b; }
+body.atheneum-page #series-modal .modal-close:focus-visible { outline-color: #fff0c9; }
+body.atheneum-page #series-modal .page-kicker,
+body.atheneum-page #series-modal .fact-item span:first-child { color: var(--gold-ink); }
+
+body.atheneum-page .site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 28px;
+  padding: 26px max(22px, calc((100% - 1180px) / 2));
+  border-top: 4px double #ac8951;
+  background: #241b13;
+  color: #ddcbae;
+  font-size: 13px;
+  line-height: 1.8;
+}
+body.atheneum-page .site-footer a { color: #f1d7a6; text-decoration: underline; text-underline-offset: 4px; }
+body.atheneum-page .site-footer a:focus-visible { outline-color: #f5d899; }
+
+@media (max-width: 900px) {
+  body.atheneum-page .page-hero-inner { padding-top: 34px; padding-bottom: 32px; }
+  body.atheneum-page .page-shell { padding-top: 30px; }
+  body.atheneum-page .section-heading { align-items: start; }
+  body.atheneum-page .detail-card { padding: 24px; }
+}
+@media (max-width: 680px) {
+  body.atheneum-page .page-hero-inner,
+  body.atheneum-page .page-shell { width: calc(100% - 40px); }
+  body.atheneum-page .page-title,
+  body.atheneum-page:is(.english-page, .english-books) .page-title { font-size: clamp(29px, 7.7vw, 36px); line-height: 1.3; }
+  body.atheneum-page .page-subtitle { font-size: 15px; }
+  body.atheneum-page .page-hero-inner { padding-block: 30px; }
+  body.atheneum-page .section-heading { padding-bottom: 18px; margin-bottom: 22px; }
+  body.atheneum-page .section-heading h2 { font-size: 28px; }
+  body.atheneum-page .section-block + .section-block { margin-top: 36px; }
+  body.atheneum-page :is(.detail-card, .modal-body) { padding: 22px; }
+  body.atheneum-page .detail-card h2 { font-size: 27px; }
+  body.atheneum-page :is(.prose p, .prose li, .publication-copy > p, .reading-column > p, .book-detail-copy > p) { font-size: 15px; line-height: 1.95; }
+  body.atheneum-page .filter-pills { gap: 8px; }
+  body.atheneum-page :is(.filter-pills button, .filter-pills label) { padding-inline: 12px; }
+  body.atheneum-page .book-detail-cover { padding: 16px; }
+  body.atheneum-page .book-detail-copy { padding-top: 20px; }
+  body.atheneum-page .book-detail-copy h2 { font-size: 27px; }
+  body.atheneum-page .toc-entry { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  body.atheneum-page .toc-entry:target { outline-offset: 3px; }
+  body.atheneum-page .citation-text { padding: 13px; }
+  body.atheneum-page .journal-issue-content { padding: 22px; }
+  body.atheneum-page .modal-shell { width: calc(100vw - 32px); }
+  body.atheneum-page .site-footer { padding-inline: 22px; }
+}

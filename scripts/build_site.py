@@ -333,6 +333,7 @@ def build(books_only=False):
             outputs[path] = content_regions(text, path, events, books, people)
     from journal_content import normalize_journal
     from atheneum_home import normalize_atheneum
+    from site_theme import normalize_theme
     try:
         from page_assets import normalize_page
     except ImportError:
@@ -343,6 +344,7 @@ def build(books_only=False):
         text = normalize_atheneum(text, path, events, books, english_books, page_titles)
         text = navigation(text, path, config, paths)
         text = metadata(text, path, config, paths, events, books, english_books, page_titles)
+        text = normalize_theme(text, path)
         outputs[path] = normalize_page(text, path)
     if not books_only:
         urls = '\n'.join('  <url><loc>' + xml_escape(absolute(config, path)) + '</loc></url>' for path in sorted(paths))

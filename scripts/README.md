@@ -23,6 +23,14 @@ python3 scripts/check_site.py
 
 页面中 `BEGIN GENERATED` / `END GENERATED` 之间的区域由数据生成，应修改数据或生成模板；其他正文和局部样式仍可直接编辑。主导航、语言链接、元数据和 `sitemap.xml` 在构建时统一输出。独立图书详情页整体由生成器维护，直接修改会被下次构建覆盖。
 
+## 全站主题与标识
+
+`atheneum-brand.css` 覆盖当前全部 93 个 HTML 页面，统一页头、导航和 Logo 的呈现；`atheneum-pages.css` 覆盖其中 91 个二级页，统一深棕标题区、浅纸色正文和栏目分隔。两份中英文首页保留七人殿堂主题，不添加二级页的 `atheneum-page` 类。
+
+`scripts/site_theme.py` 的 `normalize_theme(text, path)` 在 `build_site.py` 构建末尾、`metadata()` 后及 `normalize_page()` 前执行，`--books-only` 同样生效。它使用各页相对路径，将主题样式放在已有样式之后，并为二级页幂等添加 body 类。新增页面会随构建挂载主题，无需逐页手写链接。
+
+`assets/brand/logo-original.svg` 原样保留项目原矢量文件 `/Users/hawksky/Desktop/modern phi/logo-header`；`logo-heritage.svg` 只将其中两条路径的填充色改为古金色 `#d4b476`，沿用原有盾徽、书页、羽毛笔和拉丁文路径。原 `logo.png` 继续保留，favicon 和分享元数据仍使用原资源；具体出处与校验见[品牌素材说明](../assets/brand/README.md)。构建时会同时更新页面 Logo 的 `src` 与 `data-media-source`，清除旧的 `srcset`、`sizes`，防止图片规范化重新引用旧 PNG 的变体。
+
 ## 思想殿堂首页
 
 `scripts/atheneum_home.py` 生成中英文首页的 `atheneum-scene` 和 `atheneum-featured` 区域。当前 v2 场景包括笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟七人，使用 `assets/atheneum/hero-scene-v2.png`；原三人场景 `hero-scene.png` 保留，供比较与追溯。场景人物是参考历史肖像创作的艺术形象，详情中另行展示原肖像及归属说明，不声称已经精确复原人物面貌。新增四幅原肖像及其馆藏或图像目录见[素材说明](../assets/atheneum/README.md)。图片变体仍由 `data/media.json` 映射，构建时统一规范化。
@@ -47,7 +55,7 @@ python3 scripts/check_site.py
 
 生成器只在当前语言有非空说明时输出日期注释，并按普通文本转义；没有说明的著作可以省略整个 `dateNote`。新增需要解释的年代时应同时审核中英文，不把手稿写成日期直接当作出版日期。
 
-首页样式按 `site.css` → `atheneum.css` → `atheneum-scene.css` → `atheneum-sections.css` 加载，各文件职责如下：
+首页样式按 `site.css` → `atheneum.css` → `atheneum-scene.css` → `atheneum-sections.css` → `atheneum-brand.css` 加载；最后一份维护全站品牌，三份首页专用样式职责如下：
 
 - `atheneum.css`：殿堂首页的基础配色、字体、页头、通用按钮和人物详情弹窗；后两份文件覆盖其中早期的场景与栏目布局。
 - `atheneum-scene.css`：v2 场景宽高比、七个人物热点与名牌、画面下方的人物选择栏及摘要卡、连续阅读弹窗工具条与正文、著作日期注释和响应式布局。宽度不超过 1200 px 时保持完整画面，标题移至画面上方，关闭景深变换。
