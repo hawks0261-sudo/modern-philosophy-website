@@ -8,3 +8,6 @@
 # Local Python bytecode is not part of the public site.
 __pycache__/
 *.py[cod]
+
+# Local visual review reports are not public site content.
+/design-qa.md
