@@ -11,6 +11,57 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../site.css?v=series-catalogue-20260522c" />
+    <style>
+      #series-grid .book-card { position: relative; }
+      .book-card-trigger {
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        font: inherit;
+        text-align: inherit;
+        white-space: inherit;
+        cursor: pointer;
+      }
+      .book-card-trigger::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+      }
+      .book-card-trigger:focus-visible { outline: none; }
+      .book-card-trigger:focus-visible::after {
+        outline: 3px solid var(--navy);
+        outline-offset: -3px;
+        border-radius: var(--radius);
+      }
+      #series-modal {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        border: 0;
+        color: var(--text);
+      }
+      #series-modal::backdrop { background: transparent; }
+      #series-modal .modal-shell { overscroll-behavior: contain; }
+      #series-modal .modal-shell:focus-visible {
+        outline: 3px solid var(--gold-light);
+        outline-offset: 3px;
+      }
+      #series-modal .modal-close:focus-visible {
+        outline: 3px solid var(--cream);
+        outline-offset: 3px;
+      }
+      #series-modal .modal-close {
+        background: var(--navy);
+        color: var(--cream);
+        border: 1px solid rgba(246, 241, 231, 0.55);
+        box-shadow: 0 2px 8px rgba(17, 29, 48, 0.2);
+      }
+      #series-modal .fact-item span:first-child { color: #806219; }
+    </style>
   </head>
   <body>
     <div class="masthead">
@@ -30,8 +81,8 @@
       <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
       <div class="header-right">
         <div class="lang-toggle">
-          <button class="active" onclick="setLang('zh')">中文</button>
-          <button onclick="setLang('en')">EN</button>
+          <a class="active" href="index.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">中文</a>
+          <a href="../../en/index.html" lang="en" hreflang="en" aria-label="English overview">EN</a>
         </div>
       </div>
       <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -91,13 +142,13 @@
       </section>
     </main>
 
-    <div class="modal" id="series-modal" aria-hidden="true">
-      <button class="modal-close" type="button" aria-label="关闭">✕</button>
-      <div class="modal-shell">
+    <dialog class="modal" id="series-modal" aria-labelledby="series-modal-title">
+      <button class="modal-close" type="button" aria-label="关闭图书详情" autofocus>✕</button>
+      <div class="modal-shell" tabindex="0" role="region" aria-label="图书详情，可滚动阅读">
         <div class="modal-cover" id="series-modal-cover"></div>
         <div class="modal-body" id="series-modal-body"></div>
       </div>
-    </div>
+    </dialog>
 
     <script>
       const books = [
@@ -455,6 +506,10 @@
       const modal = document.getElementById("series-modal");
       const modalBody = document.getElementById("series-modal-body");
       const modalCover = document.getElementById("series-modal-cover");
+      const modalShell = modal.querySelector(".modal-shell");
+      const modalClose = modal.querySelector(".modal-close");
+      let modalTrigger = null;
+      let previousOverflow = null;
       const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
         "&": "&amp;",
         "<": "&lt;",
@@ -474,21 +529,22 @@
           </div>
           <div class="book-card-body">
             <small><time datetime="${book.date}">${book.published}</time> · ${escapeHtml(book.publisher)}</small>
-            <h3>${escapeHtml(book.title)}</h3>
+            <h3><button class="book-card-trigger" type="button" aria-haspopup="dialog" aria-controls="series-modal" aria-label="查看《${escapeHtml(plainTitle(book))}》详情">${escapeHtml(book.title)}</button></h3>
             <p class="book-meta">${escapeHtml(book.author)} 著 / ${escapeHtml(book.translator)} 译</p>
             <p class="book-summary">${escapeHtml(excerpt(book.description))}</p>
           </div>
         </article>
       `).join("");
 
-      const openModal = (bookIndex) => {
+      const openModal = (bookIndex, trigger) => {
+        if (modal.open) return;
         const book = books[bookIndex];
         modalCover.innerHTML = `
           <img src="${book.cover}" alt="《${escapeHtml(plainTitle(book))}》封面" />
         `;
         modalBody.innerHTML = `
           <span class="page-kicker">Book Detail</span>
-          <h3>${escapeHtml(book.title)}</h3>
+          <h3 id="series-modal-title">${escapeHtml(book.title)}</h3>
           <p class="modal-book-meta">${escapeHtml(book.author)} 著 / ${escapeHtml(book.translator)} 译</p>
           <p>${escapeHtml(book.description)}</p>
           <div class="fact-list">
@@ -498,22 +554,74 @@
             <div class="fact-item"><span>出版社</span><span>${escapeHtml(book.publisher)}</span></div>
           </div>
         `;
+        modalTrigger = trigger;
+        previousOverflow = {
+          root: document.documentElement.style.overflow,
+          body: document.body.style.overflow
+        };
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
         modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
+        // Native modal dialogs make the rest of the document inert.
+        modal.showModal();
+        modalShell.scrollTop = 0;
+        modalClose.focus({ preventScroll: true });
       };
 
       grid.addEventListener("click", (event) => {
-        const card = event.target.closest(".book-card");
-        if (!card) return;
+        const trigger = event.target.closest(".book-card-trigger");
+        if (!trigger) return;
+        const card = trigger.closest(".book-card");
         const bookIndex = books.findIndex((item) => item.id === card.dataset.bookId);
-        if (bookIndex >= 0) openModal(bookIndex);
+        if (bookIndex >= 0) openModal(bookIndex, trigger);
       });
+
+      const closeModal = () => {
+        if (modal.open) modal.close();
+      };
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal || event.target.closest(".modal-close")) {
-          modal.classList.remove("is-open");
-          modal.setAttribute("aria-hidden", "true");
+          closeModal();
         }
+      });
+
+      modal.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          event.stopPropagation();
+          closeModal();
+        } else if (event.key === "Tab") {
+          // Both the close button and the scrollable reading area stay reachable.
+          const first = modalClose;
+          const last = modalShell;
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus({ preventScroll: true });
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus({ preventScroll: true });
+          }
+          event.stopPropagation();
+        }
+      });
+
+      modal.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeModal();
+      });
+
+      modal.addEventListener("close", () => {
+        modal.classList.remove("is-open");
+        if (previousOverflow) {
+          document.documentElement.style.overflow = previousOverflow.root;
+          document.body.style.overflow = previousOverflow.body;
+          previousOverflow = null;
+        }
+        if (modalTrigger && modalTrigger.isConnected) {
+          modalTrigger.focus({ preventScroll: true });
+        }
+        modalTrigger = null;
       });
     </script>
       <script src="../../site.js"></script>

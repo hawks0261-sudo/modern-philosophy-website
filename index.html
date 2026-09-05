@@ -20,6 +20,8 @@
   --cream-dark: #ede7d8;
   --gold: #b8963e;
   --gold-light: #d4b46a;
+  --gold-ink: #806219;
+  --on-gold: #111d30;
   --text: #1e1e1e;
   --muted: #6b6760;
   --border: rgba(28,45,74,0.12);
@@ -65,6 +67,7 @@
   --fg-muted: #9b9385;
   --accent: var(--gold-light);
   --accent2: #c9a260;
+  --gold-ink: #d4b46a;
   --card-bg: rgba(255,255,255,0.05);
   --card-border: rgba(255,255,255,0.1);
   --nav-bg: #0d1726;
@@ -96,6 +99,8 @@
   --border: rgba(42,82,56,0.15);
   --gold: #5a8a44;
   --gold-light: #82b462;
+  --gold-ink: #3c642f;
+  --on-gold: #071208;
   --navy: #2a5238;
   --navy-mid: #3a6848;
 }
@@ -268,9 +273,10 @@ ul { list-style: none; }
 }
 .btn-primary {
   background: var(--gold);
-  color: #fff;
+  color: var(--on-gold);
 }
-.btn-primary:hover { background: var(--gold-light); }
+.btn-primary:hover,
+.btn-primary:focus-visible { background: var(--gold-light); color: var(--on-gold); }
 .btn-outline {
   border: 1px solid rgba(255,255,255,0.35);
   color: inherit;
@@ -278,7 +284,7 @@ ul { list-style: none; }
 .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
 
 /* Hero right panel */
-.hero-side { display: flex; flex-direction: column; gap: 16px; }
+.hero-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 
 .hero-card {
   background: rgba(255,255,255,0.06);
@@ -309,7 +315,7 @@ ul { list-style: none; }
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   background: rgba(255,255,255,0.08);
   border-radius: var(--r);
@@ -330,7 +336,15 @@ ul { list-style: none; }
   color: var(--gold-light);
   line-height: 1;
 }
-.metric span { font-size: 11px; opacity: 0.65; }
+.metric span { font-size: 11px; opacity: 0.8; }
+.metric-note {
+  grid-column: 1 / -1;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.04);
+  color: var(--hero-fg);
+  font-size: 12px;
+  line-height: 1.6;
+}
 
 /* Hero bar */
 .hero-ticker {
@@ -384,7 +398,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-ink);
   letter-spacing: 0.06em;
   margin-bottom: 8px;
   display: block;
@@ -453,8 +467,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
-  color: var(--gold);
-  opacity: 0.8;
+  color: var(--gold-ink);
 }
 .about-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
 
@@ -553,7 +566,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--gold-ink);
   margin-bottom: 8px;
   display: block;
 }
@@ -590,7 +603,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 
 .activity-grid {
@@ -660,7 +673,7 @@ ul { list-style: none; }
   font-family: var(--sans);
 }
 .tag-lecture { background: var(--navy); color: var(--cream); }
-.tag-seminar { background: var(--gold); color: #fff; }
+.tag-seminar { background: var(--gold); color: var(--on-gold); }
 [data-theme="dark"] .tag-lecture { background: rgba(255,255,255,0.15); color: var(--fg); }
 .date-label { font-size: 11px; color: var(--fg-muted); }
 .activity-body h4 {
@@ -671,7 +684,7 @@ ul { list-style: none; }
   margin-bottom: 6px;
   line-height: 1.5;
 }
-.activity-body .speaker { font-size: 12px; color: var(--gold); margin-bottom: 8px; font-style: italic; font-family: var(--serif); }
+.activity-body .speaker { font-size: 12px; color: var(--gold-ink); margin-bottom: 8px; font-style: italic; font-family: var(--serif); }
 .activity-body p { font-size: 12px; color: var(--fg-muted); line-height: 1.75; }
 .card-cta-link {
   display: inline-flex;
@@ -682,7 +695,7 @@ ul { list-style: none; }
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
   border-bottom: 1px solid transparent;
   transition: transform 0.2s, color 0.2s, border-color 0.2s;
 }
@@ -744,7 +757,7 @@ ul { list-style: none; }
 }
 .activity-preview-body .speaker {
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-ink);
   font-style: italic;
   font-family: var(--serif);
   margin-bottom: 16px;
@@ -781,7 +794,7 @@ ul { list-style: none; }
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
   transition: transform 0.2s, color 0.2s;
 }
 .linked-card:hover .card-cta {
@@ -828,7 +841,7 @@ ul { list-style: none; }
   gap: 10px;
   align-items: baseline;
 }
-.pub-points li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+.pub-points li::before { content: '—'; color: var(--gold-ink); flex-shrink: 0; }
 .pub-card-cover { display: flex; }
 .cover-img-wrap { width: 45%; background: var(--bg-alt); }
 .cover-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
@@ -862,7 +875,7 @@ ul { list-style: none; }
 }
 .pub-wide-col h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--fg); }
 .pub-wide-col p { font-size: 14px; color: var(--fg-muted); line-height: 1.85; }
-.pub-wide-col .pub-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); margin-bottom: 8px; display: block; }
+.pub-wide-col .pub-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold-ink); margin-bottom: 8px; display: block; }
 
 .descartes-project {
   margin-top: 24px;
@@ -922,7 +935,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--gold-ink);
   display: block;
   margin-bottom: 8px;
 }
@@ -956,7 +969,7 @@ ul { list-style: none; }
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .descartes-source-fact strong {
   display: block;
@@ -981,7 +994,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .descartes-plan-item h4 {
   font-family: var(--zh-serif);
@@ -1037,7 +1050,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .people-preview-card h3 {
   font-family: var(--zh-serif);
@@ -1067,7 +1080,7 @@ ul { list-style: none; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 14px;
-  color: var(--gold);
+  color: var(--gold-ink);
   padding-top: 4px;
 }
 .news-type {
@@ -1077,7 +1090,7 @@ ul { list-style: none; }
   line-height: 1;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .news-body h3 { font-family: var(--zh-serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--fg); }
 .news-body p { font-size: 14px; color: var(--fg-muted); line-height: 1.75; }
@@ -1086,7 +1099,7 @@ ul { list-style: none; }
   margin-top: 12px;
   font-family: var(--zh-serif);
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .news-link:hover { color: var(--accent); }
 
@@ -1108,7 +1121,7 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--border);
   align-items: baseline;
 }
-.contact-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold); }
+.contact-label { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--gold-ink); }
 .contact-value { font-size: 14px; color: var(--fg); font-family: var(--zh-serif); }
 .contact-value a { color: var(--accent); border-bottom: 1px solid var(--border); }
 .back-top {
@@ -1437,8 +1450,9 @@ body.review-mode-active .review-tool * {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-side { display: none; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 48px 32px 40px; }
+  .hero-side { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
+  .hero-card { min-width: 0; padding: 20px; overflow-wrap: anywhere; }
   .section-head { grid-template-columns: 1fr; gap: 12px; }
   .section-desc { max-width: 100%; }
   .about-grid { grid-template-columns: 1fr; }
@@ -1472,6 +1486,11 @@ body.review-mode-active .review-tool * {
 }
 
 @media (max-width: 680px) {
+  .hero-inner { padding: 40px 20px 32px; gap: 28px; }
+  .hero-side { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .hero-card h2 { font-size: 17px; }
+  .metric { padding: 14px 16px; }
+
   #activities {
     padding: 72px 18px !important;
   }
@@ -1511,8 +1530,8 @@ body.review-mode-active .review-tool * {
   <nav class="nav-links" data-primary-nav aria-label="主导航"></nav>
   <div class="header-right">
     <div class="lang-toggle">
-      <button class="active" onclick="setLang('zh')">中文</button>
-      <button onclick="setLang('en')">EN</button>
+      <a class="active" href="index.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">中文</a>
+      <a href="en/index.html" lang="en" hreflang="en" aria-label="English overview">EN</a>
     </div>
   </div>
   <button class="nav-toggle" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -1561,17 +1580,18 @@ body.review-mode-active .review-tool * {
           <span>学术活动</span>
         </div>
         <div class="metric">
-          <strong>13</strong>
-          <span>国际顾问</span>
+          <strong>12</strong>
+          <span>现任国际顾问</span>
         </div>
         <div class="metric">
           <strong>29+</strong>
           <span>出版物作品</span>
         </div>
         <div class="metric">
-          <strong>7</strong>
-          <span>合作国家</span>
+          <strong>6</strong>
+          <span>顾问所在国家</span>
         </div>
+        <p class="metric-note">另有 1 位原国际顾问列入荣誉纪念。</p>
       </div>
     </div>
   </div>
@@ -2233,72 +2253,7 @@ body.review-mode-active .review-tool * {
 </div>
 
 <script>
-// ── i18n ──
-const i18n = {
-  zh: {
-    nav: {
-      home: '首页',
-      about: '中心简介',
-      people: '中心成员',
-      research: '研究方向',
-      activities: '学术活动',
-      outcomes: '研究成果',
-      news: '中心动态',
-      contact: '联系我们'
-    },
-    hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
-    hero_sub: '探索现代性的起源与未来',
-    btn1: '查看学术活动', btn2: '了解中心',
-    about_title: '中心简介',
-    people_title: '中心成员',
-    advisers_title: '国际顾问',
-    research_title: '研究方向',
-    activities_title: '学术活动',
-    outcomes_title: '研究成果',
-    news_title: '中心动态',
-    contact_title: '联系我们'
-  },
-  en: {
-    nav: {
-      home: 'Home',
-      about: 'About',
-      people: 'People',
-      research: 'Research',
-      activities: 'Activities',
-      outcomes: 'Publications',
-      news: 'News',
-      contact: 'Contact'
-    },
-    hero_eyebrow: 'Center of Modern Thought · International Academic Institute',
-    hero_sub: 'Exploring the Origins and Future of Modernity',
-    btn1: 'Academic Activities', btn2: 'About the Center',
-    about_title: 'About the Center',
-    people_title: 'Our People',
-    advisers_title: 'International Advisers',
-    research_title: 'Research Programs',
-    activities_title: 'Academic Activities',
-    outcomes_title: 'Research Outcomes',
-    news_title: 'News & Notices',
-    contact_title: 'Contact Us'
-  }
-};
-function setLang(l) {
-  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-toggle button[onclick="setLang('${l}')"]`).classList.add('active');
-  const t = i18n[l];
-  document.querySelectorAll('.nav-links a[data-nav]').forEach(a => {
-    const key = a.dataset.nav;
-    if (t.nav[key]) a.textContent = t.nav[key];
-  });
-  const eyebrow = document.querySelector('.hero-eyebrow'); if(eyebrow) eyebrow.textContent = t.hero_eyebrow;
-  const sub = document.querySelector('.hero-subtitle'); if(sub) sub.textContent = t.hero_sub;
-  const b1 = document.querySelector('.btn-primary'); if(b1) b1.textContent = t.btn1;
-  const b2 = document.querySelector('.btn-outline'); if(b2) b2.textContent = t.btn2;
-  document.querySelectorAll('[data-section-title]').forEach(el => {
-    const key = el.dataset.sectionTitle;
-    if (t[key]) el.textContent = t[key];
-  });
-}
+// Language navigation is shared in site.js; English has its own overview URL.
 
 // ── CARD LINKS ──
 function bindCardLinks() {
@@ -2412,7 +2367,6 @@ if (TWEAK_DEFAULTS.theme && TWEAK_DEFAULTS.theme !== 'light') {
 if (TWEAK_DEFAULTS.bg) {
   setBg(TWEAK_DEFAULTS.bg);
 }
-setLang('zh');
 
 // ── REVEAL ON SCROLL ──
 const observer = new IntersectionObserver((entries) => {

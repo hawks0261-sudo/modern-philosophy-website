@@ -11,6 +11,7 @@
   var rootEl = document.documentElement;
   var root = rootEl.getAttribute("data-root") || "";
   var isHome = rootEl.getAttribute("data-current") === "home";
+  var isEnglish = rootEl.lang.indexOf("en") === 0;
   var path = location.pathname;
 
   // —— 唯一一套导航 ——
@@ -24,8 +25,20 @@
     { label: "中心动态", href: "index.html#news", key: "news" },
     { label: "联系我们", href: "index.html#contact", key: "contact" }
   ];
+  if (isEnglish) {
+    NAV = [
+      { label: "Home", href: "#top", key: "home" },
+      { label: "About", href: "#about", key: "about" },
+      { label: "Research", href: "#research", key: "research" },
+      { label: "Activities", href: "#activities", key: "activities" },
+      { label: "People", href: "#people", key: "people" },
+      { label: "Publications", href: "#publications", key: "outcomes" },
+      { label: "Contact", href: "#contact", key: "contact" }
+    ];
+  }
 
   function resolve(href) {
+    if (isEnglish) return href;
     // 首页内部锚点：把 index.html#x 变成 #x，平滑滚动
     if (isHome && href.indexOf("index.html") === 0) {
       var hash = href.slice("index.html".length);
@@ -54,45 +67,105 @@
     el.innerHTML = linksHtml;
   });
 
-  // —— 汉堡菜单开关 ——
+  // —— 语言入口：英文概览有独立 URL，不再只切换标题或按钮高亮 ——
+  function languageLinks() {
+    return '<a href="' + (isEnglish ? root + 'index.html' : location.href) +
+      '" lang="zh-CN" hreflang="zh-CN"' + (!isEnglish ? ' class="active" aria-current="page"' : '') +
+      '>中文</a><a href="' + root + 'en/index.html" lang="en" hreflang="en" ' +
+      'aria-label="English overview" title="English overview"' +
+      (isEnglish ? ' class="active" aria-current="page"' : '') + '>EN</a>';
+  }
+  document.querySelectorAll('.lang-toggle').forEach(function (el) {
+    el.setAttribute('aria-label', isEnglish ? 'Page language' : '页面语言');
+    el.innerHTML = languageLinks();
+  });
+
+  // —— 移动菜单置于原生模态层：背景不可交互，闭合后不进入 Tab 顺序 ——
   var toggle = document.querySelector(".nav-toggle");
   var backdrop = document.querySelector(".mobile-nav-backdrop");
   var drawer = document.querySelector(".mobile-nav");
+  if (toggle && drawer) {
+    var dialog = document.createElement('dialog');
+    dialog.id = 'mobile-nav-dialog';
+    dialog.className = 'mobile-nav-dialog';
+    dialog.setAttribute('aria-labelledby', 'mobile-nav-title');
+    var toolbar = document.createElement('div');
+    toolbar.className = 'mobile-nav-toolbar';
+    toolbar.innerHTML = '<strong id="mobile-nav-title">' + (isEnglish ? 'Navigation' : '网站导航') +
+      '</strong><button type="button" class="mobile-nav-close" autofocus>' +
+      (isEnglish ? 'Close ×' : '关闭 ×') + '</button>';
+    var mobileLanguage = document.createElement('div');
+    mobileLanguage.className = 'lang-toggle mobile-language';
+    mobileLanguage.setAttribute('aria-label', isEnglish ? 'Page language' : '页面语言');
+    mobileLanguage.innerHTML = languageLinks();
+    drawer.parentNode.insertBefore(dialog, drawer);
+    dialog.appendChild(toolbar);
+    dialog.appendChild(drawer);
+    drawer.appendChild(mobileLanguage);
+    if (backdrop) backdrop.remove();
+    toggle.setAttribute('aria-controls', dialog.id);
+    toggle.setAttribute('aria-haspopup', 'dialog');
+    toggle.setAttribute('aria-label', isEnglish ? 'Open navigation menu' : '打开导航菜单');
+    var closeButton = toolbar.querySelector('button');
+    var oldOverflow = '';
+    var returnFocus = true;
+    var mobileViewport = window.matchMedia('(max-width: 1024px)');
 
-  function closeNav() {
-    document.body.classList.remove("nav-open");
-    if (toggle) toggle.setAttribute("aria-expanded", "false");
-  }
-  function openNav() {
-    document.body.classList.add("nav-open");
-    if (toggle) toggle.setAttribute("aria-expanded", "true");
-  }
-  if (toggle) {
+    function closeNav(restoreFocus) {
+      if (!dialog.open) return;
+      returnFocus = restoreFocus !== false;
+      dialog.close();
+    }
+    function openNav() {
+      if (!mobileViewport.matches || dialog.open) return;
+      oldOverflow = document.body.style.overflow;
+      returnFocus = true;
+      dialog.showModal();
+      document.body.classList.add('nav-open');
+      document.body.style.overflow = 'hidden';
+      toggle.setAttribute('aria-expanded', 'true');
+      closeButton.focus();
+    }
+    dialog.addEventListener('close', function () {
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = oldOverflow;
+      toggle.setAttribute('aria-expanded', 'false');
+      if (returnFocus && mobileViewport.matches) toggle.focus({ preventScroll: true });
+    });
+    closeButton.addEventListener('click', function () { closeNav(); });
+    dialog.addEventListener('cancel', function (event) {
+      event.preventDefault();
+      closeNav();
+    });
+    // ::backdrop is outside the right-hand panel but dispatches clicks to the dialog.
+    dialog.addEventListener('click', function (event) {
+      if (event.target !== dialog) return;
+      var bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right ||
+          event.clientY < bounds.top || event.clientY > bounds.bottom) closeNav();
+    });
+    dialog.addEventListener('keydown', function (event) {
+      if (event.key !== 'Tab') return;
+      var controls = Array.from(dialog.querySelectorAll('a[href], button:not([disabled])'));
+      var first = controls[0];
+      var last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    });
+    drawer.addEventListener('click', function (event) {
+      if (event.target.closest('a[href]')) closeNav(false);
+    });
+    mobileViewport.addEventListener('change', function (event) {
+      if (!event.matches && dialog.open) {
+        closeNav(false);
+        document.querySelector('.brand').focus({ preventScroll: true });
+      }
+    });
     toggle.addEventListener("click", function () {
-      document.body.classList.contains("nav-open") ? closeNav() : openNav();
+      dialog.open ? closeNav() : openNav();
     });
-  }
-  if (backdrop) backdrop.addEventListener("click", closeNav);
-  if (drawer) {
-    drawer.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") closeNav();
-    });
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeNav();
-  });
-
-  // —— 语言切换占位（英文版暂不动）——
-  // 若页面未自带 setLang（如各子页），提供一个仅切换高亮的安全占位
-  if (typeof window.setLang !== "function") {
-    window.setLang = function (l) {
-      document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-        b.classList.remove("active");
-      });
-      var btn = document.querySelector(
-        '.lang-toggle button[onclick="setLang(\'' + l + "')\"]"
-      );
-      if (btn) btn.classList.add("active");
-    };
   }
 })();
