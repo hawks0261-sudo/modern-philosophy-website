@@ -2,19 +2,26 @@
 
 The user selected the warm historical hall composition on 5 September 2026. Its
 light, parchment surfaces and Chinese heading remain the visual basis of the
-homepage. The current v2 artwork expands the scene to seven figures reading and
+homepage. The current v3 artwork retains the seven figures introduced in v2, reading and
 conversing: Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume. The selected
 reference is archived in the local review output at
 `output/atheneum-home-build-20260905/selected-reference.png` in the parent workspace.
 
-- `hero-scene-v2.png`: current seven-person ImageGen scene, 1748 × 899 pixels.
+- `hero-scene-v3.png`: current seven-person ImageGen scene, 1747 × 900 pixels.
+  A local head-and-face edit uses `portrait-berkeley.jpg` to adjust Berkeley's face
+  shape, head turn, nose and mouth. The overall composition and other figures'
+  positions remain broadly consistent with v2, though some fine details were
+  lightly redrawn during generation. This is an artistic interpretation of the
+  source portrait, not an exact reconstruction of Berkeley's appearance.
+- `hero-scene-v2.png`: retained seven-person ImageGen scene, 1748 × 899 pixels;
+  the source file is unchanged and remains available for comparison with v3.
   Historical portraits inform the figures; their poses and shared setting are an
   artistic composition, not a documented gathering or an exact reconstruction of
   each person's appearance.
 - `hero-scene.png`: retained original three-person scene, 1786 × 881 pixels, made
   by editing the selected reference to remove interface text, plaques, profile
   card, footer and branding. It is preserved for comparison rather than overwritten
-  by v2. Original generation ID: `01a071c2-1413-7bb2-b505-c2c0c9d70b81`.
+  by subsequent versions. Original generation ID: `01a071c2-1413-7bb2-b505-c2c0c9d70b81`.
 - `parchment.png`: ImageGen parchment texture made for the selected warm book palette.
 - `portrait-{id}.jpg`: seven source portraits copied unchanged from
   `prototypes/files/portraits/` in the parent workspace. The Descartes, Kant and
@@ -22,13 +29,14 @@ reference is archived in the local review output at
   These source portraits are separate from the generated scene and are not AI edits.
   Bilingual captions, catalogue links and attribution qualifications are maintained
   in `data/atheneum.json` and displayed in each profile dialog.
-- `../optimized/c2c1cc2bc976-*.webp`: current v2 scene variants, with a largest
-  web variant of 1440 × 741 pixels, approximately 214 KB. The original scene's
+- `../optimized/9d6b3c23a6a7-{384,768,1440}.webp`: current v3 scene variants;
+  the largest is 1440 × 742 pixels, 205,916 bytes (approximately 206 KB).
+  The v2 `../optimized/c2c1cc2bc976-*.webp` and original three-person scene's
   `../optimized/7541e7aea1e0-*.webp` variants are retained. Paper variants use
   `../optimized/843b29caaa0a-*.webp`. `data/media.json` is the authoritative mapping
   for source dimensions and all responsive variants, including the portraits.
 
-The four added portrait sources are:
+The four portrait sources added in v2 are:
 
 - **Spinoza** — anonymous, circa 1665, Herzog August Library, Wolfenbüttel:
   [library catalogue](https://diglib.hab.de/varia/gemaelde/b-117/start.htm).
@@ -57,7 +65,8 @@ heading moves above the image. Reduced-motion preferences also disable the
 transform. This implementation covers these seven figures; it does not provide
 independent character meshes, free camera movement or a page-turning book.
 
-`atheneum-scene.css` owns the v2 composition, hotspots and responsive profile
+`atheneum-scene.css` owns the v3 aspect ratio (1747 / 900), hotspots and responsive profile
 layout. `atheneum-sections.css` owns the chapter divisions and readable paper
-surfaces beneath the scene. See [the maintenance guide](../../scripts/README.md)
+surfaces beneath the scene, including the warm beige-brown member sections
+(`#people-preview` in Chinese and `#people` in English). See [the maintenance guide](../../scripts/README.md)
 for their load order and the data requirements for adding a person.

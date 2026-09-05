@@ -1,58 +1,44 @@
-# 全站古籍主题与原标识融合验收 · 2026-09-05
+# 贝克莱画像与成员栏目配色验收 · 2026-09-05
 
 final result: passed
 
-## 结果
+## 本轮修改
 
-93 个中英文页面统一采用深棕页头、古金矢量 Logo 和相同的导航样式；其中 91 个二级页面接入暖纸背景、宋体 / Georgia 标题、方形阅读面板与双线章节分隔。首页继续保留七人思想殿堂及原交互。二级页采用适合阅读正文、活动资料和书目信息的布局。
+- 使用内置 ImageGen，参照 `assets/atheneum/portrait-berkeley.jpg` 对原七人场景中的贝克莱头脸进行局部校准。新图为 `assets/atheneum/hero-scene-v3.png`，1747×900；旧 v2（1748×899）及原肖像均保留。
+- 贝克莱的脸颊、下颌更饱满圆润，鼻尖突出与鼻口挤压感减轻，侧转幅度减小。头颈、衣领和暖窗光衔接自然。其余六人位置、姿态与三组构图未出现明显变化；生成过程有细部纹理重绘，不能称像素完全保持。
+- 新场景仍是参考历史肖像校准的艺术化形象，脸颊阴影和嘴角表情与原肖像存在细微差别，不声称精确复原。
+- 中文 `#people-preview` 与英文 `#people` 从灰绿 #dfe1d3 改为暖米褐 #e4d4b8；深棕字 #3e2d1d、正文 #615039、小标题 #77542c，褐金规则线 #8f6b3d / #b5986c。仅改变该区域色彩变量，不改布局或内容。
+- 渲染器、两种响应式宽高比和中英文首页同步新资源；生成384、768、1440宽WebP，最大205916字节。
 
-`atheneum-brand.css` 管理全站页头，`atheneum-pages.css` 仅作用于 `body.atheneum-page`。`scripts/site_theme.py` 在构建末尾、图片归一化之前接入主题；新页面、全量重建、books-only 都继承主题，链接置于旧内嵌样式之后。
+## 图像与页面对照
 
-Logo 来自 `/Users/hawksky/Desktop/modern phi/logo-header` 原始 SVG。`assets/brand/logo-original.svg` 保留原件，`logo-heritage.svg` 仅把两个 fill 改为 #d4b476，盾徽、书本、羽毛笔、拉丁文路径及 viewBox 不变。清晰呈现原图的金色实底与透明镂空；页头无蓝底、边框或图片滤色。原 SVG 不含 PNG 底部的小型中文字符，中心中文名称由旁边的文字标识完整呈现。原 logo.png、favicon 和分享图片保留。
+输出目录：`/Users/hawksky/Desktop/modern phi/output/atheneum-berkeley-fix-20260905/`。
 
-本轮仅保存本地工作树与预览，没有部署或更新 Figma。
+- ImageGen编辑输入：`hero-scene-v2.png`；参考输入：`portrait-berkeley.jpg`。生成结果原件位于 `/Users/hawksky/.codex/generated_images/01a070f9-2e5e-71c1-a03e-f57cc09b7ffb/exec-15a92438-314c-42d4-96bd-b3937b8bb0a4.png`。
+- 精确工具提示词和输入/输出路径已保存：[imagegen-prompt.txt](/Users/hawksky/Desktop/modern%20phi/output/atheneum-berkeley-fix-20260905/imagegen-prompt.txt)。
+- 原始v2、v3与贝克莱参考肖像经根代理及独立子代理查看。新图面部有改善、无明显贴脸边缘；也记录了仍有场景化差异的局限。
+- 首页 `home-before.png` 与 `home-after.png` 在同一次浏览器工具输入中并置，1448×1086、页面顶部、贝克莱选中、资料面板关闭。对照验证场景构图、光线、标题覆盖与人物点击区域。对照时场景容器均使用新资源比例，避免用容器形变制造效果。
+- 成员栏 `people-before.png` 与 `people-after.png` 在同一次输入中并置，750×746，目标区域距顶部约24px，对应用户标注的尺寸。暖米褐与相邻深棕联系区衔接，双线章节界限仍清楚。
+- `home-mobile-en.png` 与 `people-mobile-en.png` 检查390×844的英文场景和成员章节；长标题正常换行，无横向溢出。
+- 本地服务器在会话恢复后已退出，一次旧图捕获因资源未加载而无效；重启62027预览服务、确认naturalWidth>0后覆盖保存有效对照。本轮最终使用已加载图像的截图。
 
-## 对照依据
+## 五项视觉与交互检查
 
-输出目录：`/Users/hawksky/Desktop/modern phi/output/atheneum-site-theme-20260905/`。
+- **图像**：新图中贝克莱的面颊、下颌、鼻口关系更自然；衣着、身体与椅子保持构图。没有把真实肖像平贴在场景上。
+- **排版**：无文字和字体变更。成员栏目仍采用原三栏桌面结构，英文手机正文可读。
+- **间距**：保留栏目间距和边界；新图宽高比直接对应实际文件，桌面与手机均按比例展示。
+- **颜色**：成员区消除灰绿偏色，背景、标题、正文和规则线统一暖色；文字对比度样本4.66–9.02。
+- **内容**：全部成员资料、哲学家介绍、肖像来源及书目信息保留。
+- 桌面点击贝克莱热点，当前可见资料标题为“乔治·贝克莱”，原肖像加载成功；Escape关闭后焦点回同一热点。
+- 静态图更新不改变人物坐标和交互脚本。初次检查直接读取面板第一个h2时得到隐藏的笛卡尔记录；随后按可见元素复核，实际激活人物正确，没有人物错配。
 
-- 同尺寸 1448 × 1086、页面顶部：before-activities / after-activities、before-books / after-books、before-people / after-people、before-event-detail / after-event-detail、before-journal / after-journal，均为 PNG，已在同一次工具输入中分别并置查看。
-- 首页：上一轮 `../atheneum-reading-20260905/desktop-home.png` 与本轮 `desktop-home.png` 并置。最终比较为相同 1448 × 1086、scrollY=0、休谟选中、资料关闭。早一次点击选择器引发滚动的截图未作为最终对照；回到 #top 后覆盖保存。
-- 英文桌面代表页：desktop-en-activities.png、desktop-en-event.png、desktop-en-publications.png、desktop-en-book.png。
-- 手机 390 × 844：mobile-activities.png、mobile-menu.png、mobile-en-activities.png、mobile-en-book.png、mobile-home.png、mobile-home-en.png、mobile-journal-anchor.png。
-- 图书弹窗：book-modal-desktop.png 为 1448 × 1086；book-modal-landscape.png 为 667 × 375。真实封面保留比例和原色，关闭按钮在浅封面边缘仍清楚可见。
-- 额外现场查看 320 × 740 英文长书名和 Logo；1025 × 800 桌面导航与 1024 × 800 移动菜单临界状态。
-- 截图直接来自当前浏览器，未重绘图片。最初个别已打开页面命中旧缓存；全部最终对照均刷新后核对 body class、新 Logo 与主题颜色。
+## 技术检查
 
-## 发现与修复
+- `prepare_media.py`：132 source records / 334 variants；仅新增v3记录与三张对应WebP。
+- `build_site.py --all`：仅修改中英文首页图像行。
+- `build_site.py --check`：94 outputs，changed=[]。
+- `check_site.py`：93 pages，4019 localReferences，93 jsonLdPages，errors=[]，warnings=[]。
+- 页面与图片资源在本地预览加载成功；新场景和成员区无横向溢出；最终浏览器error/warn日志为空。
+- `git diff --check`通过。此轮为图像与配色调整，没有新增实现镜像测试。
 
-| 优先级 | 问题 | 本轮修改 | 验证 |
-| --- | --- | --- | --- |
-| P1 | 91 个二级页沿用旧蓝白配色，与首页割裂 | 添加统一二级主题，覆盖活动、成员、出版总览、图书及期刊 | 9 种代表页面实际截图，93 页静态覆盖检查 |
-| P2 | 蓝底 Logo 在深棕页头显得独立、缩放清晰度有限 | 使用原始路径的古金 SVG，统一尺寸、间距与中英文字标识 | 桌面与 390 / 320 手机实际查看，图片成功加载 |
-| P2 | 英文书目内嵌样式可能盖过共用主题 | 构建把新 CSS 放在 head 最后；补足按钮文字及书目 muted 变量 | 英文长书名、正文、面包屑、按钮在桌面和窄屏可读 |
-| P2 | 旧圆角胶囊、面板线条和章节边界不协调 | 方形页签、暖纸面板、双线章节边界与深浅分区 | 活动、成员、译丛和期刊前后并置 |
-| P2 | 多行期刊条目链接仅文字行可点，中间行距点击不到 | 目录标题链接改为 block，至少 44px 高 | 原中心点击命中 h3；修改后相同点击进入 #page-015、距视口顶120px并高亮 |
-
-## 五项视觉检查
-
-- **排版**：中文标题使用宋体，英文使用 Georgia；正文维持清楚的阅读字号与行距。390px 和320px长英文书名正常换行。页头标识与菜单不重叠。
-- **间距与层次**：深棕标题区与浅纸阅读区明显分开；章节双线、面板边框与元数据横线各有层级。正文区纸纹较弱，长文阅读未被背景干扰。
-- **颜色与状态**：筛选选中为深棕浅字，未选中为浅纸深字；按钮与当前导航保持可辨识。文字对比度代表样本为5.77–12.09。深色页头焦点用浅金色，浅纸区域焦点用深棕色。
-- **图像**：全部活动海报、人物照片和真实图书封面保持原色与比例；没有生成新面貌或替换原有内容图。原 Logo 矢量形状不变。
-- **内容**：学术正文和书目不在本轮改写范围；导航目标、语言链接、SEO与原分享图保持。新增页面继承样式而非手工逐页改色。
-
-## 交互与技术检查
-
-- 中文活动组合筛选：讲座 + 2026 正确显示空状态，恢复全部正常；选中颜色为 rgb(67,46,29) / rgb(246,235,213)。
-- 390px 菜单打开、Escape 关闭、中文活动切到英文活动成功；英文活动的报告入口正常。
-- 1025px 显示五项桌面导航且无横向溢出；1024px 移动菜单可打开。
-- 图书快速预览正常打开；Escape 关闭后焦点回原预览按钮。667px横屏关闭按钮为44×44、深棕底浅字。
-- 期刊完整目录、直接深链接、键盘 Enter 与鼠标点击条目正常；目标高亮及标题不被固定页头遮挡。最后新增 block 点击区域后重新查看手机与桌面目录。
-- 93 页主题覆盖、Logo 路径、重建幂等、books-only 的14项生成测试通过（子代理执行）。
-- build_site.py --check：94 outputs，changed=[]。
-- check_site.py：93 pages，4019 localReferences，93 jsonLdPages，errors=[]，warnings=[]。
-- 全部实际查看尺寸无横向溢出；浏览器 error / warn 日志为空。
-- git diff --check 通过。
-
-当前预览：http://127.0.0.1:62027/index.html。上一轮验收已归档为本输出目录的 previous-design-qa.md。
+本轮未部署。上一轮全站主题验收存入本输出目录的 `previous-design-qa.md`。

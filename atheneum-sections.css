@@ -169,13 +169,13 @@
 
 .atheneum-home .home-section#people-preview,
 .atheneum-home .section-block#people {
-  --chapter-paper: #dfe1d3;
-  --chapter-tint: #dfe1d3ed;
-  --chapter-ink: #30352b;
-  --chapter-muted: #4c5144;
-  --chapter-accent: #4f5637;
-  --chapter-rule: #666c50;
-  --chapter-line: #9c9f85;
+  --chapter-paper: #e4d4b8;
+  --chapter-tint: #e4d4b8ed;
+  --chapter-ink: #3e2d1d;
+  --chapter-muted: #615039;
+  --chapter-accent: #77542c;
+  --chapter-rule: #8f6b3d;
+  --chapter-line: #b5986c;
 }
 
 .atheneum-home .section-block#about {

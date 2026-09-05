@@ -1,6 +1,6 @@
 /* The expanded hall: artwork above, readable interpretation below. */
 .atheneum-home .atheneum-scene { height: auto; padding-top: 0; overflow: visible; }
-.atheneum-stage { position: relative; aspect-ratio: 1748 / 899; overflow: hidden; isolation: isolate; }
+.atheneum-stage { position: relative; aspect-ratio: 1747 / 900; overflow: hidden; isolation: isolate; }
 .atheneum-home .atheneum-world { height: 100%; }
 .atheneum-home .atheneum-heading { top: 13%; left: 21%; width: 58%; }
 .atheneum-home .atheneum-heading h1 { font-size: clamp(34px, 3.8vw, 64px); line-height: 1.2; }
@@ -48,7 +48,7 @@
 }
 @media (max-width: 1200px) {
   .atheneum-stage { aspect-ratio: auto; padding-top: 76px; }
-  .atheneum-home .atheneum-world { position: relative; height: auto; aspect-ratio: 1748 / 899; transform: none !important; will-change: auto; }
+  .atheneum-home .atheneum-world { position: relative; height: auto; aspect-ratio: 1747 / 900; transform: none !important; will-change: auto; }
   .atheneum-home .atheneum-heading,
   .atheneum-home.english-overview .atheneum-heading { position: relative; left: auto; top: auto; width: auto; padding: 25px 20px 21px; background: #211a12; }
   .atheneum-home .atheneum-heading h1 { font-size: 38px; }
