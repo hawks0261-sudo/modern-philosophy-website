@@ -1,0 +1,220 @@
+/* The selected Atheneum homepage. All rules are scoped to these two homepages. */
+.atheneum-home {
+  --navy: #3d291a;
+  --navy-deep: #21170f;
+  --cream: #f0dfbb;
+  --muted: #65503b;
+  --border: #a98a59;
+  color: #392819;
+  background: #ecd5a5 url("assets/optimized/843b29caaa0a-1440.webp") repeat;
+  background-size: 1440px auto;
+}
+.atheneum-home .masthead { display: none; }
+.atheneum-home .site-header {
+  position: absolute; top: 0; left: 0; width: 100%; height: 76px;
+  padding: 0 2.2%; gap: 20px; background: rgba(17, 15, 12, .69);
+  border-bottom: 1px solid rgba(219, 185, 123, .2); backdrop-filter: blur(7px);
+}
+.atheneum-home .brand { gap: 12px; }
+.atheneum-home .brand img { width: 44px; height: 50px; object-fit: contain; }
+.atheneum-home .brand-text strong { color: #f0dfbd; font-size: clamp(18px, 1.5vw, 23px); letter-spacing: .09em; font-weight: 500; }
+.atheneum-home .brand-text span { color: #e8dbc2; opacity: 1; font-size: 10px; letter-spacing: .11em; margin-top: 5px; }
+.atheneum-university { color: #e5d4ad; padding-left: 21px; border-left: 1px solid #8e744a; font-family: var(--zh-serif); font-size: 13px; white-space: nowrap; }
+.atheneum-university small { display: block; color: #c6a468; font-family: var(--serif); font-size: 9px; letter-spacing: .04em; margin-top: 4px; }
+.atheneum-home .nav-links { margin-left: auto; gap: 9px; flex-wrap: nowrap; }
+.atheneum-home .nav-links a { color: #e9d8b8; font-size: 16px; padding: 12px 10px; opacity: 1; border-radius: 0; white-space: nowrap; }
+.atheneum-home .nav-links a:hover { color: #fff2d5; background: rgba(222, 187, 115, .1); }
+.atheneum-home .nav-links [data-nav="home"], .atheneum-home .nav-links [data-nav="news"], .atheneum-home .nav-links [data-nav="contact"] { display: none; }
+.atheneum-home .header-right .lang-toggle { border: 0; border-radius: 0; }
+.atheneum-home .header-right .lang-toggle a { font-family: var(--serif); color: #eed9a9; opacity: 1; min-height: 44px; padding: 10px 7px; }
+.atheneum-home .header-right .lang-toggle a.active { color: #e4bd6d; background: transparent; }
+.atheneum-home .nav-toggle { border-color: #b3996c; border-radius: 0; }
+.atheneum-home .nav-toggle span { background: #e8d2a7; }
+.atheneum-skip { position: fixed; z-index: 1001; top: 8px; left: 16px; transform: translateY(-180%); padding: 10px 20px; background: #f0dfbb; color: #251a12; }
+.atheneum-skip:focus { transform: none; }
+.atheneum-scene { position: relative; width: 100%; height: clamp(570px, 51.5vw, 930px); background: #18140e; color: #f3dfb9; overflow: hidden; isolation: isolate; }
+.atheneum-world { position: absolute; inset: 0; transform: translate3d(var(--scene-x, 0px), var(--scene-y, 0px), 0) scale(1.018); transform-origin: 50% 55%; transition: transform .22s ease-out; will-change: transform; }
+.atheneum-backdrop { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; user-select: none; -webkit-user-drag: none; }
+.atheneum-heading { position: absolute; z-index: 2; top: 12.5%; left: 27%; width: 52%; text-align: center; pointer-events: none; }
+.atheneum-heading h1 { margin: 0; font-family: var(--zh-serif); font-weight: 500; font-size: clamp(34px, 4.15vw, 64px); line-height: 1.35; letter-spacing: .05em; color: #f6dfad; text-shadow: 0 2px 12px #20160d; }
+.atheneum-heading p { margin: 10px 0 0; font-family: var(--zh-serif); font-size: clamp(16px, 1.75vw, 25px); letter-spacing: .14em; color: #e5c792; text-shadow: 0 1px 5px #24150c; }
+.atheneum-home button { font: inherit; }
+.atheneum-figure { display: block; position: absolute; z-index: 3; appearance: none; padding: 0; border: 0; background: transparent; cursor: pointer; color: #f2d5a0; touch-action: pan-y; }
+.atheneum-figure--descartes { left: 9%; top: 23%; width: 20%; height: 69%; }
+.atheneum-figure--kant { left: 33%; top: 36%; width: 19%; height: 44%; }
+.atheneum-figure--berkeley { left: 60%; top: 26%; width: 21%; height: 68%; }
+.atheneum-nameplate { position: absolute; left: 50%; bottom: 1%; transform: translateX(-50%); min-width: 164px; padding: 7px 20px 8px; background: rgba(29, 22, 14, .83); border: 1px solid #9c7b45; box-shadow: inset 0 0 0 3px rgba(221, 185, 115, .1); white-space: nowrap; transition: background .16s, border-color .16s; }
+.atheneum-nameplate strong { display: block; font-family: var(--zh-serif); font-size: 20px; font-weight: 500; letter-spacing: .12em; }
+.atheneum-nameplate small { display: block; font-family: var(--serif); font-size: 12px; margin-top: 2px; }
+.atheneum-figure--kant .atheneum-nameplate { min-width: 145px; }
+.atheneum-figure--berkeley .atheneum-nameplate { left: 25%; }
+.atheneum-figure[aria-pressed="true"] .atheneum-nameplate, .atheneum-figure:hover .atheneum-nameplate { border-color: #e8ba61; color: #ffe0a5; background: rgba(70, 44, 17, .91); box-shadow: inset 0 0 0 3px rgba(221, 185, 115, .16), 0 2px 8px #1f130b; }
+.atheneum-figure:focus-visible { outline: none; }
+.atheneum-figure:focus-visible .atheneum-nameplate { outline: 3px solid #fff3ca; outline-offset: 4px; }
+.atheneum-card { position: absolute; z-index: 4; width: 15.5%; right: 4.5%; top: 34%; min-height: 226px; padding: 22px 16px 17px; text-align: center; color: #4b321a; background: #ead0a1 url("assets/optimized/843b29caaa0a-768.webp") center/cover; border: 1px solid #9e7844; box-shadow: inset 0 0 0 4px #d1af77, inset 0 0 0 5px #ad8750, 0 9px 20px rgba(25, 16, 7, .27); }
+.atheneum-card h2 { margin: 0 0 10px; font: 600 clamp(18px, 1.6vw, 25px)/1.5 var(--zh-serif); letter-spacing: .03em; }
+.atheneum-card .person-years { font: 16px var(--serif); margin: 0; }
+.atheneum-card .person-themes { margin: 22px 0; font-family: var(--zh-serif); font-size: 15px; line-height: 1.8; word-break: keep-all; }
+.atheneum-button { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; padding: 8px 18px; background: #584024; color: #f9e6bb; border: 1px solid #b48a4c; box-shadow: inset 0 0 0 3px #765934; font-family: var(--zh-serif); text-decoration: none; cursor: pointer; }
+.atheneum-button:hover { background: #3c2916; color: #fff0ce; }
+.atheneum-card .person-source { display: block; padding: 10px 0 2px; color: #5b442b; font-family: var(--zh-serif); font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.atheneum-tools { position: absolute; z-index: 5; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; font-family: var(--zh-serif); font-size: 13px; white-space: nowrap; }
+.atheneum-hint { color: #e5c689; letter-spacing: .08em; background: rgba(28, 20, 11, .6); padding: 6px 9px; }
+.atheneum-motion { background: rgba(24, 18, 12, .7); border: 1px solid #846339; padding: 7px 10px; color: #e5c689; min-height: 36px; cursor: pointer; }
+.atheneum-mobile-tabs { display: none; }
+.atheneum-nojs { margin: 0; padding: 12px 20px; text-align: center; background: #f0dfbb; }
+.atheneum-nojs a { margin-inline: 12px; text-decoration: underline; }
+.atheneum-home a:focus-visible, .atheneum-home button:focus-visible { outline-color: #a46313; outline-offset: 4px; }
+.atheneum-home .site-header a:focus-visible { outline-color: #fff2c7; }
+.atheneum-featured { display: grid; grid-template-columns: 1.05fr 1.07fr 1fr; padding: 32px 4% 36px; gap: 38px; border-top: 2px solid #886c3c; border-bottom: 1px solid #aa8957; }
+.atheneum-featured > article + article { border-left: 1px solid #aa8957; padding-left: 36px; }
+.atheneum-featured h2 { font-family: var(--zh-serif); font-size: 22px; font-weight: 500; margin: 0 0 23px; letter-spacing: .08em; color: #483219; }
+.atheneum-news-list { list-style: none; padding: 0; margin: 0; }
+.atheneum-news-list li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; border-bottom: 1px solid rgba(129, 94, 42, .24); padding: 12px 0; }
+.atheneum-news-list li:first-child { padding-top: 0; }
+.atheneum-news-list a { font-family: var(--zh-serif); font-size: 15px; line-height: 1.75; }
+.atheneum-news-list time { font: 12px var(--serif); color: #695132; }
+.atheneum-inline-link { display: inline-flex; padding: 12px 0 2px; color: #4d341a; font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
+.atheneum-journal { display: grid; grid-template-columns: 1fr 38%; gap: 18px; align-items: center; }
+.atheneum-journal h3 { font-family: var(--zh-serif); font-size: 20px; line-height: 1.7; font-weight: 500; margin: 0 0 10px; }
+.atheneum-journal p { font-size: 14px; line-height: 1.9; color: #664b2f; margin: 0 0 15px; }
+.atheneum-journal img { display: block; width: 100%; height: 211px; object-fit: contain; }
+.atheneum-series h2 { margin-bottom: 4px; }
+.atheneum-series .series-english { font: 13px var(--serif); margin: 0 0 17px; }
+.atheneum-book-row { display: flex; justify-content: center; gap: 8px; }
+.atheneum-book-row a { width: 32%; }
+.atheneum-book-row img { width: 100%; height: 120px; object-fit: contain; display: block; }
+.atheneum-series p { font-size: 14px; line-height: 1.8; margin: 14px 0 0; }
+.atheneum-home .home-section-alt { background: rgba(120, 78, 28, .075); }
+.atheneum-home .home-conferences { background: rgba(120, 78, 28, .09); }
+.atheneum-home .home-section, .atheneum-home .section-block { scroll-margin-top: 25px; }
+.atheneum-home .home-section h2 { font-weight: 500; }
+.atheneum-home .page-shell { background: none; }
+.atheneum-home .overview-language-note { display: none; }
+.atheneum-home.english-overview .atheneum-heading { width: 55%; left: 23%; }
+.atheneum-home.english-overview .atheneum-heading h1 { font-family: var(--serif); font-size: clamp(34px, 3.65vw, 57px); letter-spacing: .005em; line-height: 1.12; }
+.atheneum-home.english-overview .atheneum-heading p { font-family: var(--serif); letter-spacing: .03em; font-size: 19px; }
+.atheneum-home.english-overview .atheneum-card h2 { font-family: var(--serif); font-size: 22px; }
+.atheneum-home.english-overview .person-themes { font: 14px/1.6 var(--serif); }
+.atheneum-home.english-overview .atheneum-nameplate strong { font-family: var(--serif); letter-spacing: .03em; }
+.atheneum-home.english-overview .atheneum-nameplate small { display: none; }
+.atheneum-home.english-overview .brand-text strong { font: 18px var(--serif); letter-spacing: 0; }
+.atheneum-home.english-overview .nav-links a { font: 14px var(--serif); }
+.atheneum-detail { width: min(880px, calc(100% - 36px)); max-height: 88svh; padding: 0; border: 1px solid #af8a50; background: #ecdbb8 url("assets/optimized/843b29caaa0a-1440.webp") center/cover; color: #392819; box-shadow: 0 20px 80px rgba(0, 0, 0, .5); }
+.atheneum-detail::backdrop { background: rgba(15, 12, 9, .77); backdrop-filter: blur(5px); }
+.atheneum-detail-toolbar { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; border-bottom: 1px solid #ad8e60; background: #ecdbb8 url("assets/optimized/843b29caaa0a-768.webp") center/cover; }
+.atheneum-detail-toolbar p { margin: 0; font-size: 13px; }
+.atheneum-detail-toolbar button { border: 1px solid #9b7c4e; color: #392819; background: transparent; min-height: 44px; padding: 6px 16px; cursor: pointer; }
+.atheneum-record { padding: 28px; display: grid; grid-template-columns: 215px minmax(0, 1fr); gap: 30px; }
+.atheneum-record[hidden] { display: none; }
+.atheneum-record figure { margin: 0; }
+.atheneum-record img { width: 100%; height: auto; display: block; }
+.atheneum-record figcaption { font-size: 12px; line-height: 1.7; color: #685338; margin-top: 12px; }
+.atheneum-record figcaption a { display: inline-block; margin-top: 9px; text-decoration: underline; text-underline-offset: 3px; }
+.atheneum-record h2 { margin: 0; font: 500 29px/1.5 var(--zh-serif); }
+.atheneum-record .record-years { color: #6e5231; margin: 4px 0 19px; }
+.atheneum-record h3 { font: 600 17px var(--zh-serif); margin: 25px 0 12px; }
+.atheneum-record p { font-size: 15px; line-height: 1.9; }
+.atheneum-record .record-themes { font-family: var(--zh-serif); color: #735229; }
+.atheneum-record ul { padding-left: 19px; font-size: 14px; line-height: 1.9; }
+.atheneum-record li { padding-bottom: 8px; }
+.atheneum-record li a, .atheneum-record .record-source { text-decoration: underline; text-underline-offset: 4px; }
+.atheneum-record .record-source { font-size: 12px; }
+.atheneum-record .reconstruction-note { font-size: 12px; padding-top: 14px; border-top: 1px solid #b59a71; color: #6c5539; }
+body.atheneum-dialog-open { overflow: hidden; }
+@media (min-width: 1800px) { .atheneum-scene { height: 51.5vw; } }
+@media (max-width: 1260px) {
+  .atheneum-university { display: none; }
+  .atheneum-card { right: 2%; width: 18%; padding-inline: 13px; }
+  .atheneum-featured { gap: 24px; padding-inline: 3%; }
+  .atheneum-featured > article + article { padding-left: 24px; }
+  .atheneum-journal { gap: 10px; }
+}
+@media (max-width: 1024px) {
+  .atheneum-home .site-header { height: 66px; padding: 0 20px; }
+  .atheneum-home .header-right { margin-left: auto; }
+  .atheneum-home .nav-links { display: none; }
+  .atheneum-home .header-right { display: flex; }
+  .atheneum-heading { top: 14%; left: 27%; width: 53%; }
+  .atheneum-card { width: 20%; right: 1.4%; padding: 18px 10px 10px; }
+  .atheneum-card .person-themes { font-size: 13px; margin: 15px 0; }
+  .atheneum-card .atheneum-button { font-size: 13px; padding-inline: 10px; }
+  .atheneum-nameplate { min-width: 134px; padding-inline: 12px; }
+  .atheneum-nameplate strong { font-size: 18px; }
+  .atheneum-featured { grid-template-columns: 1fr 1fr; }
+  .atheneum-featured > article:last-child { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #aa8957; padding: 25px 0 0; }
+  .atheneum-series .atheneum-book-row { float: right; width: 45%; margin-top: -40px; }
+}
+@media (max-width: 1024px) {
+  .atheneum-home .site-header { padding: 0 14px; gap: 10px; }
+  .atheneum-home .brand { gap: 9px; }
+  .atheneum-home .brand img { width: 31px; height: 39px; }
+  .atheneum-home .brand-text strong { font-size: 17px; letter-spacing: .04em; }
+  .atheneum-home .brand-text span { font-size: 7px; letter-spacing: .055em; }
+  .atheneum-home .header-right { display: none; }
+  .atheneum-home .nav-toggle { margin-left: auto; width: 42px; }
+  .atheneum-home.english-overview .brand-text strong { font-size: 15px; }
+  .atheneum-scene { height: auto; padding-top: 66px; overflow: hidden; }
+  .atheneum-heading, .atheneum-home.english-overview .atheneum-heading { position: relative; top: auto; left: auto; width: auto; padding: 22px 18px 18px; background: #211a12; }
+  .atheneum-heading h1 { font-size: clamp(25px, 6.5vw, 35px); letter-spacing: .02em; }
+  .atheneum-heading p { font-size: 16px; margin-top: 9px; }
+  .atheneum-home.english-overview .atheneum-heading h1 { font-size: 32px; }
+  .atheneum-home.english-overview .atheneum-heading p { font-size: 15px; }
+  .atheneum-world { position: relative; height: auto; aspect-ratio: 1786 / 881; inset: auto; transform: none !important; will-change: auto; }
+  .atheneum-backdrop { height: 100%; }
+  .atheneum-nameplate { min-width: 0 !important; width: auto; padding: 4px 7px; border-color: #b98b49; }
+  .atheneum-nameplate strong { font-size: 12px; letter-spacing: 0; }
+  .atheneum-nameplate small { display: none; }
+  .atheneum-figure--berkeley .atheneum-nameplate { left: 35%; }
+  .atheneum-mobile-tabs { display: flex; padding: 14px 20px; gap: 10px; justify-content: center; background: #22180f; }
+  .atheneum-mobile-tabs button { flex: 1; min-height: 44px; border: 1px solid #866539; padding: 8px; background: transparent; color: #e0c695; font-family: var(--zh-serif); font-size: 14px; }
+  .atheneum-mobile-tabs button[aria-pressed="true"] { border-color: #e0bc77; background: #5b4123; color: #fff0c9; }
+  .atheneum-card { position: relative; right: auto; top: auto; width: auto; margin: 0; min-height: 0; display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding: 23px 24px; text-align: left; box-shadow: none; border: 0; border-bottom: 1px solid #af8a50; }
+  .atheneum-card h2 { font-size: 23px; margin-bottom: 4px; }
+  .atheneum-card .person-years { font-size: 14px; }
+  .atheneum-card .person-themes { font-size: 13px; margin: 10px 0 0; }
+  .atheneum-card .person-summary { grid-column: 1; grid-row: 1 / 3; }
+  .atheneum-card .atheneum-button { grid-column: 2; grid-row: 1; align-self: end; }
+  .atheneum-card .person-source { grid-column: 2; grid-row: 2; align-self: start; text-align: center; font-size: 12px; padding: 8px 0 0; }
+  .atheneum-tools { position: static; transform: none; padding: 10px 18px; justify-content: center; background: #22180f; }
+  .atheneum-motion { display: none; }
+  .atheneum-hint { background: none; padding: 0; font-size: 12px; }
+  .atheneum-featured { display: block; padding: 28px 22px 5px; border-top: 0; }
+  .atheneum-featured > article { padding-bottom: 27px; }
+  .atheneum-featured > article + article, .atheneum-featured > article:last-child { padding: 25px 0 28px; border-top: 1px solid #aa8957; border-left: 0; }
+  .atheneum-featured h2 { font-size: 23px; margin-bottom: 20px; }
+  .atheneum-news-list a { font-size: 15px; }
+  .atheneum-news-list time { font-size: 11px; }
+  .atheneum-journal { grid-template-columns: 1fr 37%; gap: 24px; }
+  .atheneum-journal img { height: 200px; }
+  .atheneum-series .atheneum-book-row { float: none; width: auto; margin: 12px 0 0; }
+  .atheneum-book-row img { height: 135px; }
+  .atheneum-detail { width: calc(100% - 24px); max-height: 90svh; }
+  .atheneum-detail-toolbar { padding: 9px 15px; }
+  .atheneum-record { display: block; padding: 23px; }
+  .atheneum-record figure { display: grid; grid-template-columns: 110px 1fr; gap: 16px; margin-bottom: 20px; }
+  .atheneum-record h2 { font-size: 27px; }
+  .atheneum-record figcaption { margin-top: 0; }
+  .atheneum-record p { font-size: 15px; }
+}
+@media (min-width: 681px) and (max-width: 1024px) {
+  .atheneum-home .header-right { display: flex; }
+  .atheneum-home .brand-text strong { font-size: 22px; }
+  .atheneum-home .brand-text span { font-size: 10px; }
+  .atheneum-home .brand img { width: 40px; height: 46px; }
+  .atheneum-heading h1 { font-size: 38px; }
+  .atheneum-home.english-overview .atheneum-heading h1 { font-size: 40px; }
+  .atheneum-nameplate { padding: 6px 16px; }
+  .atheneum-nameplate strong { font-size: 17px; }
+  .atheneum-mobile-tabs { padding-inline: 22%; }
+  .atheneum-card { padding-inline: 10%; }
+  .atheneum-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 28px 30px; }
+  .atheneum-featured > article + article { padding: 0 0 0 24px; border-top: 0; border-left: 1px solid #aa8957; }
+  .atheneum-featured > article:last-child { padding: 25px 0 0; border-top: 1px solid #aa8957; border-left: 0; }
+  .atheneum-series .atheneum-book-row { float: right; width: 45%; margin-top: -45px; }
+  .atheneum-series p { max-width: 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atheneum-world { transition: none; transform: none !important; will-change: auto; }
+  .atheneum-nameplate { transition: none; }
+}

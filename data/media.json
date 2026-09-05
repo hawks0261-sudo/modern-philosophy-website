@@ -25,6 +25,125 @@
       }
     ]
   },
+  "assets/atheneum/hero-scene.png": {
+    "width": 1786,
+    "height": 881,
+    "bytes": 2576333,
+    "sha256": "4c76542bb4781b498bf0703bdc06a4bd9b0d1c36b9f354e94a6dc9381c6c6d25",
+    "variants": [
+      {
+        "src": "assets/optimized/7541e7aea1e0-383.webp",
+        "width": 383,
+        "height": 189,
+        "bytes": 16064
+      },
+      {
+        "src": "assets/optimized/7541e7aea1e0-768.webp",
+        "width": 768,
+        "height": 379,
+        "bytes": 65538
+      },
+      {
+        "src": "assets/optimized/7541e7aea1e0-1439.webp",
+        "width": 1439,
+        "height": 710,
+        "bytes": 209774
+      }
+    ]
+  },
+  "assets/atheneum/parchment.png": {
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2685153,
+    "sha256": "cf2415617855942d913f9352ffdb45c33c983fbe43220f2989b66ba61e39851e",
+    "variants": [
+      {
+        "src": "assets/optimized/843b29caaa0a-384.webp",
+        "width": 384,
+        "height": 256,
+        "bytes": 3720
+      },
+      {
+        "src": "assets/optimized/843b29caaa0a-768.webp",
+        "width": 768,
+        "height": 512,
+        "bytes": 28708
+      },
+      {
+        "src": "assets/optimized/843b29caaa0a-1440.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 128762
+      }
+    ]
+  },
+  "assets/atheneum/portrait-berkeley.jpg": {
+    "width": 500,
+    "height": 679,
+    "bytes": 40339,
+    "sha256": "6b4d0216cbed2366807d8ca7ca60740b4834e4268d868b73198d33b2e772500b",
+    "variants": [
+      {
+        "src": "assets/optimized/125c1f3a62bc-384.webp",
+        "width": 384,
+        "height": 521,
+        "bytes": 12112
+      },
+      {
+        "src": "assets/optimized/125c1f3a62bc-500.webp",
+        "width": 500,
+        "height": 679,
+        "bytes": 22896
+      }
+    ]
+  },
+  "assets/atheneum/portrait-descartes.jpg": {
+    "width": 500,
+    "height": 612,
+    "bytes": 80574,
+    "sha256": "2c620c8df96dffadf04054897df2451038ab07e494faf1b4d07dd1a180821bb7",
+    "variants": [
+      {
+        "src": "assets/optimized/7edc3eaf5ff5-384.webp",
+        "width": 384,
+        "height": 470,
+        "bytes": 36542
+      },
+      {
+        "src": "assets/optimized/7edc3eaf5ff5-500.webp",
+        "width": 500,
+        "height": 612,
+        "bytes": 70900
+      }
+    ]
+  },
+  "assets/atheneum/portrait-kant.jpg": {
+    "width": 500,
+    "height": 653,
+    "bytes": 72444,
+    "sha256": "63cab829feb8ab870c978a4fbcecbe52720e5e11c6136d3b0155f98897d7de56",
+    "variants": [
+      {
+        "src": "assets/optimized/5c3a1eb128be-384.webp",
+        "width": 384,
+        "height": 502,
+        "bytes": 31996
+      },
+      {
+        "src": "assets/optimized/5c3a1eb128be-500.webp",
+        "width": 500,
+        "height": 653,
+        "bytes": 53678
+      }
+    ]
+  },
+  "assets/favicon.png": {
+    "width": 86,
+    "height": 96,
+    "bytes": 10940,
+    "sha256": "37b2ef71de4c9b5f8e5a3a90b0adf79724442d97df7844fc04bee71658d63712",
+    "variants": []
+  },
   "logo.png": {
     "width": 1344,
     "height": 1508,

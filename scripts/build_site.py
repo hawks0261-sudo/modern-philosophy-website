@@ -221,7 +221,7 @@ def metadata(text, path, config, paths, events, books, english_books=None, page_
     event = next((e for e in events if e['path'] == event_path), None)
     book = next((b for b in books if path.removeprefix('en/') == BOOK_DIR + b['id'] + '/index.html'), None)
     translated_book = (english_books or {}).get(book['id']) if english and book else None
-    description = find_tag(text, 'p', 'page-subtitle') or find_tag(text, 'p', 'home-hero-desc')
+    description = find_tag(text, 'p', 'home-overview-description') or find_tag(text, 'p', 'page-subtitle') or find_tag(text, 'p', 'home-hero-desc')
     if book:
         description = translated_book['description'] if translated_book else book['description']
     if not description:
@@ -332,6 +332,7 @@ def build(books_only=False):
                 text = (ROOT / path).read_text(encoding='utf-8')
             outputs[path] = content_regions(text, path, events, books, people)
     from journal_content import normalize_journal
+    from atheneum_home import normalize_atheneum
     try:
         from page_assets import normalize_page
     except ImportError:
@@ -339,6 +340,7 @@ def build(books_only=False):
     page_titles = {path: find_tag(text, 'h1') for path, text in outputs.items()}
     for path in sorted(outputs):
         text = normalize_journal(outputs[path], path)
+        text = normalize_atheneum(text, path, events, books, english_books, page_titles)
         text = navigation(text, path, config, paths)
         text = metadata(text, path, config, paths, events, books, english_books, page_titles)
         outputs[path] = normalize_page(text, path)

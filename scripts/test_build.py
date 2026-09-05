@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Focused regression tests for content propagation; never writes site files."""
 import copy
+import html
 import json
 import re
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 import build_site
 
@@ -80,6 +82,58 @@ class GenerationTests(unittest.TestCase):
         outputs = self.changed_build('site.json', lambda config: config.update(base_url=base))
         self.assertIn('<loc>' + base + 'index.html</loc>', outputs['sitemap.xml'])
         self.assertIn('rel="canonical" href="' + base + 'publications/translation-series/series-01/index.html"', outputs['publications/translation-series/series-01/index.html'])
+
+    def test_new_book_count_reaches_both_atheneum_homepages(self):
+        original_load = build_site.load
+        expected_count = len(original_load('books.json')) + 1
+        def load(filename):
+            value = copy.deepcopy(original_load(filename))
+            if filename in ('books.json', 'books-en.json'):
+                added = copy.deepcopy(value[0])
+                added['id'] = 'series-30'
+                if filename == 'books.json':
+                    added['number'] = 30
+                value.append(added)
+            return value
+        with patch.object(build_site, 'load', side_effect=load):
+            outputs = build_site.build()
+        for path in ('index.html', 'en/index.html'):
+            counts = re.findall(r'data-stat="books">(\d+)', outputs[path])
+            self.assertTrue(counts)
+            self.assertEqual(set(counts), {str(expected_count)})
+
+    def test_atheneum_english_event_title_follows_existing_english_page(self):
+        original_read = Path.read_text
+        source = build_site.ROOT / 'en/activities/seminar-09/index.html'
+        title = 'A revised heading: editions & correspondence'
+        def read(path, *args, **kwargs):
+            text = original_read(path, *args, **kwargs)
+            if path == source:
+                text = re.sub(r'(<h1\b[^>]*>).*?(</h1>)', lambda m: m.group(1) + html.escape(title) + m.group(2), text, count=1, flags=re.S)
+            return text
+        with patch.object(Path, 'read_text', new=read):
+            outputs = build_site.build()
+        self.assertIn('<a href="activities/seminar-09/index.html">' + html.escape(title) + '</a>', outputs['en/index.html'])
+
+    def test_atheneum_english_event_without_translation_is_marked_chinese(self):
+        def change(events):
+            event = next(e for e in events if e['id'] == 'seminar-06')
+            event.update(title='待译活动 <新标题>', startDate='2027-01-01', endDate='2027-01-01')
+        outputs = self.changed_build('events.json', change)
+        self.assertIn('<a href="../activities/seminar-06/index.html" hreflang="zh-CN"><span lang="zh-CN">待译活动 &lt;新标题&gt;</span> (Chinese)</a>', outputs['en/index.html'])
+
+    def test_atheneum_book_link_names_follow_bilingual_catalogue_titles(self):
+        for filename, path, title in (
+            ('books.json', 'index.html', '新版《贝克莱的世界》 & "书名"'),
+            ('books-en.json', 'en/index.html', 'A revised Berkeley title & "edition"'),
+        ):
+            def change(books):
+                next(book for book in books if book['id'] == 'series-25')['title'] = title
+            outputs = self.changed_build(filename, change)
+            row = re.search(r'<div class="atheneum-book-row">(.*?)</div>', outputs[path], re.S).group(1)
+            self.assertIn('alt="' + html.escape(title, quote=True) + '"', row)
+            self.assertNotIn('alt="Library volume ', row)
+            self.assertNotIn('alt="译丛书目 ', row)
 
 
 if __name__ == '__main__':
