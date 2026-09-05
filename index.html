@@ -15,21 +15,29 @@
     .home-section h2 { margin: 0; font-family: var(--zh-serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.4; color: var(--navy); }
     .home-section-head p { max-width: 540px; margin: 0; color: var(--muted); font-size: 15px; }
     .home-text-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--navy); text-decoration: underline; text-underline-offset: 5px; font-size: 14px; }
-    .home-hero { background: var(--navy); color: var(--cream); }
-    .home-hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 64px; padding-top: 48px; padding-bottom: 42px; }
-    .home-hero .home-eyebrow { color: var(--gold-light); }
+    .home-hero { background: #f6f2e9; color: var(--navy); border-bottom: 1px solid #d6cdbd; }
+    .home-hero-inner { display: grid; grid-template-columns: 1fr 1.15fr; align-items: center; gap: 64px; padding-top: 58px; padding-bottom: 50px; }
+    .home-hero .home-eyebrow { color: #806219; }
     .home-hero h1 { margin: 16px 0 18px; font-family: var(--zh-serif); font-size: clamp(38px, 4.6vw, 58px); line-height: 1.4; letter-spacing: .04em; font-weight: 600; }
-    .home-hero-desc { max-width: 510px; color: #e3ded4; font-size: 16px; line-height: 1.9; margin: 0; }
+    .home-hero-desc { max-width: 470px; color: #555a61; font-size: 16px; line-height: 1.9; margin: 0; }
     .home-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 20px; border-radius: 3px; font-size: 14px; font-weight: 500; }
-    .btn-primary { background: var(--gold); color: #111d30; }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline { border: 1px solid #a7aaa9; color: var(--cream); }
-    .btn-outline:hover { background: rgba(255,255,255,.09); }
-    .home-feature { margin: 0; }
-    .home-feature img { width: 100%; height: 258px; object-fit: cover; border-radius: 3px; }
-    .home-feature figcaption { margin-top: 12px; font-size: 13px; color: #e3ded4; line-height: 1.7; }
-    .home-feature figcaption a { color: var(--cream); text-decoration: underline; text-underline-offset: 4px; }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { background: #30486c; }
+    .btn-outline { color: var(--navy); text-decoration: underline; text-underline-offset: 5px; }
+    .btn-outline:hover { background: #e9e3d7; }
+    .publication-shelf { padding: 20px 0 0 28px; border-left: 1px solid #d6cdbd; }
+    .publication-shelf-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; color: #62615b; font-size: 13px; }
+    .publication-shelf-label h2 { margin: 0; color: var(--navy); font-family: var(--zh-serif); font-size: 17px; font-weight: 500; }
+    .publication-shelf-books { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); align-items: end; gap: 12px; }
+    .publication-shelf figure { margin: 0; min-width: 0; }
+    .publication-shelf img { display: block; width: 100%; height: 230px; object-fit: contain; object-position: center bottom; }
+    .publication-shelf figcaption { min-height: 62px; padding: 14px 2px 0; color: var(--navy); font-family: var(--zh-serif); font-size: 14px; line-height: 1.7; }
+    .shelf-book-title { display: block; }
+    .shelf-break { display: none; }
+    .publication-shelf figcaption .shelf-book-subtitle { display: block; color: #68665f; font-family: var(--sans); font-size: 12px; }
+    .publication-shelf figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .publication-shelf-note { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid #d6cdbd; color: #62615b; font-size: 13px; line-height: 1.7; }
     .home-latest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
     .home-activity { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid #c8bdab; }
     .home-activity img { width: 88px; height: 134px; object-fit: contain; object-position: top center; }
@@ -46,8 +54,7 @@
     .home-news time { margin-right: 12px; }
     .home-news a { color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
     .home-publications { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
-    .home-publication { display: grid; grid-template-columns: 130px minmax(0,1fr); gap: 26px; padding: 28px; background: #faf7f0; border: 1px solid #d5cbb9; }
-    .home-publication img { width: 130px; height: 186px; object-fit: contain; object-position: top; }
+    .home-publication { padding: 26px 0 0; border-top: 1px solid #bdb3a2; }
     .home-publication h3 { margin: 0 0 12px; font-family: var(--zh-serif); font-size: 24px; color: var(--navy); }
     .home-publication p { margin: 0 0 10px; color: #58554e; font-size: 14px; line-height: 1.85; }
     .home-publication .home-eyebrow { font-size: 14px; }
@@ -82,8 +89,8 @@
       .home-activity { grid-template-columns: 90px minmax(0,1fr); gap: 20px; }
       .home-activity img { width: 90px; height: 126px; }
       .home-activity p { max-width: 640px; }
-      .home-publication { grid-template-columns: 96px minmax(0,1fr); gap: 20px; padding: 22px; }
-      .home-publication img { width: 96px; height: 144px; }
+      .publication-shelf { padding-left: 20px; }
+      .publication-shelf img { height: 195px; }
       .home-publication h3 { font-size: 22px; }
       .home-research-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
     }
@@ -92,15 +99,23 @@
       .home-section { padding: 36px 0; }
       .home-section-head { gap: 14px; align-items: start; flex-direction: column; margin-bottom: 20px; }
       .home-section-head .home-text-link { min-height: 30px; }
-      .home-hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 26px; padding-top: 30px; padding-bottom: 24px; }
+      .home-hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 18px; padding-top: 30px; padding-bottom: 24px; }
       .home-hero .home-eyebrow { font-size: 14px; margin-bottom: 0; }
       .home-hero h1 { margin: 8px 0 14px; font-size: 39px; line-height: 1.3; }
       .home-hero h1 br { display: initial; }
       .home-hero-desc { font-size: 14px; line-height: 1.8; }
       .home-actions { margin-top: 18px; gap: 10px; }
       .btn { font-size: 13px; padding: 9px 15px; }
-      .home-feature img { height: 150px; object-position: center 48%; }
-      .home-feature figcaption { font-size: 12px; margin-top: 9px; }
+      .publication-shelf { padding: 22px 0 0; border-left: 0; border-top: 1px solid #d6cdbd; }
+      .publication-shelf-label { margin-bottom: 12px; font-size: 12px; }
+      .publication-shelf-label h2 { font-size: 16px; }
+      .publication-shelf-books { gap: 6px; }
+      .publication-shelf img { height: 145px; }
+      .publication-shelf figcaption { font-size: 13px; line-height: 1.6; padding-top: 10px; min-height: 55px; }
+      .publication-shelf figcaption .shelf-book-subtitle { font-size: 12px; }
+      .publication-shelf-note { display: none; }
+      .shelf-book-title { min-height: 42px; }
+      .shelf-break { display: initial; }
       .home-activity { grid-template-columns: 78px minmax(0,1fr); gap: 16px; padding: 18px 0; }
       .home-activity img { width: 78px; height: 115px; }
       .home-activity h3 { font-size: 17px; }
@@ -110,8 +125,7 @@
       .home-news { gap: 8px; }
       .home-news time { display: block; }
       .home-publications { grid-template-columns: minmax(0,1fr); gap: 18px; }
-      .home-publication { grid-template-columns: 86px minmax(0,1fr); gap: 18px; padding: 18px; }
-      .home-publication img { width: 86px; height: 128px; }
+      .home-publication { padding: 20px 0 0; }
       .home-publication h3 { font-size: 21px; }
       .home-publication p { font-size: 13px; }
       .home-project a { display: block; margin-bottom: 8px; }
@@ -127,8 +141,7 @@
     }
     @media (max-width: 360px) {
       .home-hero h1 { font-size: 33px; }
-      .home-publication { grid-template-columns: 68px minmax(0,1fr); gap: 14px; padding: 15px; }
-      .home-publication img { width: 68px; height: 105px; }
+      .publication-shelf img { height: 125px; }
       .home-publication h3 { font-size: 19px; }
     }
   </style>
@@ -217,16 +230,19 @@
         <h1 id="home-title">以史照今，<br>以今返史</h1>
         <p class="home-hero-desc">从欧洲早期现代思想出发，连接哲学、文化、技术与社会现实，推动思想史研究、中西对话与开放的学术交流。</p>
         <div class="home-actions">
-          <a class="btn btn-primary" href="#activities">查看最新活动</a>
-          <a class="btn btn-outline" href="#about">了解中心</a>
+          <a class="btn btn-primary" href="#outcomes">阅读出版成果 <span aria-hidden="true">→</span></a>
+          <a class="btn btn-outline" href="#activities">最新学术活动</a>
         </div>
       </div>
-      <figure class="home-feature">
-        <a href="activities/seminar-09/index.html" aria-label="阅读笛卡尔通信集的编纂与翻译研讨会总结">
-          <img src="assets/optimized/ad334940f0dd-768.webp" width="1267" height="950" alt="第九期研讨会与会者围绕笛卡尔通信集编纂与翻译问题交流" fetchpriority="high" decoding="async" data-media-source="uploads/activity-photos/seminar-09/scene-01.jpg" loading="eager" srcset="assets/optimized/ad334940f0dd-384.webp 384w, assets/optimized/ad334940f0dd-768.webp 768w, assets/optimized/ad334940f0dd-1267.webp 1267w" sizes="(max-width: 680px) calc(100vw - 36px), (max-width: 1024px) calc(100vw - 44px), 520px">
-        </a>
-        <figcaption><time datetime="2026-08-06">2026.08.06</time> · 第九期研讨会<br><a href="activities/seminar-09/index.html">笛卡尔通信集的编纂与翻译</a></figcaption>
-      </figure>
+      <section class="publication-shelf" aria-labelledby="shelf-title">
+        <div class="publication-shelf-label"><h2 id="shelf-title">从文本出发</h2><span>Selected Publications</span></div>
+        <div class="publication-shelf-books">
+          <figure><a href="publications/journal/issue-01/index.html" tabindex="-1" aria-hidden="true"><img src="assets/optimized/b389b1633c2b-384.webp" alt="《近代哲学》第一期书封" data-home-shelf fetchpriority="high" data-media-source="uploads/journal-issue-01-cover.jpg" width="1280" height="1636" decoding="async" loading="eager" srcset="assets/optimized/b389b1633c2b-384.webp 384w, assets/optimized/b389b1633c2b-768.webp 768w, assets/optimized/b389b1633c2b-1280.webp 1280w" sizes="(max-width: 680px) 30vw, 180px"></a><figcaption><a href="publications/journal/issue-01/index.html" class="shelf-book-title">《近代哲学》</a><span class="shelf-book-subtitle">第一期 · 2026</span></figcaption></figure>
+          <figure><a href="publications/translation-series/series-25/index.html" tabindex="-1" aria-hidden="true"><img src="publications/translation-series/covers/book-25.jpg" alt="《贝克莱的世界：关于三次对话的考察》书封" data-home-shelf data-media-source="publications/translation-series/covers/book-25.jpg" width="640" height="640" decoding="async" loading="eager"></a><figcaption><a href="publications/translation-series/series-25/index.html" class="shelf-book-title">《贝克莱的世界》</a><span class="shelf-book-subtitle">西方思想文化译丛</span></figcaption></figure>
+          <figure><a href="publications/translation-series/series-27/index.html" tabindex="-1" aria-hidden="true"><img src="publications/translation-series/covers/book-27.jpg" alt="《笛卡尔与帕斯卡：蒙田的阅读者》书封" data-home-shelf data-media-source="publications/translation-series/covers/book-27.jpg" width="640" height="640" decoding="async" loading="eager"></a><figcaption><a href="publications/translation-series/series-27/index.html" class="shelf-book-title">《笛卡尔与<br class="shelf-break">帕斯卡》</a><span class="shelf-book-subtitle">西方思想文化译丛</span></figcaption></figure>
+        </div>
+        <p class="publication-shelf-note">文献的整理、翻译与研究，构成持续对话的基础。</p>
+      </section>
     </div>
   </section>
 
@@ -280,7 +296,6 @@
       </div>
       <div class="home-publications">
         <article class="home-publication" data-content-id="journal">
-          <img src="assets/optimized/b389b1633c2b-384.webp" alt="《近代哲学》第一期封面" width="1280" height="1636" loading="lazy" decoding="async" data-media-source="uploads/journal-issue-01-cover.jpg" srcset="assets/optimized/b389b1633c2b-384.webp 384w, assets/optimized/b389b1633c2b-768.webp 768w, assets/optimized/b389b1633c2b-1280.webp 1280w" sizes="130px">
           <div>
             <span class="home-eyebrow">Modern Philosophy · Vol. 1</span>
             <h3><a href="publications/journal/index.html">《近代哲学》</a></h3>
@@ -290,9 +305,8 @@
           </div>
         </article>
         <article class="home-publication" data-content-id="translation-series">
-          <img src="assets/optimized/e07a913a0836-384.webp" alt="西方思想文化译丛总封面" width="760" height="1121" loading="lazy" decoding="async" data-media-source="posters/xifang-yicong.png" srcset="assets/optimized/e07a913a0836-384.webp 384w, assets/optimized/e07a913a0836-760.webp 760w" sizes="130px">
           <div>
-            <span class="home-eyebrow">Translation Series</span>
+            <span class="home-eyebrow" lang="en">Western Thought &amp; Culture Library</span>
             <h3><a href="publications/translation-series/index.html">西方思想文化译丛</a></h3>
             <p>本站收录 <span data-stat="books">29</span> 册图书，涵盖法国哲学、精神分析、现象学、艺术理论与近代思想研究。</p>
             <p>2013—2026 · 福建教育出版社</p>

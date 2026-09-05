@@ -50,10 +50,30 @@ class GenerationTests(unittest.TestCase):
     def test_fallback_language_is_not_an_equivalence_claim(self):
         config = build_site.load('site.json')
         paths = set(build_site.build())
-        zh, en, paired = build_site.languages('publications/translation-series/series-01/index.html', config, paths)
-        self.assertEqual(en, 'en/publications/index.html')
+        zh, en, paired = build_site.languages('people/member-directory/li-daiwei/index.html', config, paths)
+        self.assertEqual(en, 'en/people/index.html')
         self.assertFalse(paired)
         self.assertEqual(build_site.languages('activities/seminar-09/index.html', config, paths), ('activities/seminar-09/index.html', 'en/activities/seminar-09/index.html', True))
+
+    def test_english_book_has_direct_language_pair_and_describes_chinese_edition(self):
+        config = build_site.load('site.json')
+        outputs = build_site.build()
+        zh = 'publications/translation-series/series-01/index.html'
+        en = 'en/' + zh
+        self.assertEqual(build_site.languages(zh, config, set(outputs)), (zh, en, True))
+        self.assertEqual(build_site.languages(en, config, set(outputs)), (zh, en, True))
+        self.assertIn('The heading is a translation of its Chinese title.', outputs[en])
+        graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', outputs[en], re.S).group(1))['@graph']
+        book = next(item for item in graph if item['@type'] == 'Book')
+        page = next(item for item in graph if item['@type'] == 'WebPage')
+        self.assertEqual(book['inLanguage'], 'zh-CN')
+        self.assertEqual(page['inLanguage'], 'en')
+        self.assertEqual(book['name'], build_site.load('books.json')[0]['title'])
+        self.assertEqual(book['url'], config['base_url'] + zh)
+
+    def test_changed_chinese_description_requires_english_review(self):
+        with self.assertRaisesRegex(ValueError, 'review English translation'):
+            self.changed_build('books.json', lambda books: books[0].update(description=books[0]['description'] + ' Updated source.'))
 
     def test_base_url_change_reaches_sitemap_and_canonical(self):
         base = 'https://example.org/review/'

@@ -45,7 +45,8 @@ def normalize_page(text, relative):
         attrs['height'] = str(record['height'])
         attrs['decoding'] = 'async'
         is_logo = 'logo' in key.lower()
-        attrs['loading'] = 'eager' if is_logo or first_content_image else 'lazy'
+        is_home_shelf = 'data-home-shelf' in attrs
+        attrs['loading'] = 'eager' if is_logo or first_content_image or is_home_shelf else 'lazy'
         if not is_logo:
             first_content_image = False
         variants = record.get('variants', [])
@@ -57,7 +58,9 @@ def normalize_page(text, relative):
             elif relative == 'activities/index.html':
                 sizes, preferred_width = '(max-width: 680px) 88px, 124px', 384
             elif relative == 'index.html':
-                if key.startswith('posters/seminar-'):
+                if is_home_shelf:
+                    sizes, preferred_width = '(max-width: 680px) 30vw, 180px', 384
+                elif key.startswith('posters/seminar-'):
                     sizes, preferred_width = '88px', 384
                 elif key in ('uploads/journal-issue-01-cover.jpg', 'posters/xifang-yicong.png'):
                     sizes, preferred_width = '130px', 384

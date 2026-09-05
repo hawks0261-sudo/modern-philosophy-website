@@ -2,7 +2,7 @@
 """Deterministic static-site generation. Python 3.9+, no installed packages.
 
 Default (or --all): books + marked content + static navigation + page metadata
-+ sitemap. --books-only: only owned Chinese book output; useful during editing.
++ sitemap. --books-only: only both-language book output; useful during editing.
 --check: calculate exactly the same output and fail without changing any file.
 Author-edited content outside explicit generated regions is retained.
 """
@@ -210,7 +210,7 @@ def find_tag(text, tag, class_name=None):
     return plain(match.group(1)) if match else ''
 
 
-def metadata(text, path, config, paths, events, books):
+def metadata(text, path, config, paths, events, books, english_books=None, page_titles=None):
     # Strip our old block before deriving the next one; stale generated text is
     # never treated as author input. Existing author descriptions are respected.
     text = re.sub(re.escape(METADATA_BEGIN) + r'.*?' + re.escape(METADATA_END) + r'\n?', '', text, flags=re.S)
@@ -219,10 +219,11 @@ def metadata(text, path, config, paths, events, books):
     english = path.startswith('en/')
     event_path = path.removeprefix('en/')
     event = next((e for e in events if e['path'] == event_path), None)
-    book = next((b for b in books if path == BOOK_DIR + b['id'] + '/index.html'), None)
+    book = next((b for b in books if path.removeprefix('en/') == BOOK_DIR + b['id'] + '/index.html'), None)
+    translated_book = (english_books or {}).get(book['id']) if english and book else None
     description = find_tag(text, 'p', 'page-subtitle') or find_tag(text, 'p', 'home-hero-desc')
     if book:
-        description = book['description']
+        description = translated_book['description'] if translated_book else book['description']
     if not description:
         description = find_tag(text, 'p')
     if not description:
@@ -238,7 +239,10 @@ def metadata(text, path, config, paths, events, books):
     if path in ('index.html', 'en/index.html'):
         graph.append({'@type': 'Organization', '@id': config['base_url'] + '#organization', 'name': config['name_zh'], 'alternateName': config['name_en'], 'url': absolute(config, 'index.html'), 'logo': absolute(config, 'logo.png'), 'email': 'modernphi24@163.com'})
     if book:
-        graph.append({'@type': 'Book', '@id': canonical + '#book', 'name': book['title'], ('editor' if book.get('creatorRole') == 'editor' else 'author'): persons(book['author']), 'translator': persons(book['translator']), 'publisher': {'@type': 'Organization', 'name': book['publisher']}, 'datePublished': book['date'][:7], 'inLanguage': 'zh-CN', 'description': book['description'], 'image': image, 'url': canonical})
+        book_canonical = absolute(config, BOOK_DIR + book['id'] + '/index.html')
+        if translated_book:
+            graph.append({'@type': 'WebPage', '@id': canonical + '#webpage', 'name': heading, 'inLanguage': 'en', 'url': canonical, 'description': description, 'mainEntity': {'@id': book_canonical + '#book'}})
+        graph.append({'@type': 'Book', '@id': book_canonical + '#book', 'name': book['title'], ('editor' if book.get('creatorRole') == 'editor' else 'author'): persons(book['author']), 'translator': persons(book['translator']), 'publisher': {'@type': 'Organization', 'name': book['publisher']}, 'datePublished': book['date'][:7], 'inLanguage': 'zh-CN', 'description': translated_book['description'] if translated_book else book['description'], 'image': image, 'url': book_canonical})
     if event:
         graph.append({'@type': 'Event', '@id': canonical + '#event', 'name': heading, 'startDate': event['startDate'], 'endDate': event['endDate'], 'description': description, 'image': image, 'url': canonical, 'organizer': {'@type': 'Organization', '@id': config['base_url'] + '#organization', 'name': config['name_en'] if english else config['name_zh']}})
     if path not in ('index.html', 'en/index.html'):
@@ -246,7 +250,10 @@ def metadata(text, path, config, paths, events, books):
         crumbs = [{'@type': 'ListItem', 'position': 1, 'name': 'Home' if english else '首页', 'item': absolute(config, home)}]
         parent = posixpath.dirname(posixpath.dirname(path)) + '/index.html'
         if parent in paths and parent != home and parent != path:
-            parent_title = find_tag((ROOT / parent).read_text(encoding='utf-8'), 'h1') or ('Publications' if english else '书目')
+            parent_title = (page_titles or {}).get(parent)
+            if not parent_title and (ROOT / parent).exists():
+                parent_title = find_tag((ROOT / parent).read_text(encoding='utf-8'), 'h1')
+            parent_title = parent_title or ('Publications' if english else '书目')
             crumbs.append({'@type': 'ListItem', 'position': len(crumbs) + 1, 'name': parent_title, 'item': absolute(config, parent)})
         crumbs.append({'@type': 'ListItem', 'position': len(crumbs) + 1, 'name': heading, 'item': canonical})
         graph.append({'@type': 'BreadcrumbList', 'itemListElement': crumbs})
@@ -254,7 +261,7 @@ def metadata(text, path, config, paths, events, books):
     zh, en, paired = languages(path, config, paths)
     if paired:
         tags += [f'<link rel="alternate" hreflang="zh-CN" href="{esc(absolute(config, zh))}" />', f'<link rel="alternate" hreflang="en" href="{esc(absolute(config, en))}" />']
-    tags += [f'<meta property="og:type" content="{"article" if event or book else "website"}" />', f'<meta property="og:site_name" content="{esc(config["name_en"] if english else config["name_zh"])}" />', f'<meta property="og:title" content="{esc(title)}" />', f'<meta property="og:description" content="{esc(description)}" />', f'<meta property="og:url" content="{esc(canonical)}" />', f'<meta property="og:image" content="{esc(image)}" />', f'<meta property="og:image:alt" content="{esc(book["title"] + " 封面" if book else event["posterAlt"] if event and not english else heading if event else config["name_en"] if english else config["name_zh"])}" />', f'<meta property="og:locale" content="{"en_GB" if english else "zh_CN"}" />', '<meta name="twitter:card" content="summary_large_image" />', f'<meta name="twitter:title" content="{esc(title)}" />', f'<meta name="twitter:description" content="{esc(description)}" />', f'<meta name="twitter:image" content="{esc(image)}" />']
+    tags += [f'<meta property="og:type" content="{"article" if event or book else "website"}" />', f'<meta property="og:site_name" content="{esc(config["name_en"] if english else config["name_zh"])}" />', f'<meta property="og:title" content="{esc(title)}" />', f'<meta property="og:description" content="{esc(description)}" />', f'<meta property="og:url" content="{esc(canonical)}" />', f'<meta property="og:image" content="{esc(image)}" />', f'<meta property="og:image:alt" content="{esc(("Cover of the Chinese edition: " + translated_book["title"] if translated_book else book["title"] + " 封面") if book else event["posterAlt"] if event and not english else heading if event else config["name_en"] if english else config["name_zh"])}" />', f'<meta property="og:locale" content="{"en_GB" if english else "zh_CN"}" />', '<meta name="twitter:card" content="summary_large_image" />', f'<meta name="twitter:title" content="{esc(title)}" />', f'<meta name="twitter:description" content="{esc(description)}" />', f'<meta name="twitter:image" content="{esc(image)}" />']
     if graph:
         tags += ['<script type="application/ld+json">', safe_json({'@context': 'https://schema.org', '@graph': graph}), '</script>']
     tags += [METADATA_END]
@@ -313,6 +320,10 @@ def build(books_only=False):
     books, events, people, config = load('books.json'), load('events.json'), load('people.json'), load('site.json')
     outputs = {}
     render_books(books, outputs)
+    from english_books import render_english_books
+    english_entries = load('books-en.json')
+    english_books = {entry['id']: entry for entry in english_entries}
+    outputs.update(render_english_books(books, english_entries))
     paths = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.html') if not any(part.startswith('.') or part in ('node_modules', 'output') for part in p.relative_to(ROOT).parts)} | set(outputs)
     if not books_only:
         for path in sorted(paths):
@@ -325,10 +336,11 @@ def build(books_only=False):
         from page_assets import normalize_page
     except ImportError:
         normalize_page = lambda text, relative: text
+    page_titles = {path: find_tag(text, 'h1') for path, text in outputs.items()}
     for path in sorted(outputs):
         text = normalize_journal(outputs[path], path)
         text = navigation(text, path, config, paths)
-        text = metadata(text, path, config, paths, events, books)
+        text = metadata(text, path, config, paths, events, books, english_books, page_titles)
         outputs[path] = normalize_page(text, path)
     if not books_only:
         urls = '\n'.join('  <url><loc>' + xml_escape(absolute(config, path)) + '</loc></url>' for path in sorted(paths))
@@ -339,7 +351,7 @@ def build(books_only=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--all', action='store_true', help='Generate the complete static site (default).')
-    parser.add_argument('--books-only', action='store_true', help='Generate only the Chinese catalogue and its standalone book pages.')
+    parser.add_argument('--books-only', action='store_true', help='Generate only the Chinese and English catalogues and their standalone book pages.')
     parser.add_argument('--check', action='store_true', help='Fail if generated output differs; never write files.')
     args = parser.parse_args()
     outputs = build(args.books_only)
