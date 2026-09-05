@@ -31,7 +31,7 @@ def render_scene(path, people):
     for p in people:
         identity, name, short = p['id'], p['name'][lang], p['shortName'][lang]
         pressed = str(identity == 'berkeley').lower()
-        buttons.append(f'''<button type="button" class="atheneum-figure atheneum-figure--{identity}" data-select-person="{identity}" aria-pressed="{pressed}" aria-controls="atheneum-card" aria-label="{esc(t('选择', 'Select ') + name)}">
+        buttons.append(f'''<button type="button" class="atheneum-figure atheneum-figure--{identity}" data-select-person="{identity}" aria-pressed="{pressed}" aria-haspopup="dialog" aria-controls="atheneum-detail" aria-label="{esc(t('阅读', 'Read about ') + name + t('的人物介绍', ''))}">
   <span class="atheneum-nameplate"><strong>{esc(short)}</strong><small lang="en">{esc(p['name']['en'])}</small></span>
 </button>''')
         tabs.append(f'<button type="button" data-select-person="{identity}" aria-pressed="{pressed}" aria-controls="atheneum-card">{esc(short)}</button>')
@@ -57,7 +57,9 @@ def render_scene(path, people):
   </div>
 </article>''')
     # This is public display data only; build-machine paths are never embedded.
-    state = [{k: p[k] for k in ('id', 'name', 'years', 'themes', 'portrait', 'sources')} for p in people]
+    state = [{k: p[k] for k in ('id', 'name', 'shortName', 'years', 'themes', 'portrait', 'sources')} for p in people]
+    chosen_index = next(i for i, p in enumerate(people) if p['id'] == chosen['id']) + 1
+    reader_count = f'{chosen_index} / {len(people)}' if en else f'第 {chosen_index} / {len(people)} 位'
     return f'''<section class="atheneum-scene" aria-labelledby="atheneum-title">
   <div class="atheneum-stage">
   <div class="atheneum-heading"><h1 id="atheneum-title">{t('在思想之间，展开对话。', 'A conversation <br>across centuries.')}</h1><p>{t('以史照今，以今返史', 'Reading history. Thinking forward.')}</p></div>
@@ -65,7 +67,7 @@ def render_scene(path, people):
     <img class="atheneum-backdrop" src="{link(path, 'assets/atheneum/hero-scene-v2.png')}" sizes="100vw" width="1748" height="899" fetchpriority="high" loading="eager" decoding="async" alt="{t('笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟在殿堂中阅读和讨论，依据历史肖像创作', 'Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume reading and conversing in a historical hall, interpreted from source portraits')}" draggable="false">
     {''.join(buttons)}
   </div>
-  <div class="atheneum-tools"><span class="atheneum-hint">{t('点击人物，走近他的思想', 'Select a philosopher to explore')}</span><button class="atheneum-motion" type="button" aria-pressed="true">{t('暂停景深', 'Pause motion')}</button></div>
+  <div class="atheneum-tools"><span class="atheneum-hint">{t('点击人物，走近他的思想', 'Select a philosopher to explore')}</span><button class="atheneum-motion" type="button" aria-pressed="true">{t('暂停景深', 'Pause motion')}</button><a class="atheneum-content-link" href="#atheneum-content">{t('浏览中心内容', 'Explore the center')}</a></div>
   </div>
   <div class="atheneum-person-picker" role="group" aria-label="{t('选择哲学家', 'Choose a philosopher')}">{''.join(tabs)}</div>
   <aside class="atheneum-card" id="atheneum-card" aria-label="{t('当前人物', 'Selected philosopher')}">
@@ -76,7 +78,15 @@ def render_scene(path, people):
 </section>
 <noscript><p class="atheneum-nojs">{t('阅读人物资料：', 'Read about the philosophers:')}{''.join(f'<a href="{esc(p["sources"][0]["url"])}">{esc(p["name"][lang])}</a>' for p in people)}</p></noscript>
 <dialog class="atheneum-detail" id="atheneum-detail" aria-labelledby="person-title-berkeley">
-  <div class="atheneum-detail-toolbar"><p>{t('人物 · 著作 · 肖像', 'Profile · Works · Portrait')}</p><button type="button" data-close-person autofocus>{t('关闭', 'Close')}</button></div>{''.join(records)}
+  <div class="atheneum-detail-toolbar">
+    <div class="atheneum-reader-nav" role="group" aria-label="{t('切换哲学家', 'Browse philosophers')}">
+      <button type="button" data-person-step="-1">{t('上一位', 'Previous')}</button>
+      <p class="atheneum-reader-position" aria-live="polite" aria-atomic="true"><strong data-reader-name>{esc(chosen['shortName'][lang])}</strong><span data-reader-count>{reader_count}</span></p>
+      <button type="button" data-person-step="1">{t('下一位', 'Next')}</button>
+    </div>
+    <button type="button" data-close-person autofocus>{t('关闭', 'Close')}</button>
+  </div>
+  <div class="atheneum-reader-body">{''.join(records)}</div>
 </dialog>
 <script id="atheneum-profiles" type="application/json">{json.dumps(state, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>'''
 
@@ -113,7 +123,7 @@ def render_featured(path, events, books, english_books, page_titles):
     journal = 'en/publications/journal/index.html' if en else 'publications/journal/issue-01/index.html'
     catalogue = ('en/' if en else '') + 'publications/translation-series/index.html'
     return f'''<section class="atheneum-featured" id="atheneum-content" tabindex="-1" aria-label="{t('中心动态与学术出版', 'News and scholarly publications')}">
-  <article><h2>{t('中心动态', 'From the center')}</h2><ol class="atheneum-news-list">{''.join(rows)}</ol><a class="atheneum-inline-link" href="{link(path, ('en/' if en else '') + 'activities/index.html')}">{t('查看全部学术活动', 'All academic activities')}</a></article>
+  <article><h2>{t('活动速览', 'Recent activities')}</h2><ol class="atheneum-news-list">{''.join(rows)}</ol><a class="atheneum-inline-link" href="{link(path, ('en/' if en else '') + 'activities/index.html')}">{t('查看全部学术活动', 'All academic activities')}</a></article>
   <article><h2>{t('研究与出版', 'Research and publishing')}</h2><div class="atheneum-journal"><div><h3>{t('《近代哲学》<span>第一期</span>', 'Modern Philosophy · <span>Issue 1</span>')}</h3><p>{t('贝克莱作品的编纂和影响', 'George Berkeley’s Works and Legacy')}<br>2026 · {t('福建教育出版社', 'Fujian Education Press')}</p><a class="atheneum-button" href="{link(path, journal)}">{t('查看期刊', 'Explore the issue')}</a></div><a href="{link(path, journal)}" tabindex="-1" aria-hidden="true"><img src="{link(path, 'assets/optimized/b389b1633c2b-384.webp')}" alt="{t('《近代哲学》第一期书封', 'Cover of Modern Philosophy, Issue 1')}" width="1280" height="1636" loading="lazy" decoding="async"></a></div></article>
   <article class="atheneum-series"><h2>{t('西方思想文化译丛', 'Western Thought &amp; Culture Library')}</h2>{'<p class="series-english" lang="en">Western Thought &amp; Culture Library</p>' if not en else ''}<div class="atheneum-book-row">{''.join(book_imgs)}</div><p>{t('译介经典，推动思想对话。本站收录', 'Translations for an ongoing conversation. Explore')} <span data-stat="books">{len(books)}</span> {t('册图书。', 'volumes.')}</p><a class="atheneum-inline-link" href="{link(path, catalogue)}">{t('浏览全部书目', 'Browse the library')}</a></article>
 </section>'''

@@ -156,38 +156,68 @@ class GenerationTests(unittest.TestCase):
             self.assertNotIn('alt="译丛书目 ', row)
 
     def test_all_philosophers_have_matching_controls_records_and_portraits(self):
-        people = build_site.load('atheneum.json')['philosophers']
-        identities = [person['id'] for person in people]
-        self.assertEqual(len(identities), len(set(identities)))
-        outputs = build_site.build()
-        for path in ('index.html', 'en/index.html'):
-            parser = ProfileMarkup()
-            parser.feed(outputs[path])
-            tags = parser.elements
-            state = json.loads(re.search(r'<script\b[^>]*id="atheneum-profiles"[^>]*>(.*?)</script>', outputs[path], re.S).group(1))
-            self.assertEqual([person['id'] for person in state], identities)
-            records = [attrs for tag, attrs, _ in tags if 'data-person-record' in attrs]
-            self.assertCountEqual([attrs['data-person-record'] for attrs in records], identities)
-            visible = [attrs['data-person-record'] for attrs in records if 'hidden' not in attrs]
-            self.assertEqual(len(visible), 1)
-            controls = [attrs for tag, attrs, _ in tags if tag == 'button' and 'data-select-person' in attrs]
-            self.assertEqual(Counter(attrs['data-select-person'] for attrs in controls), Counter({identity: 2 for identity in identities}))
-            ids = [attrs['id'] for _, attrs, _ in tags if 'id' in attrs]
-            for control in controls:
-                self.assertIn(control['aria-controls'], ids)
-                self.assertEqual(control['aria-pressed'], str(control['data-select-person'] == visible[0]).lower())
-            dialog = next(attrs for tag, attrs, _ in tags if tag == 'dialog' and attrs.get('id') == 'atheneum-detail')
-            self.assertEqual(dialog['aria-labelledby'], 'person-title-' + visible[0])
-            for person in people:
-                self.assertEqual(ids.count('person-title-' + person['id']), 1)
-                portrait = next(attrs for tag, attrs, owner in tags if tag == 'img' and owner == person['id'])
-                resolved = (build_site.ROOT / Path(path).parent / portrait['src']).resolve()
-                self.assertTrue(resolved.is_file(), str(resolved))
-                source = portrait.get('data-media-source')
-                if source:
-                    self.assertEqual(source, person['portrait']['image'])
-                else:
-                    self.assertEqual(resolved, (build_site.ROOT / person['portrait']['image']).resolve())
+        source = build_site.ROOT / 'data/atheneum.json'
+        original_read = Path.read_text
+        catalogue = build_site.load('atheneum.json')
+        changed = copy.deepcopy(catalogue)
+        # Change size, order and names so fixed reader counts or labels cannot pass.
+        removed = next(p['id'] for p in changed['philosophers'] if p['id'] != 'berkeley')
+        changed['philosophers'] = [p for p in reversed(changed['philosophers']) if p['id'] != removed]
+        for person in changed['philosophers']:
+            person['shortName'] = {language: name + ' <reader> & "label"' for language, name in person['shortName'].items()}
+
+        for case, data in (('current catalogue', catalogue), ('reordered subset', changed)):
+            people = data['philosophers']
+            identities = [person['id'] for person in people]
+            self.assertEqual(len(identities), len(set(identities)))
+            def read(path, *args, **kwargs):
+                return json.dumps(data, ensure_ascii=False) if path == source else original_read(path, *args, **kwargs)
+            with patch.object(Path, 'read_text', new=read):
+                outputs = build_site.build()
+            for path, language in (('index.html', 'zh'), ('en/index.html', 'en')):
+                with self.subTest(case=case, path=path):
+                    text = outputs[path]
+                    parser = ProfileMarkup()
+                    parser.feed(text)
+                    tags = parser.elements
+                    state = json.loads(re.search(r'<script\b[^>]*id="atheneum-profiles"[^>]*>(.*?)</script>', text, re.S).group(1))
+                    self.assertEqual([person['id'] for person in state], identities)
+                    self.assertEqual([person['shortName'] for person in state], [person['shortName'] for person in people])
+                    records = [attrs for tag, attrs, _ in tags if 'data-person-record' in attrs]
+                    self.assertCountEqual([attrs['data-person-record'] for attrs in records], identities)
+                    visible = [attrs['data-person-record'] for attrs in records if 'hidden' not in attrs]
+                    self.assertEqual(len(visible), 1)
+                    controls = [attrs for tag, attrs, _ in tags if tag == 'button' and 'data-select-person' in attrs]
+                    ids = [attrs['id'] for _, attrs, _ in tags if 'id' in attrs]
+                    for is_hotspot, target in ((True, 'atheneum-detail'), (False, 'atheneum-card')):
+                        group = [attrs for attrs in controls if ('atheneum-figure' in attrs.get('class', '').split()) == is_hotspot]
+                        self.assertEqual(Counter(attrs['data-select-person'] for attrs in group), Counter(identities))
+                        for control in group:
+                            self.assertEqual(control['aria-controls'], target)
+                            self.assertIn(target, ids)
+                            self.assertEqual(control['aria-pressed'], str(control['data-select-person'] == visible[0]).lower())
+                            if is_hotspot:
+                                self.assertEqual(control.get('aria-haspopup'), 'dialog')
+                    picker_labels = re.findall(r'<button\b(?=[^>]*data-select-person="([^"]+)")(?=[^>]*aria-controls="atheneum-card")[^>]*>(.*?)</button>', text, re.S)
+                    self.assertEqual(dict(picker_labels), {p['id']: html.escape(p['shortName'][language], quote=True) for p in people})
+                    chosen = next(person for person in people if person['id'] == visible[0])
+                    reader_name = re.findall(r'<strong\b[^>]*data-reader-name[^>]*>(.*?)</strong>', text, re.S)
+                    self.assertEqual(reader_name, [html.escape(chosen['shortName'][language], quote=True)])
+                    reader_count = re.findall(r'<span\b[^>]*data-reader-count[^>]*>(.*?)</span>', text, re.S)
+                    self.assertEqual(len(reader_count), 1)
+                    self.assertEqual(re.findall(r'\d+', reader_count[0]), [str(identities.index(visible[0]) + 1), str(len(people))])
+                    dialog = next(attrs for tag, attrs, _ in tags if tag == 'dialog' and attrs.get('id') == 'atheneum-detail')
+                    self.assertEqual(dialog['aria-labelledby'], 'person-title-' + visible[0])
+                    for person in people:
+                        self.assertEqual(ids.count('person-title-' + person['id']), 1)
+                        portrait = next(attrs for tag, attrs, owner in tags if tag == 'img' and owner == person['id'])
+                        resolved = (build_site.ROOT / Path(path).parent / portrait['src']).resolve()
+                        self.assertTrue(resolved.is_file(), str(resolved))
+                        portrait_source = portrait.get('data-media-source')
+                        if portrait_source:
+                            self.assertEqual(portrait_source, person['portrait']['image'])
+                        else:
+                            self.assertEqual(resolved, (build_site.ROOT / person['portrait']['image']).resolve())
 
     def test_philosopher_work_date_notes_propagate_in_each_language_safely(self):
         original_read = Path.read_text
