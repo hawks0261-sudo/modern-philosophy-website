@@ -1,0 +1,320 @@
+/* Chapter divisions for the two Atheneum homepages. Load after atheneum.css.
+   Only the content beneath the scene is styled here; all images retain their
+   original colours. Solid colours remain the fallback if the paper is absent. */
+
+.atheneum-home :is(.atheneum-featured, .home-section, .section-block) {
+  --chapter-ink: #382719;
+  --chapter-muted: #5f4b36;
+  --chapter-rule: #795c38;
+  --chapter-line: #a88e68;
+  --chapter-accent: #705021;
+  --chapter-paper: #f2e8d3;
+  --navy: var(--chapter-ink);
+  --muted: var(--chapter-muted);
+  --border: var(--chapter-line);
+  --gold-ink: var(--chapter-accent);
+  color: var(--chapter-ink);
+}
+
+/* A triptych of printed leaves, with continuous rules between columns. */
+.atheneum-home .atheneum-featured {
+  display: grid;
+  grid-template-columns: 1.05fr 1.07fr 1fr;
+  gap: 0;
+  padding: 0;
+  border-top: 4px double #79562c;
+  border-bottom: 3px solid #79562c;
+  background: #e6cfaa;
+}
+
+.atheneum-home .atheneum-featured > article {
+  min-width: 0;
+  padding: 32px clamp(24px, 2.65vw, 46px) 34px;
+  background-color: #f0dfbe;
+  background-image: linear-gradient(#f0dfbeaa, #f0dfbeaa), url("assets/optimized/843b29caaa0a-768.webp");
+  background-size: auto, 768px auto;
+}
+
+.atheneum-home .atheneum-featured > article + article {
+  border-left: 2px solid #8b683c;
+}
+
+.atheneum-home .atheneum-featured > article:nth-child(2) {
+  background-color: #e3c593;
+  background-image: linear-gradient(#e3c593bd, #e3c593bd), url("assets/optimized/843b29caaa0a-768.webp");
+}
+
+.atheneum-home .atheneum-featured > article:nth-child(3) {
+  background-color: #eee4ce;
+  background-image: linear-gradient(#eee4cedb, #eee4cedb), url("assets/optimized/843b29caaa0a-768.webp");
+}
+
+.atheneum-home .atheneum-featured h2 {
+  margin: 0 0 22px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #8b683c;
+  color: #402c18;
+  font-size: clamp(22px, 1.75vw, 27px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .035em;
+}
+
+.atheneum-home .atheneum-featured .atheneum-news-list li {
+  padding-block: 13px;
+  border-bottom-color: #b3986c;
+}
+
+.atheneum-home .atheneum-featured .atheneum-news-list li:first-child { padding-top: 0; }
+.atheneum-home .atheneum-featured :is(p, time) { color: #58412a; }
+.atheneum-home .atheneum-featured .atheneum-inline-link { margin-top: 10px; min-height: 44px; color: #422b13; }
+.atheneum-home .atheneum-featured .atheneum-button { color: #fff0cd; text-decoration: none; }
+.atheneum-home .atheneum-featured .series-english { margin: -11px 0 20px; max-width: none; line-height: 1.6; }
+.atheneum-home .atheneum-featured .atheneum-series p { max-width: none; }
+.atheneum-home .atheneum-featured .atheneum-book-row { float: none; width: auto; margin: 0; }
+.atheneum-home .atheneum-journal h3 span { display: inline-block; white-space: nowrap; }
+
+/* Full-width chapter bands; the English overview uses the same reading width
+   as the Chinese edition instead of detached cards inside a paper margin. */
+.atheneum-home.english-overview main > .page-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.atheneum-home :is(.home-section, .section-block) {
+  margin: 0;
+  padding-block: clamp(44px, 5vw, 72px);
+  border-top: 3px solid var(--chapter-rule);
+  border-bottom: 1px solid var(--chapter-line);
+  background-color: var(--chapter-paper);
+  background-image: linear-gradient(var(--chapter-tint, #f2e8d3e8), var(--chapter-tint, #f2e8d3e8)), url("assets/optimized/843b29caaa0a-1440.webp");
+  background-size: auto, 1440px auto;
+  scroll-margin-top: 24px;
+}
+
+.atheneum-home.english-overview .section-block {
+  padding-inline: max(32px, calc((100% - 1180px) / 2));
+}
+
+.atheneum-home .home-section-head {
+  align-items: end;
+  gap: 20px 32px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 4px double var(--chapter-rule);
+}
+
+.atheneum-home :is(.home-section, .section-block) h2 {
+  color: var(--chapter-ink);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+
+.atheneum-home :is(.home-section, .section-block) h3 {
+  color: var(--chapter-ink);
+  line-height: 1.6;
+}
+
+.atheneum-home :is(.home-section, .section-block) :is(p, address) {
+  color: var(--chapter-muted);
+  line-height: 1.9;
+}
+
+.atheneum-home :is(.home-section, .section-block) a {
+  color: var(--chapter-ink);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+.atheneum-home :is(.home-section, .section-block) a:hover { text-decoration: underline; }
+.atheneum-home :is(.home-section, .section-block) a:focus-visible { outline-color: var(--chapter-accent); }
+
+.atheneum-home .home-section .home-eyebrow,
+.atheneum-home.english-overview .section-block > .page-kicker {
+  margin-bottom: 9px;
+  color: var(--chapter-accent);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: .07em;
+}
+
+.atheneum-home.english-overview .section-block > h2 {
+  max-width: 32ch;
+  margin: 0 0 30px;
+  padding-bottom: 23px;
+  border-bottom: 4px double var(--chapter-rule);
+  letter-spacing: 0;
+}
+
+.atheneum-home.english-overview .section-block > p { margin-block: 0 20px; }
+.atheneum-home.english-overview .section-block > .overview-text-link { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Each chapter has its own paper stock and a visible change at its boundary. */
+.atheneum-home :is(.home-section, .section-block)#activities {
+  --chapter-paper: #f4eddf;
+  --chapter-tint: #f4eddfed;
+}
+
+.atheneum-home .home-section#outcomes,
+.atheneum-home .section-block#publications {
+  --chapter-paper: #e5cda6;
+  --chapter-tint: #e5cda6de;
+  --chapter-line: #a7895b;
+}
+
+.atheneum-home .home-section#people-preview,
+.atheneum-home .section-block#people {
+  --chapter-paper: #dfe1d3;
+  --chapter-tint: #dfe1d3ed;
+  --chapter-ink: #30352b;
+  --chapter-muted: #4c5144;
+  --chapter-accent: #4f5637;
+  --chapter-rule: #666c50;
+  --chapter-line: #9c9f85;
+}
+
+.atheneum-home .section-block#about {
+  --chapter-paper: #eee1c7;
+  --chapter-tint: #eee1c7e8;
+}
+
+.atheneum-home :is(.home-section, .section-block):is(#research, #contact) {
+  --chapter-ink: #f6e7c9;
+  --chapter-muted: #dfceb0;
+  --chapter-accent: #e3bd78;
+  --chapter-rule: #b08b51;
+  --chapter-line: #7c6548;
+  --chapter-paper: #33271d;
+  --chapter-tint: #33271df5;
+}
+
+.atheneum-home :is(.home-section, .section-block)#contact {
+  --chapter-paper: #251e17;
+  --chapter-tint: #251e17f7;
+  border-top-width: 4px;
+  border-bottom-color: #70573a;
+}
+
+/* Printed-column rules, rather than generic rounded panels. */
+.atheneum-home .home-section :is(.home-activity, .home-publication, .home-person, .home-research-grid article) {
+  border-color: var(--chapter-line);
+  border-top-width: 2px;
+}
+
+.atheneum-home .home-section .home-activity time { color: var(--chapter-muted); }
+.atheneum-home .home-section .home-activity { padding-top: 23px; }
+.atheneum-home .home-section .home-publication { padding-top: 26px; }
+.atheneum-home .home-section .home-project { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--chapter-rule); color: var(--chapter-muted); }
+.atheneum-home .home-section .home-person { padding-top: 25px; }
+.atheneum-home .home-section .home-person p a { text-decoration: underline; }
+.atheneum-home .home-section .home-research-grid span { color: var(--chapter-accent); font-size: 28px; }
+.atheneum-home .home-section .home-research-grid h3 { margin-top: 12px; }
+.atheneum-home .home-section .home-research-grid p { color: var(--chapter-muted); }
+.atheneum-home .home-section .home-about { margin-top: 44px; padding-top: 34px; border-top: 4px double var(--chapter-rule); }
+.atheneum-home .home-section .home-about h2 { font-size: 28px; }
+.atheneum-home .home-section .home-about-grid p { color: var(--chapter-muted); }
+
+.atheneum-home .home-section .home-conferences,
+.atheneum-home .section-block .overview-note {
+  background: #e9dcc3;
+  border: 1px solid #bba27b;
+  border-left: 4px solid #846235;
+  border-radius: 0;
+  color: #44341f;
+}
+
+.atheneum-home .home-section .home-conferences p,
+.atheneum-home .section-block .overview-note :is(h3, p) { color: #44341f; }
+.atheneum-home .home-section .home-news { padding-top: 20px; border-top: 1px solid var(--chapter-line); }
+
+.atheneum-home.english-overview .section-block .overview-grid { gap: 28px; }
+.atheneum-home.english-overview .section-block .overview-grid article {
+  padding: 25px 0 0;
+  border: 0;
+  border-top: 2px solid var(--chapter-line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  min-width: 0;
+}
+
+.atheneum-home.english-overview .section-block .overview-grid h3 { margin: 0 0 15px; font: 600 22px/1.45 var(--serif); }
+.atheneum-home.english-overview .section-block .overview-grid p { margin: 0 0 17px; }
+.atheneum-home.english-overview .section-block .overview-grid a { display: inline-block; padding-block: 7px; }
+.atheneum-home.english-overview .section-block .overview-events { margin: 0; }
+.atheneum-home.english-overview .section-block .overview-events li { padding-block: 24px; border-color: var(--chapter-line); }
+.atheneum-home.english-overview .section-block .overview-events li:first-child { padding-top: 0; }
+.atheneum-home.english-overview .section-block .overview-events time { color: var(--chapter-muted); }
+.atheneum-home.english-overview .section-block .overview-events a { display: inline-block; padding-block: 5px; }
+
+.atheneum-home .home-section .home-contact h2 { margin-bottom: 18px; }
+.atheneum-home .home-section .home-contact dl { border-top: 4px double var(--chapter-rule); }
+.atheneum-home .home-section .home-contact dl div { padding-block: 17px; border-bottom-color: var(--chapter-line); }
+.atheneum-home .home-section .home-contact dt { color: var(--chapter-muted); }
+.atheneum-home .home-section .home-contact dd { color: var(--chapter-ink); }
+.atheneum-home.english-overview .section-block#contact address { padding-top: 22px; border-top: 1px solid var(--chapter-line); }
+
+@media (min-width: 1025px) {
+  .atheneum-home .home-section .home-publication + .home-publication,
+  .atheneum-home .home-section .home-person + .home-person,
+  .atheneum-home .home-section .home-research-grid article + article {
+    padding-left: 26px;
+    border-left: 1px solid var(--chapter-line);
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1024px) {
+  .atheneum-home .atheneum-featured { grid-template-columns: 1fr 1fr; }
+  .atheneum-home .atheneum-featured > article { padding: 30px; }
+  .atheneum-home .atheneum-featured > article + article { border-top: 0; border-left: 2px solid #8b683c; }
+  .atheneum-home .atheneum-featured > article:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+    grid-column: 1 / -1;
+    padding: 30px;
+    border-left: 0;
+    border-top: 2px solid #8b683c;
+  }
+  .atheneum-home .atheneum-featured .atheneum-series h2 { grid-column: 1 / -1; }
+  .atheneum-home .atheneum-featured .atheneum-series .series-english { grid-column: 1; }
+  .atheneum-home .atheneum-featured .atheneum-series .atheneum-book-row { grid-column: 2; grid-row: 2 / 5; align-self: center; }
+  .atheneum-home .atheneum-featured .atheneum-series > p,
+  .atheneum-home .atheneum-featured .atheneum-series > a { grid-column: 1; }
+  .atheneum-home .home-section .home-contact { gap: 30px; }
+}
+
+@media (max-width: 680px) {
+  .atheneum-home .atheneum-featured { display: block; }
+  .atheneum-home .atheneum-featured > article,
+  .atheneum-home .atheneum-featured > article + article,
+  .atheneum-home .atheneum-featured > article:last-child {
+    display: block;
+    padding: 28px 22px 30px;
+    border-left: 0;
+  }
+  .atheneum-home .atheneum-featured > article + article { border-top: 2px solid #8b683c; }
+  .atheneum-home .atheneum-featured h2 { font-size: 25px; margin-bottom: 22px; padding-bottom: 13px; }
+  .atheneum-home .atheneum-featured .atheneum-journal { grid-template-columns: minmax(0, 1fr) 35%; gap: 18px; }
+  .atheneum-home .atheneum-featured .atheneum-journal img { height: 185px; }
+  .atheneum-home .atheneum-featured .atheneum-news-list li { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+  .atheneum-home :is(.home-section, .section-block) { padding-block: 38px 42px; }
+  .atheneum-home.english-overview .section-block { padding-inline: 22px; }
+  .atheneum-home .home-section > .home-shell { width: calc(100% - 44px); }
+  .atheneum-home .home-section-head { align-items: start; gap: 12px; margin-bottom: 24px; padding-bottom: 20px; }
+  .atheneum-home :is(.home-section, .section-block) h2 { font-size: 29px; }
+  .atheneum-home.english-overview .section-block > h2 { font-size: 30px; padding-bottom: 20px; margin-bottom: 24px; }
+  .atheneum-home .home-section .home-contact { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .atheneum-home .home-section .home-contact dl div { gap: 12px; }
+  .atheneum-home .home-section :is(.home-research-grid, .home-about-grid, .home-people, .home-publications) { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .atheneum-home .home-section .home-about { margin-top: 34px; padding-top: 28px; }
+  .atheneum-home .home-section .home-activity { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; }
+  .atheneum-home .home-section .home-activity img { width: 76px; }
+  .atheneum-home .home-section .home-conferences { padding: 16px; }
+  .atheneum-home.english-overview .section-block .overview-grid { gap: 26px; }
+}

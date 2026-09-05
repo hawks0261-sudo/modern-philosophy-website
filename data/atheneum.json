@@ -113,6 +113,210 @@
       ]
     },
     {
+      "id": "spinoza",
+      "name": {
+        "zh": "巴鲁赫·斯宾诺莎",
+        "en": "Baruch Spinoza"
+      },
+      "shortName": {
+        "zh": "斯宾诺莎",
+        "en": "Spinoza"
+      },
+      "born": 1632,
+      "died": 1677,
+      "years": "1632–1677",
+      "bio": {
+        "zh": "斯宾诺莎出生于阿姆斯特丹的葡萄牙犹太社群。他把人理解为自然的一部分，以唯一实体及其样式阐释世界，研究知识、情感与自由的关系。他以理性生活与幸福为伦理学目标，并通过对宗教和政治的考察，为思想自由与宽容辩护。",
+        "en": "Baruch Spinoza was born into Amsterdam’s Portuguese-Jewish community. He understood human beings as part of nature and explained reality through a single substance and its modes. His philosophy connects knowledge, emotion, freedom, and the pursuit of a flourishing life. His examination of religion and political authority also defended the freedom to think and philosophise."
+      },
+      "themes": [
+        {
+          "zh": "自然与实体",
+          "en": "Nature and substance"
+        },
+        {
+          "zh": "情感与自由",
+          "en": "Emotion and freedom"
+        },
+        {
+          "zh": "思想与宽容",
+          "en": "Thought and toleration"
+        }
+      ],
+      "works": [
+        {
+          "zh": "神学政治论",
+          "en": "Theological-Political Treatise",
+          "year": "1670"
+        },
+        {
+          "zh": "伦理学",
+          "en": "Ethics",
+          "year": "1677"
+        },
+        {
+          "zh": "政治论",
+          "en": "Political Treatise",
+          "year": "1677"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Baruch Spinoza",
+          "url": "https://plato.stanford.edu/entries/spinoza/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-spinoza.jpg",
+        "sourceUrl": "https://diglib.hab.de/varia/gemaelde/b-117/start.htm",
+        "sourceLabel": {
+          "zh": "奥古斯特公爵图书馆藏斯宾诺莎肖像",
+          "en": "Herzog August Library portrait of Spinoza"
+        },
+        "caption": {
+          "zh": "佚名，约1665年；沃尔芬比特尔奥古斯特公爵图书馆藏。",
+          "en": "Anonymous, circa 1665. Herzog August Library, Wolfenbüttel."
+        },
+        "attributionNote": {
+          "zh": "此画属于流传下来的斯宾诺莎肖像传统。馆藏修复与X光资料未能确定它是生前写生原作，还是原作的早期摹本；人物创作以此图像为依据，不据此声称已还原其确切容貌。",
+          "en": "This image belongs to the surviving portrait tradition of Spinoza. The Library’s conservation and X-ray record did not settle whether it was painted from life or is an early copy. It guides the reconstruction without establishing an exact historical likeness."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Spinoza.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        },
+        "researchSourceUrl": "https://www.deutsche-digitale-bibliothek.de/item/GDQILRNAJS2TSXNYQGE4KUJD6GCG2JGB"
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "罗伯特·波义耳的当代意义",
+            "en": "Robert Boyle’s significance for our time"
+          },
+          "href": "/activities/seminar-07/index.html",
+          "hrefEn": "/en/activities/seminar-07/index.html",
+          "type": "event"
+        },
+        {
+          "label": {
+            "zh": "莱昂·布朗什维克与近代哲学研究",
+            "en": "Léon Brunschvicg and the study of modern philosophy"
+          },
+          "href": "/activities/seminar-06/index.html",
+          "hrefEn": null,
+          "type": "event"
+        }
+      ]
+    },
+    {
+      "id": "leibniz",
+      "name": {
+        "zh": "戈特弗里德·威廉·莱布尼茨",
+        "en": "Gottfried Wilhelm Leibniz"
+      },
+      "shortName": {
+        "zh": "莱布尼茨",
+        "en": "Leibniz"
+      },
+      "born": 1646,
+      "died": 1716,
+      "years": "1646–1716",
+      "bio": {
+        "zh": "莱布尼茨是德国哲学家、数学家与学者，其研究横跨逻辑、自然科学、法律和历史。他以充足理由原则、单子与前定和谐解释世界的秩序，思考可能性、自由与恶的问题。他的思想散见于论文、著作和广泛的学术通信之中。",
+        "en": "Gottfried Wilhelm Leibniz was a German philosopher and mathematician whose interests also included law, history, and natural science. He investigated the order of the world through sufficient reason, monads, and pre-established harmony, while considering possibility, freedom, and evil. His philosophy developed across books, short essays, and extensive correspondence rather than a single definitive systematic work."
+      },
+      "themes": [
+        {
+          "zh": "充足理由",
+          "en": "Sufficient reason"
+        },
+        {
+          "zh": "单子与和谐",
+          "en": "Monads and harmony"
+        },
+        {
+          "zh": "可能性与自由",
+          "en": "Possibility and freedom"
+        }
+      ],
+      "works": [
+        {
+          "zh": "形而上学谈",
+          "en": "Discourse on Metaphysics",
+          "year": "1686",
+          "dateNote": {
+            "zh": "1686年写成；不是首刊年份。",
+            "en": "Composed in 1686; not the date of first publication."
+          }
+        },
+        {
+          "zh": "神义论",
+          "en": "Theodicy",
+          "year": "1710"
+        },
+        {
+          "zh": "单子论",
+          "en": "Monadology",
+          "year": "1714",
+          "dateNote": {
+            "zh": "1714年写成；不是首刊年份。",
+            "en": "Composed in 1714; not the date of first publication."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — Gottfried Wilhelm Leibniz",
+          "url": "https://plato.stanford.edu/entries/leibniz/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-leibniz.jpg",
+        "sourceUrl": "https://3landesmuseen-braunschweig.de/en/herzog-anton-ulrich-museum/collection/departments/painting-collection-old-masters",
+        "sourceLabel": {
+          "zh": "安东·乌尔里希公爵博物馆藏莱布尼茨肖像",
+          "en": "Herzog Anton Ulrich Museum portrait of Leibniz"
+        },
+        "caption": {
+          "zh": "克里斯托夫·伯恩哈德·弗兰克，约1695年；安东·乌尔里希公爵博物馆藏。",
+          "en": "Christoph Bernhard Francke, circa 1695. Herzog Anton Ulrich Museum."
+        },
+        "attributionNote": {
+          "zh": "画家和约1695年的年代依博物馆官方绘画藏品页面著录。场景人物依据这一肖像创作，衣着、姿态和殿堂环境属于艺术构图。",
+          "en": "The artist and approximate date follow the museum’s official painting collection page. This portrait informs the scene figure; clothing, pose, and the hall setting form part of the artistic composition."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "《近代哲学》第一期：莱布尼茨与贝克莱",
+            "en": "Modern Philosophy, Issue 1: Leibniz and Berkeley"
+          },
+          "href": "/publications/journal/issue-01/index.html#page-211",
+          "hrefEn": "/en/publications/journal/index.html#page-211",
+          "type": "journal"
+        }
+      ]
+    },
+    {
       "id": "kant",
       "name": {
         "zh": "伊曼努尔·康德",
@@ -195,6 +399,123 @@
         "image": "assets/atheneum/portrait-kant.jpg"
       },
       "relatedLinks": []
+    },
+    {
+      "id": "locke",
+      "name": {
+        "zh": "约翰·洛克",
+        "en": "John Locke"
+      },
+      "shortName": {
+        "zh": "洛克",
+        "en": "Locke"
+      },
+      "born": 1632,
+      "died": 1704,
+      "years": "1632–1704",
+      "bio": {
+        "zh": "洛克是英国哲学家。他从感觉与反省考察观念的来源，区分知识与意见，并讨论人类理解的范围和限度。他的政治哲学重视自然权利、同意与政府权力的约束，也论述宗教宽容；这些问题使认识论与公共生活紧密相联。",
+        "en": "John Locke was an English philosopher who investigated the sources and limits of human understanding. He traced ideas to sensation and reflection and distinguished knowledge from opinion. His political writings examined natural rights, consent, and the limits of government, while his account of religious toleration addressed the relationship between conscience, civil authority, and peaceful coexistence."
+      },
+      "themes": [
+        {
+          "zh": "经验与知识",
+          "en": "Experience and knowledge"
+        },
+        {
+          "zh": "权利与同意",
+          "en": "Rights and consent"
+        },
+        {
+          "zh": "宗教宽容",
+          "en": "Religious toleration"
+        }
+      ],
+      "works": [
+        {
+          "zh": "人类理解论",
+          "en": "An Essay Concerning Human Understanding",
+          "year": "1689 / 1690",
+          "dateNote": {
+            "zh": "1689年问世，书名页题1690年。",
+            "en": "Issued in 1689 with 1690 on the title page."
+          }
+        },
+        {
+          "zh": "政府论两篇",
+          "en": "Two Treatises of Government",
+          "year": "1689 / 1690",
+          "dateNote": {
+            "zh": "1689年问世，书名页题1690年。",
+            "en": "Issued in 1689 with 1690 on the title page."
+          }
+        },
+        {
+          "zh": "论宗教宽容",
+          "en": "A Letter Concerning Toleration",
+          "year": "1689"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — John Locke",
+          "url": "https://plato.stanford.edu/entries/locke/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        },
+        {
+          "label": "McMaster University — Published Works of John Locke",
+          "url": "https://historyofeconomicthought.mcmaster.ca/locke/locbib.htm",
+          "supports": [
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-locke.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg",
+        "sourceLabel": {
+          "zh": "洛克肖像图像目录：艾尔米塔什藏本",
+          "en": "Portrait catalogue: John Locke, Hermitage version"
+        },
+        "caption": {
+          "zh": "戈弗雷·内勒，1697年；艾尔米塔什博物馆藏，依图像目录著录。",
+          "en": "Godfrey Kneller, 1697. Hermitage Museum; attribution follows the image catalogue."
+        },
+        "attributionNote": {
+          "zh": "此图像目录引用艾尔米塔什博物馆第38692号记录，藏品号为ГЭ-1345。馆方旧版详情链接目前不可访问，故提供可查阅的图像目录；不与内勒绘制的其他洛克肖像混用。",
+          "en": "The image catalogue cites Hermitage record 38692, accession ГЭ-1345. The museum’s former detail link is currently unavailable, so the accessible image catalogue is provided. This version should not be conflated with Kneller’s other portraits of Locke."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "罗伯特·波义耳的当代意义",
+            "en": "Robert Boyle’s significance for our time"
+          },
+          "href": "/activities/seminar-07/index.html",
+          "hrefEn": "/en/activities/seminar-07/index.html",
+          "type": "event"
+        },
+        {
+          "label": {
+            "zh": "乔治·贝克莱与世界：心灵与自然的全球视野",
+            "en": "George Berkeley and the world"
+          },
+          "href": "/activities/seminar-08/index.html",
+          "hrefEn": "/en/activities/seminar-08/index.html",
+          "type": "event"
+        }
+      ]
     },
     {
       "id": "berkeley",
@@ -306,6 +627,89 @@
           "type": "event"
         }
       ]
+    },
+    {
+      "id": "hume",
+      "name": {
+        "zh": "大卫·休谟",
+        "en": "David Hume"
+      },
+      "shortName": {
+        "zh": "休谟",
+        "en": "Hume"
+      },
+      "born": 1711,
+      "died": 1776,
+      "years": "1711–1776",
+      "bio": {
+        "zh": "休谟是苏格兰哲学家、历史学家与散文家。他以对人性的研究考察知识、情感和道德，分析因果推断与习惯的关系，并追问理性的限度。他强调情感和同情在道德判断中的作用，其研究也延伸到宗教、政治经济和英国历史。",
+        "en": "David Hume was a Scottish philosopher, historian, and essayist. His study of human nature explored understanding, emotion, and morality, examining the role of habit in causal inference and the limits of reason. He investigated how sentiment and sympathy inform moral judgment, and extended his work to religion, political economy, and the history of England."
+      },
+      "themes": [
+        {
+          "zh": "因果与习惯",
+          "en": "Causation and habit"
+        },
+        {
+          "zh": "情感与道德",
+          "en": "Sentiment and morality"
+        },
+        {
+          "zh": "怀疑与人性",
+          "en": "Scepticism and human nature"
+        }
+      ],
+      "works": [
+        {
+          "zh": "人性论",
+          "en": "A Treatise of Human Nature",
+          "year": "1739–1740"
+        },
+        {
+          "zh": "人类理解研究",
+          "en": "An Enquiry Concerning Human Understanding",
+          "year": "1748"
+        },
+        {
+          "zh": "道德原理研究",
+          "en": "An Enquiry Concerning the Principles of Morals",
+          "year": "1751"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Stanford Encyclopedia of Philosophy — David Hume",
+          "url": "https://plato.stanford.edu/entries/hume/",
+          "supports": [
+            "dates",
+            "bio",
+            "themes",
+            "works"
+          ]
+        }
+      ],
+      "portrait": {
+        "image": "assets/atheneum/portrait-hume.jpg",
+        "sourceUrl": "https://artsandculture.google.com/asset/david-hume-allan-ramsay/KgH_IR3l3MzLIQ",
+        "sourceLabel": {
+          "zh": "苏格兰国家美术馆提供的休谟肖像记录",
+          "en": "National Galleries Scotland portrait record for David Hume"
+        },
+        "caption": {
+          "zh": "艾伦·拉姆齐，1766年；苏格兰国家肖像馆藏。",
+          "en": "Allan Ramsay, 1766. Scottish National Portrait Gallery."
+        },
+        "attributionNote": {
+          "zh": "画家、年代与馆藏依据苏格兰国家美术馆在Google Arts & Culture发布的记录。此处采用红衣白色假发的1766年肖像，不是拉姆齐1754年绘制的头巾肖像。",
+          "en": "The artist, date, and collection follow the record supplied by National Galleries Scotland to Google Arts & Culture. This is the 1766 portrait with a red coat and white wig, not Ramsay’s 1754 portrait showing Hume in a turban."
+        },
+        "commonsPage": "https://commons.wikimedia.org/wiki/File:David_Hume_Ramsay.jpg",
+        "reconstructionLabel": {
+          "zh": "依据历史肖像创作的艺术形象",
+          "en": "Artistic reconstruction informed by a historical portrait"
+        }
+      },
+      "relatedLinks": []
     }
   ]
 }

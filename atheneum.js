@@ -12,7 +12,7 @@
   const world = scene.querySelector('.atheneum-world');
   const motionButton = scene.querySelector('.atheneum-motion');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const compact = matchMedia('(max-width: 1024px)');
+  const compact = matchMedia('(max-width: 1200px)');
   let selected = 'berkeley';
   let returnFocus = null;
   let motion = !reduced.matches;
@@ -42,10 +42,10 @@
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
       event.preventDefault();
       const ids = data.map(person => person.id);
-      const index = ids.indexOf(selected);
+      const index = ids.indexOf(button.dataset.selectPerson);
       const next = ids[(index + (event.key === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length];
       selectPerson(next);
-      const container = button.closest('.atheneum-mobile-tabs') || world;
+      const container = button.closest('.atheneum-person-picker') || world;
       container.querySelector('[data-select-person="' + next + '"]').focus({ preventScroll: true });
     });
   });

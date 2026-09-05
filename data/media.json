@@ -25,6 +25,32 @@
       }
     ]
   },
+  "assets/atheneum/hero-scene-v2.png": {
+    "width": 1748,
+    "height": 899,
+    "bytes": 2508316,
+    "sha256": "2916c446631196086cc77c868d0ba27fae92b5a91d913d0832f25373cfc08a6f",
+    "variants": [
+      {
+        "src": "assets/optimized/c2c1cc2bc976-383.webp",
+        "width": 383,
+        "height": 197,
+        "bytes": 15972
+      },
+      {
+        "src": "assets/optimized/c2c1cc2bc976-768.webp",
+        "width": 768,
+        "height": 395,
+        "bytes": 66114
+      },
+      {
+        "src": "assets/optimized/c2c1cc2bc976-1440.webp",
+        "width": 1440,
+        "height": 741,
+        "bytes": 214266
+      }
+    ]
+  },
   "assets/atheneum/hero-scene.png": {
     "width": 1786,
     "height": 881,
@@ -117,6 +143,26 @@
       }
     ]
   },
+  "assets/atheneum/portrait-hume.jpg": {
+    "width": 500,
+    "height": 605,
+    "bytes": 69845,
+    "sha256": "3fdac6d98f0faee9096834db557c4122d3ffe12f628358211a22e53678d15b29",
+    "variants": [
+      {
+        "src": "assets/optimized/1bae83db31b9-384.webp",
+        "width": 384,
+        "height": 465,
+        "bytes": 29532
+      },
+      {
+        "src": "assets/optimized/1bae83db31b9-500.webp",
+        "width": 500,
+        "height": 605,
+        "bytes": 53728
+      }
+    ]
+  },
   "assets/atheneum/portrait-kant.jpg": {
     "width": 500,
     "height": 653,
@@ -134,6 +180,66 @@
         "width": 500,
         "height": 653,
         "bytes": 53678
+      }
+    ]
+  },
+  "assets/atheneum/portrait-leibniz.jpg": {
+    "width": 500,
+    "height": 617,
+    "bytes": 47188,
+    "sha256": "77d4e7add498288d2c196fe91718905f8bc6e4d9206270ee3368407447d1bfaf",
+    "variants": [
+      {
+        "src": "assets/optimized/67275dc5e84b-384.webp",
+        "width": 384,
+        "height": 474,
+        "bytes": 14556
+      },
+      {
+        "src": "assets/optimized/67275dc5e84b-500.webp",
+        "width": 500,
+        "height": 617,
+        "bytes": 25814
+      }
+    ]
+  },
+  "assets/atheneum/portrait-locke.jpg": {
+    "width": 500,
+    "height": 610,
+    "bytes": 75612,
+    "sha256": "3f2aaa0a0e31836ae9ca14a3c7bae216eb396cc5001e3e028e6a9b3f7098aa60",
+    "variants": [
+      {
+        "src": "assets/optimized/338ea96571d6-384.webp",
+        "width": 384,
+        "height": 468,
+        "bytes": 31490
+      },
+      {
+        "src": "assets/optimized/338ea96571d6-500.webp",
+        "width": 500,
+        "height": 610,
+        "bytes": 65862
+      }
+    ]
+  },
+  "assets/atheneum/portrait-spinoza.jpg": {
+    "width": 500,
+    "height": 581,
+    "bytes": 69329,
+    "sha256": "8af4e669d190e80c14451d64fb8425de3c91423174f310a011381403ad1cdc29",
+    "variants": [
+      {
+        "src": "assets/optimized/d77f73b0a460-384.webp",
+        "width": 384,
+        "height": 446,
+        "bytes": 30276
+      },
+      {
+        "src": "assets/optimized/d77f73b0a460-500.webp",
+        "width": 500,
+        "height": 581,
+        "bytes": 59220
       }
     ]
   },

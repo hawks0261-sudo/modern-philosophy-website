@@ -1,29 +1,63 @@
 # Atheneum homepage assets
 
 The user selected the warm historical hall composition on 5 September 2026. Its
-layout, light, three figures, parchment surfaces and Chinese heading are the visual
-basis of this homepage. The reference is archived in the local review output at
+light, parchment surfaces and Chinese heading remain the visual basis of the
+homepage. The current v2 artwork expands the scene to seven figures reading and
+conversing: Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume. The selected
+reference is archived in the local review output at
 `output/atheneum-home-build-20260905/selected-reference.png` in the parent workspace.
 
-- `hero-scene.png`: ImageGen edit of that selected reference, with interface text,
-  plaques, profile card, footer and branding removed. The hall and three figures
-  remain an artistic reconstruction, not a documented historical gathering or
-  independent 3D models. Original generation ID: `01a071c2-1413-7bb2-b505-c2c0c9d70b81`.
+- `hero-scene-v2.png`: current seven-person ImageGen scene, 1748 × 899 pixels.
+  Historical portraits inform the figures; their poses and shared setting are an
+  artistic composition, not a documented gathering or an exact reconstruction of
+  each person's appearance.
+- `hero-scene.png`: retained original three-person scene, 1786 × 881 pixels, made
+  by editing the selected reference to remove interface text, plaques, profile
+  card, footer and branding. It is preserved for comparison rather than overwritten
+  by v2. Original generation ID: `01a071c2-1413-7bb2-b505-c2c0c9d70b81`.
 - `parchment.png`: ImageGen parchment texture made for the selected warm book palette.
-- `portrait-descartes.jpg`, `portrait-kant.jpg`, `portrait-berkeley.jpg`: existing
-  project portrait assets, copied from the earlier prototype. Source catalogue
-  references and careful attributions are recorded in `data/atheneum.json` and shown
-  in the profile dialog. The original source portraits are not AI edits.
-- `../optimized/7541e7aea1e0-*.webp` and `../optimized/843b29caaa0a-*.webp` are the
-  prepared responsive scene and paper assets. `data/media.json` records dimensions
-  and variants. The scene's largest web variant is approximately 210 KB.
+- `portrait-{id}.jpg`: seven source portraits copied unchanged from
+  `prototypes/files/portraits/` in the parent workspace. The Descartes, Kant and
+  Berkeley files are retained; Spinoza, Leibniz, Locke and Hume were added for v2.
+  These source portraits are separate from the generated scene and are not AI edits.
+  Bilingual captions, catalogue links and attribution qualifications are maintained
+  in `data/atheneum.json` and displayed in each profile dialog.
+- `../optimized/c2c1cc2bc976-*.webp`: current v2 scene variants, with a largest
+  web variant of 1440 × 741 pixels, approximately 214 KB. The original scene's
+  `../optimized/7541e7aea1e0-*.webp` variants are retained. Paper variants use
+  `../optimized/843b29caaa0a-*.webp`. `data/media.json` is the authoritative mapping
+  for source dimensions and all responsive variants, including the portraits.
+
+The four added portrait sources are:
+
+- **Spinoza** — anonymous, circa 1665, Herzog August Library, Wolfenbüttel:
+  [library catalogue](https://diglib.hab.de/varia/gemaelde/b-117/start.htm).
+  The library's [conservation and X-ray record](https://www.deutsche-digitale-bibliothek.de/item/GDQILRNAJS2TSXNYQGE4KUJD6GCG2JGB)
+  leaves unresolved whether this was painted from life or is an early copy.
+- **Leibniz** — Christoph Bernhard Francke, circa 1695, Herzog Anton Ulrich Museum:
+  [official painting collection](https://3landesmuseen-braunschweig.de/en/herzog-anton-ulrich-museum/collection/departments/painting-collection-old-masters).
+- **Locke** — Godfrey Kneller, 1697, Hermitage version:
+  [image catalogue](https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg).
+  This catalogue cites Hermitage record 38692, accession ГЭ-1345. The museum's
+  former detail link was unavailable at verification; the accessible catalogue is
+  therefore used, without substituting another Kneller portrait of Locke.
+- **Hume** — Allan Ramsay, 1766, Scottish National Portrait Gallery:
+  [record supplied by National Galleries Scotland](https://artsandculture.google.com/asset/david-hume-allan-ramsay/KgH_IR3l3MzLIQ).
+  This is the red-coat portrait, distinct from Ramsay's 1754 turban portrait.
 
 The institutional logo and actual publication covers come from the existing site.
 No generated logo, fictional event or invented book cover from the reference is
 used as institutional content. Headlines, name plaques, buttons, sources and all
 profile text are real HTML and JavaScript; they are not baked into the image.
 
-The desktop effect is a small pointer-driven pan/zoom illusion (2.5D). At widths
-up to 1024 px, the image keeps its full aspect ratio and the profile appears below
-it. Reduced-motion preferences disable the transform. This implementation does
-not provide free camera movement, a 3D mesh or a page-turning book.
+The desktop effect is a small pointer-driven pan/zoom illusion (2.5D). The person
+picker and selected profile appear below the artwork. At widths up to 1200 px,
+the scene keeps its full aspect ratio without the motion transform, and its
+heading moves above the image. Reduced-motion preferences also disable the
+transform. This implementation covers these seven figures; it does not provide
+independent character meshes, free camera movement or a page-turning book.
+
+`atheneum-scene.css` owns the v2 composition, hotspots and responsive profile
+layout. `atheneum-sections.css` owns the chapter divisions and readable paper
+surfaces beneath the scene. See [the maintenance guide](../../scripts/README.md)
+for their load order and the data requirements for adding a person.

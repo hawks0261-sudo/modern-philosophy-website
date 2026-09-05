@@ -25,7 +25,35 @@ python3 scripts/check_site.py
 
 ## 思想殿堂首页
 
-`scripts/atheneum_home.py` 生成中英文首页的 `atheneum-scene` 和 `atheneum-featured` 区域；人物简介、主题、著作及肖像出处维护于 `data/atheneum.json`，场景中的艺术形象与用于考证的历史肖像分别呈现。`atheneum.css`、`atheneum.js` 维护样式和人物选择、详情弹窗、减弱动态偏好等交互。
+`scripts/atheneum_home.py` 生成中英文首页的 `atheneum-scene` 和 `atheneum-featured` 区域。当前 v2 场景包括笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟七人，使用 `assets/atheneum/hero-scene-v2.png`；原三人场景 `hero-scene.png` 保留，供比较与追溯。场景人物是参考历史肖像创作的艺术形象，详情中另行展示原肖像及归属说明，不声称已经精确复原人物面貌。新增四幅原肖像及其馆藏或图像目录见[素材说明](../assets/atheneum/README.md)。图片变体仍由 `data/media.json` 映射，构建时统一规范化。
+
+`data/atheneum.json` 的 `philosophers` 数组维护人物内容。`id` 需唯一且稳定；`name`、`shortName`、`bio`、每个 `themes` 项及著作标题分别维护 `zh`、`en`。`portrait` 中的 `image`、`sourceUrl`、双语 `sourceLabel`、`caption`、`attributionNote` 保留肖像路径和准确出处；`sources` 登记人物及著作资料，当前第一项为对应的斯坦福哲学百科条目。`relatedLinks` 只填真实本站内容，没有相关记录时用空数组；英文链接 `hrefEn` 缺省时使用中文 `href` 并在英文页面标注 `(Chinese)`。
+
+数组顺序同步决定人物选择按钮、详情记录与前端状态的顺序，交互不限制为三人。新增人物需要补齐双语字段、来源与原肖像，并准备对应的场景人物和 `.atheneum-figure--{id}` 热点位置；只追加数据不会自动在画面中生成新人物。更换场景时同时检查图像宽高比、替代文字和七个热点的实际位置。当前默认选择贝克莱；如需更改或移除他，须同步调整生成模板中的默认卡片、选中状态和弹窗初始 `aria-labelledby`，并更新回归测试。
+
+`works[].year` 表示页面显示的作品年代。需要区分写成年份、首刊年份或书名页年份时，可增加双语 `works[].dateNote`，例如：
+
+```json
+{
+  "zh": "单子论",
+  "en": "Monadology",
+  "year": "1714",
+  "dateNote": {
+    "zh": "1714年写成；不是首刊年份。",
+    "en": "Composed in 1714; not the date of first publication."
+  }
+}
+```
+
+生成器只在当前语言有非空说明时输出日期注释，并按普通文本转义；没有说明的著作可以省略整个 `dateNote`。新增需要解释的年代时应同时审核中英文，不把手稿写成日期直接当作出版日期。
+
+首页样式按 `site.css` → `atheneum.css` → `atheneum-scene.css` → `atheneum-sections.css` 加载，各文件职责如下：
+
+- `atheneum.css`：殿堂首页的基础配色、字体、页头、通用按钮和人物详情弹窗；后两份文件覆盖其中早期的场景与栏目布局。
+- `atheneum-scene.css`：v2 场景宽高比、七个人物热点与名牌、画面下方的人物选择栏及摘要卡、著作日期注释和响应式布局。宽度不超过 1200 px 时保持完整画面，标题移至画面上方，关闭景深变换。
+- `atheneum-sections.css`：画面下方的三栏精选内容及其余首页栏目，统一章节分隔、纸面底色、标题层级和中英阅读宽度；保留活动照片与真实书封的原有颜色，纸纹加载失败时仍有纯色底。
+
+`atheneum.js` 按人物数据和 `data-select-person` 处理鼠标与键盘选择、原生详情弹窗、焦点返回和景深开关，并遵循减弱动态偏好。这是平面场景的轻微视差效果，并非独立人物模型或可翻页立体书。现有回归测试覆盖全部人物的按钮、记录、肖像引用与可访问名称关联，以及双语日期注释的传递和文本转义；视觉、热点位置和键盘实际操作仍需浏览器验收。
 
 首页图书数量直接取 `books.json` 的记录数；精选书封目前采用 25、27、29 三册，其链接的替代文字从中英文书目标题读取，不在模板另写书名。调整精选书目时修改模板中的 ID，封面仍取书目记录的 `cover` 字段。英文最新活动使用对应英文详情页的 `<h1>`，因此审核并更新英文活动页标题后，重新构建即可同步首页；尚无英文标题时保留中文标题并标注 `(Chinese)`、`lang` 与 `hreflang`，不自动生成未经审核的英文标题。新增回归测试覆盖数量变化、双语书名、英文标题同步和中文活动回退。
 

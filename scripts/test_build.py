@@ -5,9 +5,29 @@ import html
 import json
 import re
 import unittest
+from collections import Counter
+from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 import build_site
+
+
+class ProfileMarkup(HTMLParser):
+    """Collect generated controls and profile descendants without a browser."""
+    def __init__(self):
+        super().__init__()
+        self.elements = []
+        self.record = None
+
+    def handle_starttag(self, tag, attributes):
+        attributes = dict(attributes)
+        if tag == 'article' and 'data-person-record' in attributes:
+            self.record = attributes['data-person-record']
+        self.elements.append((tag, attributes, self.record))
+
+    def handle_endtag(self, tag):
+        if tag == 'article':
+            self.record = None
 
 
 class GenerationTests(unittest.TestCase):
@@ -134,6 +154,61 @@ class GenerationTests(unittest.TestCase):
             self.assertIn('alt="' + html.escape(title, quote=True) + '"', row)
             self.assertNotIn('alt="Library volume ', row)
             self.assertNotIn('alt="译丛书目 ', row)
+
+    def test_all_philosophers_have_matching_controls_records_and_portraits(self):
+        people = build_site.load('atheneum.json')['philosophers']
+        identities = [person['id'] for person in people]
+        self.assertEqual(len(identities), len(set(identities)))
+        outputs = build_site.build()
+        for path in ('index.html', 'en/index.html'):
+            parser = ProfileMarkup()
+            parser.feed(outputs[path])
+            tags = parser.elements
+            state = json.loads(re.search(r'<script\b[^>]*id="atheneum-profiles"[^>]*>(.*?)</script>', outputs[path], re.S).group(1))
+            self.assertEqual([person['id'] for person in state], identities)
+            records = [attrs for tag, attrs, _ in tags if 'data-person-record' in attrs]
+            self.assertCountEqual([attrs['data-person-record'] for attrs in records], identities)
+            visible = [attrs['data-person-record'] for attrs in records if 'hidden' not in attrs]
+            self.assertEqual(len(visible), 1)
+            controls = [attrs for tag, attrs, _ in tags if tag == 'button' and 'data-select-person' in attrs]
+            self.assertEqual(Counter(attrs['data-select-person'] for attrs in controls), Counter({identity: 2 for identity in identities}))
+            ids = [attrs['id'] for _, attrs, _ in tags if 'id' in attrs]
+            for control in controls:
+                self.assertIn(control['aria-controls'], ids)
+                self.assertEqual(control['aria-pressed'], str(control['data-select-person'] == visible[0]).lower())
+            dialog = next(attrs for tag, attrs, _ in tags if tag == 'dialog' and attrs.get('id') == 'atheneum-detail')
+            self.assertEqual(dialog['aria-labelledby'], 'person-title-' + visible[0])
+            for person in people:
+                self.assertEqual(ids.count('person-title-' + person['id']), 1)
+                portrait = next(attrs for tag, attrs, owner in tags if tag == 'img' and owner == person['id'])
+                resolved = (build_site.ROOT / Path(path).parent / portrait['src']).resolve()
+                self.assertTrue(resolved.is_file(), str(resolved))
+                source = portrait.get('data-media-source')
+                if source:
+                    self.assertEqual(source, person['portrait']['image'])
+                else:
+                    self.assertEqual(resolved, (build_site.ROOT / person['portrait']['image']).resolve())
+
+    def test_philosopher_work_date_notes_propagate_in_each_language_safely(self):
+        original_read = Path.read_text
+        source = build_site.ROOT / 'data/atheneum.json'
+        data = json.loads(original_read(source))
+        # Change a note belonging to an added philosopher, retaining other notes.
+        person = next(p for p in data['philosophers'] if p['id'] == 'leibniz')
+        person['works'][0]['dateNote'] = {
+            'zh': '写成 <年份> 与首刊不同 & "需区分"',
+            'en': 'Composition <date> differs from publication & "needs context"',
+        }
+        def read(path, *args, **kwargs):
+            return json.dumps(data, ensure_ascii=False) if path == source else original_read(path, *args, **kwargs)
+        with patch.object(Path, 'read_text', new=read):
+            outputs = build_site.build()
+        for path, language in (('index.html', 'zh'), ('en/index.html', 'en')):
+            text = outputs[path]
+            expected_notes = [work['dateNote'][language] for p in data['philosophers'] for work in p['works'] if work.get('dateNote', {}).get(language)]
+            emitted_notes = re.findall(r'<small\b[^>]*class="work-date-note"[^>]*>(.*?)</small>', text, re.S)
+            self.assertCountEqual(emitted_notes, [html.escape(note, quote=True) for note in expected_notes])
+            self.assertNotIn(person['works'][0]['dateNote'][language], text)
 
 
 if __name__ == '__main__':
