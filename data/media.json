@@ -25,6 +25,32 @@
       }
     ]
   },
+  "assets/atheneum/berkeley-head-v1.png": {
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1775574,
+    "sha256": "c7d92b01d145326e09c7cf31116cd01db2c32895fba6fc5cf6a55143b786f883",
+    "variants": [
+      {
+        "src": "assets/optimized/ee8d73791954-384.webp",
+        "width": 384,
+        "height": 384,
+        "bytes": 15236
+      },
+      {
+        "src": "assets/optimized/ee8d73791954-768.webp",
+        "width": 768,
+        "height": 768,
+        "bytes": 45848
+      },
+      {
+        "src": "assets/optimized/ee8d73791954-1254.webp",
+        "width": 1254,
+        "height": 1254,
+        "bytes": 98832
+      }
+    ]
+  },
   "assets/atheneum/hero-scene-v2.png": {
     "width": 1748,
     "height": 899,

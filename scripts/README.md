@@ -33,11 +33,17 @@ python3 scripts/check_site.py
 
 ## 思想殿堂首页
 
-`scripts/atheneum_home.py` 生成中英文首页的 `atheneum-scene` 和 `atheneum-featured` 区域。当前 v4 场景包括笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟七人，使用 `assets/atheneum/hero-scene-v4.png`（1747 × 900，2,361,861 字节）。v4 从两次 ImageGen 调整中选择第二候选，继续参考 `portrait-berkeley.jpg`：贝克莱更接近正面、双眼清晰，颊部和下颌更圆，眉眼与嘴部更放松，同时保留开放交谈的手势；局部纹理仍有重绘。
+`scripts/atheneum_home.py` 生成中英文首页的 `atheneum-scene` 和 `atheneum-featured` 区域。当前采用 **v4 背景＋独立贝克莱头像图层**，包括笛卡尔、斯宾诺莎、莱布尼茨、康德、洛克、贝克莱与休谟七人。背景仍为 `assets/atheneum/hero-scene-v4.png`（1747 × 900，2,361,861 字节），本轮未改动其原像素。v4 背景从两次 ImageGen 调整中选择第二候选，参考 `portrait-berkeley.jpg`，保留贝克莱的开放交谈手势；其生成过程有局部纹理重绘。
+
+新增的 `assets/atheneum/berkeley-head-v1.png` 为独立生成的高清头像（1254 × 1254，1,775,574 字节），用于进一步改善面部相似度，不改动历史肖像 `portrait-berkeley.jpg`。头像源图是带棋盘格底的 RGB 图片，**不含真实 alpha，不能直接裸用**；页面用 `berkeley-head-mask.svg` 扣出轮廓。更换头像时须同时核对遮罩的 1254 × 1254 viewBox、轮廓和边缘，保留 `mask-mode: luminance`：白色区域显示头像，黑色与透明区域隐藏头像图层并露出 v4 背景。
+
+头像与背景同在 `.atheneum-world` 内，共同缩放和移动；定位由 `atheneum-scene.css` 维护：`left: 67.25%`、`top: 37%`、`width: 5.6%`，色调为 `brightness(.95) saturate(.88)`。不支持 CSS mask 及 luminance 模式时，`@supports` 回退为隐藏头像、显示完整 v4 背景。该装饰图层使用空 `alt`、`aria-hidden="true"` 与 `pointer-events: none`，不增加朗读内容或遮挡人物按钮。
+
+头像变体为 `assets/optimized/ee8d73791954-{384,768,1254}.webp`，分别为 15,236、45,848、98,832 字节。`scripts/page_assets.py` 对 `.atheneum-berkeley-head` 单独使用 `sizes="5.6vw"`、`loading="eager"` 和首选 384 像素源图。响应式检查需同时观察头部与身体是否对齐，以及遮罩边缘是否露出棋盘格；自动生成但未采用的整幅合成图保存在仓库外，未接入当前页面。
 
 前版 `hero-scene-v3.png` 保留了首次局部调整脸型、侧转和鼻口的记录；七人 v2 原图 `hero-scene-v2.png` 和最初三人场景 `hero-scene.png` 也保留，供比较与追溯。v3 相对 v2 的人物位置与整体构图未明显改变，部分细节有轻微重绘。
 
-场景人物仍是依据历史肖像创作的艺术形象，并非精确复原；详情中另行展示原肖像及归属说明。原肖像与出处见[素材说明](../assets/atheneum/README.md)。当前网页变体为 `assets/optimized/f81677624738-{384,768,1440}.webp`，最大一幅为 1440 × 742、196,746 字节；旧 v3、v2 变体保留。图片路径与尺寸以 `data/media.json` 为准，构建时统一规范化。
+场景和独立头像仍是依据历史肖像创作的艺术形象，并非精确复原；详情中另行展示原肖像及归属说明。原肖像与出处见[素材说明](../assets/atheneum/README.md)。当前背景变体为 `assets/optimized/f81677624738-{384,768,1440}.webp`，最大一幅为 1440 × 742、196,746 字节；旧 v3、v2 变体保留。图片路径与尺寸以 `data/media.json` 为准，构建时统一规范化。
 
 `data/atheneum.json` 的 `philosophers` 数组维护人物内容。`id` 需唯一且稳定；`name`、`shortName`、`bio`、每个 `themes` 项及著作标题分别维护 `zh`、`en`。`portrait` 中的 `image`、`sourceUrl`、双语 `sourceLabel`、`caption`、`attributionNote` 保留肖像路径和准确出处；`sources` 登记人物及著作资料，当前第一项为对应的斯坦福哲学百科条目。`relatedLinks` 只填真实本站内容，没有相关记录时用空数组；英文链接 `hrefEn` 缺省时使用中文 `href` 并在英文页面标注 `(Chinese)`。
 
@@ -62,7 +68,7 @@ python3 scripts/check_site.py
 首页样式按 `site.css` → `atheneum.css` → `atheneum-scene.css` → `atheneum-sections.css` → `atheneum-brand.css` 加载；最后一份维护全站品牌，三份首页专用样式职责如下：
 
 - `atheneum.css`：殿堂首页的基础配色、字体、页头、通用按钮和人物详情弹窗；后两份文件覆盖其中早期的场景与栏目布局。
-- `atheneum-scene.css`：v4 场景宽高比（1747 / 900）、七个人物热点与名牌、画面下方的人物选择栏及摘要卡、连续阅读弹窗工具条与正文、著作日期注释和响应式布局。宽度不超过 1200 px 时保持完整画面，标题移至画面上方，关闭景深变换。
+- `atheneum-scene.css`：v4 场景宽高比（1747 / 900）、独立头像的遮罩与百分比定位、七个人物热点与名牌、画面下方的人物选择栏及摘要卡、连续阅读弹窗工具条与正文、著作日期注释和响应式布局。宽度不超过 1200 px 时保持完整画面，标题移至画面上方，关闭景深变换。
 - `atheneum-sections.css`：画面下方的三栏精选内容及其余首页栏目，统一章节分隔、纸面底色、标题层级和中英阅读宽度；中文 `#people-preview` 与英文 `#people` 的成员栏目采用暖米褐色 `#e4d4b8`，延续旧书纸色。活动照片与真实书封保留原有颜色，纸纹加载失败时仍有纯色底。
 
 `atheneum.js` 按人物数据和 `data-select-person` 处理鼠标与键盘选择、原生详情弹窗、焦点返回和景深开关，并遵循减弱动态偏好。这是平面场景的轻微视差效果，并非独立人物模型或可翻页立体书。人物阅读流程须保持如下约定：

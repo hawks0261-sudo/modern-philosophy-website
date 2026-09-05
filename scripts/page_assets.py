@@ -53,7 +53,10 @@ def normalize_page(text, relative):
         if variants:
             sizes = '(max-width: 680px) calc(100vw - 32px), (max-width: 1024px) 75vw, 760px'
             preferred_width = 768
-            if 'atheneum-backdrop' in attrs.get('class', '').split():
+            if 'atheneum-berkeley-head' in attrs.get('class', '').split():
+                sizes, preferred_width = '5.6vw', 384
+                attrs['loading'] = 'eager'
+            elif 'atheneum-backdrop' in attrs.get('class', '').split():
                 sizes, preferred_width = '100vw', 1440
             elif is_logo:
                 sizes, preferred_width = '42px', 96

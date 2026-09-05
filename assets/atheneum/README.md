@@ -2,18 +2,30 @@
 
 The user selected the warm historical hall composition on 5 September 2026. Its
 light, parchment surfaces and Chinese heading remain the visual basis of the
-homepage. The current v4 artwork retains the seven figures introduced in v2, reading and
-conversing: Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume. The selected
+homepage. The current homepage combines the unchanged v4 background with a separate,
+masked Berkeley head layer. It retains the seven figures introduced in v2, reading
+and conversing: Descartes, Spinoza, Leibniz, Kant, Locke, Berkeley and Hume. The selected
 reference is archived in the local review output at
 `output/atheneum-home-build-20260905/selected-reference.png` in the parent workspace.
 
-- `hero-scene-v4.png`: current seven-person ImageGen scene, 1747 × 900 pixels,
+- `hero-scene-v4.png`: current seven-person ImageGen background, 1747 × 900 pixels,
   2,361,861 bytes. The second of two further ImageGen candidates was selected:
   Berkeley faces nearer the viewer, with both eyes clear, rounder cheeks and jaw,
   and a more relaxed expression around his brows, eyes and mouth. His open
   conversational hand gesture is retained. The source portrait remains
   `portrait-berkeley.jpg`; this is an artistic reconstruction, not an exact
-  historical likeness, and some textures were redrawn.
+  historical likeness, and some textures were redrawn. This background file and
+  its pixels are unchanged by the separate head-layer refinement.
+- `berkeley-head-v1.png`: generated head layer, 1254 × 1254 pixels, 1,775,574 bytes.
+  It refines Berkeley's facial likeness independently of the scene. The file is
+  RGB: its checkerboard is painted into the image, not a true alpha channel.
+  Do not display this PNG or its WebP variants without the matching contour mask.
+  `portrait-berkeley.jpg` remains the unchanged historical source portrait.
+- `berkeley-head-mask.svg`: contour mask with a matching 1254 × 1254 viewBox.
+  White reveals the head; black and transparent areas hide the surrounding pixels.
+  The CSS must retain `mask-mode: luminance`; using alpha mode would change the
+  treatment of the black contour. If the head image changes, review the mask
+  outline against that image before reusing it.
 - `hero-scene-v3.png`: retained previous seven-person scene, 1747 × 900 pixels.
   A local head-and-face edit uses `portrait-berkeley.jpg` to adjust Berkeley's face
   shape, head turn, nose and mouth. The overall composition and other figures'
@@ -36,13 +48,29 @@ reference is archived in the local review output at
   These source portraits are separate from the generated scene and are not AI edits.
   Bilingual captions, catalogue links and attribution qualifications are maintained
   in `data/atheneum.json` and displayed in each profile dialog.
-- `../optimized/f81677624738-{384,768,1440}.webp`: current v4 scene variants;
+- `../optimized/f81677624738-{384,768,1440}.webp`: current v4 background variants;
   the largest is 1440 × 742 pixels, 196,746 bytes (approximately 197 KB).
   The v3 `../optimized/9d6b3c23a6a7-*.webp`, v2
   `../optimized/c2c1cc2bc976-*.webp` and original three-person scene's
   `../optimized/7541e7aea1e0-*.webp` variants are retained. Paper variants use
   `../optimized/843b29caaa0a-*.webp`. `data/media.json` is the authoritative mapping
   for source dimensions and all responsive variants, including the portraits.
+- `../optimized/ee8d73791954-{384,768,1254}.webp`: head-layer variants, respectively
+  15,236, 45,848 and 98,832 bytes. `scripts/page_assets.py` gives this layer
+  `sizes="5.6vw"`, eager loading and a preferred source width of 384 pixels.
+
+The head and background share `.atheneum-world`, so scene transforms and responsive
+scaling keep them together. `atheneum-scene.css` places the head at `left: 67.25%`,
+`top: 37%`, `width: 5.6%` and applies `brightness(.95) saturate(.88)`. Keep placement,
+mask and source dimensions coordinated when changing either layer. The head has
+empty alternative text, `aria-hidden="true"` and `pointer-events: none`; the scene
+description and existing philosopher buttons provide the accessible content and
+interaction. Without support for CSS masking and luminance mode, the layer stays
+hidden and the intact v4 background remains visible.
+
+An unselected full-scene composite is archived outside the site tree at
+`output/atheneum-berkeley-likeness-20260905/scene-composite-not-selected.png` in the
+parent workspace. It is not part of the published scene or its media variants.
 
 The four portrait sources added in v2 are:
 
@@ -73,8 +101,8 @@ heading moves above the image. Reduced-motion preferences also disable the
 transform. This implementation covers these seven figures; it does not provide
 independent character meshes, free camera movement or a page-turning book.
 
-`atheneum-scene.css` owns the v4 aspect ratio (1747 / 900), hotspots and responsive profile
-layout. `atheneum-sections.css` owns the chapter divisions and readable paper
+`atheneum-scene.css` owns the v4 aspect ratio (1747 / 900), masked head placement,
+hotspots and responsive profile layout. `atheneum-sections.css` owns the chapter divisions and readable paper
 surfaces beneath the scene, including the warm beige-brown member sections
 (`#people-preview` in Chinese and `#people` in English). See [the maintenance guide](../../scripts/README.md)
 for their load order and the data requirements for adding a person.

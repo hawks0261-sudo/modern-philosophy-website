@@ -2,6 +2,9 @@
 .atheneum-home .atheneum-scene { height: auto; padding-top: 0; overflow: visible; }
 .atheneum-stage { position: relative; aspect-ratio: 1747 / 900; overflow: hidden; isolation: isolate; }
 .atheneum-home .atheneum-world { height: 100%; }
+/* The portrait is a separate source so facial features survive scene revisions. */
+.atheneum-berkeley-head { display: none; position: absolute; left: 67.25%; top: 37%; width: 5.6%; height: auto; aspect-ratio: 1; pointer-events: none; user-select: none; -webkit-user-drag: none; mask: url('assets/atheneum/berkeley-head-mask.svg') center / 100% 100% no-repeat; mask-mode: luminance; filter: brightness(.95) saturate(.88); }
+@supports (mask-image: url("")) and (mask-mode: luminance) { .atheneum-berkeley-head { display: block; } }
 .atheneum-home .atheneum-heading { top: 13%; left: 21%; width: 58%; }
 .atheneum-home .atheneum-heading h1 { font-size: clamp(34px, 3.8vw, 64px); line-height: 1.2; }
 .atheneum-home .atheneum-heading p { font-size: clamp(16px, 1.5vw, 23px); line-height: 1.4; margin-top: 8px; }

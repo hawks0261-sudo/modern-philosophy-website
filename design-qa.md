@@ -1,36 +1,40 @@
-# 贝克莱面貌继续优化 · 2026-09-05
+# 贝克莱高清头像与场景融合 · 2026-09-05
 
 final result: passed for this visual iteration
 
-## 本轮结果
+## 当前结果
 
-当前首页改用 `assets/atheneum/hero-scene-v4.png`（1747×900，2,361,861字节）。与v3相比，贝克莱的头更接近正面，双眼清晰显露，下颊和下颌更圆，眉眼与嘴部更放松，鼻根附近的压挤感减轻；身体保留坐着交谈的姿态。中英文同步，原图v3和参考肖像均保留。
+首页保留 `hero-scene-v4.png` 背景，新增 `berkeley-head-v1.png` 高清头像与 `berkeley-head-mask.svg` 轮廓遮罩。额头与眉眼位置、眼睑、鼻唇关系和下颊体积更接近历史肖像，避免整幅重绘时再次泛化五官。中文和英文共用同一图层。头部大小与身体协调，头颈衔接自然；其他六人、身体、家具和建筑继续使用原v4背景，其源文件未改动。
 
-这是参考肖像的艺术化场景版本，并非精确复原。与原像相比，下颊仍略窄，神态稍严肃、鼻梁高光稍硬，目光更朝向观众。生成也带来细部纹理重绘，不能声称其他像素完全不变。
+人物仍是依据原肖像创作的艺术形象。新脸的眉毛、眼睛与嘴唇比原画更清晰，材质稍细致、肤色稍中性；放大后可见这种差别，不声称精确复原。
 
-## 图像过程与对照
+## 图像与实现
 
-使用内置ImageGen进行了两次编辑。第一候选虽改善头部角度，却仍偏严肃，且把示意手改成横指，未接入。第二候选进一步放松眉眼、嘴型，增加下颊体积，并恢复开放的交谈手势。根代理和独立代理均对照原肖像、v3及两次候选，认为第二候选有明确改善，未见明显的新面部错位、贴脸边缘或比例问题。
+- 内置ImageGen先以原肖像生成1254×1254头像母版，再试自动回融。回融结果丢失部分脸型和身份特征，没有接入，也没有继续整幅生成。
+- 头像输出为RGB，棋盘格已烘焙，并非真正透明。浏览器使用SVG轮廓的luminance mask去掉背景，生成头像文件本身未改动。早期帽檐白线及下颌边缘经放大检查后收紧；最终对照无明显棋盘格、白边、双头或额头遮挡。
+- 头像与背景共用`.atheneum-world`：left67.25%、top37%、width5.6%，brightness(.95)、saturate(.88)。不支持mask/luminance时隐藏头像，保留完整v4背景。
+- 装饰图层空alt、aria-hidden=true、pointer-events=none；不增加读屏内容或拦截原人物热点。加载策略为eager、sizes=5.6vw，首选384pxWebP仅15,236字节。
+- 根代理与独立代理都比较了原肖像、v4、高清母版、未采用回融及最终网页组合，确认独立图层比整图回融更有效地保留面貌特征。
 
-最终工具原件：`/Users/hawksky/.codex/generated_images/01a070f9-2e5e-71c1-a03e-f57cc09b7ffb/exec-1c9ef9b3-f298-49f0-b782-8afe0a645f17.png`。
-源图SHA256：`06a0acbcb7f57bc5a92a16cc4fb5c09948f52a719631026a6ff4e176651f6e82`。
+## 对照档案
 
-输出目录：`/Users/hawksky/Desktop/modern phi/output/atheneum-berkeley-refine-20260905/`。
+目录：`/Users/hawksky/Desktop/modern phi/output/atheneum-berkeley-likeness-20260905/`。
 
-- `imagegen-prompts.txt`：两次工具输入、精确提示词和最终保存路径。
-- `portrait-comparison.html` / `portrait-comparison.png`：原肖像、上一版、本轮修正版并列放大。HTML仅对原始图片做CSS取景与显示缩放，未进行额外美化；截图为1020×535的完整视口。
-- `home-before.png` / `home-after.png`：同为1448×1086、scrollY=0、贝克莱选中、弹窗关闭，并在同一次工具输入中并置检查。
-- `home-mobile-en.png`：390×844英文首页，新图比例正常、无横向溢出。
-- `previous-design-qa.md`：上一轮画像与成员配色验收归档。
+- `portrait-comparison.html` / `portrait-comparison.png`：原肖像、上一版、当前网页图层并列放大。右侧采用与网页一致的原图、遮罩、位置和滤镜，并非另画的效果稿；最终1060×570视口。
+- `home-before.png` / `home-after.png`：顶部、贝克莱选中、资料关闭，按1448×1086视口对比并在同一次工具输入中查看；后期系统滚动条占用少量横向宽度，因此局部头像比较以专门对照板为准。
+- `home-tablet.png`：750×746；`home-mobile-en.png`：390×844英文首页。头像和身体保持对齐。
+- `imagegen-prompts.txt`：两次工具提示词、输入角色、源图与最终路径、RGB与遮罩限制。
+- `berkeley-head-reference.png`：未改动的高清母版副本。
+- `scene-composite-not-selected.png`和`rejected-variants/`：未采用的自动回融，位于站点树外，不进入发布资源。
+- `previous-design-qa.md`：上轮验收归档。
 
-## 网页验证
+## 技术与交互验证
 
-- 仅新增v4图片及三个WebP变体，最大1440×742、196,746字节；图片准备共133 records / 337 variants。
-- `build_site.py --all`仅修改中英文首页的图像资源行；`build_site.py --check`为94 outputs，changed=[]。
-- `check_site.py`：93 pages、4019 localReferences、93 jsonLdPages，errors=[]，warnings=[]。
-- 桌面加载`f81677624738-1440.webp`、英文手机加载`f81677624738-768.webp`，均成功。桌面与手机无横向溢出。
-- 点击贝克莱热点，弹窗可见标题为“乔治·贝克莱”；Escape关闭后焦点返回原热点。
-- 最终浏览器error/warn日志为空；`git diff --check`通过。
-- 图片尺寸、布局、人物热点和JS逻辑没有改变；未增加不必要的实现镜像测试。
-
-本轮仅保存本地版本，未部署。当前预览：http://127.0.0.1:62027/index.html#top。
+- `test_build.py`：现有14项生成与内容回归全部通过。
+- `build_site.py --check`：94 outputs，changed=[]。
+- `check_site.py`：93 pages、4028 localReferences、93 jsonLdPages，errors=[]，warnings=[]。
+- 图片准备共134 records / 340 variants；仅新增头像一组记录，没有留下未采用的整幅回融记录。
+- 桌面、750宽、390宽头像加载成功，百分比坐标误差均小于0.00002；无横向溢出。
+- 景深暂停/开启前后头像相对背景的坐标和尺寸比例一致；点击贝克莱正确打开“乔治·贝克莱”，Escape关闭。
+- 最终浏览器error/warn日志为空。遮罩轮廓最终细调后完成对照板和实际首页视觉复核。
+- `git diff --check`通过。原肖像和v4背景未变；仅本地保存，未部署。
