@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>现代思想研究中心 | Center of Modern Thought</title>
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=189ab742483a">
   <style>
     body { background: var(--cream); }
     .home-shell { width: min(calc(100% - 64px), var(--max)); margin: 0 auto; }
@@ -146,7 +146,7 @@
     }
   </style>
 <link rel="stylesheet" href="atheneum.css">
-<link rel="stylesheet" href="atheneum-scene.css">
+<link rel="stylesheet" href="atheneum-scene.css?v=ed5a3cbd64f2">
 <link rel="stylesheet" href="atheneum-sections.css">
 <!-- BEGIN GENERATED: page-metadata -->
 <meta name="description" content="现代思想研究中心立足中国学术土壤，面向全球现代思想研究前沿，致力于在国际思想史研究版图中形成兼具历史深度与现实关怀的独特声音。" />
@@ -252,13 +252,18 @@
   <span class="atheneum-nameplate"><strong>休谟</strong><small lang="en">David Hume</small></span>
 </button>
   </div>
-  <div class="atheneum-tools"><span class="atheneum-hint">点击人物，走近他的思想</span><button class="atheneum-motion" type="button" aria-pressed="true">暂停景深</button><a class="atheneum-content-link" href="#atheneum-content">浏览中心内容</a></div>
+  <div class="atheneum-tools"><span class="atheneum-hint">选择人物，走近他的思想</span><button class="atheneum-motion" type="button" aria-pressed="true">暂停景深</button><a class="atheneum-content-link" href="#atheneum-content">浏览中心内容</a></div>
   </div>
-  <div class="atheneum-person-picker" role="group" aria-label="选择哲学家"><button type="button" data-select-person="descartes" aria-pressed="false" aria-controls="atheneum-card">笛卡尔</button><button type="button" data-select-person="spinoza" aria-pressed="false" aria-controls="atheneum-card">斯宾诺莎</button><button type="button" data-select-person="leibniz" aria-pressed="false" aria-controls="atheneum-card">莱布尼茨</button><button type="button" data-select-person="kant" aria-pressed="false" aria-controls="atheneum-card">康德</button><button type="button" data-select-person="locke" aria-pressed="false" aria-controls="atheneum-card">洛克</button><button type="button" data-select-person="berkeley" aria-pressed="true" aria-controls="atheneum-card">贝克莱</button><button type="button" data-select-person="hume" aria-pressed="false" aria-controls="atheneum-card">休谟</button></div>
   <aside class="atheneum-card" id="atheneum-card" aria-label="当前人物">
     <div class="person-summary" aria-live="polite" aria-atomic="true"><h2>乔治·贝克莱</h2><p class="person-years">1685–1753</p><p class="person-themes">感知 · 心灵与观念 · 非物质主义</p></div>
-    <button class="atheneum-button" type="button" data-open-person aria-haspopup="dialog" aria-controls="atheneum-detail">阅读人物介绍</button>
-    <a class="person-source" href="https://www.npg.org.uk/collections/search/portraitExtended/mw00534/George-Berkeley" target="_blank" rel="noopener">肖像来源</a>
+    <div class="atheneum-card-actions">
+      <details class="atheneum-chooser">
+        <summary>选择哲学家<span class="atheneum-chooser-count">7</span></summary>
+        <div class="atheneum-person-picker" role="group" aria-label="选择哲学家"><button type="button" data-select-person="descartes" aria-pressed="false" aria-controls="atheneum-card">笛卡尔</button><button type="button" data-select-person="spinoza" aria-pressed="false" aria-controls="atheneum-card">斯宾诺莎</button><button type="button" data-select-person="leibniz" aria-pressed="false" aria-controls="atheneum-card">莱布尼茨</button><button type="button" data-select-person="kant" aria-pressed="false" aria-controls="atheneum-card">康德</button><button type="button" data-select-person="locke" aria-pressed="false" aria-controls="atheneum-card">洛克</button><button type="button" data-select-person="berkeley" aria-pressed="true" aria-controls="atheneum-card">贝克莱</button><button type="button" data-select-person="hume" aria-pressed="false" aria-controls="atheneum-card">休谟</button></div>
+      </details>
+      <button class="atheneum-button" type="button" data-open-person aria-haspopup="dialog" aria-controls="atheneum-detail">阅读人物介绍</button>
+      <a class="person-source" href="https://www.npg.org.uk/collections/search/portraitExtended/mw00534/George-Berkeley" target="_blank" rel="noopener">肖像来源</a>
+    </div>
   </aside>
 </section>
 <noscript><p class="atheneum-nojs">阅读人物资料：<a href="https://plato.stanford.edu/entries/descartes/">勒内·笛卡尔</a><a href="https://plato.stanford.edu/entries/spinoza/">巴鲁赫·斯宾诺莎</a><a href="https://plato.stanford.edu/entries/leibniz/">戈特弗里德·威廉·莱布尼茨</a><a href="https://plato.stanford.edu/entries/kant/">伊曼努尔·康德</a><a href="https://plato.stanford.edu/entries/locke/">约翰·洛克</a><a href="https://plato.stanford.edu/entries/berkeley/">乔治·贝克莱</a><a href="https://plato.stanford.edu/entries/hume/">大卫·休谟</a></p></noscript>
@@ -474,6 +479,6 @@
   <span>© 2026 Center of Modern Thought · 现代思想研究中心</span>
 </footer>
 <script src="site.js"></script>
-<script src="atheneum.js" defer></script>
+<script src="atheneum.js?v=eb5ac7ada9a4" defer></script>
 </body>
 </html>

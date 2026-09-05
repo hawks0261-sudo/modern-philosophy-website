@@ -68,13 +68,18 @@ def render_scene(path, people):
     <img class="atheneum-berkeley-head" src="{link(path, 'assets/atheneum/berkeley-head-v1.png')}" width="1254" height="1254" sizes="5.6vw" loading="eager" decoding="async" alt="" aria-hidden="true" draggable="false">
     {''.join(buttons)}
   </div>
-  <div class="atheneum-tools"><span class="atheneum-hint">{t('点击人物，走近他的思想', 'Select a philosopher to explore')}</span><button class="atheneum-motion" type="button" aria-pressed="true">{t('暂停景深', 'Pause motion')}</button><a class="atheneum-content-link" href="#atheneum-content">{t('浏览中心内容', 'Explore the center')}</a></div>
+  <div class="atheneum-tools"><span class="atheneum-hint">{t('选择人物，走近他的思想', 'Choose a philosopher to explore their ideas')}</span><button class="atheneum-motion" type="button" aria-pressed="true">{t('暂停景深', 'Pause motion')}</button><a class="atheneum-content-link" href="#atheneum-content">{t('浏览中心内容', 'Explore the center')}</a></div>
   </div>
-  <div class="atheneum-person-picker" role="group" aria-label="{t('选择哲学家', 'Choose a philosopher')}">{''.join(tabs)}</div>
   <aside class="atheneum-card" id="atheneum-card" aria-label="{t('当前人物', 'Selected philosopher')}">
     <div class="person-summary" aria-live="polite" aria-atomic="true"><h2>{esc(chosen['name'][lang])}</h2><p class="person-years">{chosen['years']}</p><p class="person-themes">{' · '.join(esc(theme[lang]) for theme in chosen['themes'])}</p></div>
-    <button class="atheneum-button" type="button" data-open-person aria-haspopup="dialog" aria-controls="atheneum-detail">{t('阅读人物介绍', 'Read profile')}</button>
-    <a class="person-source" href="{esc(chosen['portrait']['sourceUrl'])}" target="_blank" rel="noopener">{t('肖像来源', 'Portrait source')}</a>
+    <div class="atheneum-card-actions">
+      <details class="atheneum-chooser">
+        <summary>{t('选择哲学家', 'Choose a philosopher')}<span class="atheneum-chooser-count">{len(people)}</span></summary>
+        <div class="atheneum-person-picker" role="group" aria-label="{t('选择哲学家', 'Choose a philosopher')}">{''.join(tabs)}</div>
+      </details>
+      <button class="atheneum-button" type="button" data-open-person aria-haspopup="dialog" aria-controls="atheneum-detail">{t('阅读人物介绍', 'Read profile')}</button>
+      <a class="person-source" href="{esc(chosen['portrait']['sourceUrl'])}" target="_blank" rel="noopener">{t('肖像来源', 'Portrait source')}</a>
+    </div>
   </aside>
 </section>
 <noscript><p class="atheneum-nojs">{t('阅读人物资料：', 'Read about the philosophers:')}{''.join(f'<a href="{esc(p["sources"][0]["url"])}">{esc(p["name"][lang])}</a>' for p in people)}</p></noscript>

@@ -2,6 +2,7 @@
 """Focused regression tests for content propagation; never writes site files."""
 import copy
 import html
+import hashlib
 import json
 import re
 import unittest
@@ -9,7 +10,9 @@ from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
+from urllib.parse import parse_qs, urlsplit
 import build_site
+from atheneum_home import render_scene
 from site_theme import normalize_theme
 
 
@@ -220,6 +223,40 @@ class GenerationTests(unittest.TestCase):
                         else:
                             self.assertEqual(resolved, (build_site.ROOT / person['portrait']['image']).resolve())
 
+    def test_philosopher_directory_stays_collapsed_as_catalogue_grows(self):
+        people = build_site.load('atheneum.json')['philosophers']
+        expanded = copy.deepcopy(people)
+        # Exercise dozens of entries without tying the control count to seven.
+        for number in range(25):
+            person = copy.deepcopy(people[0])
+            person['id'] = 'added-philosopher-' + str(number)
+            expanded.append(person)
+        for catalogue in (people, expanded):
+            for path, label, hint in (
+                ('index.html', '选择哲学家', '选择人物，走近他的思想'),
+                ('en/index.html', 'Choose a philosopher', 'Choose a philosopher to explore their ideas'),
+            ):
+                with self.subTest(path=path, count=len(catalogue)):
+                    text = render_scene(path, catalogue)
+                    parser = ProfileMarkup()
+                    parser.feed(text)
+                    choosers = [attrs for tag, attrs, _ in parser.elements
+                                if tag == 'details' and 'atheneum-chooser' in attrs.get('class', '').split()]
+                    self.assertEqual(len(choosers), 1)
+                    self.assertNotIn('open', choosers[0])
+                    chooser = re.search(r'<details\b[^>]*class="atheneum-chooser"[^>]*>(.*?)</details>', text, re.S).group(1)
+                    self.assertIn('<summary>' + label, chooser)
+                    self.assertIn('aria-label="' + label + '"', chooser)
+                    self.assertEqual(re.findall(r'class="atheneum-chooser-count">(\d+)</span>', chooser), [str(len(catalogue))])
+                    # Every alternate selection entry belongs to the disclosure;
+                    # an accidentally restored permanent row must fail this test.
+                    directory_ids = re.findall(r'data-select-person="([^"]+)"', chooser)
+                    self.assertEqual(directory_ids, [person['id'] for person in catalogue])
+                    remaining = text.replace(chooser, '', 1)
+                    self.assertNotIn('class="atheneum-person-picker"', remaining)
+                    self.assertNotIn('aria-controls="atheneum-card"', remaining)
+                    self.assertEqual(re.findall(r'class="atheneum-hint">([^<]+)</span>', text), [hint])
+
     def test_philosopher_work_date_notes_propagate_in_each_language_safely(self):
         original_read = Path.read_text
         source = build_site.ROOT / 'data/atheneum.json'
@@ -295,7 +332,7 @@ class GenerationTests(unittest.TestCase):
                     stylesheets = [attrs for tag, attrs, _ in parser.elements if tag == 'link' and attrs.get('rel') == 'stylesheet']
                     theme_links = [attrs for attrs in stylesheets if attrs.get('data-generated') == 'site-theme']
                     expected_styles = ['atheneum-brand.css'] + ([] if path in ('index.html', 'en/index.html') else ['atheneum-pages.css'])
-                    resolved_styles = [(build_site.ROOT / Path(path).parent / attrs['href']).resolve() for attrs in theme_links]
+                    resolved_styles = [(build_site.ROOT / Path(path).parent / urlsplit(attrs['href']).path).resolve() for attrs in theme_links]
                     self.assertEqual(resolved_styles, [build_site.ROOT / name for name in expected_styles])
                     self.assertEqual(stylesheets[-len(theme_links):], theme_links)
                     for attrs in theme_links:
@@ -311,6 +348,65 @@ class GenerationTests(unittest.TestCase):
                         self.assertEqual((logo['width'], logo['height'], logo['loading']), ('647', '726', 'eager'))
                         self.assertNotIn('srcset', logo)
                         self.assertNotIn('sizes', logo)
+
+    def test_asset_versions_refresh_generated_pages_when_file_content_changes(self):
+        assets = ('site.css', 'atheneum-pages.css', 'atheneum-scene.css', 'atheneum.js')
+        original_read = Path.read_bytes
+
+        def references(outputs):
+            found = {asset: {} for asset in assets}
+            for path, text in outputs.items():
+                if not path.endswith('.html'):
+                    continue
+                parser = ProfileMarkup()
+                parser.feed(text)
+                for tag, attrs, _ in parser.elements:
+                    value = attrs.get('src' if tag == 'script' else 'href', '')
+                    url = urlsplit(value)
+                    target = (build_site.ROOT / Path(path).parent / url.path).resolve()
+                    for asset in assets:
+                        if tag in ('link', 'script') and not url.scheme and target == build_site.ROOT / asset:
+                            found[asset][path] = value
+            return found
+
+        before = references(build_site.build())
+        for asset in assets:
+            with self.subTest(asset=asset):
+                source = build_site.ROOT / asset
+                new_content = original_read(source) + b'\n/* Updated asset content */\n'
+                def read(path):
+                    return new_content if path == source else original_read(path)
+                with patch.object(Path, 'read_bytes', new=read):
+                    after = references(build_site.build())
+                self.assertTrue(before[asset])
+                self.assertEqual(before[asset].keys(), after[asset].keys())
+                for page, old_url in before[asset].items():
+                    updated = urlsplit(after[asset][page])
+                    self.assertEqual(updated.path, urlsplit(old_url).path)
+                    self.assertNotEqual(after[asset][page], old_url)
+                    self.assertEqual(parse_qs(updated.query)['v'], [hashlib.sha256(new_content).hexdigest()[:12]])
+                for unchanged in set(assets) - {asset}:
+                    self.assertEqual(after[unchanged], before[unchanged])
+
+    def test_asset_versioning_preserves_paths_other_queries_and_external_urls(self):
+        external = '<script src="https://example.org/atheneum.js?v=external"></script>'
+        source = ('<html><head><link rel="stylesheet" href="../site.css?theme=sepia%20ink&amp;v=old&amp;flag#print">'
+                  '<link rel="stylesheet" href="../atheneum-pages.css?custom=%2F&amp;v=old#paper">'
+                  '</head><body><script defer src="../atheneum.js?mode=reader&amp;v=old#start"></script>' + external + '</body></html>')
+        text = normalize_theme(source, 'people/index.html')
+        self.assertEqual(normalize_theme(text, 'people/index.html'), text)
+        self.assertIn(external, text)
+        parser = ProfileMarkup()
+        parser.feed(text)
+        urls = {urlsplit(value).path: urlsplit(value) for tag, attrs, _ in parser.elements
+                for value in [attrs.get('src' if tag == 'script' else 'href', '')]
+                if value and not urlsplit(value).scheme}
+        self.assertEqual(urls['../site.css'].query.split('&')[:-1], ['theme=sepia%20ink', 'flag'])
+        self.assertEqual(urls['../site.css'].fragment, 'print')
+        self.assertEqual(urls['../atheneum-pages.css'].query.split('&')[:-1], ['custom=%2F'])
+        self.assertEqual(urls['../atheneum-pages.css'].fragment, 'paper')
+        self.assertEqual(urls['../atheneum.js'].query.split('&')[:-1], ['mode=reader'])
+        self.assertEqual(urls['../atheneum.js'].fragment, 'start')
 
 
 if __name__ == '__main__':

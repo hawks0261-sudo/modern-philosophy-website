@@ -12,6 +12,8 @@
   const world = scene.querySelector('.atheneum-world');
   const hotspots = [...world.querySelectorAll('[data-select-person]')];
   const picker = scene.querySelector('.atheneum-person-picker');
+  const chooser = scene.querySelector('.atheneum-chooser');
+  const chooserToggle = chooser.querySelector('summary');
   const readerBody = dialog.querySelector('.atheneum-reader-body');
   const readerName = dialog.querySelector('[data-reader-name]');
   const readerCount = dialog.querySelector('[data-reader-count]');
@@ -55,6 +57,7 @@
   }
   function openPerson(id, trigger) {
     if (!ids.includes(id)) return;
+    chooser.open = false;
     returnFocus = trigger;
     selectPerson(id);
     if (typeof dialog.showModal === 'function') {
@@ -68,15 +71,17 @@
   }
   function focusReturnTarget(trigger) {
     if (!trigger || !trigger.isConnected) return;
-    const target = smallScreen.matches && hotspots.includes(trigger)
-      ? picker.querySelector('[data-select-person="' + trigger.dataset.selectPerson + '"]')
+    const hiddenHotspot = smallScreen.matches && hotspots.includes(trigger);
+    const hiddenChoice = picker.contains(trigger) && !chooser.open;
+    const target = hiddenHotspot || hiddenChoice
+      ? chooserToggle
       : trigger;
     if (target) target.focus({ preventScroll: true });
   }
   function updateHotspotAccess() {
     // Move focus before hiding a hotspot from the accessibility tree. When a
     // reader is open, leave its focus alone; the close handler resolves the
-    // original hotspot to its visible picker button at the current viewport.
+    // original hotspot to the visible chooser at the current viewport.
     if (smallScreen.matches && hotspots.includes(document.activeElement)) {
       focusReturnTarget(document.activeElement);
     }
@@ -94,7 +99,11 @@
     button.addEventListener('click', () => {
       if (suppressClick) { suppressClick = false; return; }
       if (hotspots.includes(button)) openPerson(button.dataset.selectPerson, button);
-      else selectPerson(button.dataset.selectPerson);
+      else {
+        selectPerson(button.dataset.selectPerson);
+        chooser.open = false;
+        chooserToggle.focus({ preventScroll: true });
+      }
     });
     button.addEventListener('keydown', event => {
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
@@ -103,8 +112,25 @@
       const next = ids[(index + (event.key === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length];
       selectPerson(next);
       const container = button.closest('.atheneum-person-picker') || world;
-      container.querySelector('[data-select-person="' + next + '"]').focus({ preventScroll: true });
+      // A long directory scrolls its focused choice into view; scene hotspots
+      // keep the hall still when moving between figures with the arrow keys.
+      container.querySelector('[data-select-person="' + next + '"]').focus({ preventScroll: container === world });
     });
+  });
+  chooser.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !chooser.open) return;
+    event.preventDefault();
+    chooser.open = false;
+    chooserToggle.focus({ preventScroll: true });
+  });
+  chooser.addEventListener('focusout', event => {
+    if (event.relatedTarget && !chooser.contains(event.relatedTarget)) chooser.open = false;
+  });
+  document.addEventListener('click', event => {
+    if (!chooser.open || chooser.contains(event.target)) return;
+    const focusWasInPicker = picker.contains(document.activeElement);
+    chooser.open = false;
+    if (focusWasInPicker) chooserToggle.focus({ preventScroll: true });
   });
   const closeButton = dialog.querySelector('[data-close-person]');
   card.querySelector('[data-open-person]').addEventListener('click', event => {
@@ -140,7 +166,7 @@
     motionButton.disabled = !available;
     motionButton.setAttribute('aria-pressed', String(motion && available));
     motionButton.textContent = !available ? (english ? 'Still view' : '静态视图') : motion ? (english ? 'Pause motion' : '暂停景深') : (english ? 'Enable motion' : '开启景深');
-    scene.querySelector('.atheneum-hint').textContent = !available || !motion ? (english ? 'Choose a philosopher to explore' : '选择人物，走近他的思想') : (english ? 'Drag to look · Select a philosopher' : '拖动查看 · 点击人物');
+    scene.querySelector('.atheneum-hint').textContent = english ? 'Choose a philosopher to explore their ideas' : '选择人物，走近他的思想';
     if (!motion || !available) resetView();
   }
   motionButton.addEventListener('click', () => { motion = !motion; updateMotion(); });

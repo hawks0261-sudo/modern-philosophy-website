@@ -840,6 +840,8 @@ textarea {
 }
 
 .people-card-index span {
+  flex: 0 0 auto;
+  white-space: nowrap;
   font-family: var(--serif);
   font-size: 34px;
   line-height: 1;
@@ -848,6 +850,7 @@ textarea {
 }
 
 .people-card-index strong {
+  min-width: 0;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;

@@ -164,6 +164,18 @@ body.atheneum-page .archive-link {
 body.atheneum-page .people-card-index { padding-bottom: 16px; border-bottom: 1px solid var(--border); background: #eee1c6; }
 body.atheneum-page .people-card-index span { color: #876133; }
 body.atheneum-page .people-card-index strong { color: #625342; }
+body.atheneum-page .people-structure-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body.atheneum-page .people-structure-grid .people-card-index { min-height: 80px; gap: 12px; }
+body.atheneum-page .people-structure-grid .people-card-index strong { max-width: 9em; text-align: right; line-height: 1.6; }
+body.atheneum-page .member-roster { list-style: none; margin: 24px 0 0; padding: 0; }
+body.atheneum-page .member-roster li { padding: 16px 0; border-bottom: 1px solid var(--border); color: var(--muted); line-height: 1.8; }
+body.atheneum-page .member-roster strong { color: var(--navy); font-weight: 600; }
+@media (max-width: 1100px) {
+  body.atheneum-page .people-structure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  body.atheneum-page .people-structure-grid { grid-template-columns: minmax(0, 1fr); }
+}
 body.atheneum-page .people-avatar { background: #4b3824; color: #ead6b1; border-bottom: 1px solid #967448; }
 body.atheneum-page .people-avatar-photo { background: #f8f0e0; }
 body.atheneum-page .member-status-memorial { background: #e2dbc8; color: #5c533d; }
